@@ -1,0 +1,173 @@
+package model.other;
+
+import java.util.Objects;
+
+public class PrimeStats {
+	private boolean isSpezialist;
+	private int level;
+
+	private int healthLevel;
+	private int strenghtLevel;
+	private int resistanceLevel;
+	private int intelligenceLevel;
+	private int magicLevel;
+	private int staminaLevel;
+	private int speedLevel;
+	private int toughnessLevel;
+	private int luckLevel;
+	
+	/**
+	 * Throws an Exception, if one param is null.
+	 * 
+	 * @param isSpezialist
+	 * @param healthLevel
+	 * @param strenghtLevel
+	 * @param resistanceLevel
+	 * @param intelligenceLevel
+	 * @param magicLevel
+	 * @param staminaLevel
+	 * @param speedLevel
+	 * @param toughnessLevel
+	 * @param luckLevel
+	 */
+	public PrimeStats(boolean isSpezialist, int level, int healthLevel, int strenghtLevel, int resistanceLevel,
+			int intelligenceLevel, int magicLevel, int staminaLevel, int speedLevel, int toughnessLevel,
+			int luckLevel) throws Exception{
+		
+		this.isSpezialist = Objects.requireNonNull(isSpezialist);
+		
+		primeStatsBuilder(new int[] {level, healthLevel, strenghtLevel, resistanceLevel, intelligenceLevel, magicLevel, staminaLevel, speedLevel, toughnessLevel, luckLevel});
+	}
+	
+	private void primeStatsBuilder (int[] params) throws Exception{
+		int[] stats = {this.level, this.healthLevel, this.strenghtLevel, this.resistanceLevel, this.intelligenceLevel, this.magicLevel, this.staminaLevel, this.speedLevel, this.toughnessLevel, this.luckLevel};
+		for (int i = 0; i < params.length; i++) {
+			stats[i] = Objects.requireNonNull(params[i]);
+			checkLevel(stats[i]);
+		}
+	}
+	
+	private void checkLevel (int level) throws Exception {
+		if (level <= 0) {
+			throw new Exception("A Level is below 1.");
+		}
+	}
+
+	public void addLevel(int add) throws Exception {
+		this.level += add;
+		checkLevel(this.level);
+	}
+
+	public void addHealthLevel(int add) throws Exception {
+		this.healthLevel += add;
+		checkLevel(this.healthLevel);
+	}
+
+	public void addStrenghtLevel(int add) throws Exception {
+		this.strenghtLevel += add;
+		checkLevel(this.strenghtLevel);
+	}
+
+	public void addResistanceLevel(int add) throws Exception {
+		this.resistanceLevel += add;
+		checkLevel(this.resistanceLevel);
+	}
+
+	public void addIntelligenceLevel(int add) throws Exception {
+		this.intelligenceLevel += add;
+		checkLevel(this.intelligenceLevel);
+	}
+
+	public void addMagicLevel(int add) throws Exception {
+		this.magicLevel += add;
+		checkLevel(this.magicLevel);
+	}
+
+	public void addStaminaLevel(int add) throws Exception {
+		this.staminaLevel += add;
+		checkLevel(this.staminaLevel);
+	}
+
+	public void addSpeedLevel(int add) throws Exception {
+		this.speedLevel += add;
+		checkLevel(this.speedLevel);
+	}
+
+	public void addToughnessLevel(int add) throws Exception {
+		this.toughnessLevel += add;
+		checkLevel(this.toughnessLevel);
+	}
+
+	public void addLuckLevel(int add) throws Exception {
+		this.luckLevel += add;
+		checkLevel(this.luckLevel);
+	}
+	
+	
+	public boolean isSpezialist() {
+		return isSpezialist;
+	}
+	public void setSpezialist(boolean isSpezialist) {
+		this.isSpezialist = isSpezialist;
+	}
+	public int getHealthLevel() {
+		return healthLevel;
+	}
+	public void setHealthLevel(int healthLevel) {
+		this.healthLevel = healthLevel;
+	}
+	public int getStrenghtLevel() {
+		return strenghtLevel;
+	}
+	public void setStrenghtLevel(int strenghtLevel) {
+		this.strenghtLevel = strenghtLevel;
+	}
+	public int getResistanceLevel() {
+		return resistanceLevel;
+	}
+	public void setResistanceLevel(int resistanceLevel) {
+		this.resistanceLevel = resistanceLevel;
+	}
+	public int getIntelligenceLevel() {
+		return intelligenceLevel;
+	}
+	public void setIntelligenceLevel(int intelligenceLevel) {
+		this.intelligenceLevel = intelligenceLevel;
+	}
+	public int getMagicLevel() {
+		return magicLevel;
+	}
+	public void setMagicLevel(int magicLevel) {
+		this.magicLevel = magicLevel;
+	}
+	public int getStaminaLevel() {
+		return staminaLevel;
+	}
+	public void setStaminaLevel(int staminaLevel) {
+		this.staminaLevel = staminaLevel;
+	}
+	public int getSpeedLevel() {
+		return speedLevel;
+	}
+	public void setSpeedLevel(int speedLevel) {
+		this.speedLevel = speedLevel;
+	}
+	public int getToughnessLevel() {
+		return toughnessLevel;
+	}
+	public void setToughnessLevel(int toughnessLevel) {
+		this.toughnessLevel = toughnessLevel;
+	}
+	public int getLuckLevel() {
+		return luckLevel;
+	}
+	public void setLuckLevel(int luckLevel) {
+		this.luckLevel = luckLevel;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+}
