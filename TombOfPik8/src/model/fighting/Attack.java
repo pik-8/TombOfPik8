@@ -9,8 +9,6 @@ import java.util.Objects;
  * The class to represent attacks.
  * An attack contains the damage, the effect, an name, a short description and the AOE.
  *
- * TODO should the attack, magicAttack, accuracy and effect param have a setter?
- *
  * last change 02.04.19
  * @author Hagen
  */
@@ -27,8 +25,10 @@ public class Attack {
 
 
     /**
-     * Creates an Attack-Objects, whitch has the damage, magical damage, name,
+     * Creates an Attack-Objects, which has the damage, magical damage, name,
      * description, accuracy and the effect of the attack.
+     *
+     * Only the String-params can be altered after initialisation.
      *
      * If one param is null the constructor will throw an Exception.
      * @param name The name of the Attack
@@ -55,6 +55,7 @@ public class Attack {
 
 
     private void checkParams (int damage, int magicDamage, int accuracy) throws IllegalArgumentException {
+        //TODO dress the naked Strings.
         if (damage < 0) {
             throw new IllegalArgumentException("Damage is negativ");
         }
@@ -86,31 +87,15 @@ public class Attack {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public int getMagicDamage() {
         return magicDamage;
-    }
-
-    public void setMagicDamage(int magicDamage) {
-        this.magicDamage = magicDamage;
     }
 
     public int getAccuracy() {
         return accuracy;
     }
 
-    public void setAccuracy(int accuracy) {
-        this.accuracy = accuracy;
-    }
-
     public Effect getEffect() {
         return effect;
-    }
-
-    public void setEffect(Effect effect) {
-        this.effect = effect;
     }
 }
