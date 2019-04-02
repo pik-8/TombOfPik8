@@ -1,4 +1,4 @@
-package utillity;
+package utility;
 
 import model.other.Hero;
 import static constants.PropertiesStats.*;
