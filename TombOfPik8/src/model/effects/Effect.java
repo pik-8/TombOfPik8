@@ -15,7 +15,6 @@ import model.other.Character;
  *
  * To get an instance of this class please visit the EffectGiver-Class.
  *
- * last change 02.04.19
  * @author Hagen
  */
 public abstract class Effect {

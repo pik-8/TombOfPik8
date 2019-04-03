@@ -7,14 +7,11 @@ import model.other.Character;
 /**
  * Intersection to give Effect-Objects, so that the Effect-Class does not have to do that.
  *
- * last change 02.04.19
  * @author Hagen
  */
-public abstract class EffectGiver extends Effect{
+public class EffectGiver{
 
-    private EffectGiver () {
-        super("", "", 0);
-    }
+    private EffectGiver () {}
 
     public static Effect getEffect (Condition condition) {
         switch (condition) {

@@ -3,6 +3,9 @@ package utility;
 import model.other.Hero;
 import static constants.PropertiesStats.*;
 
+/**
+ * Utilitiy class, may die
+ */
 public class CalculateSecondaryStats {
 
 
@@ -13,7 +16,7 @@ public class CalculateSecondaryStats {
     {
         int deltaLevel = 0;
         int i = 0;
-        if (!hero.getPrimeStats().isSpezialist())
+        if (!hero.getPrimeStats().isSpecialist())
         {
             if (hero.getPrimeStats().getHealthLevel() <= SOFTCAP_FOR_HP_NOT_SPEZIALISED_1)
             {
@@ -55,155 +58,78 @@ public class CalculateSecondaryStats {
     }
 
 
-    public static int maxStaminaByLevel(Hero hero)
+    public static int maxActionByLevel(Hero hero)
     {
-        int maxStaminaByLevel;
-        if (hero.getPrimeStats().isSpezialist())
+        int maxActionByLevel;
+        if (hero.getPrimeStats().isSpecialist())
         {
             if (hero.getPrimeStats().getStaminaLevel() <= SOFTCAP_FOR_HP_SPEZIALISED_1)
             {
-                maxStaminaByLevel = (hero.getPrimeStats().getStaminaLevel() * MAX_STAMINA_SCALE_1_SPEZIALISED) + MAX_STAMINA_STARTVALUE_SPEZIALISED;
+                maxActionByLevel = (hero.getPrimeStats().getStaminaLevel() * MAX_ACTION_SCALE_1_SPEZIALISED) + MAX_ACTION_STARTVALUE_SPEZIALISED;
             }
-            else if (hero.getPrimeStats().getStaminaLevel() <= MAX_STAMINA_SOFTCAP_SPEZIALISED_2)
+            else if (hero.getPrimeStats().getStaminaLevel() <= MAX_ACTION_SOFTCAP_SPEZIALISED_2)
             {
-                maxStaminaByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_STAMINA_SOFTCAP_SPEZIALISED_1) * MAX_STAMINA_SCALE_2_SPEZIALISED) + MAX_STAMINA_MAX_VALUE_AFTER_SOFTCAP_1_SPEZIALISED;
+                maxActionByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_ACTION_SOFTCAP_SPEZIALISED_1) * MAX_ACTION_SCALE_2_SPEZIALISED) + MAX_ACTION_MAX_VALUE_AFTER_SOFTCAP_1_SPEZIALISED;
             }
             else
             {
-                maxStaminaByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_STAMINA_SOFTCAP_SPEZIALISED_2) * MAX_STAMINA_SCALE_3_SPEZIALISED) + MAX_STAMINA_MAX_VALUE_AFTER_SOFTCAP_2_SPEZIALISED;
+                maxActionByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_ACTION_SOFTCAP_SPEZIALISED_2) * MAX_ACTION_SCALE_3_SPEZIALISED) + MAX_ACTION_MAX_VALUE_AFTER_SOFTCAP_2_SPEZIALISED;
             }
         }
         else
         {
-            if (hero.getPrimeStats().getStaminaLevel() <= MAX_STAMINA_SOFTCAP_NOT_SPEZIALISED_1)
+            if (hero.getPrimeStats().getStaminaLevel() <= MAX_ACTION_SOFTCAP_NOT_SPEZIALISED_1)
             {
-                maxStaminaByLevel = (hero.getPrimeStats().getStaminaLevel() * MAX_STAMINA_SCALE_1_NOT_SPEZIALISED) + MAX_STAMINA_STARTVALUE_NOT_SPEZIALISED;
+                maxActionByLevel = (hero.getPrimeStats().getStaminaLevel() * MAX_ACTION_SCALE_1_NOT_SPEZIALISED) + MAX_ACTION_STARTVALUE_NOT_SPEZIALISED;
             }
-            else if (hero.getPrimeStats().getStaminaLevel() <= MAX_STAMINA_SOFTCAP_NOT_SPEZIALISED_2)
+            else if (hero.getPrimeStats().getStaminaLevel() <= MAX_ACTION_SOFTCAP_NOT_SPEZIALISED_2)
             {
-                maxStaminaByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_STAMINA_SOFTCAP_NOT_SPEZIALISED_1) * MAX_STAMINA_SCALE_2_NOT_SPEZIALISED) + MAX_STAMINA_MAX_VALUE_AFTER_SOFTCAP_1_NOT_SPEZIALISED;
+                maxActionByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_ACTION_SOFTCAP_NOT_SPEZIALISED_1) * MAX_ACTION_2_NOT_SPEZIALISED) + MAX_ACTION_MAX_VALUE_AFTER_SOFTCAP_1_NOT_SPEZIALISED;
             }
             else
             {
-                maxStaminaByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_STAMINA_SOFTCAP_NOT_SPEZIALISED_2) * MAX_STAMINA_SCALE_3_NOT_SPEZIALISED) + MAX_STAMINA_MAX_VALUE_AFTER_SOFTCAP_2_NOT_SPEZIALISED;
+                maxActionByLevel = ((hero.getPrimeStats().getStaminaLevel() - MAX_ACTION_SOFTCAP_NOT_SPEZIALISED_2) * MAX_ACTION_SCALE_3_NOT_SPEZIALISED) + MAX_ACTION_MAX_VALUE_AFTER_SOFTCAP_2_NOT_SPEZIALISED;
             }
         }
-        return maxStaminaByLevel;
+        return maxActionByLevel;
 
     }
 
 
-    public static int maxStmRegenByLevel(Hero hero)
-    {
-        int deltaLevel = 0;
-        int i = 0;
-        float weightDeBuff = 1;
-        if (!hero.getPrimeStats().isSpezialist())
-        {
-            if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_REGENERATION_SOFTCAP_NOT_SPEZIALISED_1)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel();
-            }
-            else if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_REGENERATION_SOFTCAP_NOT_SPEZIALISED_2)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_REGENERATION_SOFTCAP_NOT_SPEZIALISED_1;
-                i = 1;
-            }
-            else
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_REGENERATION_SOFTCAP_NOT_SPEZIALISED_2;
-                i = 2;
-            }
-            if ((hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad()) <= WEIGHT_CAP_2 && (hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad()) > WEIGHT_CAP_1)
-            {
-                weightDeBuff = 1.2f;
-            }
-            else if ((hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad()) <= WEIGHT_CAP_3)
-            {
-                weightDeBuff = 1.5f;
-            }
-            else if ((hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad()) <= WEIGHT_CAP_4)
-            {
-                weightDeBuff = 2;
-            } else
-            {
-
-            }
-            int value = Math.round(((deltaLevel * STM_REGEN_SCALES_NOT_SPEZIALISED[i]) + STM_REGEN_BASESTATS_NOT_SPEZIALISED[i]) /weightDeBuff);
-            return value;
-        }
-        else
-        {
-            if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_REGENERATION_SOFTCAP_SPEZIALISED_1)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel();
-            }
-            else if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_REGENERATION_SOFTCAP_SPEZIALISED_2)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_REGENERATION_SOFTCAP_SPEZIALISED_1;
-                i = 1;
-            }
-            else
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_REGENERATION_SOFTCAP_SPEZIALISED_2;
-                i = 2;
-            }
-            if ((hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad() <= WEIGHT_CAP_2) && (hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad()) > WEIGHT_CAP_1)
-            {
-                weightDeBuff = 1.2f;
-            }
-            else if ((hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad()) <= WEIGHT_CAP_3)
-            {
-                weightDeBuff = 1.5f;
-            }
-            else if ((hero.getSecondaryStats().getLoad() / hero.getSecondaryStats().getMaxEquipmentLoad()) <= WEIGHT_CAP_4)
-            {
-                weightDeBuff = 2;
-            }
-            else
-            {
-
-            }
-            int value = Math.round(((deltaLevel * STM_REGEN_SCALES_SPEZIALISED[i]) + STM_REGEN_BASESTATS_SPEZIALISED[i]) /weightDeBuff);
-            return value;
-        }
-    }
-
-
-    public static int maxStmResistanceByLevel(Hero hero)
+    public static int maxAttackResistanceByLevel(Hero hero)
     {
         int deltaLevel = 0;
         int i = 0;
         int deltaLevel2 = 0;
         int j = 0;
-        if (!hero.getPrimeStats().isSpezialist())
+        if (!hero.getPrimeStats().isSpecialist())
         {
-            if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS)
+            if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS)
             {
                 deltaLevel = hero.getPrimeStats().getToughnessLevel();
             }
-            else if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS)
+            else if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS)
             {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS;
+                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS;
                 i = 1;
             }
             else
             {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS;
+                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS;
                 i = 2;
             }
-            if (hero.getPrimeStats().getStrenghtLevel() <= STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH)
+            if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
             }
-            else if (hero.getPrimeStats().getStrenghtLevel() <= STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH)
+            else if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH;
                 j = 1;
             }
             else
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - STAIMNA_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH;
                 j = 2;
             }
             int value = Math.round((deltaLevel * STM_RESIS_SCALES_NOT_SPEZIALISED_FORTOUGHNESS[i]) + STM_RESIS_BASESTATS_NOT_SPEZIALISED_FORTOUGHNESS[i] + (deltaLevel2 * STM_RESIS_SCALES_NOT_SPEZIALISED_FOR_STREMGTH[j] + STM_RESIS_BASES_NOT_SPEZIALISED_FOR_STREMGTH[j]));
@@ -211,32 +137,32 @@ public class CalculateSecondaryStats {
         }
         else
         {
-            if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_TOUGHNESS)
+            if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_TOUGHNESS)
             {
                 deltaLevel = hero.getPrimeStats().getToughnessLevel();
             }
-            else if (hero.getPrimeStats().getToughnessLevel() <= STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS)
+            else if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS)
             {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_TOUGHNESS;
+                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_TOUGHNESS;
                 i = 1;
             }
             else
             {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS;
+                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS;
                 i = 2;
             }
-            if (hero.getPrimeStats().getStrenghtLevel() <= STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH)
+            if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
             }
-            else if (hero.getPrimeStats().getStrenghtLevel() <= STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH)
+            else if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH;
                 j = 1;
             }
             else
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - STAIMNA_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH;
                 j = 2;
             }
             int value = Math.round((deltaLevel * STM_RESIS_SCALES_SPEZIALISED_FORTOUGHNESS[i]) + STM_RESIS_BASESTATS_SPEZIALISED_FORTOUGHNESS[i] + (deltaLevel2 * STM_RESIS_SCALES_SPEZIALISED_FOR_STREMGTH[j] + STM_RESIS_BASES_SPEZIALISED_FOR_STREMGTH[j]));
@@ -251,7 +177,7 @@ public class CalculateSecondaryStats {
         int i = 0;
         int j = 0;
         int deltaLevel2;
-        if (!hero.getPrimeStats().isSpezialist())
+        if (!hero.getPrimeStats().isSpecialist())
         {
             if (hero.getPrimeStats().getToughnessLevel() <= MAX_LOAD__SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS)
             {
@@ -267,18 +193,18 @@ public class CalculateSecondaryStats {
                 deltaLevel = hero.getPrimeStats().getToughnessLevel() - MAX_LOAD__SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS;
                 i = 2;
             }
-            if (hero.getPrimeStats().getStrenghtLevel() <= MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH)
+            if (hero.getPrimeStats().getStrengthLevel() <= MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
             }
-            else if (hero.getPrimeStats().getStrenghtLevel() <= MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH)
+            else if (hero.getPrimeStats().getStrengthLevel() <= MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH;
                 j = 1;
             }
             else
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - MAX_LOAD_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH;
                 j = 2;
             }
 
@@ -301,18 +227,18 @@ public class CalculateSecondaryStats {
                 deltaLevel = hero.getPrimeStats().getToughnessLevel() - MAX_LOAD_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS;
                 i = 2;
             }
-            if (hero.getPrimeStats().getStrenghtLevel() <= MAX_LOAD_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH)
+            if (hero.getPrimeStats().getStrengthLevel() <= MAX_LOAD_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
             }
-            else if (hero.getPrimeStats().getStrenghtLevel() <= MAX_LOAD_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH)
+            else if (hero.getPrimeStats().getStrengthLevel() <= MAX_LOAD_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - MAX_LOAD_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - MAX_LOAD_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH;
                 j = 1;
             }
             else
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - MAX_LOAD_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - MAX_LOAD_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH;
                 j = 2;
             }
 
@@ -328,20 +254,20 @@ public class CalculateSecondaryStats {
         int j = 0;
         int deltaLevel = 0;
         int i = 0;
-        if (!hero.getPrimeStats().isSpezialist())
+        if (!hero.getPrimeStats().isSpecialist())
         {
-            if (hero.getPrimeStats().getStrenghtLevel() <= ATTACK_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGHT)
+            if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGHT)
             {
-                deltaLevel = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel = hero.getPrimeStats().getStrengthLevel();
             }
             else if (hero.getPrimeStats().getHealthLevel() <= ATTACK_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGHT)
             {
-                deltaLevel = hero.getPrimeStats().getStrenghtLevel() - ATTACK_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGHT;
+                deltaLevel = hero.getPrimeStats().getStrengthLevel() - ATTACK_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGHT;
                 i = 1;
             }
             else
             {
-                deltaLevel = hero.getPrimeStats().getStrenghtLevel() - ATTACK_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGHT;
+                deltaLevel = hero.getPrimeStats().getStrengthLevel() - ATTACK_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGHT;
                 i = 2;
             }
             if (hero.getPrimeStats().getSpeedLevel() <= ATTACK_SOFTCAP_NOT_SPEZIALISED_1_FOR_SPEED)
@@ -363,18 +289,18 @@ public class CalculateSecondaryStats {
         }
         else
         {
-            if (hero.getPrimeStats().getStrenghtLevel() <= ATTACK_SOFTCAP_SPEZIALISED_1_FOR_STRENGHT)
+            if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_SOFTCAP_SPEZIALISED_1_FOR_STRENGHT)
             {
-                deltaLevel = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel = hero.getPrimeStats().getStrengthLevel();
             }
-            else if (hero.getPrimeStats().getStrenghtLevel() <= ATTACK_SOFTCAP_SPEZIALISED_2_FOR_STRENGHT)
+            else if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_SOFTCAP_SPEZIALISED_2_FOR_STRENGHT)
             {
-                deltaLevel = hero.getPrimeStats().getStrenghtLevel() - ATTACK_SOFTCAP_SPEZIALISED_1_FOR_STRENGHT;
+                deltaLevel = hero.getPrimeStats().getStrengthLevel() - ATTACK_SOFTCAP_SPEZIALISED_1_FOR_STRENGHT;
                 i = 1;
             }
             else
             {
-                deltaLevel = hero.getPrimeStats().getStrenghtLevel() - ATTACK_SOFTCAP_SPEZIALISED_2_FOR_STRENGHT;
+                deltaLevel = hero.getPrimeStats().getStrengthLevel() - ATTACK_SOFTCAP_SPEZIALISED_2_FOR_STRENGHT;
                 i = 2;
             }
             if (hero.getPrimeStats().getSpeedLevel() <= ATTACK_SOFTCAP_SPEZIALISED_1_FOR_SPEED)
@@ -403,7 +329,7 @@ public class CalculateSecondaryStats {
         int j = 0;
         int deltaLevel = 0;
         int i = 0;
-        if (!hero.getPrimeStats().isSpezialist())
+        if (!hero.getPrimeStats().isSpecialist())
         {
             if (hero.getPrimeStats().getMagicLevel() <= MAGIC_ATTACK_SOFTCAP_NOT_SPEZIALISED_1_FOR_MAGIC)
             {
@@ -478,7 +404,7 @@ public class CalculateSecondaryStats {
         int j = 0;
         int deltaLevel = 0;
         int i = 0;
-        if (!hero.getPrimeStats().isSpezialist())
+        if (!hero.getPrimeStats().isSpecialist())
         {
             if (hero.getPrimeStats().getToughnessLevel() <= DEFENCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS)
             {
@@ -494,18 +420,18 @@ public class CalculateSecondaryStats {
                 deltaLevel = hero.getPrimeStats().getToughnessLevel() - DEFENCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS;
                 i = 2;
             }
-            if (hero.getPrimeStats().getStrenghtLevel() <= DEFENCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH)
+            if (hero.getPrimeStats().getStrengthLevel() <= DEFENCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
             }
-            else if (hero.getPrimeStats().getStrenghtLevel() <= DEFENCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH)
+            else if (hero.getPrimeStats().getStrengthLevel() <= DEFENCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - DEFENCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - DEFENCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH;
                 j = 1;
             }
             else
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - DEFENCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - DEFENCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH;
                 j = 2;
             }
             int value = Math.round((deltaLevel * DEFENCE_SCALES_NOT_SPEZIALISED_FOR_TOUGHNESS[i]) + DEFENCE_BASES_NOT_SPEZIALISED_FOR_TOUGHNESS[i] + (deltaLevel2 * DEFENCE_SCALES_NOT_SPEZIALISED_FOR_STRENGTH[j] + DEFENCE_BASES_NOT_SPEZIALISED_FOR_STRENGTH[j]));
@@ -527,18 +453,18 @@ public class CalculateSecondaryStats {
                 deltaLevel = hero.getPrimeStats().getToughnessLevel() - DEFENCE_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS;
                 i = 2;
             }
-            if (hero.getPrimeStats().getStrenghtLevel() <= DEFENCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH)
+            if (hero.getPrimeStats().getStrengthLevel() <= DEFENCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel();
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
             }
-            else if (hero.getPrimeStats().getStrenghtLevel() <= DEFENCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH)
+            else if (hero.getPrimeStats().getStrengthLevel() <= DEFENCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH)
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - DEFENCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - DEFENCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH;
                 j = 1;
             }
             else
             {
-                deltaLevel2 = hero.getPrimeStats().getStrenghtLevel() - DEFENCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH;
+                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - DEFENCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH;
                 j = 2;
             }
             int value = Math.round((deltaLevel * DEFENCE_SCALES_SPEZIALISED_FOR_TOUGHNESS[i]) + DEFENCE_BASES_SPEZIALISED_FOR_TOUGHNESS[i] + (deltaLevel2 * DEFENCE_SCALES_SPEZIALISED_FOR_STRENGTH[j] + DEFENCE_BASES_SPEZIALISED_FOR_STRENGTH[j]));
@@ -556,13 +482,6 @@ public class CalculateSecondaryStats {
     public static int attackSlotsByLevel(Hero hero)
     {
         int attackslots = START_ATTACK_SLOTS;
-        if(hero.getPrimeStats().getLuckLevel() >= MINIMUM_SWAG_2)
-        {
-            attackslots += 2;
-        } else if (hero.getPrimeStats().getLuckLevel() >= MINIMUM_SWAG_1)
-        {
-            attackslots += 1;
-        }
         if (hero.getPrimeStats().getIntelligenceLevel() >= MINIMUM_INTELLIGENCE_3)
         {
             attackslots += 3;
@@ -575,7 +494,7 @@ public class CalculateSecondaryStats {
         {
             attackslots += 1;
         }
-        if (hero.getPrimeStats().getStrenghtLevel() >= MINIMUM_STRENGTH_1)
+        if (hero.getPrimeStats().getStrengthLevel() >= MINIMUM_STRENGTH_1)
         {
             attackslots += 1;
         }
@@ -595,7 +514,7 @@ public class CalculateSecondaryStats {
     {
         int deltaLevel = 0;
         int i = 0;
-        if (!hero.getPrimeStats().isSpezialist())
+        if (!hero.getPrimeStats().isSpecialist())
         {
             if (hero.getPrimeStats().getSpeedLevel() <= SPEED_SOFTCAP_NOT_SPEZIALISED_1)
             {
@@ -632,52 +551,6 @@ public class CalculateSecondaryStats {
                 i = 2;
             }
             int value = (deltaLevel * SPEED_SCALES_SPEZIALISED[i]) + SPEED_BASES_SPEZIALISED[i];
-            return value;
-        }
-    }
-
-
-    public static int maxSpeedDeBuffByLevel(Hero hero)
-    {
-        int deltaLevel = 0;
-        int i = 0;
-        if (!hero.getPrimeStats().isSpezialist())
-        {
-            if (hero.getPrimeStats().getToughnessLevel() <= SOFTCAP_FOR_SPEED_DEBUFF_NOT_SPEZIALISED_1)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel();
-            }
-            else if (hero.getPrimeStats().getToughnessLevel() <= SOFTCAP_FOR_SPEED_DEBUFF_NOT_SPEZIALISED_2)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - SOFTCAP_FOR_SPEED_DEBUFF_NOT_SPEZIALISED_1;
-                i = 1;
-            }
-            else
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - SOFTCAP_FOR_SPEED_DEBUFF_NOT_SPEZIALISED_2;
-                i = 2;
-            }
-
-            int value = Math.round((deltaLevel * SPEED_DEBUFF_SCALES_NOT_SPEZIALISED[i]) + SPEED_DEBUFF_BASES_NOT_SPEZIALISED[i]);
-            return value;
-        }
-        else
-        {
-            if (hero.getPrimeStats().getToughnessLevel() <= SOFTCAP_FOR_SPEED_DEBUFF_SPEZIALISED_1)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel();
-            }
-            else if (hero.getPrimeStats().getToughnessLevel() <= SOFTCAP_FOR_SPEED_DEBUFF_SPEZIALISED_2)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - SOFTCAP_FOR_SPEED_DEBUFF_SPEZIALISED_1;
-                i = 1;
-            }
-            else
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - SOFTCAP_FOR_SPEED_DEBUFF_SPEZIALISED_2;
-                i = 2;
-            }
-            int value = Math.round((deltaLevel * SPEED_DEBUFF_SCALES_SPEZIALISED[i]) + SPEED_DEBUFF_BASES_SPEZIALISED[i]);
             return value;
         }
     }
