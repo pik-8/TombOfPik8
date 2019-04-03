@@ -3,11 +3,11 @@ package model.other;
 import java.util.Objects;
 
 public class PrimeStats {
-	private boolean isSpezialist;
+	private boolean isSpecialist;
 	private int level;
 
 	private int healthLevel;
-	private int strenghtLevel;
+	private int strengthLevel;
 	private int resistanceLevel;
 	private int intelligenceLevel;
 	private int magicLevel;
@@ -19,9 +19,9 @@ public class PrimeStats {
 	/**
 	 * Throws an Exception, if one param is null.
 	 * 
-	 * @param isSpezialist
+	 * @param isSpecialist
 	 * @param healthLevel
-	 * @param strenghtLevel
+	 * @param strengthLevel
 	 * @param resistanceLevel
 	 * @param intelligenceLevel
 	 * @param magicLevel
@@ -30,17 +30,17 @@ public class PrimeStats {
 	 * @param toughnessLevel
 	 * @param luckLevel
 	 */
-	public PrimeStats(boolean isSpezialist, int level, int healthLevel, int strenghtLevel, int resistanceLevel,
-			int intelligenceLevel, int magicLevel, int staminaLevel, int speedLevel, int toughnessLevel,
-			int luckLevel) throws Exception{
+	public PrimeStats(boolean isSpecialist, int level, int healthLevel, int strengthLevel, int resistanceLevel,
+					  int intelligenceLevel, int magicLevel, int staminaLevel, int speedLevel, int toughnessLevel,
+					  int luckLevel) throws Exception{
 		
-		this.isSpezialist = Objects.requireNonNull(isSpezialist);
+		this.isSpecialist = Objects.requireNonNull(isSpecialist);
 		
-		primeStatsBuilder(new int[] {level, healthLevel, strenghtLevel, resistanceLevel, intelligenceLevel, magicLevel, staminaLevel, speedLevel, toughnessLevel, luckLevel});
+		primeStatsBuilder(new int[] {level, healthLevel, strengthLevel, resistanceLevel, intelligenceLevel, magicLevel, staminaLevel, speedLevel, toughnessLevel, luckLevel});
 	}
 	
 	private void primeStatsBuilder (int[] params) throws Exception{
-		int[] stats = {this.level, this.healthLevel, this.strenghtLevel, this.resistanceLevel, this.intelligenceLevel, this.magicLevel, this.staminaLevel, this.speedLevel, this.toughnessLevel, this.luckLevel};
+		int[] stats = {this.level, this.healthLevel, this.strengthLevel, this.resistanceLevel, this.intelligenceLevel, this.magicLevel, this.staminaLevel, this.speedLevel, this.toughnessLevel, this.luckLevel};
 		for (int i = 0; i < params.length; i++) {
 			stats[i] = Objects.requireNonNull(params[i]);
 			checkLevel(stats[i]);
@@ -64,8 +64,8 @@ public class PrimeStats {
 	}
 
 	public void addStrenghtLevel(int add) throws Exception {
-		this.strenghtLevel += add;
-		checkLevel(this.strenghtLevel);
+		this.strengthLevel += add;
+		checkLevel(this.strengthLevel);
 	}
 
 	public void addResistanceLevel(int add) throws Exception {
@@ -104,11 +104,11 @@ public class PrimeStats {
 	}
 	
 	
-	public boolean isSpezialist() {
-		return isSpezialist;
+	public boolean isSpecialist() {
+		return isSpecialist;
 	}
-	public void setSpezialist(boolean isSpezialist) {
-		this.isSpezialist = isSpezialist;
+	public void setSpecialist(boolean isSpezialist) {
+		this.isSpecialist = isSpezialist;
 	}
 	public int getHealthLevel() {
 		return healthLevel;
@@ -116,11 +116,11 @@ public class PrimeStats {
 	public void setHealthLevel(int healthLevel) {
 		this.healthLevel = healthLevel;
 	}
-	public int getStrenghtLevel() {
-		return strenghtLevel;
+	public int getStrengthLevel() {
+		return strengthLevel;
 	}
-	public void setStrenghtLevel(int strenghtLevel) {
-		this.strenghtLevel = strenghtLevel;
+	public void setStrengthLevel(int strengthLevel) {
+		this.strengthLevel = strengthLevel;
 	}
 	public int getResistanceLevel() {
 		return resistanceLevel;

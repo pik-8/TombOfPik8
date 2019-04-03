@@ -4,12 +4,13 @@ import model.effects.Effect;
 
 import java.util.Objects;
 
+import static constants.ExceptionConstants.*;
+
 
 /**
  * The class to represent attacks.
  * An attack contains the damage, the effect, an name, a short description and the AOE.
  *
- * last change 02.04.19
  * @author Hagen
  */
 public class Attack {
@@ -20,6 +21,7 @@ public class Attack {
     private int damage;
     private int magicDamage;
     private int accuracy;
+    private int requiredSlots;
 
     private Effect effect;
 
@@ -30,7 +32,8 @@ public class Attack {
      *
      * Only the String-params can be altered after initialisation.
      *
-     * If one param is null the constructor will throw an Exception.
+     * If one param is null the constructor will throw an NullPointerException.
+     * The numbers can be 0 however, bur not negative, than it throws a IllegalArgumentExceptions.
      * @param name The name of the Attack
      * @param description A short description of the attack, to inform the player
      * @param damage The damage the attack should deal.
@@ -39,31 +42,35 @@ public class Attack {
      *                    Throws an IllegalArgumentException, if magicalDamage < 0
      * @param accuracy The probability that an attack hits the enemy.
      *                 Throws an IllegalArgumentException, if accuracy < 0
+     * @param requiredSlots How many slots this attack will be using.
+     *                      Throws an IllegalArgumentException, if requiredSlots < 0
      * @param effect The effect that will be bestowed on enemys and squares.
      */
-    public Attack(String name, String description, int damage, int magicDamage, int accuracy, Effect effect)
+    public Attack(String name, String description, int damage, int magicDamage, int accuracy, int requiredSlots, Effect effect)
             throws Exception
     {
-        checkParams(damage, magicDamage, accuracy);
+        checkParams(damage, magicDamage, accuracy, requiredSlots);
         this.name = Objects.requireNonNull(name);
         this.description = Objects.requireNonNull(description);
-        this.damage = Objects.requireNonNull(damage);
-        this.magicDamage = Objects.requireNonNull(magicDamage);
-        this.accuracy = Objects.requireNonNull(accuracy);
+        this.damage = damage;
+        this.magicDamage = magicDamage;
+        this.accuracy = accuracy;
         this.effect = Objects.requireNonNull(effect);
     }
 
 
-    private void checkParams (int damage, int magicDamage, int accuracy) throws IllegalArgumentException {
-        //TODO dress the naked Strings.
+    private void checkParams (int damage, int magicDamage, int accuracy, int requiredSlots) throws IllegalArgumentException {
         if (damage < 0) {
-            throw new IllegalArgumentException("Damage is negativ");
+            throw new IllegalArgumentException(ATTACK_DAMAGE_IS_NEGATIVE);
         }
         if (magicDamage < 0) {
-            throw new IllegalArgumentException("Magical damage is negativ");
+            throw new IllegalArgumentException(ATTACK_MAGICAL_DAMAGE_IS_NEGATIVE);
         }
         if (accuracy < 0) {
-            throw new IllegalArgumentException("Accuracy is negativ");
+            throw new IllegalArgumentException(ATTACK_ACCURACY_IS_NEGATIVE);
+        }
+        if (requiredSlots < 0) {
+            throw new IllegalArgumentException(ATTACK_REQUIREDSLOTS_IS_NEGATIVE);
         }
     }
 
@@ -97,5 +104,9 @@ public class Attack {
 
     public Effect getEffect() {
         return effect;
+    }
+
+    public int getRequiredSlots() {
+        return requiredSlots;
     }
 }
