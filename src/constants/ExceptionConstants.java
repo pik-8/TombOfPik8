@@ -19,4 +19,6 @@ public interface ExceptionConstants {
             + "because the accuracy is negative.";
     String ATTACK_REQUIREDSLOTS_IS_NEGATIVE = "The Attack could not be instantiated, "
             + "because the requiredSlots is negative.";
+
+    String ADDING_TO_NEGATIV = "Can not add the number, because the sum is negative.";
 }
