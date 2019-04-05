@@ -1,27 +1,25 @@
 package model.other;
 
-import java.util.Objects;
-
 public class SecondaryStats {
 
-	private int hp;
-	private int action;
+	public int hp;
+	public int action;
 	
-    private int max_Hp;
-	private int maxAction;
-	private int attack;
-	private int magicAttack;
-	private int defence;
-	private int magicDefence;
-	private float attackResistance;
-	private int speed;
-	private int luck;
+    public int max_Hp;
+	public int maxAction;
+	public int attack;
+	public int magicAttack;
+	public int defence;
+	public int magicDefence;
+	public float attackResistance;
+	public int speed;
+	public int luck;
 	
-	private int load;
-	private int maxEquipmentLoad;
+	public int load;
+	public int maxEquipmentLoad;
 
-	private int travelAbelFields;
-	private int attackSlots;
+	public int stamina;
+	public int attackSlots;
 
 
 	/**
@@ -59,7 +57,7 @@ public class SecondaryStats {
 		this.luck = luck;
 		this.load = load;
 		this.maxEquipmentLoad = maxEquipmentLoad;
-		this.travelAbelFields = travelAbelFields;
+		this.stamina = travelAbelFields;
 		this.attackSlots = attackSlots;
 	}
 
@@ -68,91 +66,93 @@ public class SecondaryStats {
 	public int getHp() {
 		return hp;
 	}
-	private void setHp(int hp) {
+	public void setHp(int hp) {
 		this.hp = hp;
 	}
 	public int getAction() {
 		return this.action;
 	}
-	private void setAction(int action){
+	public void setAction(int action){
 		this.action = action;
 	}
 	public int getMax_Hp() {
 		return max_Hp;
 	}
-	private void setMax_Hp(int max_Hp) {
+	public void setMax_Hp(int max_Hp) {
 		this.max_Hp = max_Hp;
 	}
 	public int getMaxAction() {
 		return this.maxAction;
 	}
-	private void setMaxAction(int maxAction) {
+	public void setMaxAction(int maxAction) {
 		this.maxAction = maxAction;
 	}
 	public int getAttack() {
 		return attack;
 	}
-	private void setAttack(int attack) {
+	public void setAttack(int attack) {
 		this.attack = attack;
 	}
 	public int getMagicAttack() {
 		return magicAttack;
 	}
-	private void setMagicAttack(int magicAttack) {
+	public void setMagicAttack(int magicAttack) {
 		this.magicAttack = magicAttack;
 	}
 	public int getDefence() {
 		return defence;
 	}
-	private void setDefence(int defence) {
+	public void setDefence(int defence) {
 		this.defence = defence;
 	}
 	public int getMagicDefence() {
 		return magicDefence;
 	}
-	private void setMagicDefence(int magicDefence) {
+	public void setMagicDefence(int magicDefence) {
 		this.magicDefence = magicDefence;
 	}
 	public int getSpeed() {
 		return speed;
 	}
-	private void setSpeed(int speed) {
+	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
 	public float getAttackResistance() {
 		return this.attackResistance;
 	}
-	private void setAttackResistance(float attackResistance) {
+	public void setAttackResistance(float attackResistance) {
 		this.attackResistance = attackResistance;
 	}
 	public int getLuck() {
 		return luck;
 	}
-	private void setLuck(int luck) {
+	public void setLuck(int luck) {
 		this.luck = luck;
 	}
 	public int getLoad() {
 		return load;
 	}
-	private void setLoad(int load) {
+	public void setLoad(int load) {
 		this.load = load;
 	}
 	public int getMaxEquipmentLoad() {
 		return maxEquipmentLoad;
 	}
-	private void setMaxEquipmentLoad(int maxEquipmentLoad) {
+	public void setMaxEquipmentLoad(int maxEquipmentLoad) {
 		this.maxEquipmentLoad = maxEquipmentLoad;
 	}
-	public int getTravelAbelFields() {
-		return travelAbelFields;
+	public int getStamina() {
+		return stamina;
 	}
-	private void setTravelAbelFields(int travelAbelFields) {
-		this.travelAbelFields = travelAbelFields;
+	public void setStamina(int stamina) {
+		this.stamina = stamina;
 	}
 	public int getAttackSlots() {
 		return attackSlots;
 	}
-	private void setAttackSlots(int attackSlots) {
+	public void setAttackSlots(int attackSlots) {
 		this.attackSlots = attackSlots;
 	}
+
+
 }

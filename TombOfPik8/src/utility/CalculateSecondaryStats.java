@@ -579,4 +579,52 @@ public class CalculateSecondaryStats {
     {
         return hero.getPrimeStats().getLuckLevel();
     }
+
+
+    public static void setMaxHealthByLevel (Hero hero) {
+        hero.getSecondaryStats().setMax_Hp(CalculateSecondaryStats.maxActionByLevel(hero));
+    }
+
+    public static void setMaxActionByLevel (Hero hero) {
+        hero.getSecondaryStats().setAction(CalculateSecondaryStats.maxActionByLevel(hero));
+    }
+
+    public static void setMaxStaminaByLevel (Hero hero) {
+        hero.getSecondaryStats().setStamina(CalculateSecondaryStats.maxTravelableFieldsByLevel(hero));
+    }
+
+    public static void setMaxSpeedByLevel (Hero hero) {
+        hero.getSecondaryStats().setSpeed(CalculateSecondaryStats.maxSpeedByLevel(hero));
+    }
+
+    public static void setMaxEquipmentLoadByLevel (Hero hero) {
+        hero.getSecondaryStats().setMaxEquipmentLoad(CalculateSecondaryStats.maxEquipmentLoadByLevel(hero));
+    }
+
+    public static void setMaxMagicalDefenceByLevel (Hero hero) {
+        hero.getSecondaryStats().setMagicDefence(CalculateSecondaryStats.maxMgDefByLevel(hero));
+    }
+
+    public static void setMaxMagicalAttackByLevel (Hero hero) {
+        hero.getSecondaryStats().setMagicAttack(CalculateSecondaryStats.maxMagicAttackByLevel(hero));
+    }
+
+    public static void setMaxLuckByLevel (Hero hero) {
+        hero.getSecondaryStats().setLuck(CalculateSecondaryStats.maxLuckByLevel(hero));
+    }
+
+
+    public static void setMaxDefenceByLevel (Hero hero) {
+        hero.getSecondaryStats().setDefence(CalculateSecondaryStats.maxDefenceByLevel(hero));
+    }
+
+
+    public static void setMaxAttackSlotsByLevel (Hero hero) {
+        hero.getSecondaryStats().setAttackSlots(CalculateSecondaryStats.attackSlotsByLevel(hero));
+    }
+
+
+    public static void setMaxAttackResistanceByLevel (Hero hero) {
+        hero.getSecondaryStats().setAttackResistance(CalculateSecondaryStats.maxAttackResistanceByLevel(hero));
+    }
 }
