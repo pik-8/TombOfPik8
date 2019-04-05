@@ -2,7 +2,7 @@ package constants;
 
 public interface ExceptionConstants {
 
-    String ATTACK_PATTERN_TO_MANY_NEGATIVE_NUMBERS = "The AttackPattern could not be instantiated, "
+    String ATTACK_PATTERN_TOO_MANY_NEGATIVE_NUMBERS = "The AttackPattern could not be instantiated, "
             + "because there are more than one negative numbers in the array.";
     String ATTACK_PATTERN_NO_NEGATIVE_NUMBER = "The AttackPattern could not be instantiated, "
             + "because there is no negative number indicating the position of the attacker.";

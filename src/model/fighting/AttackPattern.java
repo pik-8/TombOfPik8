@@ -53,7 +53,7 @@ public class AttackPattern {
                     attackerCounter++;
                 }
                 if (attackerCounter < 1) {
-                    throw new IllegalArgumentException(ATTACK_PATTERN_TO_MANY_NEGATIVE_NUMBERS);
+                    throw new IllegalArgumentException(ATTACK_PATTERN_TOO_MANY_NEGATIVE_NUMBERS);
                 }
             }
         }
