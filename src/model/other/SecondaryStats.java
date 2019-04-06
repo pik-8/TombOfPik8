@@ -37,12 +37,12 @@ public class SecondaryStats {
 	 * @param luck
 	 * @param load
 	 * @param maxEquipmentLoad
-	 * @param travelAbelFields
+	 * @param stamina
 	 * @param attackSlots
 	 */
 	 SecondaryStats(int hp, int action, int max_Hp, int maxAction, int attack, int magicAttack, int defence,
 			int magicDefence, int speed, float attackResistance,
-			int luck, int load, int maxEquipmentLoad, int travelAbelFields, int attackSlots) {
+			int luck, int load, int maxEquipmentLoad, int stamina, int attackSlots) {
 
 		this.hp = hp;
 		this.action = action;
@@ -57,7 +57,7 @@ public class SecondaryStats {
 		this.luck = luck;
 		this.load = load;
 		this.maxEquipmentLoad = maxEquipmentLoad;
-		this.stamina = travelAbelFields;
+		this.stamina = stamina;
 		this.attackSlots = attackSlots;
 	}
 

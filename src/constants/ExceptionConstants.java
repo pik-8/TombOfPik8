@@ -19,4 +19,6 @@ public interface ExceptionConstants {
             + "because the accuracy is negative.";
     String ATTACK_REQUIREDSLOTS_IS_NEGATIVE = "The Attack could not be instantiated, "
             + "because the requiredSlots is negative.";
+
+    String TOO_MANY_SKILLS = "The list containing the skills of an character is too long.";
 }

@@ -30,6 +30,12 @@ public abstract class Effect {
         this.duration = duration;
     }
 
+    Effect(String name, String description, int duration, boolean isRelevant) {
+        this.name = name;
+        this.description = description;
+        this.duration = duration;
+    }
+
     public abstract void applyEffect (Character cha);
 
     public abstract void applyEffect (Square square);
