@@ -1,5 +1,6 @@
 package model.fighting;
 
+import com.sun.javafx.geom.Vec2d;
 import model.effects.Effect;
 import static constants.ExceptionConstants.*;
 
@@ -52,7 +53,7 @@ public class AttackPattern {
                     attackerCounter++;
                 }
                 if (attackerCounter < 1) {
-                    throw new IllegalArgumentException(ATTACK_PATTERN_TO_MANY_NEGATIVE_NUMBERS);
+                    throw new IllegalArgumentException(ATTACK_PATTERN_TOO_MANY_NEGATIVE_NUMBERS);
                 }
             }
         }
@@ -79,6 +80,48 @@ public class AttackPattern {
         if (nullCounter == 0) {
             throw new IllegalArgumentException(ATTACK_PATTERN_NO_NULL);
         }
+    }
+
+
+    /**
+     * Returns the position of the initializer of an attack for the attack-field as a 2-dimensional vector.
+     * The x component of the vector is the first index of the attackField-Array and the y-value the second index.
+     *
+     * @return The position of the attacker inside the attackField as a vector.
+     */
+    public Vec2d getAttackerLocationAttackField () {
+        Vec2d attacker = new Vec2d();
+        for (int x = 0; x < attackField.length; x++) {
+            for (int y = 0; y < attackField[x].length; y++) {
+                if (attackField[x][y] < 0) {
+                    attacker.x = x;
+                    attacker.y = y;
+                    return attacker;
+                }
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * Returns the position of the initializer of an attack for the effect-field as a 2-dimensional vector.
+     * The x component of the vector is the first index of the effectField-Array and the y-value the second index.
+     *
+     * @return The position of the attacker inside the effectField as a vector.
+     */
+    public Vec2d getAttackerLocationEffectField () {
+        Vec2d attacker = new Vec2d();
+        for (int x = 0; x < effectField.length; x++) {
+            for (int y = 0; y < effectField[x].length; y++) {
+                if (effectField[x][y] == null) {
+                    attacker.x = x;
+                    attacker.y = y;
+                    return attacker;
+                }
+            }
+        }
+        return null;
     }
 
 

@@ -1,6 +1,5 @@
 package model.effects;
 
-import constants.ExceptionConstants;
 import model.dungeon.Square;
 import model.other.Character;
 
@@ -14,10 +13,7 @@ import model.other.Character;
  * It also contains a applyEffect-methode, that can alter the behaviour of an Character or Square, depending of
  * the specific implementation of an instance.
  *
- * Has a relevant-boolean, that indicates if the Effect-Object should be considered by a controller-Object
- * Is per default true.
- *
- * Can not be directly instantiated.
+ * To get an instance of this class please visit the EffectGiver-Class.
  *
  * @author Hagen
  */
@@ -28,21 +24,16 @@ public abstract class Effect {
 
     private int duration;
 
-
-    private boolean relevant;
-
     protected Effect(String name, String description, int duration) {
         this.name = name;
         this.description = description;
         this.duration = duration;
-        this.relevant = true;
     }
 
     protected Effect(String name, String description, int duration, boolean isRelevant) {
         this.name = name;
         this.description = description;
         this.duration = duration;
-        this.relevant = isRelevant;
     }
 
     public abstract void applyEffect (Character cha);
@@ -67,20 +58,5 @@ public abstract class Effect {
 
     public int getDuration() {
         return duration;
-    }
-
-    public void addDuration (int add) {
-        if (add <= 0 && (add + this.duration) < 0) {
-            throw new IllegalArgumentException(ExceptionConstants.ADDING_TO_NEGATIV);
-        }
-        this.duration += add;
-    }
-
-    public boolean isRelevant () {
-        return this.relevant;
-    }
-
-    public void setRelevant(boolean relevant) {
-        this.relevant = relevant;
     }
 }

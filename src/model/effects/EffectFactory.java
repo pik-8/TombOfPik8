@@ -9,14 +9,14 @@ import model.other.Character;
  *
  * @author Hagen
  */
-public class EffectGiver{
+public class EffectFactory{
 
-    private EffectGiver () {}
+    private EffectFactory () {}
 
     public static Effect getEffect (Condition condition) {
         switch (condition) {
             case POISON:
-                return new PoisonEffect("","",0);
+                return new PoisonEffect("", "", 2);
 
             default:
                 return new Effect("Sleep", "Its sleep", 4) {
@@ -32,20 +32,5 @@ public class EffectGiver{
                     }
                 };
         }
-    }
-
-    private Effect getPoison () {
-        return new Effect("Poison", "Its poison", 4) {
-            @Override
-            public void applyEffect(Character cha) {
-                //TODO implement an effect.
-                System.out.println("POISON!!!11!!");
-            }
-
-            @Override
-            public void applyEffect (Square square){
-
-            }
-        };
     }
 }

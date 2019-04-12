@@ -3,7 +3,16 @@ package model.effects;
 import model.dungeon.Square;
 import model.other.Character;
 
-class PoisonEffect extends Effect{
+
+/**
+ * An Effect-Class, which will give a Character an Poison effect, damaging it every turn.
+ *
+ * Is not visible outside of the effect-Package and can only be created by the EffectFactory.
+ *
+ * @author Hagen
+ */
+class PoisonEffect extends Effect {
+
 
     private int counter;
     private final float DAMAGE_FACTOR = 1/16;
