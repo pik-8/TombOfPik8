@@ -18,6 +18,8 @@ public class EffectFactory{
             case POISON:
                 return new PoisonEffect("", "", 2);
 
+            case NONE:
+                return new CrushEffect("", "", 0, false);
             default:
                 return new Effect("Sleep", "Its sleep", 4) {
                     @Override

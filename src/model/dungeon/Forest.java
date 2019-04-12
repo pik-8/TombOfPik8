@@ -9,7 +9,10 @@ package model.dungeon;
  */
 class Forest extends Tile{
 
-    protected Forest(Square[][] layout) throws IllegalArgumentException {
-        super(layout);
+    public static final Terrain[] allPossibleTerrains = {Terrain.TREE};
+    public static final Terrain endMarker = Terrain.BEDROCK;
+
+    protected Forest(Square[][] squares) throws IllegalArgumentException {
+        super(squares);
     }
 }

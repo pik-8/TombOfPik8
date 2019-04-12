@@ -1,7 +1,9 @@
 package model.fighting;
 
-import com.sun.javafx.geom.Vec2d;
 import model.effects.Effect;
+import model.other.Position;
+import org.omg.PortableServer.POA;
+
 import static constants.ExceptionConstants.*;
 
 /**
@@ -90,14 +92,11 @@ public class AttackPattern {
      *
      * @return The position of the attacker inside the attackField as a vector.
      */
-    public Vec2d getAttackerLocationAttackField () {
-        Vec2d attacker = new Vec2d();
+    public Position getAttackerLocationAttackField () {
         for (int x = 0; x < attackField.length; x++) {
             for (int y = 0; y < attackField[x].length; y++) {
                 if (attackField[x][y] < 0) {
-                    attacker.x = x;
-                    attacker.y = y;
-                    return attacker;
+                    return new Position(x, y);
                 }
             }
         }
@@ -111,14 +110,11 @@ public class AttackPattern {
      *
      * @return The position of the attacker inside the effectField as a vector.
      */
-    public Vec2d getAttackerLocationEffectField () {
-        Vec2d attacker = new Vec2d();
+    public Position getAttackerLocationEffectField () {
         for (int x = 0; x < effectField.length; x++) {
             for (int y = 0; y < effectField[x].length; y++) {
                 if (effectField[x][y] == null) {
-                    attacker.x = x;
-                    attacker.y = y;
-                    return attacker;
+                    return new Position(x, y);
                 }
             }
         }

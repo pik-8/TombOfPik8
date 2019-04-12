@@ -1,7 +1,6 @@
 package model.fighting;
 
 import model.effects.Effect;
-
 import java.util.Objects;
 
 import static constants.ExceptionConstants.*;
