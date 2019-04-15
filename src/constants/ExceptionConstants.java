@@ -28,5 +28,4 @@ public interface ExceptionConstants {
     final String EFFORT_IS_NEGATIVE = "The effort to pass a Terrain-Object may only be positive.";
     
     final String INVENTORY_IS_FULL = "The inventory is full, no more items can be added.";
-    final String MONEY_IS_NEGATIVE = "By adding this amount of money, the total money would be negative, which is impossible.";
 }

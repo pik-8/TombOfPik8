@@ -18,13 +18,13 @@ import model.items.InventoryFullException;
  */
 public class Inventory {
 		
-	ArrayList<Consumable> consumables;
-	ArrayList<Equipment> equipment;
-	HashMap<CraftingMaterial, Integer> materials;
+	private ArrayList<Consumable> consumables;
+	private ArrayList<Equipment> equipment;
+	private HashMap<CraftingMaterial, Integer> materials;
 	
-	long money;
-	int itemCount;
-	int size;
+	private long money;
+	private int itemCount;
+	private int size;
 	
 	public Inventory () {
 		init();
