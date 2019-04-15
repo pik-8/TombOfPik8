@@ -20,7 +20,7 @@ public enum Terrain {
     BEDROCK(999999999, EffectFactory.getEffect(Condition.NONE));
 
 
-    private final int effortToPass;
+    private int effortToPass;
     private final Effect effect;
 
     Terrain (int effortToPass, Effect effect) {
@@ -34,5 +34,9 @@ public enum Terrain {
 
     public Effect getEffect() {
         return effect;
+    }
+
+    public void setEffortToPass(int effortToPass) {
+        this.effortToPass = effortToPass;
     }
 }
