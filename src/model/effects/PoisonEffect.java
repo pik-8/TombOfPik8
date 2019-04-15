@@ -1,7 +1,10 @@
 package model.effects;
 
+import constants.ModelProperties;
 import model.dungeon.Square;
 import model.other.Character;
+
+import static constants.EffectProperties.DAMAGE_FACTOR_FOR_POISON;
 
 
 /**
@@ -15,21 +18,22 @@ class PoisonEffect extends Effect {
 
 
     private int counter;
-    private final float DAMAGE_FACTOR = 1/16;
 
-    protected PoisonEffect(String name, String description, int duration) {
-        super(name, description, duration);
+    protected PoisonEffect(String name, String description) {
+        super(name, description, ModelProperties.NUMBER_TO_MAKE_EFFECT_LAST_INFINITLY);
         this.counter = 1;
     }
 
-    protected PoisonEffect(String name, String description, int duration, boolean isRelevant) {
-        super(name, description, duration, isRelevant);
+    protected PoisonEffect(String name, String description, boolean isRelevant) {
+        super(name, description, ModelProperties.NUMBER_TO_MAKE_EFFECT_LAST_INFINITLY, isRelevant);
         this.counter = 1;
     }
 
     @Override
     public void applyEffect(Character cha) {
-        cha.getSecondaryStats().setHp(Math.round(cha.getSecondaryStats().getMax_Hp() - (cha.getSecondaryStats().getMax_Hp() * DAMAGE_FACTOR * counter)));
+        cha.getSecondaryStats().setHp(Math.round(cha.getSecondaryStats().getMax_Hp() - (cha.getSecondaryStats().getMax_Hp() * DAMAGE_FACTOR_FOR_POISON* counter)));
+        setDuration(getDuration() -1); // -1 because every use decreases the duration by.
+        checkDurationAndRelevanze();
     }
 
     @Override

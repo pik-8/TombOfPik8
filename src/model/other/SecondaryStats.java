@@ -1,25 +1,31 @@
 package model.other;
 
+
+/**
+ * A class containing every stat that is needed for exploring and fighting in a dungeon.
+ *
+ * @author Hagen
+ */
 public class SecondaryStats {
 
-	public int hp;
-	public int action;
-	
-    public int max_Hp;
-	public int maxAction;
-	public int attack;
-	public int magicAttack;
-	public int defence;
-	public int magicDefence;
-	public float attackResistance;
-	public int speed;
-	public int luck;
-	
-	public int load;
-	public int maxEquipmentLoad;
+	private int hp;
+	private int action;
 
-	public int stamina;
-	public int attackSlots;
+	private int max_Hp;
+	private int maxAction;
+	private int attack;
+	private int magicAttack;
+	private int defence;
+	private int magicDefence;
+	private float attackResistance;
+	private int speed;
+	private int luck;
+
+	private int load;
+	private int maxEquipmentLoad;
+
+	private int stamina;
+	private int attackSlots;
 
 
 	/**
