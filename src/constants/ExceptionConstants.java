@@ -19,4 +19,11 @@ public interface ExceptionConstants {
             + "because the accuracy is negative.";
     String ATTACK_REQUIREDSLOTS_IS_NEGATIVE = "The Attack could not be instantiated, "
             + "because the requiredSlots is negative.";
+
+    String TOO_MANY_SKILLS = "The list containing the skills of an character is too long.";
+
+    String FIELD_FOR_TILE_IS_NO_SQUARE = "The length of each array inside the Square-Array is not the same length";
+    String FIELD_HAS_NOT_THE_RIGHT_SIZE = "The Square-Array has not a valid size.";
+
+    String EFFORT_IS_NEGATIVE = "The effort to pass a Terrain-Object may only be positive.";
 }

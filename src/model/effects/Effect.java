@@ -24,7 +24,13 @@ public abstract class Effect {
 
     private int duration;
 
-    Effect(String name, String description, int duration) {
+    protected Effect(String name, String description, int duration) {
+        this.name = name;
+        this.description = description;
+        this.duration = duration;
+    }
+
+    protected Effect(String name, String description, int duration, boolean isRelevant) {
         this.name = name;
         this.description = description;
         this.duration = duration;

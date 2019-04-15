@@ -1,6 +1,8 @@
 package model.fighting;
 
 import model.effects.Effect;
+import model.other.Position;
+import org.omg.PortableServer.POA;
 
 import static constants.ExceptionConstants.*;
 
@@ -81,6 +83,42 @@ public class AttackPattern {
         if (nullCounter == 0) {
             throw new IllegalArgumentException(ATTACK_PATTERN_NO_NULL);
         }
+    }
+
+
+    /**
+     * Returns the position of the initializer of an attack for the attack-field as a 2-dimensional vector.
+     * The x component of the vector is the first index of the attackField-Array and the y-value the second index.
+     *
+     * @return The position of the attacker inside the attackField as a vector.
+     */
+    public Position getAttackerLocationAttackField () {
+        for (int x = 0; x < attackField.length; x++) {
+            for (int y = 0; y < attackField[x].length; y++) {
+                if (attackField[x][y] < 0) {
+                    return new Position(x, y);
+                }
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * Returns the position of the initializer of an attack for the effect-field as a 2-dimensional vector.
+     * The x component of the vector is the first index of the effectField-Array and the y-value the second index.
+     *
+     * @return The position of the attacker inside the effectField as a vector.
+     */
+    public Position getAttackerLocationEffectField () {
+        for (int x = 0; x < effectField.length; x++) {
+            for (int y = 0; y < effectField[x].length; y++) {
+                if (effectField[x][y] == null) {
+                    return new Position(x, y);
+                }
+            }
+        }
+        return null;
     }
 
 
