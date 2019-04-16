@@ -23,22 +23,38 @@ public abstract class Effect {
     private String description;
 
     private int duration;
+    private int[] options;
     private boolean relevanze;
 
+    private void init(String name, String desc, int dur) {
+    	this.name = name;
+        this.description = desc;
+        this.duration = dur;
+
+    }
+    
     protected Effect(String name, String description, int duration) {
-        this.name = name;
-        this.description = description;
-        this.duration = duration;
-        this.relevanze = true;
+    	init(name, description, duration);
+    	this.relevanze = true;
     }
 
-    protected    Effect(String name, String description, int duration, boolean isRelevant) {
-        this.name = name;
-        this.description = description;
-        this.duration = duration;
+    protected Effect(String name, String description, int duration, boolean isRelevant) {
+    	init(name, description, duration);
         this.relevanze = false;
     }
 
+    protected Effect(String name, String description, int duration, int[] options) {
+    	init(name, description, duration);
+        this.options = options;
+        this.relevanze = true;
+    }
+    
+    protected Effect(String name, String description, int duration, int[] options, boolean isRelevant) {
+    	init(name, description, duration);
+        this.options = options;
+        this.relevanze = false;
+    }
+    
     public abstract void applyEffect (Character cha);
 
     public abstract void applyEffect (Square square);
@@ -70,7 +86,11 @@ public abstract class Effect {
         return duration;
     }
 
-    public boolean isRelevant() {
+    public int[] getOptions() {
+		return options;
+	}
+
+	public boolean isRelevant() {
         return relevanze;
     }
 
