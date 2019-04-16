@@ -18,6 +18,4 @@ public class Weapon extends Equipment {
 	public Weapon(String name, String description, SecondaryStats secStats) {
 		super(name, description, secStats);
 	}
-
-
 }

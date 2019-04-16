@@ -1,5 +1,6 @@
 package model.other;
 
+import constants.ExceptionConstants;
 
 /**
  * A class containing every stat that is needed for exploring and fighting in a dungeon.
@@ -17,8 +18,8 @@ public class SecondaryStats {
 	private int magicAttack;
 	private int defence;
 	private int magicDefence;
-	private float attackResistance;
 	private int speed;
+	private float attackResistance;
 	private int luck;
 
 	private int load;
@@ -46,7 +47,7 @@ public class SecondaryStats {
 	 * @param stamina
 	 * @param attackSlots
 	 */
-	 SecondaryStats(int hp, int action, int max_Hp, int maxAction, int attack, int magicAttack, int defence,
+	 public SecondaryStats(int hp, int action, int max_Hp, int maxAction, int attack, int magicAttack, int defence,
 			int magicDefence, int speed, float attackResistance,
 			int luck, int load, int maxEquipmentLoad, int stamina, int attackSlots) {
 
@@ -74,6 +75,15 @@ public class SecondaryStats {
 	}
 	public void setHp(int hp) {
 		this.hp = hp;
+	}
+	public void heal(int hp) throws IllegalArgumentException {
+		if(hp >= 0)
+			if(this.hp + hp > this.max_Hp)
+				this.hp = this.max_Hp;
+			else
+				this.hp += hp;
+		else
+			throw new IllegalArgumentException(ExceptionConstants.NEGATIVE_HEAL);	
 	}
 	public int getAction() {
 		return this.action;

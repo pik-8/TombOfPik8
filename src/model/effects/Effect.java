@@ -65,6 +65,33 @@ public abstract class Effect {
         }
     }
 
+    /**
+     * This method can extend the option array with zeros if it does not have enough values for the specified effect.
+     * @param assumedLength The length (amount of values) the option array needs to have.
+     */
+    protected void fillOptions(int assumedLength) {
+    	options = lengthenArray(options, assumedLength);
+    }
+    
+    /**
+     * This method can extend an array to a specified length with zeros.
+     * @param array The array to extend.
+     * @param toLength The length to extend to.
+     * @return The extended array.
+     */
+    protected int[] lengthenArray(int[] array, int toLength) {
+    	if(array.length < toLength) {
+			int[] tmp = new int[toLength];
+			for(int i = 0; i < toLength; i++) {
+				if(i < array.length)
+					tmp[i] = array[i];
+				else
+					tmp[i] = 0;
+			}
+			array = tmp;			
+		}
+    	return array;
+    }
 
     public String getName() {
         return name;
