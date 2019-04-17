@@ -46,7 +46,7 @@ public class HealingEffect extends Effect{
 		}
 	}
 
-	private int getOneOption (EffectType type) {
+	private float getOneOption (EffectType type) {
 		switch (type) {
 			case FLAT_HEAL:
 				return getOptions()[0];
@@ -71,10 +71,10 @@ public class HealingEffect extends Effect{
 	public void applyEffect(Character cha, int Test) {
 		SecondaryStats stats = cha.getSecondaryStats();
 		try {
-			stats.heal(getOneOption(EffectType.FLAT_HEAL));
-			stats.heal(getOneOption(EffectType.MAX_HEALTH_HEAL)/100 * stats.getMax_Hp());
-			stats.heal(getOneOption(EffectType.MISSING_HEALTH_HEAL)/100 * (stats.getMax_Hp() - stats.getHp()));
-			stats.heal(getOneOption(EffectType.CURRENT_HEALTH_HEAL)/100 * stats.getHp());
+			stats.heal((int) getOneOption(EffectType.FLAT_HEAL));
+			stats.heal((int) (getOneOption(EffectType.MAX_HEALTH_HEAL)/100 * stats.getMax_Hp()));
+			stats.heal((int) (getOneOption(EffectType.MISSING_HEALTH_HEAL)/100 * (stats.getMax_Hp() - stats.getHp())));
+			stats.heal((int) (getOneOption(EffectType.CURRENT_HEALTH_HEAL)/100 * stats.getHp()));
 		} catch(IllegalArgumentException e) {
 			setRelevanze(false);
 		}
