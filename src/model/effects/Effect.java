@@ -23,22 +23,75 @@ public abstract class Effect {
     private String description;
 
     private int duration;
+    private int[] options;
+    private boolean relevanze;
 
+    private void init(String name, String desc, int dur) {
+    	this.name = name;
+        this.description = desc;
+        this.duration = dur;
+
+    }
+    
     protected Effect(String name, String description, int duration) {
-        this.name = name;
-        this.description = description;
-        this.duration = duration;
+    	init(name, description, duration);
+    	this.relevanze = true;
     }
 
     protected Effect(String name, String description, int duration, boolean isRelevant) {
-        this.name = name;
-        this.description = description;
-        this.duration = duration;
+    	init(name, description, duration);
+        this.relevanze = false;
     }
 
+    protected Effect(String name, String description, int duration, int[] options) {
+    	init(name, description, duration);
+        this.options = options;
+        this.relevanze = true;
+    }
+    
+    protected Effect(String name, String description, int duration, int[] options, boolean isRelevant) {
+    	init(name, description, duration);
+        this.options = options;
+        this.relevanze = false;
+    }
+    
     public abstract void applyEffect (Character cha);
 
     public abstract void applyEffect (Square square);
+
+    protected void checkDurationAndRelevanze () {
+        if (this.duration == 0) {
+            this.relevanze = false;
+        }
+    }
+
+    /**
+     * This method can extend the option array with zeros if it does not have enough values for the specified effect.
+     * @param assumedLength The length (amount of values) the option array needs to have.
+     */
+    protected void fillOptions(int assumedLength) {
+    	options = lengthenArray(options, assumedLength);
+    }
+    
+    /**
+     * This method can extend an array to a specified length with zeros.
+     * @param array The array to extend.
+     * @param toLength The length to extend to.
+     * @return The extended array.
+     */
+    protected int[] lengthenArray(int[] array, int toLength) {
+    	if(array.length < toLength) {
+			int[] tmp = new int[toLength];
+			for(int i = 0; i < toLength; i++) {
+				if(i < array.length)
+					tmp[i] = array[i];
+				else
+					tmp[i] = 0;
+			}
+			array = tmp;			
+		}
+    	return array;
+    }
 
     public String getName() {
         return name;
@@ -58,5 +111,21 @@ public abstract class Effect {
 
     public int getDuration() {
         return duration;
+    }
+
+    public int[] getOptions() {
+		return options;
+	}
+
+	public boolean isRelevant() {
+        return relevanze;
+    }
+
+    protected void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    protected void setRelevanze(boolean relevanze) {
+        this.relevanze = relevanze;
     }
 }

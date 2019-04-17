@@ -1,38 +1,36 @@
 package model.dungeon;
 
+import java.io.ObjectInput;
 import java.util.Objects;
 
 
 /**
- * A Dungeon contains the map of itself and the objective, that has to be fulfilled to leaf the dungeon.
+ * A Dungeon contains the layout of itself and the objective, that has to be fulfilled to leaf the dungeon.
  *
- * @author hagen
+ * @author Hagen
  */
 public class Dungeon {
 
-    private Tile[][] map;
+    private Tile[][] layout;
     private Objective objective;
 
 
-    public Dungeon(Tile[][] map, Objective objective) throws NullPointerException {
-        this.map = Objects.requireNonNull(map);
+    public Dungeon(Tile[][] layout, Objective objective) throws NullPointerException {
+        this.layout = Objects.requireNonNull(layout);
         this.objective = Objects.requireNonNull(objective);
     }
 
-
-    public Tile[][] getMap() {
-        return map;
+    public Dungeon (int size, Objective objective, Landscape[] possibleLandscapes) {
+        this.layout = utility.DungeonCreator.generateDungeonLayout(size, possibleLandscapes);
+        this.objective = objective;
     }
 
-    public void setMap(Tile[][] map) {
-        this.map = map;
+
+    public Tile[][] getlayout() {
+        return layout;
     }
 
     public Objective getObjective() {
         return objective;
-    }
-
-    public void setObjective(Objective objective) {
-        this.objective = objective;
     }
 }

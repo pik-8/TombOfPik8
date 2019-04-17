@@ -1,4 +1,4 @@
-package constants;
+package utility;
 
 public class KeysForInputs {
 

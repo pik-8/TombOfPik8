@@ -1,21 +1,21 @@
 package model.items;
 
-import model.effects.Condition;
-import model.effects.Effect;
+import java.util.ArrayList;
 
-import java.util.Random;
+import model.effects.Effect;
+import model.other.SecondaryStats;
 
 public class Weapon extends Equipment {
 
-    private Effect[] effects;
+	public Weapon(String name, String description, SecondaryStats secStats, ArrayList<Effect> effects) {
+		super(name, description, secStats, effects);
+	}
 
+	public Weapon(String name, String description, SecondaryStats secStats, Effect effect) {
+		super(name, description, secStats, effect);
+	}
 
-    public void Weapon (Effect effects[]) {
-        this.effects[1] = model.effects.EffectGiver.getEffect(Condition.POISON);
-        this.effects = effects;
-    }
-
-    public void tmp (){
-
-    }
+	public Weapon(String name, String description, SecondaryStats secStats) {
+		super(name, description, secStats);
+	}
 }

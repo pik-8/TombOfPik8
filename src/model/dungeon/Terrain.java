@@ -1,50 +1,42 @@
 package model.dungeon;
 
 
-import model.effects.Effect;
+import model.effects.*;
 
 import java.util.Objects;
 
 /**
- * A Terrain is an Object, which will be placed onto a Square, to make it more difficult or impossible
- * to go over the square.
+ * An Enum-Class, that contains every Possible Terrain, which has a value to determine how hard it is to walk over it
+ * and an Effect than can be bestowed upon a Square or Character.
  *
- * Can also contain an Effect.
+ * The index-number is irrelevant.
  *
  * @author Hagen
  */
-public class Terrain {
+public enum Terrain {
 
-    private String name;
+    NONE (0, EffectFactory.getEffect(Condition.NONE)),
+    TREE(10, EffectFactory.getEffect(Condition.POISON)), //For Example
+    BEDROCK(999999999, EffectFactory.getEffect(Condition.NONE));
+
+
     private int effortToPass;
-    private Effect effect;
+    private final Effect effect;
 
-
-    /**
-     *
-     * @param name To identify a specific type of terrain.
-     *             Must not be null.
-     * @param effortToPass The number will decrease the stamina of an Character who wants to stand on it.
-     *                     Must not be negative.
-     */
-    public Terrain(String name, int effortToPass, Effect effect) throws IllegalArgumentException {
-        checkParams(effortToPass);
-        this.name = Objects.requireNonNull(name);
+    Terrain (int effortToPass, Effect effect) {
         this.effortToPass = effortToPass;
-        this.effect = Objects.requireNonNull(effect);
-    }
-
-    private void checkParams (int effortToPass) {
-        if (effortToPass < 0) {
-            throw new IllegalArgumentException(constants.ExceptionConstants.EFFORT_IS_NEGATIVE);
-        }
-    }
-
-    public String getName() {
-        return name;
+        this.effect = effect;
     }
 
     public int getEffortToPass() {
         return effortToPass;
+    }
+
+    public Effect getEffect() {
+        return effect;
+    }
+
+    public void setEffortToPass(int effortToPass) {
+        this.effortToPass = effortToPass;
     }
 }
