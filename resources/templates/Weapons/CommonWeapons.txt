@@ -1,0 +1,92 @@
+{	
+	"array":
+	[
+	{
+	  "onHitEffects": [
+		{
+		  "type": "DamageEffect",
+		  "name": "Sepsis",
+		  "description": "Thats not stuff you want running through your veins.",
+		  "duration": 10,
+		  "options": [
+			0.0,
+			3.0,
+			0.0,
+			0.0
+		  ],
+		  "relevanze": true,
+		  "instantApply": false
+		}
+	  ],
+	  "secStats": {
+		"hp": 0,
+		"action": 0,
+		"max_Hp": 0,
+		"maxAction": 0,
+		"attack": 5,
+		"magicAttack": 0,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 0,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Old Rusty Dagger",
+	  "description": "Getting cut by this is probably unhealthy.",
+	  "effects": [],
+	  "rarity": "COMMON"
+	},
+	{
+	  "onHitEffects": [],
+	  "secStats": {
+		"hp": 0,
+		"action": 0,
+		"max_Hp": 0,
+		"maxAction": 0,
+		"attack": 10,
+		"magicAttack": 0,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 0,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Nicked Greatsword",
+	  "description": "Seems to have been used a lot.",
+	  "effects": [],
+	  "rarity": "COMMON"
+	},
+	{
+	  "onHitEffects": [],
+	  "secStats": {
+		"hp": 0,
+		"action": 0,
+		"max_Hp": 0,
+		"maxAction": 0,
+		"attack": 4,
+		"magicAttack": 6,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 0,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Weak Magic Club",
+	  "description": "Though the magic has mostly faded, apparently there's still a little left in there.",
+	  "effects": [],
+	  "rarity": "COMMON"
+	}
+	]
+}

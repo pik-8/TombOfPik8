@@ -20,7 +20,7 @@ public class HealingEffect extends Effect{
 	 * @param options {flat heal, % max health heal, % missing health heal, % current health heal} 
 	 * Missing option values will be filled with zeros.
 	 */
-	public HealingEffect(String name, String description, int duration, int[] options) {
+	public HealingEffect(String name, String description, int duration, float[] options) {
 		super(name, description, duration, options);
 		fillOptions(4);
 	}
@@ -29,10 +29,10 @@ public class HealingEffect extends Effect{
 	public void applyEffect(Character cha) {
 		SecondaryStats stats = cha.getSecondaryStats();
 		try {
-			stats.heal(getOptions()[0]);
-			stats.heal(getOptions()[1]/100 * stats.getMax_Hp());
-			stats.heal(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp()));
-			stats.heal(getOptions()[3]/100 * stats.getHp());			
+			stats.heal((int)getOptions()[0]);
+			stats.heal((int)(getOptions()[1]/100 * stats.getMax_Hp()));
+			stats.heal((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp())));
+			stats.heal((int)(getOptions()[3]/100 * stats.getHp()));			
 		} catch(IllegalArgumentException e) {
 			setRelevanze(false);
 		}
