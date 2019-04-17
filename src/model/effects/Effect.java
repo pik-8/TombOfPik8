@@ -117,6 +117,10 @@ public abstract class Effect {
 		return options;
 	}
 
+	protected void setOneOption (int index, int value) {
+        this.options[index] = value;
+    }
+
 	public boolean isRelevant() {
         return relevanze;
     }
