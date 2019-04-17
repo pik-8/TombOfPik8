@@ -126,6 +126,9 @@ public abstract class Effect {
 	public void setInstantApply(boolean instantApply) {
 		this.instantApply = instantApply;
 	}
+	protected void setOneOption (int index, float value) {
+        this.options[index] = value;
+    }
 
 	public boolean isRelevant() {
         return relevanze;

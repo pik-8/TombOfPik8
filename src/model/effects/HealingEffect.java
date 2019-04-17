@@ -25,6 +25,62 @@ public class HealingEffect extends Effect{
 		fillOptions(4);
 	}
 
+	/**
+	 * Von Hagen
+	 */
+	public HealingEffect (String name, String description, int duration, EffectType type, int value) {
+		super(name, description, duration, new int[4]);
+		setOption(type,value);
+	}
+
+	private void setOption (EffectType type, int value) {
+		switch (type) {
+			case FLAT_HEAL:
+				setOneOption(0, value);
+			case MAX_HEALTH_HEAL:
+				setOneOption(1, value);
+			case MISSING_HEALTH_HEAL:
+				setOneOption(2, value);
+			case CURRENT_HEALTH_HEAL:
+				setOneOption(3, value);
+		}
+	}
+
+	private int getOneOption (EffectType type) {
+		switch (type) {
+			case FLAT_HEAL:
+				return getOptions()[0];
+			case MAX_HEALTH_HEAL:
+				return getOptions()[1];
+			case MISSING_HEALTH_HEAL:
+				return getOptions()[2];
+			case CURRENT_HEALTH_HEAL:
+				return getOptions()[3];
+			default:
+				return 0;
+		}
+	}
+
+
+	/**
+	 * von Hagen
+	 *
+	 * @param cha
+	 * @param Test
+	 */
+	public void applyEffect(Character cha, int Test) {
+		SecondaryStats stats = cha.getSecondaryStats();
+		try {
+			stats.heal(getOneOption(EffectType.FLAT_HEAL));
+			stats.heal(getOneOption(EffectType.MAX_HEALTH_HEAL)/100 * stats.getMax_Hp());
+			stats.heal(getOneOption(EffectType.MISSING_HEALTH_HEAL)/100 * (stats.getMax_Hp() - stats.getHp()));
+			stats.heal(getOneOption(EffectType.CURRENT_HEALTH_HEAL)/100 * stats.getHp());
+		} catch(IllegalArgumentException e) {
+			setRelevanze(false);
+		}
+	}
+
+
 	@Override
 	public void applyEffect(Character cha) {
 		SecondaryStats stats = cha.getSecondaryStats();
