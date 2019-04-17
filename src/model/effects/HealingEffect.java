@@ -29,7 +29,7 @@ public class HealingEffect extends Effect{
 	 * Von Hagen
 	 */
 	public HealingEffect (String name, String description, int duration, EffectType type, int value) {
-		super(name, description, duration, new int[4]);
+		super(name, description, duration, new float[4]);
 		setOption(type,value);
 	}
 
