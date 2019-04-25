@@ -1,8 +1,21 @@
 package model.other;
 
+import constants.ExceptionConstants;
+
 import java.util.Objects;
 
+
+/**
+ * Contains every stat that a Hero (the player) can level up.
+ * They determine the level of secondary stats.
+ *
+ * The isSpecialised-boolean determines if a character improves at the beginning faster or later.
+ *
+ * @author Hagen
+ */
 public class PrimeStats {
+
+
 	private boolean isSpecialist;
 	private int level;
 
@@ -32,15 +45,17 @@ public class PrimeStats {
 	 */
 	public PrimeStats(boolean isSpecialist, int level, int healthLevel, int strengthLevel, int resistanceLevel,
 					  int intelligenceLevel, int magicLevel, int staminaLevel, int speedLevel, int toughnessLevel,
-					  int luckLevel) throws Exception{
-		
-		this.isSpecialist = Objects.requireNonNull(isSpecialist);
-		
-		primeStatsBuilder(new int[] {level, healthLevel, strengthLevel, resistanceLevel, intelligenceLevel, magicLevel, staminaLevel, speedLevel, toughnessLevel, luckLevel});
+					  int luckLevel) throws Exception
+	{
+		this.isSpecialist = isSpecialist;
+		primeStatsBuilder(new int[] {level, healthLevel, strengthLevel,
+				resistanceLevel, intelligenceLevel, magicLevel, staminaLevel, speedLevel, toughnessLevel, luckLevel});
 	}
+
 	
 	private void primeStatsBuilder (int[] params) throws Exception{
-		int[] stats = {this.level, this.healthLevel, this.strengthLevel, this.resistanceLevel, this.intelligenceLevel, this.magicLevel, this.staminaLevel, this.speedLevel, this.toughnessLevel, this.luckLevel};
+		int[] stats = {this.level, this.healthLevel, this.strengthLevel, this.resistanceLevel, this.intelligenceLevel,
+				this.magicLevel, this.staminaLevel, this.speedLevel, this.toughnessLevel, this.luckLevel};
 		for (int i = 0; i < params.length; i++) {
 			stats[i] = Objects.requireNonNull(params[i]);
 			checkLevel(stats[i]);
@@ -49,9 +64,11 @@ public class PrimeStats {
 	
 	private void checkLevel (int level) throws Exception {
 		if (level <= 0) {
-			throw new Exception("A Level is below 1.");
+			throw new Exception(ExceptionConstants.LEVEL_IS_NEGATIVE);
 		}
 	}
+
+
 
 	public void addLevel(int add) throws Exception {
 		this.level += add;
