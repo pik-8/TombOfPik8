@@ -1,6 +1,7 @@
 package model.effects;
 
 import model.dungeon.Square;
+import model.items.Equipment;
 import model.other.Character;
 
 /**
@@ -31,4 +32,6 @@ public class RootEffect extends Effect {
 
 	}
 
+	@Override
+	public void applyEffect(Equipment equip) {}
 }

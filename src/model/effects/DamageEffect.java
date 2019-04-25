@@ -1,39 +1,55 @@
 package model.effects;
 
 import model.dungeon.Square;
+import model.items.Equipment;
 import model.other.Character;
 import model.other.SecondaryStats;
 
 public class DamageEffect extends Effect {
 
-	/**
-	 * 
-	 * @param name The name of this effect.
-	 * @param description The description of this effect.
-	 * @param duration The duration of this effect. Can be used with lower damage values for a damage over time effect.
-	 * @param options damage: {flat, % max health, % missing health, % current health} 
-	 * Missing option values will be filled with zeros.
-	 */
-	public DamageEffect(String name, String description, int duration, float[] options) {
-		super(name, description, duration, options);
-		fillOptions(4);
+
+	private final float flatDamage;
+	private final float percentOfMaxHealthDamage;
+	private final float percentOfMissingHealthDamage;
+	private final float percentOfCurrentHealthDamage;
+
+	public DamageEffect(String name, String description, int duration, boolean instantApply, float flatDamage,
+						float percentOfMaxHealthDamage, float percentOfMissingHealthDamage,
+						float percentOfCurrentHealthDamage) {
+		super(name, description, duration, instantApply);
+		this.flatDamage = flatDamage;
+		this.percentOfMaxHealthDamage = percentOfMaxHealthDamage;
+		this.percentOfMissingHealthDamage = percentOfMissingHealthDamage;
+		this.percentOfCurrentHealthDamage = percentOfCurrentHealthDamage;
+	}
+
+
+	public DamageEffect(String name, String description, int duration, float flatDamage, float percentOfMaxHealthDamage,
+						float percentOfMissingHealthDamage, float percentOfCurrentHealthDamage) {
+		super(name, description, duration);
+		this.flatDamage = flatDamage;
+		this.percentOfMaxHealthDamage = percentOfMaxHealthDamage;
+		this.percentOfMissingHealthDamage = percentOfMissingHealthDamage;
+		this.percentOfCurrentHealthDamage = percentOfCurrentHealthDamage;
 	}
 
 	@Override
 	public void applyEffect(Character cha) {
 		SecondaryStats stats = cha.getSecondaryStats();
 		// The *-1 makes the function subtract the given hp instead of adding it.
-		stats.addHp((int)(getOptions()[0] * -1));
-		stats.addHp((int)(getOptions()[1]/100 * stats.getMax_Hp() * -1));
-		stats.addHp((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp()) * -1));
-		stats.addHp((int)(getOptions()[3]/100 * stats.getHp() * -1));			
+		stats.addHp((int) this.flatDamage * -1);
+		stats.addHp((int) this.percentOfMaxHealthDamage /100 * stats.getMax_Hp() * -1);
+		stats.addHp((int) this.percentOfMissingHealthDamage /100 * (stats.getMax_Hp() - stats.getHp()) * -1);
+		stats.addHp((int) this.percentOfCurrentHealthDamage /100 * stats.getHp() * -1);
 
 	}
 
 	@Override
 	public void applyEffect(Square square) {
-		square.setEffect(new DamageEffect(getName(), getDescription(), getDuration(), getOptions()));
-
+		square.setEffect(new DamageEffect(getName(), getDescription(), getDuration(), this.flatDamage,
+				this.percentOfMaxHealthDamage, this.percentOfMissingHealthDamage, this.percentOfCurrentHealthDamage));
 	}
 
+	@Override
+	public void applyEffect(Equipment equip) {}
 }

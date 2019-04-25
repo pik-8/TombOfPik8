@@ -10,7 +10,7 @@ import model.items.WeaponFactory;
  *
  * The development progress is splitted into model, view and control.
  *
-     * @author Hagen Stoever, Frederick Hastedt, Patrick Szalewicz
+ * @author Hagen Stoever, Frederick Hastedt, Patrick Szalewicz
  */
 public class TombOfPik8 {
 
