@@ -22,14 +22,12 @@ public class DamageEffect extends Effect {
 	@Override
 	public void applyEffect(Character cha) {
 		SecondaryStats stats = cha.getSecondaryStats();
-		try {
-			stats.heal((int)(getOptions()[0] * -1));
-			stats.heal((int)(getOptions()[1]/100 * stats.getMax_Hp() * -1));
-			stats.heal((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp()) * -1));
-			stats.heal((int)(getOptions()[3]/100 * stats.getHp() * -1));			
-		} catch(IllegalArgumentException e) {
-			setRelevanze(false);
-		}
+		// The *-1 makes the function subtract the given hp instead of adding it.
+		stats.addHp((int)(getOptions()[0] * -1));
+		stats.addHp((int)(getOptions()[1]/100 * stats.getMax_Hp() * -1));
+		stats.addHp((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp()) * -1));
+		stats.addHp((int)(getOptions()[3]/100 * stats.getHp() * -1));			
+
 	}
 
 	@Override

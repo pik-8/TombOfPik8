@@ -1,6 +1,7 @@
 package model.effects;
 
 import model.dungeon.Square;
+import model.items.Equipment;
 import model.other.Character;
 
 
@@ -24,46 +25,47 @@ public abstract class Effect {
 
     private int duration;
     private float[] options;
-    // If false, effect is first applied at the end of the round.
+    // If false, effect is applied before the character starts its turn.
     private boolean instantApply;
-    private boolean relevanze;
+    private boolean relevance;
 
     private void init(String name, String desc, int dur) {
     	this.name = name;
         this.description = desc;
         this.duration = dur;
-        
     }
     
     protected Effect(String name, String description, int duration) {
     	init(name, description, duration);
-    	this.relevanze = true;
+    	this.relevance = true;
     }
 
     protected Effect(String name, String description, int duration, boolean isRelevant) {
     	init(name, description, duration);
-        this.relevanze = false;
+        this.relevance = isRelevant;
     }
 
     protected Effect(String name, String description, int duration, float[] options) {
     	init(name, description, duration);
         this.options = options;
-        this.relevanze = true;
+        this.relevance = true;
     }
     
     protected Effect(String name, String description, int duration, float[] options, boolean isRelevant) {
     	init(name, description, duration);
         this.options = options;
-        this.relevanze = false;
+        this.relevance = isRelevant;
     }
-    
+        	
     public abstract void applyEffect (Character cha);
 
     public abstract void applyEffect (Square square);
+    
+    // public abstract void applyEffect (Equipment equip);
 
     protected void checkDurationAndRelevanze () {
         if (this.duration == 0) {
-            this.relevanze = false;
+            this.relevance = false;
         }
     }
 
@@ -118,6 +120,14 @@ public abstract class Effect {
     public float[] getOptions() {
 		return options;
 	}
+    
+    protected float getOneOption(int index) {
+    	return options[index];
+    }
+    
+    protected void setOneOption (int index, float value) {
+    	this.options[index] = value;
+    }
 
 	public boolean isInstantApply() {
 		return instantApply;
@@ -126,19 +136,16 @@ public abstract class Effect {
 	public void setInstantApply(boolean instantApply) {
 		this.instantApply = instantApply;
 	}
-	protected void setOneOption (int index, float value) {
-        this.options[index] = value;
-    }
 
 	public boolean isRelevant() {
-        return relevanze;
+        return relevance;
     }
 
     protected void setDuration(int duration) {
         this.duration = duration;
     }
 
-    protected void setRelevanze(boolean relevanze) {
-        this.relevanze = relevanze;
+    protected void setRelevance(boolean relevance) {
+        this.relevance = relevance;
     }
 }

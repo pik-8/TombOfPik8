@@ -1,7 +1,8 @@
 package utility;
 
+import static constants.balancing.PropertiesStats.*;
+
 import model.other.Hero;
-import static constants.PropertiesStats.*;
 
 /**
  * Utilitiy class, may die

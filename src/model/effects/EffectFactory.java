@@ -13,7 +13,7 @@ public class EffectFactory{
     public static Effect getEffect (Condition condition) {
         switch (condition) {
             case POISON:
-                return new PoisonEffect("", "");
+            	return new PoisonEffect("", "");
 
             case NONE:
                 return new CrushEffect("", "", false);

@@ -40,7 +40,7 @@ public abstract class Skill extends Attack {
     }
 
 
-    public abstract boolean checIfReady ();
+    public abstract boolean checkIfReady ();
 
 
 }

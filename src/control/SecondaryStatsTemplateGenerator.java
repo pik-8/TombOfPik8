@@ -16,11 +16,11 @@ public class SecondaryStatsTemplateGenerator {
 	
 	private static int max_Hp = 0;
 	private static int maxAction = 0;
-	private static int attack = 0;
-	private static int magicAttack = 0;
+	private static int attack = 50;
+	private static int magicAttack = 2;
 	private static int defence = 0;
 	private static int magicDefence = 0;
-	private static int speed = 0;
+	private static int speed = 5;
 	private static float attackResistance = 0;
 	private static int luck = 1337;
 
@@ -36,7 +36,7 @@ public class SecondaryStatsTemplateGenerator {
 		Gson gson = builder.create();
 		String jsonString = gson.toJson(generate());
 		try {
-			FileWriter fr = new FileWriter(templateName + ".txt");
+			FileWriter fr = new FileWriter(templateName + ".pik");
 			fr.write(jsonString);
 			fr.close();
 		} catch(Exception e) {

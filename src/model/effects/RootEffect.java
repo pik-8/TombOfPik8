@@ -19,13 +19,11 @@ public class RootEffect extends Effect {
 	 */
 	public RootEffect(String name, String description, int duration) {
 		super(name, description, duration);
-		this.setInstantApply(true);
 	}
-
 
 	@Override
 	public void applyEffect(Character cha) {
-		cha.getSecondaryStats().setSpeed(0);
+		cha.getSecondaryStats().setStamina(0);
 	}
 
 	@Override

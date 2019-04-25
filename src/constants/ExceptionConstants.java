@@ -28,6 +28,4 @@ public interface ExceptionConstants {
     final String EFFORT_IS_NEGATIVE = "The effort to pass a Terrain-Object may only be positive.";
     
     final String INVENTORY_IS_FULL = "The inventory is full, no more items can be added.";
-    
-    final String NEGATIVE_HEAL = "Cannot heal for a negative amount";
-}
+    }

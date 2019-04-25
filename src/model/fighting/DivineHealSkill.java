@@ -31,7 +31,7 @@ public class DivineHealSkill extends Skill {
 
 
     @Override
-    public boolean checIfReady() {
+    public boolean checkIfReady() {
         //TODO implement a conditin.
         return true;
     }

@@ -35,8 +35,8 @@ public class Tile {
         }
 
         boolean hasSize = false;
-        for (int size: ModelProperties.ALLOWED_TILE_SIZES){
-            if (field.length == size) {
+        for (int possibleSize: ModelProperties.ALLOWED_TILE_SIZES){
+            if (field.length == possibleSize) {
                 hasSize = true;
             }
         }

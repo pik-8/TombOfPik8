@@ -14,11 +14,16 @@ public class HealingEffect extends Effect{
 
 	/**
 	 * 
-	 * @param name The name of this effect.
-	 * @param description The description of this effect.
-	 * @param duration The duration of this effect. Can be used with lower healing values for a regeneration effect.
-	 * @param options {flat heal, % max health heal, % missing health heal, % current health heal} 
+	 * @param name: The name of this effect.
+	 * @param description: The description of this effect.
+	 * @param duration: The duration of this effect. Can be used with lower healing values for a regeneration effect.
+	 * @param options: {flat_heal, %_max_health_heal, %_missing_health_heal, %_current_health_heal} 
 	 * Missing option values will be filled with zeros.
+	 * 
+	 * flat_heal: 
+	 * %_max_health_heal: 
+	 * %_missing_health_heal: 
+	 * %_current_health_heal: 
 	 */
 	public HealingEffect(String name, String description, int duration, float[] options) {
 		super(name, description, duration, options);
@@ -26,71 +31,22 @@ public class HealingEffect extends Effect{
 	}
 
 	/**
-	 * Von Hagen
+	 * Returns a default HealingEffect that restores 50hp once.
 	 */
-	public HealingEffect (String name, String description, int duration, EffectType type, int value) {
-		super(name, description, duration, new float[4]);
-		setOption(type,value);
+	public HealingEffect() {
+		super("Healing Effect", "you get healed", 1, new float[]{50.0f, 0, 0, 0});
 	}
-
-	private void setOption (EffectType type, int value) {
-		switch (type) {
-			case FLAT_HEAL:
-				setOneOption(0, value);
-			case MAX_HEALTH_HEAL:
-				setOneOption(1, value);
-			case MISSING_HEALTH_HEAL:
-				setOneOption(2, value);
-			case CURRENT_HEALTH_HEAL:
-				setOneOption(3, value);
-		}
-	}
-
-	private float getOneOption (EffectType type) {
-		switch (type) {
-			case FLAT_HEAL:
-				return getOptions()[0];
-			case MAX_HEALTH_HEAL:
-				return getOptions()[1];
-			case MISSING_HEALTH_HEAL:
-				return getOptions()[2];
-			case CURRENT_HEALTH_HEAL:
-				return getOptions()[3];
-			default:
-				return 0;
-		}
-	}
-
-
-	/**
-	 * von Hagen
-	 *
-	 * @param cha
-	 * @param Test
-	 */
-	public void applyEffect(Character cha, int Test) {
-		SecondaryStats stats = cha.getSecondaryStats();
-		try {
-			stats.heal((int) getOneOption(EffectType.FLAT_HEAL));
-			stats.heal((int) (getOneOption(EffectType.MAX_HEALTH_HEAL)/100 * stats.getMax_Hp()));
-			stats.heal((int) (getOneOption(EffectType.MISSING_HEALTH_HEAL)/100 * (stats.getMax_Hp() - stats.getHp())));
-			stats.heal((int) (getOneOption(EffectType.CURRENT_HEALTH_HEAL)/100 * stats.getHp()));
-		} catch(IllegalArgumentException e) {
-			setRelevanze(false);
-		}
-	}
-
 
 	@Override
 	public void applyEffect(Character cha) {
 		SecondaryStats stats = cha.getSecondaryStats();
 		try {
-			stats.heal((int)getOptions()[0]);
-			stats.heal((int)(getOptions()[1]/100 * stats.getMax_Hp()));
-			stats.heal((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp())));
-			stats.heal((int)(getOptions()[3]/100 * stats.getHp()));			
+			stats.addHp((int)getOptions()[0]);
+			stats.addHp((int)(getOptions()[1]/100 * stats.getMax_Hp()));
+			stats.addHp((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp())));
+			stats.addHp((int)(getOptions()[3]/100 * stats.getHp()));			
 		} catch(IllegalArgumentException e) {
-			setRelevanze(false);
+			setRelevance(false);
 		}
 	}
 
