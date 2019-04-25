@@ -1,23 +1,27 @@
 package control;
 
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import model.effects.Effect;
+import model.items.Rarity;
 import model.items.Weapon;
 import model.json.AdapterFactories;
 import model.other.SecondaryStats;
 
 public class WeaponTemplateGenerator {
 
-	private static String templateName = "myFirstWeapon";
+	private static String templateName = "CommonWeapon";
 	
-	private static String name = "";
-	private static String description = "lolNice";
+	private static String name = "Old Rusty Dagger";
+	private static String description = "Getting hit with this is probably unhealthy.";
+	private static Rarity rarity = Rarity.COMMON;
 	
 	private static Effect effect = EffectTemplateGenerator.generate();
+	private static Effect onHitEffect = EffectTemplateGenerator.generate("Sepsis", "Thats not stuff you want running through your veins.", 1, new float[]{0, 20, 0, 0});
 	private static SecondaryStats stats = SecondaryStatsTemplateGenerator.generate();
 	
 	public static void main(String[] args) {
@@ -29,13 +33,7 @@ public class WeaponTemplateGenerator {
 		String jsonString = gson.toJson(generate());
 		System.out.println(jsonString);
 		
-		
-		Weapon weapon = gson.fromJson(jsonString, Weapon.class);
-		
-		
-		System.out.println(weapon.getDescription());
-		System.out.println(weapon.getEffects().get(0).getOptions()[0]);
-		
+		Weapon weapon = gson.fromJson(jsonString, Weapon.class);	
 		
 		try {
 			FileWriter fr = new FileWriter(templateName + ".txt");
@@ -47,7 +45,9 @@ public class WeaponTemplateGenerator {
 	}
 	
 	public static Weapon generate() {
-		return new Weapon(name, description, stats, effect);
+		ArrayList<Effect> onHit = new ArrayList<Effect>();
+		onHit.add(onHitEffect);
+		return new Weapon(name, description, stats, rarity, new ArrayList<Effect>(), onHit);
 	}
 
 }

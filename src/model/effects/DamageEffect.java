@@ -14,7 +14,7 @@ public class DamageEffect extends Effect {
 	 * @param options damage: {flat, % max health, % missing health, % current health} 
 	 * Missing option values will be filled with zeros.
 	 */
-	public DamageEffect(String name, String description, int duration, int[] options) {
+	public DamageEffect(String name, String description, int duration, float[] options) {
 		super(name, description, duration, options);
 		fillOptions(4);
 	}
@@ -23,10 +23,10 @@ public class DamageEffect extends Effect {
 	public void applyEffect(Character cha) {
 		SecondaryStats stats = cha.getSecondaryStats();
 		try {
-			stats.heal(getOptions()[0] * -1);
-			stats.heal(getOptions()[1]/100 * stats.getMax_Hp() * -1);
-			stats.heal(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp()) * -1);
-			stats.heal(getOptions()[3]/100 * stats.getHp() * -1);			
+			stats.heal((int)(getOptions()[0] * -1));
+			stats.heal((int)(getOptions()[1]/100 * stats.getMax_Hp() * -1));
+			stats.heal((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp()) * -1));
+			stats.heal((int)(getOptions()[3]/100 * stats.getHp() * -1));			
 		} catch(IllegalArgumentException e) {
 			setRelevanze(false);
 		}

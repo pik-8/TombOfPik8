@@ -14,7 +14,7 @@ import static constants.EffectProperties.DAMAGE_FACTOR_FOR_POISON;
  *
  * @author Hagen
  */
-class PoisonEffect extends Effect {
+public class PoisonEffect extends Effect {
 
 
     private int counter;

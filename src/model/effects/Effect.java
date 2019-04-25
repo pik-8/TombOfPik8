@@ -23,14 +23,16 @@ public abstract class Effect {
     private String description;
 
     private int duration;
-    private int[] options;
+    private float[] options;
+    // If false, effect is first applied at the end of the round.
+    private boolean instantApply;
     private boolean relevanze;
 
     private void init(String name, String desc, int dur) {
     	this.name = name;
         this.description = desc;
         this.duration = dur;
-
+        
     }
     
     protected Effect(String name, String description, int duration) {
@@ -43,13 +45,13 @@ public abstract class Effect {
         this.relevanze = false;
     }
 
-    protected Effect(String name, String description, int duration, int[] options) {
+    protected Effect(String name, String description, int duration, float[] options) {
     	init(name, description, duration);
         this.options = options;
         this.relevanze = true;
     }
     
-    protected Effect(String name, String description, int duration, int[] options, boolean isRelevant) {
+    protected Effect(String name, String description, int duration, float[] options, boolean isRelevant) {
     	init(name, description, duration);
         this.options = options;
         this.relevanze = false;
@@ -79,9 +81,9 @@ public abstract class Effect {
      * @param toLength The length to extend to.
      * @return The extended array.
      */
-    protected int[] lengthenArray(int[] array, int toLength) {
+    protected float[] lengthenArray(float[] array, int toLength) {
     	if(array.length < toLength) {
-			int[] tmp = new int[toLength];
+			float[] tmp = new float[toLength];
 			for(int i = 0; i < toLength; i++) {
 				if(i < array.length)
 					tmp[i] = array[i];
@@ -113,9 +115,20 @@ public abstract class Effect {
         return duration;
     }
 
-    public int[] getOptions() {
+    public float[] getOptions() {
 		return options;
 	}
+
+	public boolean isInstantApply() {
+		return instantApply;
+	}
+
+	public void setInstantApply(boolean instantApply) {
+		this.instantApply = instantApply;
+	}
+	protected void setOneOption (int index, float value) {
+        this.options[index] = value;
+    }
 
 	public boolean isRelevant() {
         return relevanze;

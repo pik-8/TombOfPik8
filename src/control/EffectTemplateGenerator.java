@@ -5,9 +5,9 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import model.effects.DamageEffect;
 import model.effects.Effect;
 import model.effects.HealingEffect;
-import model.items.Weapon;
 
 public class EffectTemplateGenerator {
 
@@ -17,7 +17,7 @@ public class EffectTemplateGenerator {
 	private static String description = "";
 	
 	private static int duration = 1;
-	private static int[] options = {10,0,0,0};
+	private static float[] options = {10,0,0,0};
 	
 	private static boolean relevanze = true;
 	
@@ -43,5 +43,9 @@ public class EffectTemplateGenerator {
 	public static Effect generate() {
 		return new HealingEffect(name, description, 
 						duration, options);
+	}
+	
+	public static Effect generate(String name, String desc, int duration, float[] options) {
+		return new DamageEffect(name, desc, duration, options);
 	}
 }
