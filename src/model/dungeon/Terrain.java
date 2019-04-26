@@ -13,9 +13,9 @@ import model.effects.*;
  */
 public enum Terrain {
 
-    NONE (1, EffectFactory.getEffect(Condition.NONE)),
+    NONE (1, null),
     TREE(10, EffectFactory.getEffect(Condition.POISON)), //For Example
-    BEDROCK(999999999, EffectFactory.getEffect(Condition.NONE));
+    BEDROCK(999999999, null);
 
 
     private int effortToPass;

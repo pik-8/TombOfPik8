@@ -29,8 +29,17 @@ public class TombOfPik8 {
 		System.out.println(i++);
 		Trinket wp = wf.generateRandomTrinket(50);
 
-		generateALotDungeon();
+		//generateALotDungeon();
 
+		DungeonFactory df = new DungeonFactory();
+
+		GsonBuilder gBuild = new GsonBuilder();
+		gBuild.setPrettyPrinting();
+		Gson gson = gBuild.create();
+
+
+		String jsonString = gson.toJson(df.generateRandomDungeon(10, new Position(0,0), 5, 5, Landscape.values()));
+		System.out.println(jsonString);
     	
 //    	System.out.println("Name: " + wp.getName());
 //    	System.out.println("Description: " + wp.getDescription());
