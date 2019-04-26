@@ -1,6 +1,7 @@
 package model.effects;
 
 import model.dungeon.Square;
+import model.items.Equipment;
 import model.other.Character;
 
 /**
@@ -19,13 +20,11 @@ public class RootEffect extends Effect {
 	 */
 	public RootEffect(String name, String description, int duration) {
 		super(name, description, duration);
-		this.setInstantApply(true);
 	}
-
 
 	@Override
 	public void applyEffect(Character cha) {
-		cha.getSecondaryStats().setSpeed(0);
+		cha.getSecondaryStats().setStamina(0);
 	}
 
 	@Override
@@ -33,4 +32,6 @@ public class RootEffect extends Effect {
 
 	}
 
+	@Override
+	public void applyEffect(Equipment equip) {}
 }

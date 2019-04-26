@@ -1,6 +1,7 @@
 package model.effects;
 
 import model.dungeon.Square;
+import model.items.Equipment;
 import model.other.Character;
 import model.other.SecondaryStats;
 
@@ -12,91 +13,71 @@ import model.other.SecondaryStats;
  */
 public class HealingEffect extends Effect{
 
+	private final float flatHeal;
+	private final float percentOfMaxHealthHeal;
+	private final float percentOfMissingHealthHeal;
+	private final float percentOfCurrentHealthHeal;
+
+
 	/**
 	 * 
-	 * @param name The name of this effect.
-	 * @param description The description of this effect.
-	 * @param duration The duration of this effect. Can be used with lower healing values for a regeneration effect.
-	 * @param options {flat heal, % max health heal, % missing health heal, % current health heal} 
+	 * @param name: The name of this effect.
+	 * @param description: The description of this effect.
+	 * @param duration: The duration of this effect. Can be used with lower healing values for a regeneration effect.
 	 * Missing option values will be filled with zeros.
+	 * 
+	 * flat_heal: 
+	 * %_max_health_heal: 
+	 * %_missing_health_heal: 
+	 * %_current_health_heal: 
 	 */
-	public HealingEffect(String name, String description, int duration, float[] options) {
-		super(name, description, duration, options);
-		fillOptions(4);
+	public HealingEffect(String name, String description, int duration, boolean instantApply, float flatHeal, float percentOfMaxHealthHeal, float percentOfMissingHealthHeal, float percentOfCurrentHealthHeal) {
+		super(name, description, duration, instantApply);
+		this.flatHeal = flatHeal;
+		this.percentOfMaxHealthHeal = percentOfMaxHealthHeal;
+		this.percentOfMissingHealthHeal = percentOfMissingHealthHeal;
+		this.percentOfCurrentHealthHeal = percentOfCurrentHealthHeal;
+	}
+
+
+	public HealingEffect(String name, String description, int duration, float flatHeal, float percentOfMaxHealthHeal, float percentOfMissingHealthHeal, float percentOfCurrentHealthHeal) {
+		super(name, description, duration);
+		this.flatHeal = flatHeal;
+		this.percentOfMaxHealthHeal = percentOfMaxHealthHeal;
+		this.percentOfMissingHealthHeal = percentOfMissingHealthHeal;
+		this.percentOfCurrentHealthHeal = percentOfCurrentHealthHeal;
 	}
 
 	/**
-	 * Von Hagen
+	 * Returns a default HealingEffect that restores 50hp once.
 	 */
-	public HealingEffect (String name, String description, int duration, EffectType type, int value) {
-		super(name, description, duration, new float[4]);
-		setOption(type,value);
+	public HealingEffect() {
+		super("Healing Effect", "you get healed", 1);
+		this.flatHeal = 50f;
+		this.percentOfMaxHealthHeal = 0f;
+		this.percentOfMissingHealthHeal = 0f;
+		this.percentOfCurrentHealthHeal = 0f;
 	}
-
-	private void setOption (EffectType type, int value) {
-		switch (type) {
-			case FLAT_HEAL:
-				setOneOption(0, value);
-			case MAX_HEALTH_HEAL:
-				setOneOption(1, value);
-			case MISSING_HEALTH_HEAL:
-				setOneOption(2, value);
-			case CURRENT_HEALTH_HEAL:
-				setOneOption(3, value);
-		}
-	}
-
-	private float getOneOption (EffectType type) {
-		switch (type) {
-			case FLAT_HEAL:
-				return getOptions()[0];
-			case MAX_HEALTH_HEAL:
-				return getOptions()[1];
-			case MISSING_HEALTH_HEAL:
-				return getOptions()[2];
-			case CURRENT_HEALTH_HEAL:
-				return getOptions()[3];
-			default:
-				return 0;
-		}
-	}
-
-
-	/**
-	 * von Hagen
-	 *
-	 * @param cha
-	 * @param Test
-	 */
-	public void applyEffect(Character cha, int Test) {
-		SecondaryStats stats = cha.getSecondaryStats();
-		try {
-			stats.heal((int) getOneOption(EffectType.FLAT_HEAL));
-			stats.heal((int) (getOneOption(EffectType.MAX_HEALTH_HEAL)/100 * stats.getMax_Hp()));
-			stats.heal((int) (getOneOption(EffectType.MISSING_HEALTH_HEAL)/100 * (stats.getMax_Hp() - stats.getHp())));
-			stats.heal((int) (getOneOption(EffectType.CURRENT_HEALTH_HEAL)/100 * stats.getHp()));
-		} catch(IllegalArgumentException e) {
-			setRelevanze(false);
-		}
-	}
-
 
 	@Override
 	public void applyEffect(Character cha) {
 		SecondaryStats stats = cha.getSecondaryStats();
-		try {
-			stats.heal((int)getOptions()[0]);
-			stats.heal((int)(getOptions()[1]/100 * stats.getMax_Hp()));
-			stats.heal((int)(getOptions()[2]/100 * (stats.getMax_Hp() - stats.getHp())));
-			stats.heal((int)(getOptions()[3]/100 * stats.getHp()));			
-		} catch(IllegalArgumentException e) {
-			setRelevanze(false);
-		}
+		stats.addHp((int) this.flatHeal);
+		stats.addHp((int) this.percentOfMaxHealthHeal/100 * stats.getMax_Hp());
+		stats.addHp((int) this.percentOfMissingHealthHeal/100 * (stats.getMax_Hp() - stats.getHp()));
+		stats.addHp((int) this.percentOfCurrentHealthHeal/100 * stats.getHp());
 	}
 
 	@Override
 	public void applyEffect(Square square) {
-		square.setEffect(new HealingEffect(getName(), getDescription(), getDuration(), getOptions()));
+		try {
+			square.setEffect((HealingEffect) this.clone());
+		} catch (Exception e) {
+			square.setEffect(new HealingEffect(getName(), getDescription(), getDuration(), isInstantApply(), this.flatHeal, this.percentOfMaxHealthHeal, this.percentOfMissingHealthHeal, this.percentOfCurrentHealthHeal));
+		}
+
 	}
 
+	@Override
+	public void applyEffect(Equipment equip) {}
 }

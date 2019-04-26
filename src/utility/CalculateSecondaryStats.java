@@ -1,10 +1,15 @@
 package utility;
 
+import static constants.balancing.PropertiesStats.*;
+
 import model.other.Hero;
-import static constants.PropertiesStats.*;
 
 /**
- * Utilitiy class, may die
+ * This class will calculate every value inside the SecondaryStats-Class.
+ * Has method's that return the value or automatically set them.
+ *
+ * @ author Hagen
+ * (Was imported from an old project.)
  */
 public class CalculateSecondaryStats {
 
@@ -12,6 +17,13 @@ public class CalculateSecondaryStats {
     private CalculateSecondaryStats () {}
 
 
+    /**
+     * Determines the value of an stat by the level of at least one primeStat and predefined softcaps and scales,
+     * that ccan be seen in constants.balancing.PropertiesStats
+     *
+     * @param hero: The Hero which stat should be calculated.
+     * @return the value of the stat
+     */
     public static int maxHealthByLevel(Hero hero)
     {
         int deltaLevel = 0;
@@ -581,8 +593,14 @@ public class CalculateSecondaryStats {
     }
 
 
+
+
+    public static void setMaxAttackByLevel (Hero hero) {
+        hero.getSecondaryStats().setAttack(CalculateSecondaryStats.maxAttackByLevel(hero));
+    }
+
     public static void setMaxHealthByLevel (Hero hero) {
-        hero.getSecondaryStats().setMax_Hp(CalculateSecondaryStats.maxActionByLevel(hero));
+        hero.getSecondaryStats().setMax_Hp(CalculateSecondaryStats.maxHealthByLevel(hero));
     }
 
     public static void setMaxActionByLevel (Hero hero) {

@@ -76,15 +76,24 @@ public class SecondaryStats {
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
-	public void heal(int hp) throws IllegalArgumentException {
-		if(hp >= 0)
-			if(this.hp + hp > this.max_Hp)
-				this.hp = this.max_Hp;
-			else
-				this.hp += hp;
+	
+	/**
+	 * Adds an amount of hp to the character. If the amount plus the current hp exceeds the maximum hp or is less than zero,
+	 * it is handled appropriatly.
+	 * The amount of hp can be negative
+	 * @param amount The amount of hp to add.
+	 */
+	public void addHp(int amount) {
+		if(this.hp + amount > this.max_Hp)
+			this.hp = this.max_Hp;
+		else if(this.hp + amount < 0)
+			this.hp = 0;
 		else
-			throw new IllegalArgumentException(ExceptionConstants.NEGATIVE_HEAL);	
+			this.hp += amount;
 	}
+	
+	
+	
 	public int getAction() {
 		return this.action;
 	}

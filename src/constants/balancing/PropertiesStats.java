@@ -1,6 +1,6 @@
-package constants;
+package constants.balancing;
 
-public class PropertiesStats {
+public interface PropertiesStats {
 
     //-----------HEALTH-----------HEALTH-----------HEALTH-----------HEALTH-----------HEALTH-----------HEALTH-----------HEALTH-----------HEALTH---------------
 

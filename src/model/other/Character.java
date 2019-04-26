@@ -24,7 +24,6 @@ public class Character {
 
     private Inventory inventory;
 
-    private Effect effect;
     private Attack[] attacks;
     private Skill[] skills;
 
@@ -46,7 +45,6 @@ public class Character {
     public Character(String name, Inventory inventory, Effect effect, Attack[] attacks, Skill[] skills, SecondaryStats secondaryStats, int exp) throws IllegalArgumentException, NullPointerException{
         setName(name);
         setInventory(inventory);
-        setEffect(effect);
         setAttacks(attacks);
         setSkills(skills);
         setSecondaryStats(secondaryStats);
@@ -70,13 +68,6 @@ public class Character {
         this.inventory = Objects.requireNonNull(inventory);
     }
 
-    public Effect getEffect() {
-        return effect;
-    }
-
-    public void setEffect(Effect effect) {
-        this.effect = Objects.requireNonNull(effect);
-    }
 
     public Attack[] getAttacks() {
         return attacks;

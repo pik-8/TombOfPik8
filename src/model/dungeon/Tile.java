@@ -18,14 +18,26 @@ import static constants.ExceptionConstants.*;
 public class Tile {
 
     private Square[][] layout;
+    private Landscape landscape;
 
     private int size;
 
-    protected Tile (Square[][] layout) throws IllegalArgumentException, NullPointerException{
+    public Tile (Square[][] layout, Landscape landscape) throws IllegalArgumentException, NullPointerException{
         checkLayout(Objects.requireNonNull(layout));
         this.layout = layout;
         this.size = layout.length;
+        this.landscape = landscape;
     }
+
+
+    public Tile (int size, Landscape landscape) {
+        this.size = size;
+        checkSize(size);
+        this.landscape = landscape;
+        utility.TileGenerator.generateSquaresAsTiel(size, landscape);
+        //should here also be checked if the squares are valid?
+    }
+
 
     private void checkLayout (Square[][] field) throws IllegalArgumentException{
         for (int x = 0; x < field.length; x++) {
@@ -34,9 +46,13 @@ public class Tile {
             }
         }
 
+        checkSize(field.length);
+    }
+
+    private void checkSize (int size) {
         boolean hasSize = false;
-        for (int size: ModelProperties.ALLOWED_TILE_SIZES){
-            if (field.length == size) {
+        for (int possibleSize: ModelProperties.ALLOWED_TILE_SIZES){
+            if (size == possibleSize) {
                 hasSize = true;
             }
         }

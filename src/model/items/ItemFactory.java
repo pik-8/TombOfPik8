@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
-import constants.BalancingConstants;
+import constants.balancing.Factors;
 import model.json.AdapterFactories;
 import model.other.SecondaryStats;
 
@@ -40,8 +40,8 @@ public abstract class ItemFactory {
 	 * @return
 	 */
 	protected SecondaryStats randomiseSecStats(SecondaryStats stats, int level) {
-		double levelMultiplicator = Math.pow(1 + BalancingConstants.ITEM_STAT_INCREASE_MULTIPLIER, level);
-		double deviation = 1 + (rand.nextDouble() - 0.5) * BalancingConstants.WEAPON_DAMAGE_DEVIATION * 2;
+		double levelMultiplicator = Math.pow(1 + Factors.ITEM_STAT_INCREASE_MULTIPLIER, level);
+		double deviation = 1 + (rand.nextDouble() - 0.5) * Factors.WEAPON_DAMAGE_DEVIATION * 2;
 		
 		stats.setAttack((int)(stats.getAttack() * levelMultiplicator * deviation));
 		stats.setMagicAttack((int)(stats.getMagicAttack() * levelMultiplicator * deviation));

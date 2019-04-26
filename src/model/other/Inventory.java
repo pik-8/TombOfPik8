@@ -28,6 +28,7 @@ public class Inventory {
 	
 	public Inventory () {
 		init();
+		size = Constants.INVENTORY_IS_INFINITE;
 	}
 	
 	public Inventory (int size) {
@@ -48,7 +49,6 @@ public class Inventory {
 		
 		itemCount = 0;
 		money = 0;
-		size = Constants.INVENTORY_IS_INFINITE;
 	}
 	
 	private boolean incrementItemCount() {

@@ -32,7 +32,7 @@ public class EffectTemplateGenerator {
 		HealingEffect effect = gson.fromJson(jsonString, HealingEffect.class);
 		
 		try {
-			FileWriter fr = new FileWriter(templateName + ".txt");
+			FileWriter fr = new FileWriter(templateName + ".pik");
 			fr.write(jsonString);
 			fr.close();
 		} catch(Exception e) {

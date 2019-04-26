@@ -3,7 +3,6 @@ package model.json;
 import model.effects.DamageEffect;
 import model.effects.Effect;
 import model.effects.HealingEffect;
-import model.effects.ParalysisEffect;
 import model.effects.RootEffect;
 
 /**

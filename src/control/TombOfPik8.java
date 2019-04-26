@@ -10,13 +10,13 @@ import model.items.WeaponFactory;
  *
  * The development progress is splitted into model, view and control.
  *
-     * @author Hagen Stoever, Frederick Hastedt, Patrick Szalewicz
+ * @author Hagen Stoever, Frederick Hastedt, Patrick Szalewicz
  */
 public class TombOfPik8 {
 
 
     public static void main (String args[]) {
-        tests.DungeonTests.testGoThrough();
+        //tests.DungeonTests.testGoThrough();
     	WeaponFactory wf = new WeaponFactory();
     	Weapon wp = wf.generateRandomWeapon(5);
     	System.out.println("Name: " + wp.getName());
