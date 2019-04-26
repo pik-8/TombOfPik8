@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import model.characters.SecondaryStats;
 import model.effects.Effect;
 import model.items.Rarity;
 import model.items.Weapon;
 import model.json.AdapterFactories;
-import model.other.SecondaryStats;
 
 public class WeaponTemplateGenerator {
 

@@ -1,7 +1,6 @@
 package tests;
 
 import model.dungeon.*;
-import model.other.Position;
 
 public class DungeonTests {
 

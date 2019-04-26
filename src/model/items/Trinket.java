@@ -2,9 +2,9 @@ package model.items;
 
 import java.util.ArrayList;
 
+import model.characters.PrimeStats;
+import model.characters.SecondaryStats;
 import model.effects.Effect;
-import model.other.PrimeStats;
-import model.other.SecondaryStats;
 
 public class Trinket extends Equipment {
 

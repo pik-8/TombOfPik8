@@ -2,8 +2,8 @@ package model.items;
 
 import java.util.ArrayList;
 
+import model.characters.SecondaryStats;
 import model.effects.Effect;
-import model.other.SecondaryStats;
 
 
 /**
