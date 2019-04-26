@@ -32,6 +32,14 @@ public class DamageEffect extends Effect {
 		this.percentOfMissingHealthDamage = percentOfMissingHealthDamage;
 		this.percentOfCurrentHealthDamage = percentOfCurrentHealthDamage;
 	}
+	
+	public DamageEffect() {
+		super("Damage", "Damage was dealt", 1);
+		this.flatDamage = 20;
+		this.percentOfMaxHealthDamage = 0;
+		this.percentOfMissingHealthDamage = 0;
+		this.percentOfCurrentHealthDamage = 0;
+	}
 
 	@Override
 	public void applyEffect(Character cha) {

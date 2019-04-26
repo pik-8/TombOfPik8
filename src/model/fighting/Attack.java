@@ -21,8 +21,9 @@ public class Attack {
     private int magicDamage;
     private int accuracy;
     private int requiredSlots;
-
+   
     private Effect effect;
+    private AttackPattern attackPattern;
 
 
     /**
@@ -43,9 +44,9 @@ public class Attack {
      *                 Throws an IllegalArgumentException, if accuracy < 0
      * @param requiredSlots How many slots this attack will be using.
      *                      Throws an IllegalArgumentException, if requiredSlots < 0
-     * @param effect The effect that will be bestowed on enemys and squares.
+     * @param effect The effect that will be bestowed on enemies and squares.
      */
-    public Attack(String name, String description, int damage, int magicDamage, int accuracy, int requiredSlots, Effect effect)
+    public Attack(String name, String description, int damage, int magicDamage, int accuracy, int requiredSlots, Effect effect, AttackPattern ap)
             throws Exception
     {
         checkParams(damage, magicDamage, accuracy, requiredSlots);
@@ -54,7 +55,9 @@ public class Attack {
         this.damage = damage;
         this.magicDamage = magicDamage;
         this.accuracy = accuracy;
-        this.effect = Objects.requireNonNull(effect);
+        this.requiredSlots = requiredSlots;
+        this.effect = effect;
+        this.attackPattern = ap;
     }
 
 

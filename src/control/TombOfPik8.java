@@ -3,10 +3,9 @@ package control;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import model.characters.PrimeStats;
-import model.characters.SecondaryStats;
-import model.effects.HealingEffect;
-import model.items.Rarity;
+import model.effects.DamageEffect;
+import model.fighting.Attack;
+import model.fighting.AttackPattern;
 import model.items.Trinket;
 import model.items.TrinketFactory;
 import model.json.AdapterFactories;
@@ -33,17 +32,15 @@ public class TombOfPik8 {
 //    	System.out.println("Description: " + wp.getDescription());
 //    	System.out.println("Magic Defense: " + wp.getSecStats().getMagicDefence());
 
-//    	try {
-//    		Trinket trinket = new Trinket("Plain Necklace", 
-//    				"You found this just laying around. Seems to be mostly worthless.", 
-//    				new SecondaryStats(0,0,0,0,0,0,10,10,5,0,0,10,0,0,0), 
-//    				Rarity.COMMON,
-//    				new HealingEffect(),
-//    				new PrimeStats(false, 0, 10, 0,0,0,0,0,0,0,0));    		
-////    		generateTemplate(trinket);
-//    	} catch (Exception e) {
-//    		System.out.println(e.getMessage());
-//    	}
+    	try {
+    		Attack attack = new Attack("Basic Attack", "Hit them.", 100, 100, 100, 1, null, 
+    				new AttackPattern(new float[][] {{0,1,0},
+    					{0,-1,0}
+    				}, new DamageEffect[][] {{null, new DamageEffect(), null},{null, null, null}} ));    		
+    		generateTemplate(attack);
+    	} catch (Exception e) {
+    		System.out.println(e.getMessage());
+    	}
     	
     	
     }

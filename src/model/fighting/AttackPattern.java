@@ -56,7 +56,7 @@ public class AttackPattern {
                 if (oneField < 0) {
                     attackerCounter++;
                 }
-                if (attackerCounter < 1) {
+                if (attackerCounter > 1) {
                     throw new IllegalArgumentException(ATTACK_PATTERN_TOO_MANY_NEGATIVE_NUMBERS);
                 }
             }

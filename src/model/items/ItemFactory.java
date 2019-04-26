@@ -33,7 +33,6 @@ public abstract class ItemFactory {
 	protected Random rand;
 	
 	protected void init() {
-		
 		common = new ArrayList<Item>();
 		rare = new ArrayList<Item>();
 		epic = new ArrayList<Item>();

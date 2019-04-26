@@ -22,10 +22,14 @@ public class TemplateReader {
 	 * @return The JsonObject created from the file.
 	 */
 	public static JsonObject readTemplateAsJsonObject(String path) {
+		return readTemplateAsJsonObject(new File(path));
+	}
+	
+	public static JsonObject readTemplateAsJsonObject(File file) {
 		JsonObject jsonObject = new JsonObject();
 		try {
 			JsonParser parse = new JsonParser();
-			JsonElement jsonElement = parse.parse(new FileReader(path));
+			JsonElement jsonElement = parse.parse(new FileReader(file));
 			jsonObject = jsonElement.getAsJsonObject();
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
