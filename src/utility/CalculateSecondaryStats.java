@@ -2,7 +2,7 @@ package utility;
 
 import static constants.balancing.PropertiesStats.*;
 
-import model.other.Hero;
+import model.characters.Hero;
 
 /**
  * This class will calculate every value inside the SecondaryStats-Class.

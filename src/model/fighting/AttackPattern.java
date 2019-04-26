@@ -1,7 +1,8 @@
 package model.fighting;
 
+import model.dungeon.Position;
 import model.effects.Effect;
-import model.other.Position;
+
 import org.omg.PortableServer.POA;
 
 import static constants.ExceptionConstants.*;

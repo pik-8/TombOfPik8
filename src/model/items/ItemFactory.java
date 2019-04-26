@@ -8,8 +8,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 import constants.balancing.Factors;
+import model.characters.SecondaryStats;
 import model.json.AdapterFactories;
-import model.other.SecondaryStats;
 
 /**
  * 

@@ -1,5 +1,6 @@
 package model.other;
 
+import model.characters.Hero;
 import model.overworld.Overworld;
 
 

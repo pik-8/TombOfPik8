@@ -1,4 +1,4 @@
-package model.other;
+package model.dungeon;
 
 public class Position {
 

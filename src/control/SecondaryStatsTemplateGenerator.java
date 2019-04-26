@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import model.other.SecondaryStats;
+import model.characters.SecondaryStats;
 
 public class SecondaryStatsTemplateGenerator {
 

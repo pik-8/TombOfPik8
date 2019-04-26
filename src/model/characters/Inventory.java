@@ -1,4 +1,4 @@
-package model.other;
+package model.characters;
 
 import java.util.ArrayList;
 import java.util.HashMap;

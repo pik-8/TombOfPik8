@@ -3,8 +3,8 @@ package model.items;
 import java.util.Random;
 
 import constants.balancing.Factors;
-import model.other.PrimeStats;
-import model.other.SecondaryStats;
+import model.characters.PrimeStats;
+import model.characters.SecondaryStats;
 
 /**
  * 

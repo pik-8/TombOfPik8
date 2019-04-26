@@ -1,8 +1,9 @@
-package model.other;
+package model.characters;
 
 import model.effects.Effect;
 import model.fighting.Attack;
 import model.fighting.Skill;
+import model.other.Statistics;
 
 import java.util.Objects;
 

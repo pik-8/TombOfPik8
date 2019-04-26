@@ -1,4 +1,4 @@
-package model.other;
+package model.characters;
 
 import constants.ExceptionConstants;
 

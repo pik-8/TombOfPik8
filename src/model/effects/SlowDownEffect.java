@@ -1,9 +1,9 @@
 package model.effects;
 
+import model.characters.Character;
+import model.characters.SecondaryStats;
 import model.dungeon.Square;
 import model.items.Equipment;
-import model.other.Character;
-import model.other.SecondaryStats;
 
 
 /**

@@ -3,13 +3,13 @@ package control;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import model.characters.PrimeStats;
+import model.characters.SecondaryStats;
 import model.effects.HealingEffect;
 import model.items.Rarity;
 import model.items.Trinket;
 import model.items.TrinketFactory;
 import model.json.AdapterFactories;
-import model.other.PrimeStats;
-import model.other.SecondaryStats;
 
 /**
  * The project for the Prog2 module, in which we are supposed to create an dungeon-crawler
