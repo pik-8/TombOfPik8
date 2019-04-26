@@ -31,6 +31,7 @@ public class Volume extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        // Create the sliders
         Slider GeneralVolumeSlider = new Slider(0, 100, 50);
         GeneralVolumeSlider.setShowTickLabels(true);
         GeneralVolumeSlider.setShowTickMarks(true);
@@ -56,3 +57,4 @@ public class Volume extends Application {
 
     }
 }
+

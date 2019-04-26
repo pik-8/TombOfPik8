@@ -27,6 +27,8 @@ public class Options extends Application {
     }
 
     Button btn;
+    Label labl;
+    Slider slider;
 
     @Override
     public void start(Stage primaryStage)
@@ -35,6 +37,18 @@ public class Options extends Application {
         btn = new Button();
         btn.setText("Easy");
         btn.setOnAction(e -> buttonClick());
+
+        // Create the label
+        labl = new Label("Difficulty");
+
+        // Create the slider
+        slider = new Slider();
+        slider.setMin(0);
+        slider.setMax(100);
+        slider.setValue(50);
+        slider.setShowTickLabels(true);
+        slider.setShowTickMarks(true);
+        slider.setBlockIncrement(10);
 
         // Add the button to a layout pane
         BorderPane pane = new BorderPane();
@@ -63,3 +77,4 @@ public class Options extends Application {
         }
     }
 }
+
