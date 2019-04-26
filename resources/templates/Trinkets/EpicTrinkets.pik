@@ -1,0 +1,74 @@
+{"array":[
+  {"primeStats": {
+    "isSpecialist": false,
+    "level": 0,
+    "healthLevel": 0,
+    "strengthLevel": 0,
+    "resistanceLevel": 20,
+    "intelligenceLevel": 0,
+    "magicLevel": 0,
+    "staminaLevel": 0,
+    "speedLevel": 0,
+    "toughnessLevel": 20,
+    "luckLevel": 0
+  },
+  "secStats": {
+    "hp": 0,
+    "action": 0,
+    "max_Hp": 0,
+    "maxAction": 0,
+    "attack": 0,
+    "magicAttack": 0,
+    "defence": 0,
+    "magicDefence": 0,
+    "speed": 0,
+    "attackResistance": 0.0,
+    "luck": 0,
+    "load": 0,
+    "maxEquipmentLoad": 0,
+    "stamina": 0,
+    "attackSlots": 0
+  },
+  "name": "Sunglasses",
+  "description": "You look really really cool with these on.",
+  "effects": [],
+  "rarity": "EPIC"}
+  ,
+  {
+  "primeStats": {
+    "isSpecialist": false,
+    "level": 0,
+    "healthLevel": 0,
+    "strengthLevel": 15,
+    "resistanceLevel": 0,
+    "intelligenceLevel": 0,
+    "magicLevel": 15,
+    "staminaLevel": 10,
+    "speedLevel": 0,
+    "toughnessLevel": 0,
+    "luckLevel": 0
+  },
+  "secStats": {
+    "hp": 0,
+    "action": 0,
+    "max_Hp": 0,
+    "maxAction": 0,
+    "attack": 0,
+    "magicAttack": 10,
+    "defence": 0,
+    "magicDefence": 0,
+    "speed": 0,
+    "attackResistance": 0.0,
+    "luck": 0,
+    "load": 0,
+    "maxEquipmentLoad": 0,
+    "stamina": 0,
+    "attackSlots": 0
+  },
+  "name": "Potara Earrings",
+  "description": "Feels like you have a mini fusion-reactor on your ear.",
+  "effects": [],
+  "rarity": "EPIC"
+	}
+  ]
+}

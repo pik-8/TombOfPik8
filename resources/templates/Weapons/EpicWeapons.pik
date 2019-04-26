@@ -4,7 +4,7 @@
 	{
 	  "onHitEffects": [
 		{
-		  "type": "RootEffect",
+		  "effectType": "RootEffect",
 		  "name": "Root",
 		  "description": "You got hit on the head with a hammer. What did you expect?",
 		  "duration": 2,

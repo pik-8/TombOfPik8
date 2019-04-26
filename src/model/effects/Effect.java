@@ -32,16 +32,17 @@ public abstract class Effect {
     	this.name = name;
         this.description = desc;
         this.duration = dur;
+        this.instantApply = instantApply;
     }
 
 
     /**
      *
-     * When using this constructor the instantAplly-Param will be set to false.
+     * When using this constructor the instantapply-Param will be set to false.
      *
      * @param name
      * @param description
-     * @param duration
+     * @param duration: How many rounds the effect lasts. -1 for infinite.
      */
     protected Effect(String name, String description, int duration) {
     	init(name, description, duration, false);

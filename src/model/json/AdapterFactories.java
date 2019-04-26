@@ -4,6 +4,7 @@ import model.effects.DamageEffect;
 import model.effects.Effect;
 import model.effects.HealingEffect;
 import model.effects.RootEffect;
+import model.effects.SlowDownEffect;
 
 /**
  * 
@@ -24,10 +25,11 @@ import model.effects.RootEffect;
 public class AdapterFactories {
 	
 	public static RuntimeTypeAdapterFactory getEffectAdapterFactory() {
-		RuntimeTypeAdapterFactory<Effect> aF = RuntimeTypeAdapterFactory.of(Effect.class, "type")
+		RuntimeTypeAdapterFactory<Effect> aF = RuntimeTypeAdapterFactory.of(Effect.class, "effectType")
 				.registerSubtype(HealingEffect.class, "HealingEffect")
 				.registerSubtype(DamageEffect.class, "DamageEffect")
-				.registerSubtype(RootEffect.class, "RootEffect");
+				.registerSubtype(RootEffect.class, "RootEffect")
+				.registerSubtype(SlowDownEffect.class, "SlowDownEffect");
 		return aF;
 	}
 	

@@ -42,10 +42,10 @@ public class EffectTemplateGenerator {
 
 	public static Effect generate() {
 		return new HealingEffect(name, description, 
-						duration, options);
+						duration, options[0],options[1],options[2],options[3]);
 	}
 	
 	public static Effect generate(String name, String desc, int duration, float[] options) {
-		return new DamageEffect(name, desc, duration, options);
+		return new DamageEffect(name, desc, duration, options[0],options[1],options[2],options[3]);
 	}
 }

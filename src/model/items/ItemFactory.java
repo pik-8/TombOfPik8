@@ -30,23 +30,7 @@ public abstract class ItemFactory {
 	
 	protected GsonBuilder builder;
 	protected Gson gson;
-	
 	protected Random rand;
-	
-	/**
-	 * Randomises Attack and Magic Attack of a Weapon. Magic numbers here still need to be worked out.
-	 * @param stats
-	 * @param level
-	 * @return
-	 */
-	protected SecondaryStats randomiseSecStats(SecondaryStats stats, int level) {
-		double levelMultiplicator = Math.pow(1 + Factors.ITEM_STAT_INCREASE_MULTIPLIER, level);
-		double deviation = 1 + (rand.nextDouble() - 0.5) * Factors.WEAPON_DAMAGE_DEVIATION * 2;
-		
-		stats.setAttack((int)(stats.getAttack() * levelMultiplicator * deviation));
-		stats.setMagicAttack((int)(stats.getMagicAttack() * levelMultiplicator * deviation));
-		return stats;
-	}
 	
 	protected void init() {
 		
@@ -59,10 +43,15 @@ public abstract class ItemFactory {
 		rand = new Random();
 	}
 	
+	protected Item pickRandomItem(ArrayList<Item> ar) {
+		Random rand = new Random();
+		return ar.get(rand.nextInt(ar.size()));
+	}
+	
 	protected abstract void readTemplates();
 	
 	protected abstract void generateItemArray(ArrayList<Item> list, JsonObject jsonObject);
 	
-	public abstract Item generateRandomItem(Rarity rare, int level);
+	public abstract Item generateRandomItem(int level, Rarity rare);
 	
 }

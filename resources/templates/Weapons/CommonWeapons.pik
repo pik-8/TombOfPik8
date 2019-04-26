@@ -4,7 +4,7 @@
 	{
 	  "onHitEffects": [
 		{
-		  "type": "DamageEffect",
+		  "effectType": "DamageEffect",
 		  "name": "Sepsis",
 		  "description": "Thats not stuff you want running through your veins.",
 		  "duration": 10,

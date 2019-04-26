@@ -29,5 +29,5 @@ public interface ExceptionConstants {
     
     final String INVENTORY_IS_FULL = "The inventory is full, no more items can be added.";
 
-    public static final String LEVEL_IS_NEGATIVE = "A Level is below 1.";
+    public static final String LEVEL_IS_NEGATIVE = "A Level is below 0.";
     }

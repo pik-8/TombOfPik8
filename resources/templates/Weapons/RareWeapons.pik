@@ -4,7 +4,7 @@
 	{
 	  "onHitEffects": [
 		{
-		  "type": "DamageEffect",
+		  "effectType": "DamageEffect",
 		  "name": "Bleeding",
 		  "description": "You were wounded.",
 		  "duration": 100,

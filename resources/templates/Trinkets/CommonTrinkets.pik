@@ -1,0 +1,86 @@
+{"array":[
+  {"primeStats": {
+    "isSpecialist": false,
+    "level": 0,
+    "healthLevel": 0,
+    "strengthLevel": 10,
+    "resistanceLevel": 0,
+    "intelligenceLevel": 0,
+    "magicLevel": 0,
+    "staminaLevel": 0,
+    "speedLevel": 0,
+    "toughnessLevel": 10,
+    "luckLevel": 0
+  },
+  "secStats": {
+    "hp": 0,
+    "action": 0,
+    "max_Hp": 0,
+    "maxAction": 0,
+    "attack": 0,
+    "magicAttack": 0,
+    "defence": 0,
+    "magicDefence": 0,
+    "speed": 0,
+    "attackResistance": 0.0,
+    "luck": 0,
+    "load": 0,
+    "maxEquipmentLoad": 0,
+    "stamina": 0,
+    "attackSlots": 0
+  },
+  "name": "Steel Ring",
+  "description": "You're not even sure whether this is supposed to be worn.",
+  "effects": [],
+  "rarity": "COMMON"}
+  ,
+  {
+  "primeStats": {
+    "isSpecialist": false,
+    "level": 0,
+    "healthLevel": 0,
+    "strengthLevel": 0,
+    "resistanceLevel": 0,
+    "intelligenceLevel": 0,
+    "magicLevel": 0,
+    "staminaLevel": 0,
+    "speedLevel": 0,
+    "toughnessLevel": 0,
+    "luckLevel": 0
+  },
+  "secStats": {
+    "hp": 0,
+    "action": 0,
+    "max_Hp": 0,
+    "maxAction": 0,
+    "attack": 0,
+    "magicAttack": 0,
+    "defence": 0,
+    "magicDefence": 0,
+    "speed": 5,
+    "attackResistance": 0.0,
+    "luck": 0,
+    "load": 0,
+    "maxEquipmentLoad": 0,
+    "stamina": 0,
+    "attackSlots": 0
+  },
+  "name": "Plain Necklace",
+  "description": "You found this just laying around. Seems to be mostly worthless.",
+  "effects": [
+    {
+      "effectType": "HealingEffect",
+      "flatHeal": 0.0,
+      "percentOfMaxHealthHeal": 1.0,
+      "percentOfMissingHealthHeal": 0.0,
+      "percentOfCurrentHealthHeal": 0.0,
+      "name": "Healing Effect",
+      "description": "Your necklace is restoring your health.",
+      "duration": -1,
+      "instantApply": false
+    }
+  ],
+  "rarity": "COMMON"
+	}
+  ]
+}
