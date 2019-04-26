@@ -7,6 +7,7 @@ import model.dungeon.Terrain;
 import model.dungeon.Tile;
 import model.effects.Condition;
 import model.effects.EffectFactory;
+import model.effects.HealingEffect;
 
 import java.util.Random;
 
@@ -37,6 +38,17 @@ public class TileGenerator {
     }
 
 
+    public static Tile getTile (int size, Landscape type, boolean hasTileToRight, boolean hasTileToLeft,
+                                boolean hasTileAbove, boolean hasTileBelow)
+    {
+        Square[][] squares = new Square[size][size];
+        fillSquaresWithStandard(squares);
+        setBorders(squares, type, hasTileToRight, hasTileToLeft, hasTileAbove, hasTileBelow);
+        fillSquare(squares, type.getPossibleTerrains());
+        checkIfSquareIsTraversable();
+        return new Tile(squares, type);
+    }
+
     public static Tile getTile7x7 (Landscape type, boolean hasTileToRight, boolean hasTileToLeft,
                                    boolean hasTileAbove, boolean hasTileBelow) {
         switch (type) {
@@ -63,7 +75,7 @@ public class TileGenerator {
             for (int y = 0; y < squares.length; y++) {
                 if (random.nextFloat() <= ModelProperties.PROBABILITY_TO_SPAWN_A_TERRAIN) {
                     if (squares[x][y].getTerrain() == null || squares[x][y].getTerrain() == Terrain.NONE) {
-                        squares[x][y] = new Square(possibleTerrains[random.nextInt(possibleTerrains.length)], EffectFactory.getEffect(Condition.NONE));
+                        squares[x][y] = new Square(possibleTerrains[random.nextInt(possibleTerrains.length)], new HealingEffect());
                     }
                 }
             }
@@ -71,22 +83,22 @@ public class TileGenerator {
     }
 
 
-    private static void setBorders (Square[][] squares, Terrain borderMaterial, boolean hasTileToRight, boolean hasTileToLeft,
+    private static void setBorders (Square[][] squares, Landscape landscape, boolean hasTileToRight, boolean hasTileToLeft,
                                     boolean hasTileAbove, boolean hasTileBelow) {
         if (!hasTileAbove) {
-            fillYDimension(0, squares, borderMaterial);
+            fillYDimension(0, squares, landscape.getBorders());
         }
 
         if (!hasTileBelow) {
-            fillYDimension(squares.length -1, squares, borderMaterial);
+            fillYDimension(squares.length -1, squares, landscape.getBorders());
         }
 
         if (!hasTileToLeft) {
-            fillXDimension(0, squares, borderMaterial);
+            fillXDimension(0, squares, landscape.getBorders());
         }
 
         if (!hasTileToRight) {
-            fillXDimension(squares.length -1, squares, borderMaterial);
+            fillXDimension(squares.length -1, squares, landscape.getBorders());
         }
     }
 
@@ -95,11 +107,12 @@ public class TileGenerator {
      *
      * @param xIndex The column that should be filled.
      * @param squares The array that should be filled.
-     * @param terrain the terrain that should be placed on the whole column.
+     * @param terrains the terrains that should be placed randomly on the whole column.
      */
-    private static void fillXDimension (int xIndex, Square[][] squares, Terrain terrain) {
+    private static void fillXDimension (int xIndex, Square[][] squares, Terrain[] terrains) {
+        Random random = new Random();
         for (int y = 0; y < squares[xIndex].length; y++) {
-            squares[xIndex][y] = new Square(terrain, EffectFactory.getEffect(Condition.NONE));
+            squares[xIndex][y] = new Square(terrains[random.nextInt(terrains.length)], new HealingEffect());
         }
     }
 
@@ -107,9 +120,10 @@ public class TileGenerator {
     /**
      * Almost the same as fillXDimension, however instead of an column a line will be filled.
      */
-    private static void fillYDimension (int yIndex, Square[][] squares, Terrain terrain) {
+    private static void fillYDimension (int yIndex, Square[][] squares, Terrain terrains[]) {
+        Random random = new Random();
         for (int x = 0; x < squares[yIndex].length; x++) {
-            squares[x][yIndex] = new Square(terrain, EffectFactory.getEffect(Condition.NONE));
+            squares[x][yIndex] = new Square(terrains[random.nextInt(terrains.length)], new HealingEffect());
         }
     }
 
@@ -124,7 +138,7 @@ public class TileGenerator {
     private static void fillSquaresWithStandard (Square[][] squares) {
         for (int x = 0; x < squares.length; x++) {
             for (int y = 0; y < squares.length; y++) {
-                squares[x][y] = new Square(Terrain.NONE, EffectFactory.getEffect(Condition.NONE));
+                squares[x][y] = new Square(Terrain.NONE, new HealingEffect());
             }
         }
     }

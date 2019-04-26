@@ -5,21 +5,27 @@ import model.dungeon.*;
 public class DungeonTests {
 
     public static void testTileBorders () {
+        /*
         System.out.println("Tile with no borders:");
         Tile test = TileFactory.getTile7x7(Landscape.FOREST, true, true, true, true);
         printTile(test);
         System.out.println("Tile with borders");
         Tile test2 = TileFactory.getTile7x7(Landscape.FOREST, false, false, false, false);
         printTile(test2);
+
+         */
     }
 
     public static void testTileBordersUpAndDown () {
+        /*
         System.out.println("Tile with no bottom borders:");
         Tile test = TileFactory.getTile7x7(Landscape.FOREST, false, false, false, true);
         printTile(test);
         System.out.println("Tile with no upper borders");
         Tile test2 = TileFactory.getTile7x7(Landscape.FOREST, false, false, true, false);
         printTile(test2);
+
+         */
     }
 
     public static void testGoThrough () {

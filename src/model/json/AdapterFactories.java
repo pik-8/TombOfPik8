@@ -1,5 +1,6 @@
 package model.json;
 
+import model.dungeon.Dungeon;
 import model.effects.DamageEffect;
 import model.effects.Effect;
 import model.effects.HealingEffect;
@@ -32,5 +33,4 @@ public class AdapterFactories {
 				.registerSubtype(SlowDownEffect.class, "SlowDownEffect");
 		return aF;
 	}
-	
 }
