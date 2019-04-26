@@ -21,10 +21,13 @@ public class Dungeon {
     }
 
     public Dungeon (int size, Objective objective, Landscape[] possibleLandscapes) {
-        this.layout = utility.DungeonCreator.generateDungeonLayout(size, possibleLandscapes);
+        //this.layout = .DungeonCreator.generateDungeonLayout(size, possibleLandscapes);
         this.objective = objective;
     }
 
+    public Dungeon(Tile[][] layout) {
+        this.layout = layout;
+    }
 
     public Tile[][] getlayout() {
         return layout;

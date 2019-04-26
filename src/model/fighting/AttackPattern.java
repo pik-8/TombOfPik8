@@ -14,7 +14,6 @@ import static constants.ExceptionConstants.*;
  *
  * The Arrays can not be altered after initialisation.
  *
- * last change 03.04.19
  * @author Hagen
  */
 public class AttackPattern {
@@ -34,7 +33,7 @@ public class AttackPattern {
      *
      * null = Attacker, Effect = a Effect which will be added to an Character or Square
      * When no effect then use an Empty Effect.
-     * @param effectField Can only contain one field that is null, whihc
+     * @param effectField Can only contain one field that is null, which
      *                    indecates the attacker, the rest has to be an effect,
      *                    with or  without any actions.
      */

@@ -6,9 +6,13 @@ import com.google.gson.GsonBuilder;
 import model.effects.DamageEffect;
 import model.fighting.Attack;
 import model.fighting.AttackPattern;
+import model.dungeon.DungeonFactory;
+import model.dungeon.Landscape;
+import model.dungeon.Position;
 import model.items.Trinket;
 import model.items.TrinketFactory;
 import model.json.AdapterFactories;
+import view.DungeonPrinter;
 
 /**
  * The project for the Prog2 module, in which we are supposed to create an dungeon-crawler
@@ -27,6 +31,18 @@ public class TombOfPik8 {
     	TrinketFactory wf = new TrinketFactory();
 		System.out.println(i++);
 		Trinket wp = wf.generateRandomTrinket(50);
+
+		//generateALotDungeon();
+
+		DungeonFactory df = new DungeonFactory();
+
+		GsonBuilder gBuild = new GsonBuilder();
+		gBuild.setPrettyPrinting();
+		Gson gson = gBuild.create();
+
+
+		String jsonString = gson.toJson(df.generateRandomDungeon(10, new Position(0,0), 5, 5, Landscape.values()));
+		System.out.println(jsonString);
     	
 //    	System.out.println("Name: " + wp.getName());
 //    	System.out.println("Description: " + wp.getDescription());
@@ -44,8 +60,19 @@ public class TombOfPik8 {
     	
     	
     }
-    
-    public static void generateTemplate(Object object) {
+
+	private static void generateALotDungeon() {
+		DungeonFactory df = new DungeonFactory();
+		DungeonPrinter dp = new DungeonPrinter();
+		dp.printDungeon(df.generateRandomDungeon(30, 10, 5, Landscape.values()), 5);
+		System.out.println("\n");
+		dp.printDungeon(df.generateRandomDungeon(30, new Position(10,20), 7, 100, Landscape.values()), 7);
+		System.out.println("\n");
+		dp.printDungeon(df.generateRandomDungeon(20, new Position(10,10), 7, 100, Landscape.values()), 7);
+
+	}
+
+	public static void generateTemplate(Object object) {
     	GsonBuilder builder = new GsonBuilder()
     			.registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
 		builder.setPrettyPrinting();
