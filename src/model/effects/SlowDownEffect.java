@@ -16,7 +16,6 @@ public class SlowDownEffect extends Effect {
     private final float flatSlowDown;
     private final float percentOfSpeedSlowDown;
 
-
     /**
      *
      * @param name
@@ -27,6 +26,7 @@ public class SlowDownEffect extends Effect {
      * @param flatSlowDown: A fixed amount of speed that will be subtracted from the stats off a character.
      * @param percentOfSpeedSlowDown: Subtracts a percentage off the speed of a character.
      *                                50 = 50%.
+     * The slowdown values can be negative, in this case they will increase the speed instead.
      */
     public SlowDownEffect(String name, String description, int duration, boolean instantApply, float flatSlowDown,
                         float percentOfSpeedSlowDown) {
@@ -45,13 +45,14 @@ public class SlowDownEffect extends Effect {
 
     @Override
     public void applyEffect(Character cha) {
-        //TODO implement the addition of speed.
-        setDuration(getDuration() -1);
+    	cha.getSecondaryStats().setSpeed(cha.getSecondaryStats().getSpeed() - Math.round(flatSlowDown));
+    	cha.getSecondaryStats().setSpeed(Math.round(cha.getSecondaryStats().getSpeed() * (1 - percentOfSpeedSlowDown/100)));
     }
 
     @Override
     public void applyEffect(Square square) {
-        square.setEffect(new SlowDownEffect(getName(), getDescription(), getDuration(), isInstantApply(), this.flatSlowDown,
+        square.setEffect(new SlowDownEffect(getName(), getDescription(), getDuration(), isInstantApply(), 
+        		this.flatSlowDown,
                 this.percentOfSpeedSlowDown));
     }
 

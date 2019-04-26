@@ -63,7 +63,7 @@ public class PrimeStats {
 	}
 	
 	private void checkLevel (int level) throws Exception {
-		if (level <= 0) {
+		if (level < 0) {
 			throw new Exception(ExceptionConstants.LEVEL_IS_NEGATIVE);
 		}
 	}

@@ -4,7 +4,7 @@
 	{
 	  "onHitEffects": [
 		{
-		  "type": "DamageEffect",
+		  "effectType": "DamageEffect",
 		  "name": "Beheaded",
 		  "description": "You got ahead of yourself again.",
 		  "duration": 1,

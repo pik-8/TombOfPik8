@@ -15,16 +15,25 @@ import model.other.SecondaryStats;
  */
 public class Armor extends Equipment {
 
-	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, ArrayList<Effect> effects) {
+	private ArmorSlot slot;
+	
+	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, ArmorSlot slot, ArrayList<Effect> effects) {
 		super(name, description, secStats, rarity, effects);
+		this.slot = slot;
 	}
 
-	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, Effect effect) {
+	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, ArmorSlot slot, Effect effect) {
 		super(name, description, secStats, rarity, effect);
+		this.slot = slot;
 	}
 
-	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity) {
+	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, ArmorSlot slot) {
 		super(name, description, secStats, rarity);
+		this.slot = slot;
+	}
+	
+	public ArmorSlot getSlot() {
+		return slot;
 	}
 	
 }

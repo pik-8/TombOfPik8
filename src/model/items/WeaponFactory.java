@@ -45,16 +45,16 @@ public class WeaponFactory extends ItemFactory {
 		readTemplates();
 	}
 	
-	public Weapon generateRandomWeapon(Rarity rare, int level) {
-		return (Weapon) generateRandomItem(rare, level);
+	public Weapon generateRandomWeapon(int level, Rarity rare) {
+		return (Weapon) generateRandomItem(level, rare);
 	}
 	
 	public Weapon generateRandomWeapon(int level) {
 		Rarity r = Rarity.values()[rand.nextInt(Rarity.values().length)];
-		return generateRandomWeapon(r, level);
+		return generateRandomWeapon(level, r);
 	}
 	
-	public Item generateRandomItem(Rarity rare, int level) {
+	public Item generateRandomItem(int level, Rarity rare) {
 		switch(rare) {
 		case COMMON:
 			return generateCommonWeapon(level);
@@ -64,31 +64,32 @@ public class WeaponFactory extends ItemFactory {
 			return generateEpicWeapon(level);
 		case LEGENDARY:
 			return generateLegendaryWeapon(level);
+		default:
+			return null;
 		}
-		return null;
 	}
 	
 	public Weapon generateCommonWeapon(int level) {
-		Weapon wp = (Weapon) common.get(rand.nextInt(common.size()));
-		wp.setSecStats(randomiseSecStats(wp.getSecStats(), level));
+		Weapon wp = (Weapon) pickRandomItem(common);
+		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
 		return wp;
 	}
 	
 	public Weapon generateRareWeapon(int level) {
-		Weapon wp = (Weapon) rare.get(rand.nextInt(rare.size()));
-		wp.setSecStats(randomiseSecStats(wp.getSecStats(), level));
+		Weapon wp = (Weapon) pickRandomItem(rare);
+		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
 		return wp;
 	}
 
 	public Weapon generateEpicWeapon(int level) {
-		Weapon wp = (Weapon) epic.get(rand.nextInt(epic.size()));
-		wp.setSecStats(randomiseSecStats(wp.getSecStats(), level));
+		Weapon wp = (Weapon) pickRandomItem(epic);
+		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
 		return wp;	}
 
 	public Weapon generateLegendaryWeapon(int level) {
-//		Weapon wp = (Weapon) legendary.get(rand.nextInt(legendary.size()));
-		Weapon wp = (Weapon) legendary.get(1);
-		wp.setSecStats(randomiseSecStats(wp.getSecStats(), level));
+		Weapon wp = (Weapon) pickRandomItem(legendary);
+		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
 		return wp;
 	}
+	
 }
