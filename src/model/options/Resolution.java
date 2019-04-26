@@ -1,10 +1,22 @@
 package model.options;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
+
 import static model.options.Resolution.WindowSize.MEDIUM;
 
-public class Resolution {
+/**
+ * This class is used to store and get the resolutions
+ *
+ * ToDo:
+ * - add saving and loading with gson
+ * - add fullscreen option
+ * - change the enum (remove *_FULL)
+ *
+ * @author Patrick Szalewicz
+ */
 
-    public static Object WindowSize;
+public class Resolution {
 
     enum WindowSize {
         LOW(858, 480, false),

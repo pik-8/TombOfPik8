@@ -1,35 +1,34 @@
 package model.options;
 
-import javafx.scene.control.Slider;
-
 import java.awt.*;
 
-import static model.options.Resolution.WindowSize.MEDIUM;
-import static model.options.Volume.getSelectedVolumes;
 
 /**
+ * This is the main option class.
+ * Here you will get the requested volumes, resolution and other settings.
  *
+ * ToDo:
+ * - volume.xxxValue() is 0.0 not 50, fix it in Volume.java
+ * - add getResolution()
  *
  * @author Patrick Szalewicz
  */
 
 public class Option {
 
-    public void DefaultOptionValues() {
-        Resolution.WindowSize winSiz = MEDIUM;
-        //this.GeneralVolumeSlider = new Slider(0, 100, 50);
-        //this.EffectsVolumeSlider = new Slider(0, 100, 50);
-        //this.MusicVolumeSlider = new Slider(0, 100, 50);
-    }
-
-
     public static void main(String[] args){
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension d = tk.getScreenSize();
         System.out.println("Screen width = " + d.width + ", Screen height = " + d.height);
-        System.out.println();
+        getVolume();
     }
 
+    public static void getVolume() {
+        Volume volume = new Volume();
+        System.out.println("General volume: " + volume.GeneralVolumeValue);
+        System.out.println("Effects volume: " + volume.EffectsVolumeValue);
+        System.out.println("Music volume: " + volume.MusicVolumeValue);
+    }
 
 
 }
