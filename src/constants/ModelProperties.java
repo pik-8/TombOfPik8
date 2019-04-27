@@ -16,7 +16,7 @@ public interface ModelProperties {
     public static final float DUNGEON_TILE_DENSITY_VARIANCE = 0.1f;
     public static final int[] RANDOM_TILE_SIZES = {4 ,5 ,6 , 7, 8, 9, 10};
     public static final int MIN_SIZE_RANDOM_DUNGEON = 10;
-    public static final int MAX_SIZE_RANDOM_DUNGEON = 30;
+    public static final int MAX_SIZE_RANDOM_DUNGEON = 20;
 
 
 }

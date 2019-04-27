@@ -3,13 +3,16 @@ package model.dungeon;
 
 /**
  * An Enum that contains every possible Landscape.
- * The landscape determines whar kind of terrains may be placed onto a square.
+ * The landscape determines what kind of terrains may be placed onto a square.
  *
  * @author Hagen
  */
 public enum  Landscape {
 
-    FOREST(new Terrain[]{Terrain.NONE, Terrain.TREE},new Terrain[]{Terrain.BEDROCK});
+    FOREST(new Terrain[]{Terrain.TREE, Terrain.BOULDER, Terrain.BUSH},new Terrain[]{Terrain.BEDROCK}),
+    DESERT(new Terrain[]{Terrain.BOULDER},new Terrain[]{Terrain.BEDROCK}),
+    SPACE(new Terrain[]{Terrain.COMET},new Terrain[]{Terrain.WHITE_HOLE}),
+    ;
 
 
     private final Terrain[] possibleTerrains;

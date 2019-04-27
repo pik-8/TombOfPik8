@@ -11,10 +11,20 @@ import java.util.Optional;
 
 
 /**
+ * A class that prints a map of dungeons.
+ * Either the whole map with the Terrain-Objects or every landscape.
+ *
  * @author Hagen
  */
 public class DungeonPrinter {
 
+
+    /**
+     * Prints every Terrain-object in the dungeon as a map.
+     * Prints the first two letters of a terrain.
+     *
+     * @param dungeon: The dungeon that should be printed.
+     */
     public void printDungeon (Dungeon dungeon) {
         int tileSize = 0;
 
@@ -33,7 +43,6 @@ public class DungeonPrinter {
             tileSize = Arrays.stream(tiles).filter(field -> field != null).findFirst().get().getSize();
         }
          */
-
         for (int y = 0; y < dungeon.getlayout()[0].length; y++) {
             for (int tileYIndex = 0; tileYIndex < tileSize; tileYIndex++) {
                 for (int x = 0; x < dungeon.getlayout().length; x++) {
@@ -50,48 +59,55 @@ public class DungeonPrinter {
         }
     }
 
+
+    /**
+     * Prints the first two letters of a landscape and creates a map of the dungeon.
+     *
+     * @param dungeon: The dungeon that should be printed.
+     */
     public void printLandscapes (Dungeon dungeon) {
         for (int y = 0; y < dungeon.getlayout()[0].length; y++) {
             for (int x = 0; x < dungeon.getlayout().length; x++) {
-                printLetterOfLandscape(dungeon.getlayout()[x][y]);
+                printOneLetterForLandscape(dungeon.getlayout()[x][y]);
             }
+            System.out.println();
         }
     }
 
 
     private void printLetterOfTerrain (Terrain terrain) {
-        switch (terrain){
-            case NONE:
-                System.out.print('_');
-                break;
-            case TREE:
-                System.out.print('T');
-                break;
-            case BEDROCK:
-                System.out.print('B');
-                break;
-            case START_POINT:
-                System.out.print('S');
-                break;
+        if (terrain == Terrain.NONE) {
+            System.out.print("   ");
+        } else {
+            System.out.print(((terrain.name().charAt(0))) + String.valueOf(terrain.name().charAt(1))
+                    .toLowerCase() + " ");
         }
     }
 
-    private void printLetterOfLandscape (Tile tile) {
-        if (tile.getLandscape() != null) {
-            switch (tile.getLandscape()){
-                case FOREST:
-                    System.out.print('F');
-                    break;
-            }
+
+    private void printOneLetterForLandscape (Tile tile) {
+        if (tile == null) {
+            System.out.print("  ");
+        } else {
+            System.out.print(tile.getLandscape().name().charAt(0) + " ");
+        }
+
+    }
+
+
+    private void printTwoLettersOfLandscape (Tile tile) {
+        if (tile != null) {
+            System.out.print((String.valueOf(tile.getLandscape().name().charAt(0))) + String.valueOf(
+                    tile.getLandscape().name().charAt(1)).toLowerCase() + " ");
         }
         else {
-            System.out.print('-');
+            System.out.print("   ");
         }
     }
 
     private void printOneEmptyLine (int size) {
         for (int i = 0; i < size; i++) {
-            System.out.print(' ');
+            System.out.print("   ");
         }
     }
 }

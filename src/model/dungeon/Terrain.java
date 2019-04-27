@@ -12,11 +12,16 @@ import model.effects.*;
  * @author Hagen
  */
 public enum Terrain {
+    START_POINT(1, null),
 
     NONE (1, null),
     TREE(10, EffectFactory.getEffect(Condition.POISON)), //For Example
     BEDROCK(999999999, null),
-    START_POINT(1, null);
+    BUSH(2, null),
+    BOULDER (5, null),
+    WHITE_HOLE(999999999, null),
+    COMET(10, null),
+    ;
 
 
     private int effortToPass;
