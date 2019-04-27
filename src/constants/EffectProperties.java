@@ -1,5 +1,9 @@
 package constants;
 
+
+/**
+ *
+ */
 public interface EffectProperties {
 
     int CRUSH_EFFECT_PLUS_EFFORT = 2;

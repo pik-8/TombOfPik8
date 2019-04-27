@@ -1,5 +1,9 @@
 package constants;
 
+
+/**
+ * Contains every string that will be put into an exception.
+ */
 public interface ExceptionConstants {
 
     final String ATTACK_PATTERN_TOO_MANY_NEGATIVE_NUMBERS = "The AttackPattern could not be instantiated, "
@@ -30,4 +34,6 @@ public interface ExceptionConstants {
     final String INVENTORY_IS_FULL = "The inventory is full, no more items can be added.";
 
     public static final String LEVEL_IS_NEGATIVE = "A Level is below 0.";
+
+    public static final String SQUARE_IN_TILE_IS_NULL = "At least one Square-Object in the Tile is null.";
     }

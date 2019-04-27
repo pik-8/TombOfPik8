@@ -26,24 +26,12 @@ public class TombOfPik8 {
 
 
     public static void main (String args[]) {
-        //tests.DungeonTests.testGoThrough();
     	int i = 0;
     	TrinketFactory wf = new TrinketFactory();
 		System.out.println(i++);
 		Trinket wp = wf.generateRandomTrinket(50);
 
-		//generateALotDungeon();
 
-		DungeonFactory df = new DungeonFactory();
-
-		GsonBuilder gBuild = new GsonBuilder();
-		gBuild.setPrettyPrinting();
-		Gson gson = gBuild.create();
-
-
-		String jsonString = gson.toJson(df.generateRandomDungeon(10, new Position(0,0), 5, 5, Landscape.values()));
-		System.out.println(jsonString);
-    	
 //    	System.out.println("Name: " + wp.getName());
 //    	System.out.println("Description: " + wp.getDescription());
 //    	System.out.println("Magic Defense: " + wp.getSecStats().getMagicDefence());
@@ -61,16 +49,6 @@ public class TombOfPik8 {
     	
     }
 
-	private static void generateALotDungeon() {
-		DungeonFactory df = new DungeonFactory();
-		DungeonPrinter dp = new DungeonPrinter();
-		dp.printDungeon(df.generateRandomDungeon(30, 10, 5, Landscape.values()), 5);
-		System.out.println("\n");
-		dp.printDungeon(df.generateRandomDungeon(30, new Position(10,20), 7, 100, Landscape.values()), 7);
-		System.out.println("\n");
-		dp.printDungeon(df.generateRandomDungeon(20, new Position(10,10), 7, 100, Landscape.values()), 7);
-
-	}
 
 	public static void generateTemplate(Object object) {
     	GsonBuilder builder = new GsonBuilder()

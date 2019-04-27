@@ -37,7 +37,7 @@ public class Square {
         return effect;
     }
 
-    public void setEffect(Effect effect) throws NullPointerException{
-        this.effect = Objects.requireNonNull(effect);
+    public void setEffect(Effect effect) {
+        this.effect = effect;
     }
 }

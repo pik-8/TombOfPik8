@@ -1,12 +1,22 @@
 package constants;
 
+
+/**
+ * Contains every value that that has a role when an object gets initialised.
+ */
 public interface ModelProperties {
 
-    int MAX_SIZE_FOR_SKILLS = 5;
+    public static final int MAX_SIZE_FOR_SKILLS = 5;
 
-    int[] ALLOWED_TILE_SIZES = {4 ,5 ,6 , 7};
 
-    float PROBABILITY_TO_SPAWN_A_TERRAIN = 0.1f;
 
-    float MAX_ALLOWED_DUNGEON_TILE_DENSITY = 0.5f;
+    //DungeonFactory-----------DungeonFactory-----------DungeonFactory-----------DungeonFactory----------DungeonFactory
+
+    public static final float DUNGEON_TILE_DENSITY = 0.5f;
+    public static final float DUNGEON_TILE_DENSITY_VARIANCE = 0.1f;
+    public static final int[] RANDOM_TILE_SIZES = {4 ,5 ,6 , 7, 8, 9, 10};
+    public static final int MIN_SIZE_RANDOM_DUNGEON = 10;
+    public static final int MAX_SIZE_RANDOM_DUNGEON = 30;
+
+
 }

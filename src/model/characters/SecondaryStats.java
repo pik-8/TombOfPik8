@@ -1,6 +1,5 @@
 package model.characters;
 
-import constants.ExceptionConstants;
 
 /**
  * A class containing every stat that is needed for exploring and fighting in a dungeon.
@@ -30,7 +29,7 @@ public class SecondaryStats {
 
 
 	/**
-	 * If any param is < 1 it throws an exception.
+	 *
 	 * @param hp
 	 * @param action
 	 * @param max_Hp

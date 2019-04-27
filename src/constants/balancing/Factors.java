@@ -12,4 +12,7 @@ public interface Factors {
 
 	public static final int NUMBER_TO_MAKE_EFFECT_LAST_INFINITLY = -1;
 
+	public static final float PROBABILITY_TO_SPAWN_A_TERRAIN = 0.1f;
+
+
 }

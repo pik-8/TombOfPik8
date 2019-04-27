@@ -30,7 +30,7 @@ public class PrimeStats {
 	private int luckLevel;
 	
 	/**
-	 * Throws an Exception, if one param is null.
+	 * Throws an Exception, if one param is null, or below 0.
 	 * 
 	 * @param isSpecialist
 	 * @param healthLevel

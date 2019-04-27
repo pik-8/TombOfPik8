@@ -1,54 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25669768-4aad-4f01-a92c-36c17d75d99c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/view/options/Volume.java" afterDir="false" />
+    <list default="true" id="a3fda5c0-9768-4448-a1b8-36796a5b32cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/tests/DungeonTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/options/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/options/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/options/Resolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/options/Resolution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/options/Volume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/options/Volume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/options/Options.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/options/Options.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/EffectProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/EffectProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/ExceptionConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/ExceptionConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/ModelProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/ModelProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Properties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/balancing/Factors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/balancing/Factors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/balancing/PropertiesStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/balancing/PropertiesStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/TombOfPik8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/TombOfPik8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/characters/PrimeStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/characters/PrimeStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/characters/SecondaryStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/characters/SecondaryStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dungeon/DungeonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dungeon/DungeonFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dungeon/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dungeon/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dungeon/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dungeon/Terrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dungeon/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dungeon/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/DungeonTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/TileGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/TileGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DungeonPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DungeonPrinter.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/model/options/Volume.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/dungeon/DungeonFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="421">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#425#426#0" expanded="true" />
+                <element signature="e#451#452#0" expanded="true" />
+                <element signature="e#483#484#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="method#generateDungeonFromLayout#0;class#DungeonFactory#0" />
+                <element signature="e#5207#6308#1" />
+                <element signature="method#generateLayout#0;class#DungeonFactory#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/options/Options.java">
+        <entry file="file://$PROJECT_DIR$/src/model/dungeon/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+            <state relative-caret-position="376">
+              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+              <folding>
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/view/DungeonPrinter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="42" column="25" lean-forward="true" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/options/Volume.java">
+        <entry file="file://$PROJECT_DIR$/src/model/dungeon/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+            <state relative-caret-position="342">
+              <caret line="74" selection-start-line="74" selection-end-line="74" />
+              <folding>
+                <element signature="method#checkLayout#0;class#Tile#0" />
+                <element signature="e#2086#2087#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants/ModelProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/dungeon/Position.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#506#507#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants/ExceptionConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/DungeonTesting.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/control/SecondaryStatsTemplateGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="32" column="24" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -58,39 +142,93 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>whitch</find>
+      <find>STAIMNa_RESISTANCE</find>
+      <find>Swag</find>
+      <find>maxHealt</find>
+      <find>public static float</find>
+      <find>heightOfLayout</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ATTACK_RESISTANCE</replace>
+      <replace>public</replace>
+      <replace>public static final float</replace>
+    </replaceStrings>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/view/options/Options.java" root0="FORCE_HIGHLIGHTING" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/view/View.java" />
-        <option value="$PROJECT_DIR$/src/tests/SliderTest.java" />
-        <option value="$PROJECT_DIR$/src/model/options/Resolution.java" />
-        <option value="$PROJECT_DIR$/src/view/options/Options.java" />
-        <option value="$PROJECT_DIR$/src/model/options/Option.java" />
-        <option value="$PROJECT_DIR$/src/view/options/Volume.java" />
-        <option value="$PROJECT_DIR$/src/model/options/Volume.java" />
+        <option value="$PROJECT_DIR$/TombOfPik8/src/model/effects/Effect.java" />
+        <option value="$PROJECT_DIR$/TombOfPik8/src/model/effects/EffectGiver.java" />
+        <option value="$PROJECT_DIR$/TombOfPik8/src/model/other/SecondaryStats.java" />
+        <option value="$PROJECT_DIR$/TombOfPik8/src/utility/CalculateSecondaryStats.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/EffectGiver.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/PoisonEffect.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/CrushEffect.java" />
+        <option value="$PROJECT_DIR$/.idea/TombOfPik8.iml" />
+        <option value="$PROJECT_DIR$/src/model/fighting/HealtSkill.java" />
+        <option value="$PROJECT_DIR$/src/model/fighting/SkillList.java" />
+        <option value="$PROJECT_DIR$/src/model/fighting/SkillFactory.java" />
+        <option value="$PROJECT_DIR$/src/model/fighting/Skill.java" />
+        <option value="$PROJECT_DIR$/src/model/fighting/DivineHealSkill.java" />
+        <option value="$PROJECT_DIR$/src/model/other/Hero.java" />
+        <option value="$PROJECT_DIR$/src/model/other/SecondaryStats.java" />
+        <option value="$PROJECT_DIR$/src/model/other/Character.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/EffectType.java" />
+        <option value="$PROJECT_DIR$/src/model/other/GameStatistics.java" />
+        <option value="$PROJECT_DIR$/src/control/EffectTemplateGenerator.java" />
+        <option value="$PROJECT_DIR$/src/model/other/GameSave.java" />
+        <option value="$PROJECT_DIR$/src/model/other/SaveState.java" />
+        <option value="$PROJECT_DIR$/src/utility/CalculateSecondaryStats.java" />
+        <option value="$PROJECT_DIR$/src/model/dungeon/Landscape.java" />
+        <option value="$PROJECT_DIR$/src/model/dungeon/TileFactory.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/Effect.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/HealingEffect.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/DamageEffect.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/EffectFactory.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/RootEffect.java" />
+        <option value="$PROJECT_DIR$/src/model/effects/SlowDownEffect.java" />
+        <option value="$PROJECT_DIR$/src/model/other/PrimeStats.java" />
+        <option value="$PROJECT_DIR$/src/model/overworld/Overworld.java" />
+        <option value="$PROJECT_DIR$/src/constants/balancing/PropertiesStats.java" />
+        <option value="$PROJECT_DIR$/src/constants/EffectProperties.java" />
+        <option value="$PROJECT_DIR$/src/constants/balancing/Factors.java" />
+        <option value="$PROJECT_DIR$/src/constants/Properties.java" />
+        <option value="$PROJECT_DIR$/src/model/characters/PrimeStats.java" />
+        <option value="$PROJECT_DIR$/src/model/characters/SecondaryStats.java" />
+        <option value="$PROJECT_DIR$/src/model/dungeon/Terrain.java" />
+        <option value="$PROJECT_DIR$/src/utility/TileGenerator.java" />
+        <option value="$PROJECT_DIR$/src/constants/ModelProperties.java" />
+        <option value="$PROJECT_DIR$/src/control/TombOfPik8.java" />
+        <option value="$PROJECT_DIR$/src/constants/ExceptionConstants.java" />
+        <option value="$PROJECT_DIR$/src/model/dungeon/Tile.java" />
+        <option value="$PROJECT_DIR$/src/tests/DungeonTests.java" />
+        <option value="$PROJECT_DIR$/src/control/Test.java" />
+        <option value="$PROJECT_DIR$/src/tests/Wau.java" />
+        <option value="$PROJECT_DIR$/src/tests/DungeonTesting.java" />
+        <option value="$PROJECT_DIR$/src/model/dungeon/DungeonFactory.java" />
+        <option value="$PROJECT_DIR$/src/model/dungeon/Square.java" />
+        <option value="$PROJECT_DIR$/src/view/DungeonPrinter.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="300" />
-    <option name="y" value="37" />
-    <option name="width" value="1858" />
-    <option name="height" value="1360" />
+    <option name="x" value="42" />
+    <option name="y" value="-28" />
+    <option name="width" value="1777" />
+    <option name="height" value="1064" />
   </component>
-  <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -112,44 +250,59 @@
               <item name="TombOfPik8" type="b2602c69:ProjectViewProjectNode" />
               <item name="TombOfPik8" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="constants" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TombOfPik8" type="b2602c69:ProjectViewProjectNode" />
               <item name="TombOfPik8" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="options" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombOfPik8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TombOfPik8" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombOfPik8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TombOfPik8" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utility" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TombOfPik8" type="b2602c69:ProjectViewProjectNode" />
               <item name="TombOfPik8" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TombOfPik8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TombOfPik8" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="options" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556226163240" />
-    <property name="last_opened_file_path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar!/" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+      <recent name="model" />
+      <recent name="model.control" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -163,13 +316,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Volume (1)">
-    <configuration name="Option" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.options.Option" />
+  <component name="RunManager" selected="Application.DungeonTesting">
+    <configuration name="DungeonTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tests.DungeonTesting" />
       <module name="TombOfPik8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.options.*" />
+          <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -177,12 +330,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Options" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.options.Options" />
+    <configuration name="DungeonTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="tests.DungeonTests" />
       <module name="TombOfPik8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.options.*" />
+          <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -190,12 +345,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Volume (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.options.Volume" />
+    <configuration name="SecondaryStatsTemplateGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="control.SecondaryStatsTemplateGenerator" />
       <module name="TombOfPik8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.options.*" />
+          <option name="PATTERN" value="control.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -203,12 +358,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Volume" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.options.Volume" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="control.Test" />
       <module name="TombOfPik8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.options.*" />
+          <option name="PATTERN" value="control.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -216,12 +371,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TombOfPik8" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TombOfPik8" />
+      <module name="TombOfPik8" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Wau" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tests.Wau" />
+      <module name="TombOfPik8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.DungeonTests" />
+      <item itemvalue="Application.SecondaryStatsTemplateGenerator" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.Wau" />
+      <item itemvalue="Application.DungeonTesting" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Volume (1)" />
-        <item itemvalue="Application.Options" />
-        <item itemvalue="Application.Option" />
-        <item itemvalue="Application.Volume" />
+        <item itemvalue="Application.DungeonTesting" />
+        <item itemvalue="Application.DungeonTests" />
+        <item itemvalue="Application.Wau" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.SecondaryStatsTemplateGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -230,91 +413,248 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="25669768-4aad-4f01-a92c-36c17d75d99c" name="Default Changelist" comment="" />
-      <created>1556219995207</created>
+      <changelist id="a3fda5c0-9768-4448-a1b8-36796a5b32cf" name="Default Changelist" comment="" />
+      <created>1554124363168</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1556219995207</updated>
+      <updated>1554124363168</updated>
+      <workItem from="1554124365172" duration="2036000" />
+      <workItem from="1554186791549" duration="10930000" />
+      <workItem from="1554230170012" duration="3120000" />
+      <workItem from="1554304455172" duration="2018000" />
+      <workItem from="1554363125380" duration="77000" />
+      <workItem from="1554369042037" duration="2723000" />
+      <workItem from="1554446184973" duration="73000" />
+      <workItem from="1554479710453" duration="379000" />
+      <workItem from="1554480107679" duration="2481000" />
+      <workItem from="1554547348285" duration="5451000" />
     </task>
-    <task id="LOCAL-00001" summary="implemented better options">
-      <created>1556279093093</created>
+    <task id="LOCAL-00001" summary="First commit, Editing in Condition">
+      <created>1554125057457</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1556279093093</updated>
+      <updated>1554125057457</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="change the attack structur to resemble the structur of effects. Implementing the character and hero classes.">
+      <created>1554552758255</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1554552758255</updated>
+    </task>
+    <task id="LOCAL-00003" summary="adds another way to apply effects.">
+      <created>1555502118895</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555502118895</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add two classes to save the game (the informations).">
+      <created>1556210020377</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556210020377</updated>
+    </task>
+    <task id="LOCAL-00005" summary="change a little bit in the dungeon and effect package.">
+      <created>1556215327035</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1556215327035</updated>
+    </task>
+    <task id="LOCAL-00006" summary="dressing naked numbers and minor stuff.">
+      <created>1556216530455</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1556216530455</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="31281000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1926" height="1083" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13588111" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22547974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3161689" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.89707476" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.9674973" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.30175078" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32845187" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.156013" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Learn" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1763754" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32997987" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32917964" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="implemented better options" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented better options" />
+    <MESSAGE value="First commit, Editing in Condition" />
+    <MESSAGE value="change the attack structur to resemble the structur of effects. Implementing the character and hero classes." />
+    <MESSAGE value="adds another way to apply effects." />
+    <MESSAGE value="add two classes to save the game (the informations)." />
+    <MESSAGE value="change a little bit in the dungeon and effect package." />
+    <MESSAGE value="dressing naked numbers and minor stuff." />
+    <option name="LAST_COMMIT_MESSAGE" value="dressing naked numbers and minor stuff." />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Forest.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/TileFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Objective.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Landscape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding>
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/effects/CrushEffect.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/effects/GreatHealEffect.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/effects/IronSkinEffect.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/effects/ParalysisEffect.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/effects/PoisonEffect.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/effects/SlowDownEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="54" column="46" lean-forward="true" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/effects/RootEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/effects/DamageEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/effects/EffectFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/effects/Effect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+          <folding>
+            <element signature="e#1251#1252#0" expanded="true" />
+            <element signature="e#1304#1305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Dungeon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/effects/HealingEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/overworld/Overworld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/other/PrimeStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="97" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/balancing/PropertiesStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/balancing/Factors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/FileConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
@@ -323,155 +663,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/EffectProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/ExceptionConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/ModelProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="68">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/Properties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/SecondaryStatsTemplateGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/model/characters/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-213">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="238">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Landscape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-332">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Terrain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/effects/Condition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/effects/DamageEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/effects/Effect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-706">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/effects/EffectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/effects/HealingEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/effects/RootEffect.java">
+    <entry file="file://$PROJECT_DIR$/src/model/characters/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/effects/SlowDownEffect.java">
+    <entry file="file://$PROJECT_DIR$/src/model/characters/PrimeStats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/fighting/Attack.java">
+    <entry file="file://$PROJECT_DIR$/src/model/characters/SecondaryStats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-536">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="68">
+          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/fighting/AttackPattern.java">
+    <entry file="file://$PROJECT_DIR$/src/model/characters/MobSpawner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1318">
+        <state relative-caret-position="68">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/characters/Inventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/fighting/DivineHealSkill.java">
+    <entry file="file://$PROJECT_DIR$/src/model/items/InventoryFullException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/fighting/Skill.java">
+    <entry file="file://$PROJECT_DIR$/src/model/items/ItemFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/fighting/SkillFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/fighting/SkillList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="204">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -482,185 +738,169 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/Rarity.java">
+    <entry file="file://$PROJECT_DIR$/src/model/items/Trinket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/Trinkets.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/items/InventoryFullException.java">
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Terrain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="408">
+          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/Equipment.java">
+    <entry file="file://$PROJECT_DIR$/src/utility/TileGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/CraftingMaterial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/Consumable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/Armor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/ItemFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="690">
+          <caret line="76" column="80" selection-start-line="76" selection-start-column="80" selection-end-line="76" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/control/TombOfPik8.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="161">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/items/WeaponFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/control/SecondaryStatsTemplateGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="56" column="60" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
+        <state relative-caret-position="357">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/EffectTemplateGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/Wau.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+        <state relative-caret-position="51">
+          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="27" />
+          <folding>
+            <element signature="e#83#84#0" expanded="true" />
+            <element signature="e#125#126#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/WeaponTemplateGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/control/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#82#83#0" expanded="true" />
+            <element signature="e#124#125#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/DungeonTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/SliderTest.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/options/Option.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/options/Resolution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="10" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dungeon/TileFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="13" selection-start-line="18" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="459">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Objective.java">
+    <entry file="file://$PROJECT_DIR$/src/constants/ModelProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="238">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://H:/Software/Java_08/src.zip!/java/util/Optional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+          <folding>
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/ExceptionConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://H:/Software/Java_08/src.zip!/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="202" column="18" selection-start-line="202" selection-start-column="18" selection-end-line="202" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/dungeon/DungeonFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Dungeon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/FileConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/io/TemplateReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="23" column="68" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
-          <folding>
-            <element signature="e#673#674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/options/Options.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/options/Volume.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/options/Volume.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="421">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="method#generateDungeonFromLayout#0;class#DungeonFactory#0" />
+            <element signature="e#5207#6308#1" />
+            <element signature="method#generateLayout#0;class#DungeonFactory#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/dungeon/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="method#checkLayout#0;class#Tile#0" />
+            <element signature="e#2086#2087#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/DungeonTesting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/DungeonPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="42" column="25" lean-forward="true" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -704,6 +944,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -721,17 +962,6 @@
               <list>
                 <option value="0.2" />
                 <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

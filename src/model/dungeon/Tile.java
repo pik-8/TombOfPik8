@@ -22,20 +22,31 @@ public class Tile {
 
     private int size;
 
+
+    /**
+     * Generates a Tile from all the necessary informations a Tile has.
+     *
+     * @param layout: A quadratic Square-Array, that basically form a Tile.
+     *                Every Square must not be null.
+     * @param landscape: The type of landscape this Tile is.
+     */
     public Tile (Square[][] layout, Landscape landscape) throws IllegalArgumentException, NullPointerException{
-        checkLayout(Objects.requireNonNull(layout));
+        checkLayout(layout);
         this.layout = layout;
         this.size = layout.length;
         this.landscape = landscape;
     }
 
 
-    public Tile (int size, Landscape landscape) {
+    /**
+     * generates a random Tile from the landscape and size.
+     * @param landscape: Determines the Terrain of the Tile.
+     * @param size: How big this tile should be.
+     */
+    public Tile (Landscape landscape, int size) {
         this.size = size;
-        checkSize(size);
         this.landscape = landscape;
-        utility.TileGenerator.generateSquaresAsTiel(size, landscape);
-        //should here also be checked if the squares are valid?
+        this.layout = utility.TileGenerator.generateSquaresAsTiel(size, landscape);
     }
 
 
@@ -46,19 +57,12 @@ public class Tile {
             }
         }
 
-        checkSize(field.length);
-    }
-
-    private void checkSize (int size) {
-        boolean hasSize = false;
-        for (int possibleSize: ModelProperties.ALLOWED_TILE_SIZES){
-            if (size == possibleSize) {
-                hasSize = true;
+        for (Square[] squareLine : field) {
+            for (Square square : squareLine) {
+                if (square == null) {
+                    throw new IllegalArgumentException(SQUARE_IN_TILE_IS_NULL);
+                }
             }
-        }
-
-        if (!hasSize) {
-            throw new IllegalArgumentException(FIELD_HAS_NOT_THE_RIGHT_SIZE);
         }
     }
 
@@ -69,5 +73,9 @@ public class Tile {
 
     public int getSize () {
         return this.size;
+    }
+
+    public Landscape getLandscape () {
+        return this.landscape;
     }
 }

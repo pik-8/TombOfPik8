@@ -1,5 +1,11 @@
 package constants;
 
+
+/**
+ * From an old project.
+ *
+ * May be deleted.
+ */
 public class Properties {
 
     public static final String keyForHealtLevelBooster = "Health";

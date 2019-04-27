@@ -15,7 +15,8 @@ public enum Terrain {
 
     NONE (1, null),
     TREE(10, EffectFactory.getEffect(Condition.POISON)), //For Example
-    BEDROCK(999999999, null);
+    BEDROCK(999999999, null),
+    START_POINT(1, null);
 
 
     private int effortToPass;

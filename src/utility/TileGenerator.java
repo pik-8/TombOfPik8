@@ -1,6 +1,7 @@
 package utility;
 
 import constants.ModelProperties;
+import constants.balancing.Factors;
 import model.dungeon.Landscape;
 import model.dungeon.Square;
 import model.dungeon.Terrain;
@@ -73,7 +74,7 @@ public class TileGenerator {
         Random random = new Random();
         for (int x = 0; x < squares.length; x++) {
             for (int y = 0; y < squares.length; y++) {
-                if (random.nextFloat() <= ModelProperties.PROBABILITY_TO_SPAWN_A_TERRAIN) {
+                if (random.nextFloat() <= Factors.PROBABILITY_TO_SPAWN_A_TERRAIN) {
                     if (squares[x][y].getTerrain() == null || squares[x][y].getTerrain() == Terrain.NONE) {
                         squares[x][y] = new Square(possibleTerrains[random.nextInt(possibleTerrains.length)], new HealingEffect());
                     }
