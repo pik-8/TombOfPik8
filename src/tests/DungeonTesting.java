@@ -8,7 +8,7 @@ import view.DungeonPrinter;
 
 
 /**
- * A class to test dungeon specific elements in an test-environment.
+ * A class to test dungeon specific elements in a test-environment.
  *
  * @author Hagen
  */
