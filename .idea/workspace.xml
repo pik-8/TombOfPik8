@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25669768-4aad-4f01-a92c-36c17d75d99c" name="Default Changelist" comment="dressing naked numbers and minor stuff.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/options/Options.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/options/Options.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/options/Volume.java" beforeDir="false" />
-    </list>
+    <list default="true" id="25669768-4aad-4f01-a92c-36c17d75d99c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/options/Options.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="167" column="8" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
+            <state relative-caret-position="585">
+              <caret line="167" selection-start-line="167" selection-end-line="167" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,6 +84,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Patrick Szalewicz &lt;github@fachinformatiker.app&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -399,7 +399,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556216530455</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated view.options.Options.java - now it functions better">
+      <created>1556398945614</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1556398945614</updated>
+    </task>
+    <task id="LOCAL-00008" summary="updated view.options.Options.java - now it functions better">
+      <created>1556399073424</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1556399073424</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -407,7 +421,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="348" y="15" width="1382" height="1088" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16717096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -418,13 +431,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897383" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2834728" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2834728" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.9674973" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.156013" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.15585774" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -472,6 +485,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit, Editing in Condition" />
     <MESSAGE value="change the attack structur to resemble the structur of effects. Implementing the character and hero classes." />
@@ -479,7 +518,8 @@
     <MESSAGE value="add two classes to save the game (the informations)." />
     <MESSAGE value="change a little bit in the dungeon and effect package." />
     <MESSAGE value="dressing naked numbers and minor stuff." />
-    <option name="LAST_COMMIT_MESSAGE" value="dressing naked numbers and minor stuff." />
+    <MESSAGE value="updated view.options.Options.java - now it functions better" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated view.options.Options.java - now it functions better" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/model/dungeon/Landscape.java">
@@ -815,8 +855,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/options/Options.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="167" column="8" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
+        <state relative-caret-position="585">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
