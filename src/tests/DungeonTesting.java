@@ -15,7 +15,7 @@ import view.DungeonPrinter;
 public class DungeonTesting {
 
     public static void main (String args[]) {
-        generateAndPrintALotRandomDungeons();   //Success
+        generateAndPrintALotRandomDungeons();   //? check startPoint
         //generateAndPrintALotRandomDungeonsWithSeed();   //Success
         //testPrintLandscapes();   //Success
     }
@@ -29,6 +29,7 @@ public class DungeonTesting {
 
         DungeonFactory df = new DungeonFactory();
         DungeonPrinter dp = new DungeonPrinter();
+
         dp.printDungeon(df.generateRandomDungeon());
         System.out.println("\n");
         dp.printDungeon(df.generateRandomDungeon());

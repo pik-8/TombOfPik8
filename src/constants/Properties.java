@@ -43,11 +43,11 @@ public class Properties {
 
     //----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots----Save-Slots
 
-    public static final String SAVE_SLOT_1 = "/Save_Slot_1.save";
-    public static final String SAVE_SLOT_2 = "/Save_Slot_2.save";
-    public static final String SAVE_SLOT_3 = "/Save_Slot_3.save";
-    public static final String SAVE_SLOT_4 = "/Save_Slot_4.save";
-    public static final String SAVE_SLOT_5 = "/Save_Slot_5.save";
+    public static final String SAVE_SLOT_1 = "/Save_Slot_1.pik";
+    public static final String SAVE_SLOT_2 = "/Save_Slot_2.pik";
+    public static final String SAVE_SLOT_3 = "/Save_Slot_3.pik";
+    public static final String SAVE_SLOT_4 = "/Save_Slot_4.pik";
+    public static final String SAVE_SLOT_5 = "/Save_Slot_5.pik";
 
     public static final String[] ALL_SAVE_SLOTS = { SAVE_SLOT_1, SAVE_SLOT_2, SAVE_SLOT_3, SAVE_SLOT_4, SAVE_SLOT_5 };
 }

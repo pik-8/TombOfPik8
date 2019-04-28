@@ -4,7 +4,7 @@ import model.options.Option;
 
 
 /**
- * This class will save everything that is importend to be saved.
+ * This class will save everything that is important to be saved.
  * Saves all SaveStates and the options(settings).
  *
  * @author Hagen

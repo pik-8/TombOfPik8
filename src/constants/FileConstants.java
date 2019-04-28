@@ -29,7 +29,8 @@ public interface FileConstants {
 	
 	
 	public static final String SKILL_TEMPLATE_PATH = "resources/templates/skills/";
-	
-	
+
 	public static final String MOB_TEMPLATE_PATH = "resources/templates/enemies";
+
+	public static final String PATH_TO_SAVE_STATES = "resources/saveStates/";
 }
