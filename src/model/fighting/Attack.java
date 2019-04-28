@@ -46,8 +46,8 @@ public class Attack {
      *                      Throws an IllegalArgumentException, if requiredSlots < 0
      * @param effect The effect that will be bestowed on enemies and squares.
      */
-    public Attack(String name, String description, int damage, int magicDamage, int accuracy, int requiredSlots, Effect effect, AttackPattern ap)
-            throws Exception
+    public Attack(String name, String description, int damage, int magicDamage, int accuracy,
+                  int requiredSlots, Effect effect, AttackPattern ap)
     {
         checkParams(damage, magicDamage, accuracy, requiredSlots);
         this.name = Objects.requireNonNull(name);
@@ -110,5 +110,9 @@ public class Attack {
 
     public int getRequiredSlots() {
         return requiredSlots;
+    }
+
+    public AttackPattern getAttackPattern() {
+        return attackPattern;
     }
 }

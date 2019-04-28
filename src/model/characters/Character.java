@@ -36,13 +36,14 @@ public class Character {
      *
      * @param name
      * @param inventory
-     * @param effect
      * @param attacks
      * @param skills
      * @param secondaryStats
      * @param exp
      */
-    public Character(String name, Inventory inventory, Effect effect, Attack[] attacks, Skill[] skills, SecondaryStats secondaryStats, int exp) throws IllegalArgumentException, NullPointerException{
+    public Character(String name, Inventory inventory, Attack[] attacks, Skill[] skills,
+                     SecondaryStats secondaryStats, int exp) throws IllegalArgumentException, NullPointerException
+    {
         setName(name);
         setInventory(inventory);
         setAttacks(attacks);

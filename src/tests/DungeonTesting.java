@@ -15,7 +15,7 @@ import view.DungeonPrinter;
 public class DungeonTesting {
 
     public static void main (String args[]) {
-        generateAndPrintALotRandomDungeons();   //? check startPoint
+        generateAndPrintALotRandomDungeons();   //Success
         //generateAndPrintALotRandomDungeonsWithSeed();   //Success
         //testPrintLandscapes();   //Success
     }

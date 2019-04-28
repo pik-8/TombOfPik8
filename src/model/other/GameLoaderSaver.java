@@ -22,6 +22,13 @@ public class GameLoaderSaver {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
+
+    /**
+     *
+     * @param saveState
+     * @param saveSlot: The file name, the path is predefined.
+     * @throws IOException
+     */
     public void saveSaveState (SaveState saveState, String saveSlot) throws IOException {
         this.gson.toJson(saveState, new FileWriter(constants.FileConstants.PATH_TO_SAVE_STATES + saveSlot));
     }
@@ -41,5 +48,9 @@ public class GameLoaderSaver {
         }
 
         return saveStates;
+    }
+
+    public void deleteSaveState (String fileName) {
+        new File(constants.FileConstants.PATH_TO_SAVE_STATES + fileName).delete();
     }
 }

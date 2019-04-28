@@ -17,7 +17,7 @@ public class Overworld {
     private HashMap<Integer, Info> lastLevels;
 
 
-    protected Overworld () {  }
+    public Overworld () {  }
 
 
     /**

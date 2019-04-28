@@ -25,7 +25,6 @@ public class Hero extends Character {
      *
      * @param name
      * @param inventory
-     * @param effect
      * @param attacks
      * @param skills
      * @param secondaryStats
@@ -35,8 +34,8 @@ public class Hero extends Character {
      * @throws IllegalArgumentException
      * @throws NullPointerException
      */
-    public Hero(String name, Inventory inventory, Effect effect, Attack[] attacks, Skill[] skills, SecondaryStats secondaryStats, int exp, PrimeStats primeStats, Statistics statistics) throws IllegalArgumentException, NullPointerException {
-        super(name, inventory, effect, attacks, skills, secondaryStats, exp);
+    public Hero(String name, Inventory inventory, Attack[] attacks, Skill[] skills, SecondaryStats secondaryStats, int exp, PrimeStats primeStats, Statistics statistics) throws IllegalArgumentException, NullPointerException {
+        super(name, inventory, attacks, skills, secondaryStats, exp);
         setPrimeStats(primeStats);
         setStatistics(statistics);
     }

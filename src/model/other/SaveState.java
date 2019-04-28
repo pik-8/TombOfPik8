@@ -13,7 +13,7 @@ import model.overworld.Overworld;
 public class SaveState {
 
     private Hero player;
-    private Hero party;
+    private Hero[] party;
     private long playtime;
     private Overworld zaWORUDO;
     private Difficulty difficulty;
@@ -28,7 +28,7 @@ public class SaveState {
      * @param overworld: The overworld which contains a list of all dungeons.
      * @param difficulty: The difficulty the player wants to play with in this SaveState.
      */
-    public SaveState(Hero player, Hero party, long playtime, Overworld overworld, Difficulty difficulty) {
+    public SaveState(Hero player, Hero[] party, long playtime, Overworld overworld, Difficulty difficulty) {
         this.player = player;
         this.party = party;
         this.playtime = playtime;
@@ -48,7 +48,7 @@ public class SaveState {
         return zaWORUDO;
     }
 
-    public Hero getParty() {
+    public Hero[] getParty() {
         return party;
     }
 

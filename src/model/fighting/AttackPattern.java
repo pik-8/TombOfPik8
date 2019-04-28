@@ -75,7 +75,7 @@ public class AttackPattern {
                 if (oneField == null) {
                     nullCounter++;
                 }
-                if (nullCounter < 1) {
+                if (nullCounter > 1) {
                     throw new IllegalArgumentException(ATTACK_PATTERN_TO_MANY_NULL);
                 }
             }
