@@ -3,6 +3,7 @@ package model.dungeon;
 import com.google.gson.*;
 import static constants.ModelProperties.*;
 
+import constants.FileConstants;
 import model.io.TemplateReader;
 import model.json.AdapterFactories;
 import utility.TileGenerator;
@@ -59,11 +60,11 @@ public class DungeonFactory {
     /**
      * Returns an Dungeon-Object from an Json-String, that can be found by following the path.
      *
-     * @param path: The path to the template from the src folder.
+     * @param name: The name of the dungeon-template file.
      * @return: A dungeon that was created from the template.
      */
-    public Dungeon getDungeonFromTemplate(String path) {
-        return gson.fromJson(TemplateReader.readTemplateAsJsonObject(path), Dungeon.class);
+    public Dungeon getDungeonFromTemplate(String name) {
+        return gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.DUNGEON_TEMPLATE_PATH + name), Dungeon.class);
     }
 
 
@@ -115,8 +116,8 @@ public class DungeonFactory {
 
         // generates a ratio, that determines the number of tiles in this dungeon.
         float ratio = 0f;
-        for (float i = 0; (i < DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
-                (i > DUNGEON_TILE_DENSITY - DUNGEON_TILE_DENSITY_VARIANCE); )
+        for (float i = 0f; !((i <= DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
+                (i >= DUNGEON_TILE_DENSITY - DUNGEON_TILE_DENSITY_VARIANCE)); )
         {
             i = this.random.nextFloat();
             ratio = i;

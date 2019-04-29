@@ -15,9 +15,23 @@ import view.DungeonPrinter;
 public class DungeonTesting {
 
     public static void main (String args[]) {
-        generateAndPrintALotRandomDungeons();   //Success
+        //generateAndPrintALotRandomDungeons();   //Success
         //generateAndPrintALotRandomDungeonsWithSeed();   //Success
         //testPrintLandscapes();   //Success
+        loadDungeonFromTemplate("Level1.pik");//Success
+    }
+
+
+    /**
+     * A test that creates a dungeon from a Template and prints it in the console.
+     */
+    private static void loadDungeonFromTemplate(String name) {
+        System.out.println("Generate a dungeon from a template.\n");
+
+        DungeonFactory df = new DungeonFactory();
+        DungeonPrinter dp = new DungeonPrinter();
+
+        dp.printDungeon(df.getDungeonFromTemplate(name));
     }
 
 

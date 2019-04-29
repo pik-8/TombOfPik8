@@ -23,14 +23,13 @@ public interface FileConstants {
 	public static final String TRINKET_RARE_TEMPLATES = "RareTrinkets.pik";
 	public static final String TRINKET_EPIC_TEMPLATES = "EpicTrinkets.pik";
 	public static final String TRINKET_LEGENDARY_TEMPLATES = "LegendaryTrinkets.pik";
-	
-	
+
 	public static final String ATTACK_TEMPLATE_PATH = "resources/templates/attacks";
-	
-	
 	public static final String SKILL_TEMPLATE_PATH = "resources/templates/skills/";
-
 	public static final String MOB_TEMPLATE_PATH = "resources/templates/enemies";
+	public static final String DUNGEON_TEMPLATE_PATH = "resources/templates/dungeons/";
 
-	public static final String PATH_TO_SAVE_STATES = "resources/saveStates/";
+	public static final String PATH_TO_SAVE_STATES = "resources/savings/saveStates/";
+	public static final String PATH_TO_SAVING = "resources/savings/";
+	public static final String PATH_TO_SAVING_OPTION = "resources/savings/Option.pik";
 }
