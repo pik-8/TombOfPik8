@@ -75,6 +75,7 @@ public class DungeonTesting {
      */
     private static void testPrintLandscapes () {
         System.out.println("Generate some dungeons and prints the layout of their landscapes.");
+
         DungeonFactory df = new DungeonFactory();
         DungeonPrinter dp = new DungeonPrinter();
 

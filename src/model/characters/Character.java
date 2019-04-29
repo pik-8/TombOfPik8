@@ -34,12 +34,12 @@ public class Character {
     /**
      * Throws an IllegalargumentException, if exp < 0 and a NullpointerException when one Object is null.
      *
-     * @param name
-     * @param inventory
-     * @param attacks
-     * @param skills
-     * @param secondaryStats
-     * @param exp
+     * @param name: The name of the character.
+     * @param inventory: The inventory of the character.
+     * @param attacks: The attacks a character has.
+     * @param skills: The skills a character has.
+     * @param secondaryStats: The stats a character has.
+     * @param exp: The basic amount of exp a mob gives after defeating it.
      */
     public Character(String name, Inventory inventory, Attack[] attacks, Skill[] skills,
                      SecondaryStats secondaryStats, int exp) throws IllegalArgumentException, NullPointerException

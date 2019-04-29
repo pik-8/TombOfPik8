@@ -28,6 +28,8 @@ public class Volume extends Application {
     public static double EffectsVolumeValue;
     public static double MusicVolumeValue;
 
+    private double effectVolumeValue;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -55,6 +57,14 @@ public class Volume extends Application {
 
     public static void getSelectedVolumes(){
 
+    }
+
+    public double getEffectVolumeValue() {
+        return effectVolumeValue;
+    }
+
+    public void setEffectVolumeValue(double effectVolumeValue) {
+        this.effectVolumeValue = effectVolumeValue;
     }
 }
 

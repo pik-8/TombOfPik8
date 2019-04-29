@@ -33,9 +33,11 @@ public class DungeonPrinter {
             for (int j = 0; j < dungeon.getlayout()[i].length; j++) {
                 if (dungeon.getlayout()[i][j] != null) {
                     tileSize = dungeon.getlayout()[i][j].getSize();
-                    i = dungeon.getlayout().length -1;
-                    j = dungeon.getlayout()[i].length;
+                    break;
                 }
+            }
+            if (tileSize != 0) {
+                break;
             }
         }
         /*

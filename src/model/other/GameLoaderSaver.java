@@ -2,7 +2,9 @@ package model.other;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import constants.FileConstants;
 import model.io.TemplateReader;
+import model.options.Option;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -24,14 +26,32 @@ public class GameLoaderSaver {
 
 
     /**
+     * Saves the given SaveState-Object in a file with the given name.
+     * If the file does not exist, it willl be generated, if it does exist, it will be overwritten.
+     *
+     * To see where it will be saved, look in constants.FileConstants.PATH_TO_SAVE_STATES
      *
      * @param saveState
      * @param saveSlot: The file name, the path is predefined.
      * @throws IOException
      */
     public void saveSaveState (SaveState saveState, String saveSlot) throws IOException {
-        this.gson.toJson(saveState, new FileWriter(constants.FileConstants.PATH_TO_SAVE_STATES + saveSlot));
+        String object = this.gson.toJson(saveState);
+        FileWriter fileWriter = new FileWriter(constants.FileConstants.PATH_TO_SAVE_STATES + saveSlot);
+        fileWriter.write(object);
+        fileWriter.close();
     }
+
+
+    public Option getOption () {
+        return this.gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.PATH_TO_SAVING_OPTION),
+                Option.class);
+    }
+
+    public void saveOptions (Option option) throws IOException{
+        this.gson.toJson(option, new FileWriter(FileConstants.PATH_TO_SAVING_OPTION));
+    }
+
 
     public SaveState[] getAllSaveStates () {
         File[] listOfFiles = new File(constants.FileConstants.PATH_TO_SAVE_STATES).listFiles();
@@ -43,11 +63,21 @@ public class GameLoaderSaver {
                 saveStates[i] = this.gson.fromJson(
                         TemplateReader.readTemplateAsJsonObject(listOfFiles[i]), SaveState.class);
             } catch (Exception e) {
+                System.out.println(e);
                 saveStates[i] = null;
             }
         }
 
         return saveStates;
+    }
+
+    public String[] getNameOfAllSaveStates () {
+        File[] allFiles = new File(FileConstants.PATH_TO_SAVE_STATES).listFiles();
+        String[] allNames = new String[allFiles.length];
+        for (int i = 0; i < allFiles.length; i++) {
+            allNames[i] = allFiles[i].getName();
+        }
+        return allNames;
     }
 
     public void deleteSaveState (String fileName) {

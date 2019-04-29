@@ -1,6 +1,7 @@
 package model.options;
 
 import java.awt.*;
+import java.awt.image.VolatileImage;
 
 
 /**
@@ -16,6 +17,10 @@ import java.awt.*;
 
 public class Option {
 
+    private Volume volume;
+
+
+
     public static void main(String[] args){
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension d = tk.getScreenSize();
@@ -28,6 +33,10 @@ public class Option {
         System.out.println("General volume: " + volume.GeneralVolumeValue);
         System.out.println("Effects volume: " + volume.EffectsVolumeValue);
         System.out.println("Music volume: " + volume.MusicVolumeValue);
+    }
+
+    public void setVolume (Volume volume) {
+        this.volume = volume;
     }
 
 

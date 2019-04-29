@@ -23,30 +23,29 @@ public class Hero extends Character {
     /**
      * Throws an IllegalargumentException, if exp < 0 and a NullpointerException when one Object is null.
      *
-     * @param name
-     * @param inventory
-     * @param attacks
-     * @param skills
-     * @param secondaryStats
-     * @param exp
-     * @param primeStats
-     * @param statistics
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
+     * @param name: The name of the hero.
+     * @param inventory: The inventory of the hero.
+     * @param attacks: The attacks a hero has.
+     * @param skills: The skills a hero has.
+     * @param secondaryStats: The stats a hero has.
+     * @param exp: The amount a hero has at it's current level.
+     * @param primeStats: The stats a hero can level up, determine the secondaryStats.
+     * @param statistics: Saves the deeds inside a dungeon.
+     * @throws IllegalArgumentException: When a number is below 0.
+     * @throws NullPointerException: When an Object is null.
      */
-    public Hero(String name, Inventory inventory, Attack[] attacks, Skill[] skills, SecondaryStats secondaryStats, int exp, PrimeStats primeStats, Statistics statistics) throws IllegalArgumentException, NullPointerException {
+    public Hero(String name, Inventory inventory, Attack[] attacks, Skill[] skills, SecondaryStats secondaryStats,
+                int exp, PrimeStats primeStats, Statistics statistics)
+            throws IllegalArgumentException, NullPointerException
+    {
         super(name, inventory, attacks, skills, secondaryStats, exp);
-        setPrimeStats(primeStats);
+        this.primeStats = Objects.requireNonNull(primeStats);
         setStatistics(statistics);
     }
 
 
     public PrimeStats getPrimeStats() {
         return primeStats;
-    }
-
-    public void setPrimeStats(PrimeStats primeStats) throws NullPointerException {
-        this.primeStats = Objects.requireNonNull(primeStats);
     }
 
     public Statistics getStatistics() {

@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 
 /**
+ * The overworld has collections for every level and saves the current possible dungeons and the last played ones.
  *
  * @author Hagen
  */

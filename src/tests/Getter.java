@@ -9,7 +9,10 @@ import model.effects.HealingEffect;
 import model.fighting.Attack;
 import model.fighting.AttackPattern;
 import model.fighting.Skill;
+import model.options.Difficulty;
+import model.other.SaveState;
 import model.other.Statistics;
+import model.overworld.Overworld;
 
 
 /**
@@ -17,7 +20,7 @@ import model.other.Statistics;
  */
 public class Getter {
 
-    public static Hero getAHero () throws Exception {
+    public static Hero getAHero (String name) throws Exception {
         float[][] attackField = {{1,1},{0.1f, -1}};
         Effect[][] effectField = {{new HealingEffect()},{null},{new HealingEffect(), new HealingEffect()}};
         AttackPattern pattern = new AttackPattern(attackField, effectField);
@@ -33,6 +36,14 @@ public class Getter {
         PrimeStats primeStats = new PrimeStats(false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
         Statistics statistics = new Statistics();
         Attack[] attacks = {attack, attack};
-        return new Hero("Naofumi", inventory, attacks, skills, secStats, 1, primeStats, statistics);
+        return new Hero(name, inventory, attacks, skills, secStats, 1, primeStats, statistics);
+    }
+
+
+    public static SaveState getASaveState () throws Exception {
+        Hero[] party = {getAHero("naofumi"), getAHero("Saitama")};
+        Overworld overworld = new Overworld();
+        Difficulty diffi = new Difficulty();
+        return new SaveState(Getter.getAHero("Deku"), party, 1, overworld, diffi);
     }
 }

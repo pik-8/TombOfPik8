@@ -15,7 +15,7 @@ public class Dungeon {
     private Objective objective;
 
 
-    public Dungeon(Tile[][] layout, Objective objective) throws NullPointerException {
+    protected Dungeon(Tile[][] layout, Objective objective) throws NullPointerException {
         this.layout = Objects.requireNonNull(layout);
         this.objective = Objects.requireNonNull(objective);
     }

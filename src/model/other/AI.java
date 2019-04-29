@@ -1,4 +1,7 @@
 package model.other;
 
-public class AI {
+public abstract class AI {
+
+    public abstract void move ();
+    public abstract void attack ();
 }
