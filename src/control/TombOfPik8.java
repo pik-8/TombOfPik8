@@ -34,7 +34,7 @@ public class TombOfPik8 {
     	
     	DungeonController dc = new DungeonController(new Hero[]{fred, hagen, patrick}, basicDungeon);
     	DungeonPrinter.printDungeon(basicDungeon);
-    	
+
     	
     }
 

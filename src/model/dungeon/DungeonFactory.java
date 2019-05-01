@@ -237,7 +237,8 @@ public class DungeonFactory {
         generateDungeonFromLayout(tileSize, layout, tiles, possibleLandscapes);
         setStartPoint(startPosition, tiles,tileSize);
         Character[][] mobLayout = getMobLayout(difficulty, tiles, tileSize, mobSpawner);
-        return new Dungeon(tiles, mobLayout);    }
+        return new Dungeon(tiles, mobLayout);
+    }
 
 
     /**
@@ -391,7 +392,7 @@ public class DungeonFactory {
             int x = this.random.nextInt(tile.getSize());
             int y = this.random.nextInt(tile.getSize());
 
-            if (tile.getlayout()[x][y].getTerrain() != Terrain.NONE) {
+            if (tile.getlayout()[x][y].getTerrain() == Terrain.NONE) {
                 mobLayout[xWorldKoordinate + x][yWorldKoordinate + y] = mobSpawner.spawnMob();
                 numberOfMobs--;
             }

@@ -1,5 +1,6 @@
 package view;
 
+import model.characters.Character;
 import model.dungeon.Dungeon;
 import model.dungeon.Landscape;
 import model.dungeon.Terrain;
@@ -76,6 +77,62 @@ public class DungeonPrinter {
         }
     }
 
+
+    public static void printMobLayout (Dungeon dungeon) {
+        for (int y = 0; y < dungeon.getMobLayout()[0].length; y++) {
+            for (int x = 0; x < dungeon.getMobLayout().length; x++) {
+                printLetterOfMob(dungeon.getMobLayout()[x][y]);
+            }
+            System.out.println();
+        }
+    }
+
+
+    public static void printMobAndTerrainLayout (Dungeon dungeon) {
+        int tileSize = 0;
+
+        //searches through the layout to find a tile that is not null to get the length of the tiles.
+        for (int i = 0; i < dungeon.getlayout().length; i++) {
+            for (int j = 0; j < dungeon.getlayout()[i].length; j++) {
+                if (dungeon.getlayout()[i][j] != null) {
+                    tileSize = dungeon.getlayout()[i][j].getSize();
+                    break;
+                }
+            }
+            if (tileSize != 0) {
+                break;
+            }
+        }
+
+        for (int y = 0; y < dungeon.getlayout()[0].length; y++) {
+            for (int tileYIndex = 0; tileYIndex < tileSize; tileYIndex++) {
+                for (int x = 0; x < dungeon.getlayout().length; x++) {
+                    if (dungeon.getlayout()[x][y] != null) {
+                        for (int tileX = 0; tileX < tileSize; tileX++) {
+                            if (dungeon.getMobLayout()[(x * tileSize) + tileX][(y* tileSize) + tileYIndex] != null) {
+                                printLetterOfMob(dungeon.getMobLayout()[(x * tileSize) + tileX][(y* tileSize) + tileYIndex]);
+                            } else {
+                                printLetterOfTerrain(dungeon.getlayout()[x][y].getlayout()[tileX][tileYIndex].getTerrain());
+                            }
+                        }
+                    } else {
+                        printOneEmptyLine(tileSize);
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+
+
+
+    private static void printLetterOfMob (Character mob) {
+        if (mob == null) {
+            System.out.print("   ");
+        } else {
+            System.out.print(((mob.getName().charAt(0))) + String.valueOf(mob.getName().charAt(1)).toUpperCase() + " ");
+        }
+    }
 
     private static void printLetterOfTerrain (Terrain terrain) {
         if (terrain == Terrain.NONE) {
