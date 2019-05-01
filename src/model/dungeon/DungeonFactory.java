@@ -199,7 +199,14 @@ public class DungeonFactory {
         MobSpawner mobSpawner = new MobSpawner(level,Math.round(100 * difficulty.getMobTier()));
         int[][] layout = new int[length][height];
 
-        this.numberOfLayoutEntrances = (int) (length * height * 0.5);
+        float ratio = 0f;
+        for (float i = 0f; !((i <= DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
+                (i >= DUNGEON_TILE_DENSITY - DUNGEON_TILE_DENSITY_VARIANCE)); )
+        {
+            i = this.random.nextFloat();
+            ratio = i;
+        }
+        this.numberOfLayoutEntrances = Math.round(length * height * ratio);
         generateLayout(layout, startPosition);
 
         Tile[][] tiles = new Tile[length][height];
