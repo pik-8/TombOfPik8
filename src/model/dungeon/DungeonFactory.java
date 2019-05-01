@@ -101,7 +101,7 @@ public class DungeonFactory {
         int tileSize = RANDOM_TILE_SIZES[this.random.nextInt(RANDOM_TILE_SIZES.length)];
         generateDungeonFromLayout(tileSize, intLayout, tileLayout, Landscape.values());
         setStartPoint(startPosition, tileLayout, tileSize);
-        return new Dungeon(tileLayout);
+        return new Dungeon(tileLayout, new Difficulty(1, 1, 1, 1));
     }
 
 
@@ -131,7 +131,7 @@ public class DungeonFactory {
         int tileSize = RANDOM_TILE_SIZES[this.random.nextInt(RANDOM_TILE_SIZES.length)];
         generateDungeonFromLayout(tileSize, intLayout, tileLayout, Landscape.values());
         setStartPoint(startPosition, tileLayout, tileSize);
-        return new Dungeon(tileLayout);
+        return new Dungeon(tileLayout, new Difficulty(1, 1, 1, 1));
     }
 
 
@@ -152,7 +152,7 @@ public class DungeonFactory {
         Tile[][] tiles = new Tile[length][height];
         generateDungeonFromLayout(tileSize, layout, tiles, possibleLandscapes);
         setStartPoint(startPosition, tiles, tileSize);
-        return new Dungeon(tiles);
+        return new Dungeon(tiles,new Difficulty(1, 1, 1, 1));
     }
 
 
@@ -173,7 +173,7 @@ public class DungeonFactory {
         Tile[][] tiles = new Tile[length][height];
         generateDungeonFromLayout(tileSize, layout, tiles, possibleLandscapes);
         setStartPoint(startPosition, tiles,tileSize);
-        return new Dungeon(tiles);
+        return new Dungeon(tiles, new Difficulty(1, 1, 1, 1));
     }
 
 

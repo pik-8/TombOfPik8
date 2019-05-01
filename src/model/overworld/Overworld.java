@@ -2,7 +2,7 @@ package model.overworld;
 
 import model.dungeon.Dungeon;
 import model.dungeon.Landscape;
-import model.options.Difficulty;
+import model.dungeon.Difficulty;
 
 import java.util.HashMap;
 
