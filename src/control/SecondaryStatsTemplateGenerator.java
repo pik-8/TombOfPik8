@@ -47,7 +47,7 @@ public class SecondaryStatsTemplateGenerator {
 	public static SecondaryStats generate() {
 		SecondaryStats stats = new SecondaryStats(hp, action, max_Hp,
 				maxAction, attack, magicAttack, defence, magicDefence,
-				speed, attackResistance, luck, load, maxEquipmentLoad,
+				speed, luck, load, maxEquipmentLoad,
 				stamina, attackSlots);
 		return stats;
 	}

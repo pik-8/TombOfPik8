@@ -13,12 +13,11 @@ public class SecondaryStats {
 
 	private int max_Hp;
 	private int maxAction;
-	private int attack;
-	private int magicAttack;
+	private int attackPower;
+	private int magicAttackPower;
 	private int defence;
 	private int magicDefence;
 	private int speed;
-	private float attackResistance;
 	private int luck;
 
 	private int load;
@@ -30,35 +29,39 @@ public class SecondaryStats {
 
 	/**
 	 *
-	 * @param hp
-	 * @param action
-	 * @param max_Hp
-	 * @param maxAction
-	 * @param attack
-	 * @param magicAttack
-	 * @param defence
-	 * @param magicDefence
-	 * @param speed
-	 * @param attackResistance
-	 * @param luck
-	 * @param load
-	 * @param maxEquipmentLoad
-	 * @param stamina
-	 * @param attackSlots
+	 * @param hp: The current hp a character can have. 0 <= hp <= max hp.
+	 * @param action: The current amount of actions (attackPowering, walking) a character can do. 0 <= action <= max action.
+	 * @param max_Hp: Sets the maximum amount of a character can have.
+	 * @param maxAction: Sets the maximum amount of actions a character can have.
+	 * @param attackPower: Sets how powerful a character can attack someone.
+	 * @param magicAttackPower: Determines how powerful a character can attack someone with magic.
+	 * @param defence: Determines how much a character can defend itself against attacks.
+	 * @param magicDefence: Determines how much a character can defend itself against magical attacks.
+	 * @param speed: Determines how fast a character is.
+	 * @param luck: Determines how much luck a character has.
+	 * @param load: Determines the weight a character currently has. 0 <= load <= maximum equipment load.
+	 * @param maxEquipmentLoad: Sets the maximum amount of weight a character can wield.
+	 * @param stamina: Determines the amount of fields one character can cross.
+	 * @param attackSlots: The amount of attackSlots one character has.
 	 */
-	 public SecondaryStats(int hp, int action, int max_Hp, int maxAction, int attack, int magicAttack, int defence,
-			int magicDefence, int speed, float attackResistance,
+	 public SecondaryStats(int hp, int action, int max_Hp, int maxAction, int attackPower, int magicAttackPower, int defence,
+			int magicDefence, int speed,
 			int luck, int load, int maxEquipmentLoad, int stamina, int attackSlots) {
 
-		this.hp = hp;
-		this.action = action;
-		this.max_Hp = max_Hp;
-		this.maxAction = maxAction;
-		this.attack = attack;
-		this.magicAttack = magicAttack;
+		 this.max_Hp = max_Hp;
+		 this.maxAction = maxAction;
+		 this.hp = 0;
+		 this.action = 0;
+		 this.load = 0;
+
+		 addHp(hp);
+		 addAction(action);
+		 addLoad(load);
+
+		this.attackPower = attackPower;
+		this.magicAttackPower = magicAttackPower;
 		this.defence = defence;
 		this.magicDefence = magicDefence;
-		this.attackResistance = attackResistance;
 		this.speed = speed;
 		this.luck = luck;
 		this.load = load;
@@ -72,13 +75,10 @@ public class SecondaryStats {
 	public int getHp() {
 		return hp;
 	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
 	
 	/**
-	 * Adds an amount of hp to the character. If the amount plus the current hp exceeds the maximum hp or is less than zero,
-	 * it is handled appropriatly.
+	 * Adds an amount of hp to the character. If the amount plus the current hp exceeds the maximum hp
+	 * or is less than zero, it is handled appropriately.
 	 * The amount of hp can be negative
 	 * @param amount The amount of hp to add.
 	 */
@@ -90,14 +90,29 @@ public class SecondaryStats {
 		else
 			this.hp += amount;
 	}
-	
+
+
+	public void addAction(int amount) {
+		if(this.action + amount > this.maxAction)
+			this.action = this.maxAction;
+		else if(this.action + amount < 0)
+			this.action = 0;
+		else
+			this.action += amount;
+	}
+
+	public void addLoad(int amount) {
+		if(this.load + amount > this.maxEquipmentLoad)
+			this.load = this.maxEquipmentLoad;
+		else if(this.load + amount < 0)
+			this.load = 0;
+		else
+			this.load += amount;
+	}
 	
 	
 	public int getAction() {
 		return this.action;
-	}
-	public void setAction(int action){
-		this.action = action;
 	}
 	public int getMax_Hp() {
 		return max_Hp;
@@ -111,17 +126,17 @@ public class SecondaryStats {
 	public void setMaxAction(int maxAction) {
 		this.maxAction = maxAction;
 	}
-	public int getAttack() {
-		return attack;
+	public int getAttackPower() {
+		return attackPower;
 	}
-	public void setAttack(int attack) {
-		this.attack = attack;
+	public void setAttackPower(int attackPower) {
+		this.attackPower = attackPower;
 	}
-	public int getMagicAttack() {
-		return magicAttack;
+	public int getMagicAttackPower() {
+		return magicAttackPower;
 	}
-	public void setMagicAttack(int magicAttack) {
-		this.magicAttack = magicAttack;
+	public void setMagicAttackPower(int magicattackPower) {
+		this.magicAttackPower = magicattackPower;
 	}
 	public int getDefence() {
 		return defence;
@@ -140,12 +155,6 @@ public class SecondaryStats {
 	}
 	public void setSpeed(int speed) {
 		this.speed = speed;
-	}
-	public float getAttackResistance() {
-		return this.attackResistance;
-	}
-	public void setAttackResistance(float attackResistance) {
-		this.attackResistance = attackResistance;
 	}
 	public int getLuck() {
 		return luck;
@@ -171,12 +180,12 @@ public class SecondaryStats {
 	public void setStamina(int stamina) {
 		this.stamina = stamina;
 	}
+
 	public int getAttackSlots() {
 		return attackSlots;
 	}
+
 	public void setAttackSlots(int attackSlots) {
 		this.attackSlots = attackSlots;
 	}
-
-
 }
