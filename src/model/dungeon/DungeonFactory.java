@@ -11,6 +11,7 @@ import model.json.AdapterFactories;
 import utility.TileGenerator;
 
 import java.util.Random;
+import java.util.logging.Level;
 
 
 /**
@@ -72,57 +73,12 @@ public class DungeonFactory {
 
 
     /**
-     * Generates a dungeon with out any parameters.
-     * Only has a level parameter, but that is for the mobs.
-     * Has some hard-boundary's to ensure quality.
-     *
-     * @return: A randomly generated Dungeon.
-     */
-    public Dungeon generateRandomDungeon (int level) {
-        Difficulty difficulty = DifficultyFactory.getDifficultyFactory().getRandomDifficulty();
-        MobSpawner mobSpawner = new MobSpawner(level,Math.round(100 * difficulty.getMobTier()));
-
-        // Generates a layout for the dungeon and determines the size off it by predefined values.
-        // Has to be calculated so complicated, because the boundary from nextInt always starts with 0.
-        int heightOfLayout = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
-                + MIN_SIZE_RANDOM_DUNGEON;
-        int lengthOfLayout = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
-                + MIN_SIZE_RANDOM_DUNGEON;
-
-        int[][] intLayout = new int[lengthOfLayout][heightOfLayout];
-
-        // generates a ratio, that determines the number of tiles in this dungeon.
-        float ratio = 0f;
-        for (float i = 0f; !((i <= DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
-                (i >= DUNGEON_TILE_DENSITY - DUNGEON_TILE_DENSITY_VARIANCE)); )
-        {
-            i = this.random.nextFloat();
-            ratio = i;
-        }
-        this.numberOfLayoutEntrances = Math.round(lengthOfLayout * heightOfLayout * ratio);
-
-        Position startPosition = new Position(this.random.nextInt(lengthOfLayout), this.random.nextInt(heightOfLayout));
-        Position currentPositionInLayout = new Position(startPosition.getXPosition(), startPosition.getYPosition());
-        generateLayout(intLayout, currentPositionInLayout);
-
-        Tile[][] tileLayout = new Tile[lengthOfLayout][heightOfLayout];
-        int tileSize = RANDOM_TILE_SIZES[this.random.nextInt(RANDOM_TILE_SIZES.length)];
-        generateDungeonFromLayout(tileSize, intLayout, tileLayout, Landscape.values());
-
-        setStartPoint(startPosition, tileLayout, tileSize);
-        Character[][] mobLayout = getMobLayout(difficulty, tileLayout, tileSize, mobSpawner);
-        return new Dungeon(tileLayout, mobLayout);
-    }
-
-
-    /**
      * Generates a dungeon with a fixed difficulty.
      * Has some hard-boundary's to ensure quality.
      *
      * @return: A randomly generated Dungeon.
      */
-    public Dungeon generateRandomDungeon (int level, Difficulty difficulty) {
-        MobSpawner mobSpawner = new MobSpawner(level,Math.round(100 * difficulty.getMobTier()));
+    public Dungeon generateRandomDungeon () {
 
         // Generates a layout for the dungeon and determines the size off it by predefined values.
         // Has to be calculated so complicated, because the boundary from nextInt always starts with 0.
@@ -151,8 +107,7 @@ public class DungeonFactory {
         int tileSize = RANDOM_TILE_SIZES[this.random.nextInt(RANDOM_TILE_SIZES.length)];
         generateDungeonFromLayout(tileSize, intLayout, tileLayout, Landscape.values());
         setStartPoint(startPosition, tileLayout, tileSize);
-        Character[][] mobLayout = getMobLayout(difficulty, tileLayout, tileSize, mobSpawner);
-        return new Dungeon(tileLayout, mobLayout);
+        return new Dungeon(tileLayout);
     }
 
 
@@ -162,9 +117,7 @@ public class DungeonFactory {
      *
      * @return: A randomly generated Dungeon.
      */
-    public Dungeon generateRandomDungeon (int level, int length, int heigth) {
-        Difficulty difficulty = DifficultyFactory.getDifficultyFactory().getRandomDifficulty();
-        MobSpawner mobSpawner = new MobSpawner(level,Math.round(100 * difficulty.getMobTier()));
+    public Dungeon generateRandomDungeon (int length, int heigth) {
         int[][] intLayout = new int[length][heigth];
 
         // generates a ratio, that determines the number of tiles in this dungeon.
@@ -185,8 +138,7 @@ public class DungeonFactory {
         int tileSize = RANDOM_TILE_SIZES[this.random.nextInt(RANDOM_TILE_SIZES.length)];
         generateDungeonFromLayout(tileSize, intLayout, tileLayout, Landscape.values());
         setStartPoint(startPosition, tileLayout, tileSize);
-        Character[][] mobLayout = getMobLayout(difficulty, tileLayout,tileSize,mobSpawner);
-        return new Dungeon(tileLayout, mobLayout);
+        return new Dungeon(tileLayout);
     }
 
 
@@ -196,11 +148,9 @@ public class DungeonFactory {
      *
      * @return: A randomly generated Dungeon.
      */
-    public Dungeon generateRandomDungeon (int level, int length, int height, int tileSize,
+    public Dungeon generateRandomDungeon (int length, int height, int tileSize,
                                           Landscape[] possibleLandscapes, Position startPosition)
     {
-        Difficulty difficulty = DifficultyFactory.getDifficultyFactory().getRandomDifficulty();
-        MobSpawner mobSpawner = new MobSpawner(level,Math.round(100 * difficulty.getMobTier()));
         int[][] layout = new int[length][height];
 
         float ratio = 0f;
@@ -218,8 +168,7 @@ public class DungeonFactory {
         Tile[][] tiles = new Tile[length][height];
         generateDungeonFromLayout(tileSize, layout, tiles, possibleLandscapes);
         setStartPoint(startPosition, tiles, tileSize);
-        Character[][] mobLayout = getMobLayout(difficulty, tiles, tileSize, mobSpawner);
-        return new Dungeon(tiles, mobLayout);
+        return new Dungeon(tiles);
     }
 
 
@@ -229,11 +178,10 @@ public class DungeonFactory {
      *
      * @return: A randomly generated Dungeon.
      */
-    public Dungeon generateRandomDungeon (int level, int length, int height, int tileSize, Landscape[] possibleLandscapes,
+    public Dungeon generateRandomDungeon (int length, int height, int tileSize, Landscape[] possibleLandscapes,
                                           Position startPosition, int numberOfTiles)
     {
         Difficulty difficulty = DifficultyFactory.getDifficultyFactory().getRandomDifficulty();
-        MobSpawner mobSpawner = new MobSpawner(level,Math.round(100 * difficulty.getMobTier()));
         int[][] layout = new int[length][height];
 
         this.numberOfLayoutEntrances = numberOfTiles;
@@ -243,9 +191,43 @@ public class DungeonFactory {
         Tile[][] tiles = new Tile[length][height];
         generateDungeonFromLayout(tileSize, layout, tiles, possibleLandscapes);
         setStartPoint(startPosition, tiles,tileSize);
-        Character[][] mobLayout = getMobLayout(difficulty, tiles, tileSize, mobSpawner);
-        return new Dungeon(tiles, mobLayout);
+        return new Dungeon(tiles);
     }
+
+
+    public Character[][] getMobLayout (Difficulty difficulty, Dungeon dungeon, int level) {
+        MobSpawner mobSpawner = new MobSpawner(level, Math.round(difficulty.getMobLevelRate()));
+
+        int tileSize = 0;
+        for (int i = 0; i < dungeon.getLayout().length; i++) {
+            for (int j = 0; j < dungeon.getLayout()[i].length; j++) {
+                if (dungeon.getLayout()[i][j] != null) {
+                    tileSize = dungeon.getLayout()[i][j].getSize();
+                    break;
+                }
+            }
+            if (tileSize != 0) {
+                break;
+            }
+        }
+
+        Character[][] mobLayout = new Character[dungeon.getLayout().length * tileSize][dungeon.getLayout()[0].length * tileSize];
+
+        int numberOfMobs = difficulty.getMobSpawnRate();
+        if (numberOfMobs == 0) {
+            numberOfMobs = 1;
+        }
+
+        for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
+            for (int x = 0; x < dungeon.getLayout().length; x++) {
+                if (dungeon.getLayout()[x][y] != null) {
+                    setMobsInTile(mobLayout, dungeon.getLayout()[x][y], this.random.nextInt(numberOfMobs + 1), tileSize * x, tileSize * y,mobSpawner);
+                }
+            }
+        }
+        return mobLayout;
+    }
+
 
 
     /**
@@ -283,7 +265,7 @@ public class DungeonFactory {
 
         }
         // the starting tile in squares
-        dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()].getlayout()
+        dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()].getLayout()
                 // determines the middle of the square-array
                 [Math.round(dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()].getSize() / 2)]
                 [Math.round(dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()].getSize() / 2)]
@@ -315,7 +297,7 @@ public class DungeonFactory {
                         }
 
                         dungeon[x][y] = TileGenerator.getTile(tileSize,
-                                Landscape.values()[this.random.nextInt(Landscape.values().length)],
+                                Landscape.values()[this.random.nextInt(landscapes.length)],
                                 hasRight, hasLeft, hasUp, hasDown);
                     }
                 }
@@ -377,29 +359,13 @@ public class DungeonFactory {
         }
     }
 
-    private Character[][] getMobLayout (Difficulty difficulty, Tile[][] layout, int tileLength, MobSpawner mobSpawner) {
-        Character[][] mobLayout = new Character[layout.length * tileLength][layout[0].length * tileLength];
-        int numberOfMobs = difficulty.getMobSpawnRate();
-        if (numberOfMobs == 0) {
-            numberOfMobs = 1;
-        }
-        for (int y = 0; y < layout[0].length; y++) {
-            for (int x = 0; x < layout.length; x++) {
-                if (layout[x][y] != null) {
-                    setMobsInTile(mobLayout, layout[x][y], this.random.nextInt(numberOfMobs + 1), tileLength * x, tileLength * y,mobSpawner);
-                }
-            }
-        }
-        return mobLayout;
-    }
-
     private void setMobsInTile (Character[][] mobLayout, Tile tile, int numberOfMobs, int xWorldKoordinate, int yWorldKoordinate, MobSpawner mobSpawner) {
         int endlessCounter = 0;
         for (numberOfMobs = numberOfMobs; numberOfMobs > 0; ) {
             int x = this.random.nextInt(tile.getSize());
             int y = this.random.nextInt(tile.getSize());
 
-            if (tile.getlayout()[x][y].getTerrain() == Terrain.NONE) {
+            if (tile.getLayout()[x][y].getTerrain() == Terrain.NONE) {
                 mobLayout[xWorldKoordinate + x][yWorldKoordinate + y] = mobSpawner.spawnMob();
                 numberOfMobs--;
             }

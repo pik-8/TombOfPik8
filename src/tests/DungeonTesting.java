@@ -5,10 +5,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import constants.FileConstants;
 import javafx.geometry.Pos;
+import model.characters.Character;
 import model.dungeon.*;
 import model.json.AdapterFactories;
 import view.DungeonPrinter;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 
@@ -22,21 +24,21 @@ public class DungeonTesting {
     public static void main (String args[]) throws Exception{
         //generateALotDungeons();   //Success
         //printMobLayout(); // Success
-        //printMobAndTerrainsLayout(); //Success
+        printMobAndTerrainsLayout(); //Success
         //generateALotDungeonsWithSeed();   //Success
         //testPrintLandscapes();  //Success
-        createDungeonTemplate();
-        //loadDungeonFromTemplate("TestDungeon.pik");//Success
+        //createDungeonTemplate();//Failure
+        //loadDungeonFromTemplate("TestDungeon.pik");//Failure
 
         //testAllDungeonGenerators(); //Success
     }
 
     private static void createDungeonTemplate () throws Exception{
-        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().create();
         DungeonFactory dungeonFactory = new DungeonFactory();
-        Dungeon dungeon = dungeonFactory.generateRandomDungeon(100);
+        Dungeon dungeon = dungeonFactory.generateRandomDungeon( 3, 3, 5, new Landscape[]{Landscape.FOREST}, new Position());
         System.out.println(gson.toJson(dungeon));
-        gson.toJson( dungeon, new FileWriter(FileConstants.TEST_DUNGEON_PATH));
+        gson.toJson( dungeon, new BufferedWriter(new FileWriter(FileConstants.TEST_DUNGEON_PATH)));
         //DungeonPrinter.printDungeon(dungeon);
     }
 
@@ -47,19 +49,16 @@ public class DungeonTesting {
         DungeonFactory dungeonFactory = new DungeonFactory();
 
         System.out.println("Dungeon 1:");
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10));
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon());
         System.out.println();
         System.out.println("Dungeon 2:");
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, DifficultyFactory.getDifficultyFactory().getRandomDifficulty()));
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon( 10, 10));
         System.out.println();
         System.out.println("Dungeon 3:");
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10));
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon( 10, 10, 5, new Landscape[]{Landscape.FOREST}, new Position()));
         System.out.println();
         System.out.println("Dungeon 4:");
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 5, new Landscape[]{Landscape.FOREST}, new Position()));
-        System.out.println();
-        System.out.println("Dungeon 5:");
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 7, new Landscape[] {Landscape.FOREST}, new Position(), 10));
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 7, new Landscape[] {Landscape.FOREST}, new Position(), 10));
         System.out.println();
     }
 
@@ -69,7 +68,9 @@ public class DungeonTesting {
 
         DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(1));
+        Dungeon dungeon = dungeonFactory.generateRandomDungeon();
+        Character[][] mob = dungeonFactory.getMobLayout(DifficultyFactory.getDifficultyFactory().getRandomDifficulty(), dungeon, 100);
+        DungeonPrinter.printDungeon(dungeon, mob);
     }
 
 
@@ -78,7 +79,7 @@ public class DungeonTesting {
 
         DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printMobLayout(dungeonFactory.generateRandomDungeon(1));
+        DungeonPrinter.printMobLayout(dungeonFactory.getMobLayout(DifficultyFactory.getDifficultyFactory().getRandomDifficulty(), dungeonFactory.generateRandomDungeon(), 100));
     }
 
 
@@ -102,15 +103,15 @@ public class DungeonTesting {
 
         DungeonFactory df = new DungeonFactory();
 
-        DungeonPrinter.printDungeon(df.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df.generateRandomDungeon());
         System.out.println("\n");
     }
 
@@ -128,15 +129,15 @@ public class DungeonTesting {
         DungeonFactory df_4 = new DungeonFactory(seed);
         DungeonFactory df_5 = new DungeonFactory(seed);
 
-        DungeonPrinter.printDungeon(df_1.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df_1.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_2.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df_2.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_3.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df_3.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_4.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df_4.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_5.generateRandomDungeon(100));
+        DungeonPrinter.printDungeon(df_5.generateRandomDungeon());
         System.out.println("\n");
     }
 
@@ -149,10 +150,10 @@ public class DungeonTesting {
 
         DungeonFactory df = new DungeonFactory();
 
-        DungeonPrinter.printLandscapes(df.generateRandomDungeon(100));
+        DungeonPrinter.printLandscapes(df.generateRandomDungeon());
         System.out.println();
-        DungeonPrinter.printLandscapes(df.generateRandomDungeon(100));
+        DungeonPrinter.printLandscapes(df.generateRandomDungeon());
         System.out.println();
-        DungeonPrinter.printLandscapes(df.generateRandomDungeon(100));
+        DungeonPrinter.printLandscapes(df.generateRandomDungeon());
     }
 }

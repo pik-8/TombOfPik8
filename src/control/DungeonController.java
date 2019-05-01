@@ -32,14 +32,14 @@ public class DungeonController {
 	private void spawnHeroes(Hero[] heroes) {
 		try {
 			Position startPosition = findStartingTerrain();
-			Tile spawnTile = dungeon.getlayout()[startPosition.getxTile()][startPosition.getyTile()];
+			Tile spawnTile = dungeon.getLayout()[startPosition.getxTile()][startPosition.getyTile()];
 			this.heroes.put(heroes[0], startPosition);
 			for(int i = 1; i < heroes.length; i++) {
 				heroIteration:
 				for(int y = -1; y <= 1; y++) {
 					for(int x = -1; x <= 1; x++) {
 						
-						if(spawnTile.getlayout()[startPosition.getXPosition() + x][startPosition.getYPosition() + y].getTerrain().isValidSpawnTerrain()) {
+						if(spawnTile.getLayout()[startPosition.getXPosition() + x][startPosition.getYPosition() + y].getTerrain().isValidSpawnTerrain()) {
 							boolean isFree = true;
 							Position pos = new Position(startPosition.getXPosition() + x, startPosition.getYPosition() + y, startPosition.getxTile(), startPosition.getyTile());
 							for(Map.Entry<Hero, Position> set : this.heroes.entrySet()) {
@@ -63,13 +63,13 @@ public class DungeonController {
 	
 	private Position findStartingTerrain() throws InvalidDungeonException {
 		if(dungeon != null) {
-			for(int tileX = 0; tileX < dungeon.getlayout().length; tileX++) {
-				for(int tileY = 0; tileY < dungeon.getlayout()[0].length; tileY++) {
-					Tile tile = dungeon.getlayout()[tileX][tileY];
+			for(int tileX = 0; tileX < dungeon.getLayout().length; tileX++) {
+				for(int tileY = 0; tileY < dungeon.getLayout()[0].length; tileY++) {
+					Tile tile = dungeon.getLayout()[tileX][tileY];
 					if(tile != null) {
 						for(int squareX = 0; squareX < tile.getSize(); squareX++) {
 							for(int squareY = 0; squareY < tile.getSize(); squareY++) {
-								if(tile.getlayout()[squareX][squareY].getTerrain() == Terrain.START_POINT)
+								if(tile.getLayout()[squareX][squareY].getTerrain() == Terrain.START_POINT)
 									return new Position(squareX, squareY, tileX, tileY);
 							}
 						}						
