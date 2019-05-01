@@ -26,7 +26,7 @@ public class DungeonPrinter {
      *
      * @param dungeon: The dungeon that should be printed.
      */
-    public static void printDungeon (Dungeon dungeon) {
+    public static void printTerrainLayout (Dungeon dungeon) {
         int tileSize = 0;
 
         //searches through the layout to find a tile that is not null to get the length of the tiles.
@@ -88,7 +88,7 @@ public class DungeonPrinter {
     }
 
 
-    public static void printMobAndTerrainLayout (Dungeon dungeon) {
+    public static void printDungeon (Dungeon dungeon) {
         int tileSize = 0;
 
         //searches through the layout to find a tile that is not null to get the length of the tiles.

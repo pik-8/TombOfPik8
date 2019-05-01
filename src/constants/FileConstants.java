@@ -43,8 +43,10 @@ public interface FileConstants {
 	public static final String PATH_TO_SAVE_STATES = PATH_TO_SAVING + "/saveStates";
 	public static final String PATH_TO_SAVING_OPTION = PATH_TO_SAVING + "/Option.pik";
 
-	public static final String PATH_TO_DIFFICULTYS  = TEMPLATE_PATH + "/difficultys/";
+	public static final String PATH_TO_DIFFICULTYS  = TEMPLATE_PATH + "/difficultys";
 	public static final String PATH_TO_EASY_DIFFICULTY  = PATH_TO_DIFFICULTYS + "/EasyDifficulty.pik/";
 	public static final String PATH_TO_MIDDLE_DIFFICULTY  = PATH_TO_DIFFICULTYS + "/MiddleDifficulty.pik/";
 	public static final String PATH_TO_HIGH_DIFFICULTY  = PATH_TO_DIFFICULTYS + "/HardDifficulty.pik/";
+
+	public static final String TEST_DUNGEON_PATH  = DUNGEON_TEMPLATE_PATH + "/TestDungeon.pik/";
 }

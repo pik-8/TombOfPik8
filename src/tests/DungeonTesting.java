@@ -1,7 +1,15 @@
 package tests;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import constants.FileConstants;
+import javafx.geometry.Pos;
 import model.dungeon.*;
+import model.json.AdapterFactories;
 import view.DungeonPrinter;
+
+import java.io.FileWriter;
 
 
 /**
@@ -11,23 +19,48 @@ import view.DungeonPrinter;
  */
 public class DungeonTesting {
 
-    public static void main (String args[]) {
-        //generateAnDungeonPrinterrintALotRandomDungeons();   //Success
-        printMobLayout(); // Success
-        printMobAndTerrainsLayout(); //
-        //generateAnDungeonPrinterrintALotRandomDungeonsWithSeed();   //Success
-        //testPrintLandscapes();   //Success
-        //loadDungeonFromTemplate("Level1.pik");//Success
+    public static void main (String args[]) throws Exception{
+        //generateALotDungeons();   //Success
+        //printMobLayout(); // Success
+        //printMobAndTerrainsLayout(); //Success
+        //generateALotDungeonsWithSeed();   //Success
+        //testPrintLandscapes();  //Success
+        createDungeonTemplate();
+        //loadDungeonFromTemplate("TestDungeon.pik");//Success
 
-        //testAllDungeons(); //failure
+        //testAllDungeonGenerators(); //Success
     }
 
-    private static void testAllDungeons () {
+    private static void createDungeonTemplate () throws Exception{
+        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).setPrettyPrinting().create();
+        DungeonFactory dungeonFactory = new DungeonFactory();
+        Dungeon dungeon = dungeonFactory.generateRandomDungeon(100);
+        System.out.println(gson.toJson(dungeon));
+        gson.toJson( dungeon, new FileWriter(FileConstants.TEST_DUNGEON_PATH));
+        //DungeonPrinter.printDungeon(dungeon);
+    }
+
+
+
+    private static void testAllDungeonGenerators () {
+        System.out.println("Generate all types of dungeons.");
         DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 7, new Landscape[] {Landscape.FOREST}, new Position()));
+        System.out.println("Dungeon 1:");
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10));
         System.out.println();
-        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 7, new Landscape[] {Landscape.FOREST}, new Position(), 1));
+        System.out.println("Dungeon 2:");
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, DifficultyFactory.getDifficultyFactory().getRandomDifficulty()));
+        System.out.println();
+        System.out.println("Dungeon 3:");
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10));
+        System.out.println();
+        System.out.println("Dungeon 4:");
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 5, new Landscape[]{Landscape.FOREST}, new Position()));
+        System.out.println();
+        System.out.println("Dungeon 5:");
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 7, new Landscape[] {Landscape.FOREST}, new Position(), 10));
+        System.out.println();
     }
 
 
@@ -36,7 +69,7 @@ public class DungeonTesting {
 
         DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printMobAndTerrainLayout(dungeonFactory.generateRandomDungeon(1));
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(1));
     }
 
 
@@ -64,7 +97,7 @@ public class DungeonTesting {
     /**
      * A test to see how randomly generated dungeons will lock like.
      */
-    private static void generateAnDungeonPrinterrintALotRandomDungeons () {
+    private static void generateALotDungeons () {
         System.out.println("Generate just a lot dungeons.");
 
         DungeonFactory df = new DungeonFactory();
@@ -85,7 +118,7 @@ public class DungeonTesting {
     /**
      * A test to see how multiple dungeons with the same seed behave.
      */
-    private static void generateAnDungeonPrinterrintALotRandomDungeonsWithSeed () {
+    private static void generateALotDungeonsWithSeed () {
         System.out.println("Generate just a lot dungeons with same seed.");
 
         int seed = 1;
