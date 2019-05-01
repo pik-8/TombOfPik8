@@ -20,8 +20,6 @@ import model.json.AdapterFactories;
  * From these templates "randomized" items are generated.
  */
 public abstract class ItemFactory {
-
-	protected String path;
 	
 	protected ArrayList<Item> common;
 	protected ArrayList<Item> rare;

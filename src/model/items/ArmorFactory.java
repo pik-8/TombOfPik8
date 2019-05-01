@@ -12,17 +12,16 @@ import model.io.TemplateReader;
 public class ArmorFactory extends ItemFactory {
 
 	public ArmorFactory() {
-		path = FileConstants.ARMOR_TEMPLATE_PATH;
 		init();
 		readTemplates();
 	}
 
 	@Override
 	protected void readTemplates() {
-		generateItemArray(common, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.ARMOR_COMMON_TEMPLATES));
-		generateItemArray(rare, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.ARMOR_RARE_TEMPLATES));
-		generateItemArray(epic, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.ARMOR_EPIC_TEMPLATES));
-		generateItemArray(legendary, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.ARMOR_LEGENDARY_TEMPLATES));		
+		generateItemArray(common, TemplateReader.readTemplateAsJsonObject(FileConstants.ARMOR_COMMON_TEMPLATES));
+		generateItemArray(rare, TemplateReader.readTemplateAsJsonObject(FileConstants.ARMOR_RARE_TEMPLATES));
+		generateItemArray(epic, TemplateReader.readTemplateAsJsonObject(FileConstants.ARMOR_EPIC_TEMPLATES));
+		generateItemArray(legendary, TemplateReader.readTemplateAsJsonObject(FileConstants.ARMOR_LEGENDARY_TEMPLATES));		
 	}
 
 	@Override

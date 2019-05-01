@@ -3,10 +3,13 @@ package control;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import model.dungeon.Dungeon;
-import model.effects.DamageEffect;
+import constants.FileConstants;
+import model.characters.Character;
+import model.characters.Inventory;
+import model.characters.SecondaryStats;
 import model.fighting.Attack;
-import model.fighting.AttackPattern;
+import model.fighting.Skill;
+import model.io.TemplateReader;
 import model.items.Rarity;
 import model.items.Weapon;
 import model.items.WeaponFactory;
@@ -33,16 +36,18 @@ public class TombOfPik8 {
     	System.out.println("Attack: " + wp.getSecStats().getAttack());
     	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttack());
 
-//    	try {
-//    		Attack attack = new Attack("Basic Attack", "Hit them.", 100, 100, 100, 1, null, 
-//    				new AttackPattern(new float[][] {{0,1,0},
-//    					{0,-1,0}
-//    				}, new DamageEffect[][] {{null, new DamageEffect(), null},{null, null, null}} ));    		
-//    		generateTemplate(attack);
-//    	} catch (Exception e) {
-//    		System.out.println(e.getMessage());
-//    	}
+    	GsonBuilder b = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
+    	Gson gson = b.create();
+    	Attack attack = gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.ATTACK_TEMPLATE_PATH + "/BasicAttack.pik"), Attack.class);
     	
+		Character chara = new Character("Giant Rat", 
+				new Inventory(0, 50), 
+				new Attack[] {attack}, 
+				new Skill[1],
+				new SecondaryStats(20, 2, 20, 2, 5, 0, 10, 0, 5, 0, 0, 0, 0, 4, 1),
+				10);    		
+		generateTemplate(chara);
+    	    	
 //    	DungeonPrinter printer = new DungeonPrinter();
 //    	Dungeon dungeon = new DungeonFactory().generateRandomDungeon();
 //    	printer.printDungeon(dungeon);

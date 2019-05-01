@@ -12,7 +12,8 @@
     ],
     "effectField": [
       [
-        null,{"flatDamage": 20.0,
+        null,{"effectType" : DamageEffect,
+			  "flatDamage": 20.0,
 			  "percentOfMaxHealthDamage": 0.0,
 			  "percentOfMissingHealthDamage": 0.0,
 			  "percentOfCurrentHealthDamage": 0.0,

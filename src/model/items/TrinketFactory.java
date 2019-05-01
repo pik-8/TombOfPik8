@@ -12,17 +12,16 @@ import model.io.TemplateReader;
 public class TrinketFactory extends ItemFactory {
 
 	public TrinketFactory() {
-		path = FileConstants.TRINKET_TEMPLATE_PATH;
 		init();
 		readTemplates();
 	}
 
 	@Override
 	protected void readTemplates() {
-		generateItemArray(common, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.TRINKET_COMMON_TEMPLATES));
-		generateItemArray(rare, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.TRINKET_RARE_TEMPLATES));
-		generateItemArray(epic, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.TRINKET_EPIC_TEMPLATES));
-		generateItemArray(legendary, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.TRINKET_LEGENDARY_TEMPLATES));		
+		generateItemArray(common, TemplateReader.readTemplateAsJsonObject(FileConstants.TRINKET_COMMON_TEMPLATES));
+		generateItemArray(rare, TemplateReader.readTemplateAsJsonObject(FileConstants.TRINKET_RARE_TEMPLATES));
+		generateItemArray(epic, TemplateReader.readTemplateAsJsonObject(FileConstants.TRINKET_EPIC_TEMPLATES));
+		generateItemArray(legendary, TemplateReader.readTemplateAsJsonObject(FileConstants.TRINKET_LEGENDARY_TEMPLATES));		
 	}
 
 	@Override

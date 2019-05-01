@@ -26,10 +26,10 @@ import model.json.AdapterFactories;
 public class WeaponFactory extends ItemFactory {
 		
 	protected void readTemplates() {
-		generateItemArray(common, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.WEAPON_COMMON_TEMPLATES));
-		generateItemArray(rare, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.WEAPON_RARE_TEMPLATES));
-		generateItemArray(epic, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.WEAPON_EPIC_TEMPLATES));
-		generateItemArray(legendary, TemplateReader.readTemplateAsJsonObject(this.path + FileConstants.WEAPON_LEGENDARY_TEMPLATES));
+		generateItemArray(common, TemplateReader.readTemplateAsJsonObject(FileConstants.WEAPON_COMMON_TEMPLATES));
+		generateItemArray(rare, TemplateReader.readTemplateAsJsonObject(FileConstants.WEAPON_RARE_TEMPLATES));
+		generateItemArray(epic, TemplateReader.readTemplateAsJsonObject(FileConstants.WEAPON_EPIC_TEMPLATES));
+		generateItemArray(legendary, TemplateReader.readTemplateAsJsonObject(FileConstants.WEAPON_LEGENDARY_TEMPLATES));
 	}
 	
 	protected void generateItemArray(ArrayList<Item> list, JsonObject jsonObject) {
@@ -40,7 +40,6 @@ public class WeaponFactory extends ItemFactory {
 	}
 	
 	public WeaponFactory() {
-		path = FileConstants.WEAPON_TEMPLATE_PATH;
 		init();
 		readTemplates();
 	}
