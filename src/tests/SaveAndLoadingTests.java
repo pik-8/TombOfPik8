@@ -1,6 +1,6 @@
 package tests;
 
-import model.options.Option;
+import model.options.Options;
 import model.options.Volume;
 import model.other.GameLoaderSaver;
 import model.other.SaveState;
@@ -57,7 +57,7 @@ public class SaveAndLoadingTests {
     private static void saveTheOptions () throws Exception {
         System.out.println("To see if the test was successful, look into the file.");
 
-        Option option = new Option();
+        Options option = new Options();
         Volume volume = new Volume();
         volume.setEffectVolumeValue(12);
         option.setVolume(volume);

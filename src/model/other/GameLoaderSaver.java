@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import constants.FileConstants;
 import model.io.TemplateReader;
 import model.json.AdapterFactories;
-import model.options.Option;
+import model.options.Options;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -44,13 +44,13 @@ public class GameLoaderSaver {
     }
 
 
-    public Option getOption () {
+    public Options getOption () {
         return this.gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.PATH_TO_SAVING_OPTION),
-                Option.class);
+                Options.class);
     }
 
-    public void saveOptions (Option option) throws IOException{
-        this.gson.toJson(option, new FileWriter(FileConstants.PATH_TO_SAVING_OPTION));
+    public void saveOptions (Options options) throws IOException{
+        this.gson.toJson(options, new FileWriter(FileConstants.PATH_TO_SAVING_OPTION));
     }
 
 

@@ -6,6 +6,7 @@ package control.options;
 
         import constants.FileConstants;
         import javafx.application.Platform;
+        import javafx.collections.ObservableList;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
@@ -75,6 +76,8 @@ public class options {
 
     @FXML
     void onLanguageClick(ActionEvent event) throws IOException {
+        System.out.println("click! taskBarButton2");
+        //content.getChildren().clear();
         //Parent language = FXMLLoader.load(getClass().getResource("/languageSettings.fxml"));
         //content.getChildren().add(language);
     }
@@ -91,6 +94,11 @@ public class options {
         int sliderValue = (int) slider_music.getValue();
         System.out.println(sliderValue + " ");
         label_music.setText("general (" + slider_music.getValue()+"%)");
+    }
+
+    @FXML
+    void onResolutionSaveClick(ActionEvent event) {
+
     }
 
     @FXML
