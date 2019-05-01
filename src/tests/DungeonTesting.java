@@ -2,15 +2,12 @@ package tests;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import constants.FileConstants;
-import javafx.geometry.Pos;
 import model.characters.Character;
 import model.dungeon.*;
 import model.json.AdapterFactories;
 import view.DungeonPrinter;
 
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 
@@ -24,22 +21,19 @@ public class DungeonTesting {
     public static void main (String args[]) throws Exception{
         //generateALotDungeons();   //Success
         //printMobLayout(); // Success
-        printMobAndTerrainsLayout(); //Success
+        //printMobAndTerrainsLayout(); //Success
         //generateALotDungeonsWithSeed();   //Success
         //testPrintLandscapes();  //Success
-        //createDungeonTemplate();//Failure
-        //loadDungeonFromTemplate("TestDungeon.pik");//Failure
+        //createDungeonString();//Failure
+        //loadDungeonFromTemplate("TestDungeon.pik");//Success
 
         //testAllDungeonGenerators(); //Success
     }
 
-    private static void createDungeonTemplate () throws Exception{
-        Gson gson = new GsonBuilder().create();
+    private static void createDungeonString() throws Exception{
+        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).setPrettyPrinting().create();
         DungeonFactory dungeonFactory = new DungeonFactory();
-        Dungeon dungeon = dungeonFactory.generateRandomDungeon( 3, 3, 5, new Landscape[]{Landscape.FOREST}, new Position());
-        System.out.println(gson.toJson(dungeon));
-        gson.toJson( dungeon, new BufferedWriter(new FileWriter(FileConstants.TEST_DUNGEON_PATH)));
-        //DungeonPrinter.printDungeon(dungeon);
+        System.out.println(gson.toJson(dungeonFactory.generateRandomDungeon( 3, 3, 5, new Landscape[]{Landscape.FOREST}, new Position())));
     }
 
 

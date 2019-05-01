@@ -48,6 +48,7 @@ public class DungeonFactory {
 
     private void init(int seed) {
         builder = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
+
         gson = builder.create();
         this.random = new Random(seed);
         this.numberOfLayoutEntrances = 0;
