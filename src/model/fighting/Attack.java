@@ -24,6 +24,8 @@ public class Attack {
    
     private Effect effect;
     private AttackPattern attackPattern;
+    
+    private int cooldown;
 
 
     /**
@@ -47,7 +49,7 @@ public class Attack {
      * @param effect The effect that will be bestowed on enemies and squares.
      */
     public Attack(String name, String description, int damage, int magicDamage, int accuracy,
-                  int requiredSlots, Effect effect, AttackPattern ap)
+                  int requiredSlots, Effect effect, AttackPattern ap, int cooldown)
     {
         checkParams(damage, magicDamage, accuracy, requiredSlots);
         this.name = Objects.requireNonNull(name);
@@ -58,6 +60,7 @@ public class Attack {
         this.requiredSlots = requiredSlots;
         this.effect = effect;
         this.attackPattern = ap;
+        this.cooldown = cooldown;
     }
 
 

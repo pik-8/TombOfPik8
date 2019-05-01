@@ -25,8 +25,8 @@ public class DivineHealSkill extends Skill {
      * @param effect        The effect that will be bestowed on enemys and squares.
      * @param isReady       If true, then the skill can be used.
      */
-    protected DivineHealSkill(String name, String description, int damage, int magicDamage, int accuracy, int requiredSlots, Effect effect, AttackPattern ap, boolean isReady) throws Exception {
-        super(name, description, damage, magicDamage, accuracy, requiredSlots, effect, ap, isReady);
+    protected DivineHealSkill(String name, String description, int damage, int magicDamage, int accuracy, int requiredSlots, Effect effect, AttackPattern ap, int cooldown, boolean isReady) throws Exception {
+        super(name, description, damage, magicDamage, accuracy, requiredSlots, effect, ap, cooldown, isReady);
     }
 
 

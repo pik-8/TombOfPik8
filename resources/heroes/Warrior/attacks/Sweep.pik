@@ -1,13 +1,14 @@
 {
-  "name": "Basic Attack",
-  "description": "Hit them.",
+  "name": "Sweeping Attack",
+  "description": "Hit all enemies in front of you.",
   "damage": 100,
-  "magicDamage": 100,
+  "magicDamage": 0,
   "accuracy": 100,
-  "requiredSlots": 1,
+  "requiredSlots": 2,
+  "cooldown" : 2,
   "attackPattern": {
     "attackField": [
-      [0.0,  1.0, 0.0],
+      [0.7,  0.9, 0.7],
       [0.0, -1.0, 0.0]
     ],
     "effectField": [

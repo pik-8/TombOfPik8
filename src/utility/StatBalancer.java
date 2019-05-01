@@ -5,7 +5,6 @@ import java.util.Random;
 import constants.balancing.Factors;
 import model.characters.PrimeStats;
 import model.characters.SecondaryStats;
-import model.options.Difficulty;
 
 /**
  * 
@@ -23,9 +22,9 @@ public class StatBalancer {
 	 * 
 	 * @param stats The stats that should be balanced to the given level and difficulty
 	 * @param level The level the SecondaryStats should be balanced to.
-	 * @param diff The difficulty the SecondaryStats should be balanced to.
+	 * @param mobTier The tier of mob the SecondaryStats should be balanced to.
 	 */
-	public static void balanceSecondaryStats(SecondaryStats stats, int level, int diff) {
+	public static void balanceSecondaryStats(SecondaryStats stats, int level, float mobTier) {
 		// TODO STILL NEEDS TO BE IMPLEMENTED: Idea is to have the stats scaled to level and then scaled to 100% - 300% depending on difficulty.
 	}
 	

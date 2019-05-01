@@ -1,0 +1,23 @@
+{
+  "name": "Firewave",
+  "description": "A huge wave of fire.",
+  "damage": 0,
+  "magicDamage": 100,
+  "accuracy": 100,
+  "requiredSlots": 2,
+  "cooldown" : 3,
+  "attackPattern": {
+    "attackField": [
+      [0.2, 0.2, 0.2, 0.2, 0.2],
+	  [0.0, 0.4, 0.4, 0.4, 0.0],
+	  [0.0, 0.0, 0.6, 0.0, 0.0],
+      [0.0, 0.0, -1.0, 0.0, 0.0]
+    ],
+    "effectField": [
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+	  [null, null, null, null, null],
+	  [null, null, null, null, null]
+    ]
+  }
+}

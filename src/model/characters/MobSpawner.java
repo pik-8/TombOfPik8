@@ -20,21 +20,21 @@ public class MobSpawner {
 
 	private ArrayList<Character> possibleMobs;
 	
-	private int difficulty;
+	private float mobTier;
 	private int level;
 	
 	private GsonBuilder builder;
 	private Gson gson;
 	private Random rand;
 
-	private void init(int level, int difficulty) {
+	private void init(int level, float mobTier) {
 		this.possibleMobs = new ArrayList<Character>();
 		this.builder = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
 		this.gson = builder.create();
 		this.rand = new Random();
 		
 		this.level = level;
-		this.difficulty = difficulty;
+		this.mobTier = mobTier;
 		
 		readTemplate(FileConstants.MOB_TEMPLATE_PATH);
 	}
@@ -66,7 +66,7 @@ public class MobSpawner {
 	
 	public Character spawnMob() {
 		Character mob = possibleMobs.get(rand.nextInt(possibleMobs.size()));
-		StatBalancer.balanceSecondaryStats(mob.getSecondaryStats(), level, difficulty);
+		StatBalancer.balanceSecondaryStats(mob.getSecondaryStats(), level, mobTier);
 		return mob;
 	}
 

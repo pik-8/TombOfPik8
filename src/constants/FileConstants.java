@@ -30,6 +30,13 @@ public interface FileConstants {
 	public static final String SKILL_TEMPLATE_PATH = TEMPLATE_PATH + "/skills";
 	public static final String MOB_TEMPLATE_PATH = TEMPLATE_PATH + "/enemies";
 	public static final String DUNGEON_TEMPLATE_PATH = TEMPLATE_PATH + "/dungeons";
+	
+	public static final String CLASS_CUSTOMIZATION_PATH = RESOURCE_PATH + "/heroes";
+	
+	public static final String WARRIOR_PATH = CLASS_CUSTOMIZATION_PATH + "/Warrior";
+	public static final String MAGE_PATH = CLASS_CUSTOMIZATION_PATH + "/Mage";
+	public static final String ARCHER_PATH = CLASS_CUSTOMIZATION_PATH + "/Archer";
+	public static final String ASSASSIN_PATH = CLASS_CUSTOMIZATION_PATH + "/Assassin";
 
 	public static final String PATH_TO_SAVING = RESOURCE_PATH + "/savings";
 	

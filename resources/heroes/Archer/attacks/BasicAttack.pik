@@ -5,6 +5,7 @@
   "magicDamage": 100,
   "accuracy": 100,
   "requiredSlots": 1,
+  "cooldown" : 0,
   "attackPattern": {
     "attackField": [
       [0.0,  1.0, 0.0],

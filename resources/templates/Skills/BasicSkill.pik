@@ -11,17 +11,7 @@
       [0.0, -1.0, 0.0]
     ],
     "effectField": [
-      [
-        null,{"flatDamage": 20.0,
-			  "percentOfMaxHealthDamage": 0.0,
-			  "percentOfMissingHealthDamage": 0.0,
-			  "percentOfCurrentHealthDamage": 0.0,
-			  "name": "Damage",
-			  "description": "Damage was dealt",
-			  "duration": 1,
-			  "instantApply": false},
-													null
-      ],
+      [null, null, null],
       [null, null, null]
     ]
   }

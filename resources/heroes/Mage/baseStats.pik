@@ -1,0 +1,13 @@
+{
+	"isSpecialist": false,
+	"level": 1,
+	"healthLevel": 10,
+	"strengthLevel": 10,
+	"resistanceLevel": 10,
+	"intelligenceLevel": 10,
+	"magicLevel": 10,
+	"staminaLevel": 10,
+	"speedLevel": 10,
+	"toughnessLevel": 10,
+	"luckLevel": 10
+}

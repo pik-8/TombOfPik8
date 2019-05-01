@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import model.effects.Effect;
 import model.fighting.Attack;
 import model.fighting.Skill;
+import model.io.TemplateReader;
+import model.json.AdapterFactories;
 import model.other.Statistics;
 
 import java.util.Objects;
@@ -20,6 +22,7 @@ public class Hero extends Character {
 
     private PrimeStats primeStats;
     private Statistics statistics;
+    private Class cl;
 
 
     /**
@@ -36,14 +39,35 @@ public class Hero extends Character {
      * @throws NullPointerException: When an Object is null.
      */
     public Hero(String name, Inventory inventory, Attack[] attacks, Skill[] skills,
-                int exp, PrimeStats primeStats, Statistics statistics)
+                int exp, PrimeStats primeStats, Statistics statistics, Class cl)
             throws IllegalArgumentException, NullPointerException
     {
         super(name, inventory, attacks, skills, new SecondaryStats(), exp);
         this.primeStats = Objects.requireNonNull(primeStats);
         utility.CalculateSecondaryStats.setEveryStat(this);
-        setStatistics(statistics);
+        this.statistics = statistics;
+        this.cl = cl;
     }
+    
+    /**
+     * Creates a basic Hero from a given class.
+     * 
+     * @param name The name for the Hero.
+     * @param cl The class of the Hero.
+     * @return A hero with 0 exp, the classes' basestats, an Inventory with 100 gold and empty statistics.
+     */
+    public static Hero createHero(String name, Class cl) {
+		GsonBuilder builder= new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
+		Gson gson = builder.create();
+		
+		Inventory inv = new Inventory(40, 100);
+		
+		PrimeStats prime = gson.fromJson(TemplateReader.readTemplateAsJsonObject(cl.classPath + "/baseStats.pik"), PrimeStats.class);
+		
+		Statistics statistics = new Statistics();
+	
+		return new Hero(name, inv, new Attack[] {}, new Skill[] {}, 0, prime, statistics, cl);
+	}
 
 
     public PrimeStats getPrimeStats() {

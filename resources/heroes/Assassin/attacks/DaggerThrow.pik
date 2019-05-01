@@ -1,17 +1,20 @@
 {
-  "name": "Basic Attack",
-  "description": "Hit them.",
+  "name": "Dagger Throw",
+  "description": "It crits.",
   "damage": 100,
-  "magicDamage": 100,
+  "magicDamage": 0,
   "accuracy": 100,
-  "requiredSlots": 1,
+  "requiredSlots": 2,
+  "cooldown" : 1,
   "attackPattern": {
     "attackField": [
-      [0.0,  1.0, 0.0],
+	  [0.0,  1.5, 0.0],
+      [0.0,  0.0, 0.0],
       [0.0, -1.0, 0.0]
     ],
     "effectField": [
       [null, null, null],
+	  [null, null, null],
       [null, null, null]
     ]
   }
