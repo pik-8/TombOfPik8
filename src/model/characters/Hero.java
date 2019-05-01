@@ -25,7 +25,7 @@ public class Hero extends Character {
 	private Attack[] availableAttacks;
     private PrimeStats primeStats;
     private Statistics statistics;
-    private Class cl;
+    private HeroClass cl;
 
 
     /**
@@ -42,7 +42,7 @@ public class Hero extends Character {
      * @throws NullPointerException: When an Object is null.
      */
     private Hero(String name, Inventory inventory, Attack[] availableAttacks, Attack[] attacks, Skill[] skills,
-                int exp, PrimeStats primeStats, Statistics statistics, Class cl)
+                int exp, PrimeStats primeStats, Statistics statistics, HeroClass cl)
             throws IllegalArgumentException, NullPointerException
     {
         super(name, inventory, attacks, skills, new SecondaryStats(), exp);
@@ -60,7 +60,7 @@ public class Hero extends Character {
      * @param cl The class of the Hero.
      * @return A hero with 0 exp, the classes' basestats, an Inventory with 100 gold and empty statistics.
      */
-    public static Hero createHero(String name, Class cl) {
+    public static Hero createHero(String name, HeroClass cl) {
 		GsonBuilder builder= new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
 		Gson gson = builder.create();
 		

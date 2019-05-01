@@ -1,5 +1,7 @@
 package control;
 
+import model.characters.Hero;
+import model.characters.HeroClass;
 import model.dungeon.Dungeon;
 import model.dungeon.DungeonFactory;
 import model.dungeon.Landscape;
@@ -22,11 +24,17 @@ public class TombOfPik8 {
     	
     	WorldController world = new WorldController();
     	
-    	DungeonFactory df = new DungeonFactory();
+    	DungeonFactory df = new DungeonFactory(1337);
     	
-    	Dungeon basicDungeon = df.generateRandomDungeon(5, 5, 4, new Landscape[] {Landscape.FOREST}, new Position(0, 0));
+    	Dungeon basicDungeon = df.generateRandomDungeon(1, 5, 5, 4, new Landscape[] {Landscape.FOREST}, new Position(0, 0));
     	
+    	Hero fred = Hero.createHero("Ceebly", HeroClass.WARRIOR);
+    	Hero hagen = Hero.createHero("teraf", HeroClass.MAGE);
+    	Hero patrick = Hero.createHero("fachinformatiker", HeroClass.ASSASSIN);
+    	
+    	DungeonController dc = new DungeonController(new Hero[]{fred, hagen, patrick}, basicDungeon);
     	DungeonPrinter.printDungeon(basicDungeon);
+    	
     	
     }
 
