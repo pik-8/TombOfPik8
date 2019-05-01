@@ -18,7 +18,7 @@ public class SaveAndLoadingTests {
 
         //saveATestState(testFileName); //Success
         //deleteSaveState(testFileName); //Success
-        testLoadingAllSaveStates(); //Failure
+        //testLoadingAllSaveStates(); //Success
 
         //getAllFileNames(); //Success
         //getAOption(); //Failure
@@ -86,7 +86,7 @@ public class SaveAndLoadingTests {
         SaveState[] allSaveStates = gSave.getAllSaveStates();
 
         for (SaveState state : allSaveStates) {
-            System.out.println(state);
+            System.out.println(state.getPlayer().getName());
         }
 
     }

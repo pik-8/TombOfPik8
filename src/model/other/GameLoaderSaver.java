@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import constants.FileConstants;
 import model.io.TemplateReader;
+import model.json.AdapterFactories;
 import model.options.Option;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class GameLoaderSaver {
     private Gson gson;
 
     public GameLoaderSaver () {
-        this.gson = new GsonBuilder().setPrettyPrinting().create();
+        this.gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).setPrettyPrinting().create();
     }
 
 
