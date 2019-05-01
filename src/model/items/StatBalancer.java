@@ -41,8 +41,8 @@ public class StatBalancer {
 		stats.setDefence((int)Math.round(stats.getDefence() * levelMultiplicator));
 		stats.setMagicDefence((int)Math.round(stats.getMagicDefence() * levelMultiplicator));
 		stats.setSpeed((int)Math.round(stats.getSpeed() * levelMultiplicator));
-		stats.setAttack((int)Math.round(stats.getAttack() * levelMultiplicator));
-		stats.setMagicAttack((int)Math.round(stats.getMagicAttack() * levelMultiplicator));
+		stats.setAttackPower((int)Math.round(stats.getAttackPower() * levelMultiplicator));
+		stats.setMagicAttackPower((int)Math.round(stats.getMagicAttackPower() * levelMultiplicator));
 		return stats;
 	}
 	
@@ -62,8 +62,8 @@ public class StatBalancer {
 		stats.setDefence((int)Math.round(stats.getDefence() * deviation));
 		stats.setMagicDefence((int)Math.round(stats.getMagicDefence() * deviation));
 		stats.setSpeed((int)Math.round(stats.getSpeed() * deviation));
-		stats.setAttack((int)Math.round(stats.getAttack() * deviation));
-		stats.setMagicAttack((int)Math.round(stats.getMagicAttack() * deviation));
+		stats.setAttackPower((int)Math.round(stats.getAttackPower() * deviation));
+		stats.setMagicAttackPower((int)Math.round(stats.getMagicAttackPower() * deviation));
 		
 		return stats;
 	}

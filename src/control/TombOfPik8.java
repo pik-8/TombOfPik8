@@ -30,8 +30,8 @@ public class TombOfPik8 {
 
     	System.out.println("Name: " + wp.getName());
     	System.out.println("Description: " + wp.getDescription());
-    	System.out.println("Attack: " + wp.getSecStats().getAttack());
-    	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttack());
+    	System.out.println("Attack: " + wp.getSecStats().getAttackPower());
+    	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttackPower());
 
 //    	try {
 //    		Attack attack = new Attack("Basic Attack", "Hit them.", 100, 100, 100, 1, null, 
