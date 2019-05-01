@@ -67,7 +67,7 @@ public class DungeonFactory {
      * @return: A dungeon that was created from the template.
      */
     public Dungeon getDungeonFromTemplate(String name) {
-        return gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.DUNGEON_TEMPLATE_PATH + name), Dungeon.class);
+        return gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.DUNGEON_TEMPLATE_PATH + "/" + name), Dungeon.class);
     }
 
 

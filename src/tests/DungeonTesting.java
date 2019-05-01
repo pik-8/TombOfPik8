@@ -1,8 +1,15 @@
 package tests;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import constants.FileConstants;
 import javafx.geometry.Pos;
 import model.dungeon.*;
+import model.json.AdapterFactories;
 import view.DungeonPrinter;
+
+import java.io.FileWriter;
 
 
 /**
@@ -12,16 +19,28 @@ import view.DungeonPrinter;
  */
 public class DungeonTesting {
 
-    public static void main (String args[]) {
-        //generateAnDungeonPrinterrintALotRandomDungeons();   //Success
+    public static void main (String args[]) throws Exception{
+        //generateALotDungeons();   //Success
         //printMobLayout(); // Success
         //printMobAndTerrainsLayout(); //Success
-        //generateAnDungeonPrinterrintALotRandomDungeonsWithSeed();   //Success
+        //generateALotDungeonsWithSeed();   //Success
         //testPrintLandscapes();  //Success
-        //loadDungeonFromTemplate("Level1.pik");//Success
+        createDungeonTemplate();
+        //loadDungeonFromTemplate("TestDungeon.pik");//Success
 
-        testAllDungeonGenerators(); //Success
+        //testAllDungeonGenerators(); //Success
     }
+
+    private static void createDungeonTemplate () throws Exception{
+        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).setPrettyPrinting().create();
+        DungeonFactory dungeonFactory = new DungeonFactory();
+        Dungeon dungeon = dungeonFactory.generateRandomDungeon(100);
+        System.out.println(gson.toJson(dungeon));
+        gson.toJson( dungeon, new FileWriter(FileConstants.TEST_DUNGEON_PATH));
+        //DungeonPrinter.printDungeon(dungeon);
+    }
+
+
 
     private static void testAllDungeonGenerators () {
         System.out.println("Generate all types of dungeons.");
@@ -50,7 +69,7 @@ public class DungeonTesting {
 
         DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printMobAndTerrainLayout(dungeonFactory.generateRandomDungeon(1));
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(1));
     }
 
 

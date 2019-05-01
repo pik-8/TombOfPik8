@@ -1,7 +1,7 @@
 package tests;
 
 import constants.FileConstants;
-import model.characters.Class;
+import model.characters.HeroClass;
 import model.characters.Hero;
 import model.characters.Inventory;
 import model.characters.PrimeStats;
@@ -41,7 +41,7 @@ public class Getter {
         PrimeStats primeStats = new PrimeStats(false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
         Statistics statistics = new Statistics();
         Attack[] attacks = {attack, attack};
-        return Hero.createHero("Bernhard", Class.WARRIOR);
+        return Hero.createHero("Bernhard", HeroClass.WARRIOR);
     }
 
 
