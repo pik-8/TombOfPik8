@@ -11,7 +11,7 @@ import model.fighting.Skill;
 import model.io.TemplateReader;
 import model.json.AdapterFactories;
 
-public enum Class {
+public enum HeroClass {
 	WARRIOR(FileConstants.WARRIOR_PATH),
 	ARCHER(FileConstants.ARCHER_PATH),
 	MAGE(FileConstants.MAGE_PATH),
@@ -23,7 +23,7 @@ public enum Class {
 	Attack[] availableAttacks;
 	
 	
-	Class(String classPath) {	
+	HeroClass(String classPath) {	
 		this.classPath = classPath;	
 	}
 	
