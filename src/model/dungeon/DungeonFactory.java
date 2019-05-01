@@ -146,7 +146,7 @@ public class DungeonFactory {
     {
         int[][] layout = new int[length][height];
 
-        this.numberOfLayoutEntrances = 30;
+        this.numberOfLayoutEntrances = (int) (length * height * 0.5);
         generateLayout(layout, startPosition);
 
         Tile[][] tiles = new Tile[length][height];
