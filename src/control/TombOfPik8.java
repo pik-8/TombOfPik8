@@ -21,12 +21,7 @@ public class TombOfPik8 {
     	
     	
     	WorldController world = new WorldController();
-    	
-    	DungeonFactory df = new DungeonFactory();
-    	
-    	Dungeon basicDungeon = df.generateRandomDungeon(5, 5, 4, new Landscape[] {Landscape.FOREST}, new Position(0, 0));
-    	
-    	DungeonPrinter.printDungeon(basicDungeon);
+
     	
     }
 
