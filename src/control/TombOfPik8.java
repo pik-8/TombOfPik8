@@ -1,10 +1,10 @@
 package control;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import model.characters.MobSpawner;
-import model.json.AdapterFactories;
+import model.dungeon.Dungeon;
+import model.dungeon.DungeonFactory;
+import model.dungeon.Landscape;
+import model.dungeon.Position;
+import view.DungeonPrinter;
 
 /**
  * The project for the Prog2 module, in which we are supposed to create an dungeon-crawler
@@ -18,33 +18,26 @@ public class TombOfPik8 {
 
 
     public static void main (String args[]) {
-//    	WeaponFactory wf = new WeaponFactory();
-//		Weapon wp = wf.generateRandomWeapon(50);
-//
-//
-//    	System.out.println("Name: " + wp.getName());
-//    	System.out.println("Description: " + wp.getDescription());
-//    	System.out.println("Attack: " + wp.getSecStats().getAttackPower());
-//    	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttackPower());
     	
-    	MobSpawner mf = new MobSpawner(5, 5);
-    	System.out.println(mf.spawnMob().toString());
-
-    	    	
-//    	DungeonPrinter printer = new DungeonPrinter();
-//    	Dungeon dungeon = new DungeonFactory().generateRandomDungeon();
-//    	printer.printDungeon(dungeon);
+    	
+    	WorldController world = new WorldController();
+    	
+    	DungeonFactory df = new DungeonFactory();
+    	
+    	Dungeon basicDungeon = df.generateRandomDungeon(5, 5, 4, new Landscape[] {Landscape.FOREST}, new Position(0, 0));
+    	
+    	DungeonPrinter.printDungeon(basicDungeon);
+    	
     }
 
-
-	public static void generateTemplate(Object object) {
-    	GsonBuilder builder = new GsonBuilder()
-    			.registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
-		builder.setPrettyPrinting();
-		Gson gson = builder.create();
-		
-		String jsonString = gson.toJson(object);
-		System.out.println(jsonString);
-    }
+//	public static void generateTemplate(Object object) {
+//    	GsonBuilder builder = new GsonBuilder()
+//    			.registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
+//		builder.setPrettyPrinting();
+//		Gson gson = builder.create();
+//		
+//		String jsonString = gson.toJson(object);
+//		System.out.println(jsonString);
+//    }
 
 }

@@ -168,7 +168,7 @@ public class DungeonFactory {
         int[][] layout = new int[length][height];
 
         this.numberOfLayoutEntrances = numberOfTiles;
-        generateLayout(layout, new Position(10,5));
+        generateLayout(layout, startPosition);
 
         Tile[][] tiles = new Tile[length][height];
         generateDungeonFromLayout(tileSize, layout, tiles, possibleLandscapes);

@@ -25,7 +25,7 @@ public class DungeonPrinter {
      *
      * @param dungeon: The dungeon that should be printed.
      */
-    public void printDungeon (Dungeon dungeon) {
+    public static void printDungeon (Dungeon dungeon) {
         int tileSize = 0;
 
         //searches through the layout to find a tile that is not null to get the length of the tiles.
@@ -67,7 +67,7 @@ public class DungeonPrinter {
      *
      * @param dungeon: The dungeon that should be printed.
      */
-    public void printLandscapes (Dungeon dungeon) {
+    public static void printLandscapes (Dungeon dungeon) {
         for (int y = 0; y < dungeon.getlayout()[0].length; y++) {
             for (int x = 0; x < dungeon.getlayout().length; x++) {
                 printOneLetterForLandscape(dungeon.getlayout()[x][y]);
@@ -77,7 +77,7 @@ public class DungeonPrinter {
     }
 
 
-    private void printLetterOfTerrain (Terrain terrain) {
+    private static void printLetterOfTerrain (Terrain terrain) {
         if (terrain == Terrain.NONE) {
             System.out.print("   ");
         } else {
@@ -87,7 +87,7 @@ public class DungeonPrinter {
     }
 
 
-    private void printOneLetterForLandscape (Tile tile) {
+    private static void printOneLetterForLandscape (Tile tile) {
         if (tile == null) {
             System.out.print("  ");
         } else {
@@ -97,7 +97,7 @@ public class DungeonPrinter {
     }
 
 
-    private void printTwoLettersOfLandscape (Tile tile) {
+    private static void printTwoLettersOfLandscape (Tile tile) {
         if (tile != null) {
             System.out.print((String.valueOf(tile.getLandscape().name().charAt(0))) + String.valueOf(
                     tile.getLandscape().name().charAt(1)).toLowerCase() + " ");
@@ -107,7 +107,7 @@ public class DungeonPrinter {
         }
     }
 
-    private void printOneEmptyLine (int size) {
+    private static void printOneEmptyLine (int size) {
         for (int i = 0; i < size; i++) {
             System.out.print("   ");
         }

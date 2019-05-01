@@ -77,12 +77,6 @@ public class Overworld {
         return lastLevels.get(index).getDifficulty();
     }
 
-
-
-
-
-
-
     /**
      * A class that stores every information about a dungeon that is necessary to be viewable on the overworld.
      */
