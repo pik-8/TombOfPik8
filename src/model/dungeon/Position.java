@@ -4,10 +4,21 @@ public class Position {
 
     private int x;
     private int y;
+    private int xTile;
+    private int yTile;
 
-    public Position(int xPosition, int yPosition) {
-        this.x = xPosition;
-        this.y = yPosition;
+    public Position(int xSquare, int ySquare) {
+        this.x = xSquare;
+        this.y = ySquare;
+        this.xTile = 0;
+        this.yTile = 0;
+    }
+    
+    public Position(int xSquare, int ySquare, int xTile, int yTile) {
+    	this.x = xSquare;
+        this.y = ySquare;
+        this.xTile = xTile;
+        this.yTile = yTile;
     }
 
     /**
@@ -18,6 +29,13 @@ public class Position {
         this.y = 0;
     }
 
+    public boolean equals(Position pos) {
+    	return pos.x == x &&
+    			pos.y == y &&
+    			pos.xTile == xTile &&
+    			pos.yTile == yTile;
+    }
+    
     public int getXPosition() {
         return x;
     }
@@ -33,4 +51,20 @@ public class Position {
     public void setYPosition(int y) {
         this.y = y;
     }
+
+	public int getxTile() {
+		return xTile;
+	}
+
+	public void setxTile(int xTile) {
+		this.xTile = xTile;
+	}
+
+	public int getyTile() {
+		return yTile;
+	}
+
+	public void setyTile(int yTile) {
+		this.yTile = yTile;
+	}
 }

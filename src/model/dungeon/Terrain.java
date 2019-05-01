@@ -44,7 +44,7 @@ public enum Terrain {
         this.effortToPass = effortToPass;
     }
     
-    public boolean isValidSpawnTerrain(Terrain ter) {
-    	return ter.effortToPass < 1000000;
+    public boolean isValidSpawnTerrain() {
+    	return effortToPass < 1000000;
     }
 }
