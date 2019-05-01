@@ -32,11 +32,11 @@ public class Getter {
                 return false;
             }
         }};
-        SecondaryStats secStats = new SecondaryStats(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+        SecondaryStats secStats = new SecondaryStats(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
         PrimeStats primeStats = new PrimeStats(false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
         Statistics statistics = new Statistics();
         Attack[] attacks = {attack, attack};
-        return new Hero(name, inventory, attacks, skills, secStats, 1, primeStats, statistics);
+        return new Hero(name, inventory, attacks, skills, 1, primeStats, statistics);
     }
 
 

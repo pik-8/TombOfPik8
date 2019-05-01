@@ -33,8 +33,8 @@ public class TombOfPik8 {
 
     	System.out.println("Name: " + wp.getName());
     	System.out.println("Description: " + wp.getDescription());
-    	System.out.println("Attack: " + wp.getSecStats().getAttack());
-    	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttack());
+    	System.out.println("Attack: " + wp.getSecStats().getAttackPower());
+    	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttackPower());
 
     	GsonBuilder b = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
     	Gson gson = b.create();

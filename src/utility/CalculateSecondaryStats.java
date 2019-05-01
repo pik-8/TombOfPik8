@@ -8,7 +8,9 @@ import model.characters.Hero;
  * This class will calculate every value inside the SecondaryStats-Class.
  * Has method's that return the value or automatically set them.
  *
- * @ author Hagen
+ * The set... methods were created for this project.
+ *
+ * @author Hagen
  * (Was imported from an old project.)
  */
 public class CalculateSecondaryStats {
@@ -18,8 +20,8 @@ public class CalculateSecondaryStats {
 
 
     /**
-     * Determines the value of an stat by the level of at least one primeStat and predefined softcaps and scales,
-     * that ccan be seen in constants.balancing.PropertiesStats
+     * Determines the value of an stat by the level of at least one primeStat with predefined softcaps and scales,
+     * which can be seen in constants.balancing.PropertiesStats
      *
      * @param hero: The Hero which stat should be calculated.
      * @return the value of the stat
@@ -105,81 +107,6 @@ public class CalculateSecondaryStats {
         }
         return maxActionByLevel;
 
-    }
-
-
-    public static int maxAttackResistanceByLevel(Hero hero)
-    {
-        int deltaLevel = 0;
-        int i = 0;
-        int deltaLevel2 = 0;
-        int j = 0;
-        if (!hero.getPrimeStats().isSpecialist())
-        {
-            if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel();
-            }
-            else if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_TOUGHNESS;
-                i = 1;
-            }
-            else
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_TOUGHNESS;
-                i = 2;
-            }
-            if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH)
-            {
-                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
-            }
-            else if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH)
-            {
-                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_1_FOR_STRENGTH;
-                j = 1;
-            }
-            else
-            {
-                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_NOT_SPEZIALISED_2_FOR_STRENGTH;
-                j = 2;
-            }
-            int value = Math.round((deltaLevel * STM_RESIS_SCALES_NOT_SPEZIALISED_FORTOUGHNESS[i]) + STM_RESIS_BASESTATS_NOT_SPEZIALISED_FORTOUGHNESS[i] + (deltaLevel2 * STM_RESIS_SCALES_NOT_SPEZIALISED_FOR_STREMGTH[j] + STM_RESIS_BASES_NOT_SPEZIALISED_FOR_STREMGTH[j]));
-            return value;
-        }
-        else
-        {
-            if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_TOUGHNESS)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel();
-            }
-            else if (hero.getPrimeStats().getToughnessLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS)
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_TOUGHNESS;
-                i = 1;
-            }
-            else
-            {
-                deltaLevel = hero.getPrimeStats().getToughnessLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_TOUGHNESS;
-                i = 2;
-            }
-            if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH)
-            {
-                deltaLevel2 = hero.getPrimeStats().getStrengthLevel();
-            }
-            else if (hero.getPrimeStats().getStrengthLevel() <= ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH)
-            {
-                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_1_FOR_STRENGTH;
-                j = 1;
-            }
-            else
-            {
-                deltaLevel2 = hero.getPrimeStats().getStrengthLevel() - ATTACK_RESISTANCE_SOFTCAP_SPEZIALISED_2_FOR_STRENGTH;
-                j = 2;
-            }
-            int value = Math.round((deltaLevel * STM_RESIS_SCALES_SPEZIALISED_FORTOUGHNESS[i]) + STM_RESIS_BASESTATS_SPEZIALISED_FORTOUGHNESS[i] + (deltaLevel2 * STM_RESIS_SCALES_SPEZIALISED_FOR_STREMGTH[j] + STM_RESIS_BASES_SPEZIALISED_FOR_STREMGTH[j]));
-            return value;
-        }
     }
 
 
@@ -596,7 +523,7 @@ public class CalculateSecondaryStats {
 
 
     public static void setMaxAttackByLevel (Hero hero) {
-        hero.getSecondaryStats().setAttack(CalculateSecondaryStats.maxAttackByLevel(hero));
+        hero.getSecondaryStats().setAttackPower(CalculateSecondaryStats.maxAttackByLevel(hero));
     }
 
     public static void setMaxHealthByLevel (Hero hero) {
@@ -604,7 +531,7 @@ public class CalculateSecondaryStats {
     }
 
     public static void setMaxActionByLevel (Hero hero) {
-        hero.getSecondaryStats().setAction(CalculateSecondaryStats.maxActionByLevel(hero));
+        hero.getSecondaryStats().setMaxAction(CalculateSecondaryStats.maxActionByLevel(hero));
     }
 
     public static void setMaxStaminaByLevel (Hero hero) {
@@ -624,7 +551,7 @@ public class CalculateSecondaryStats {
     }
 
     public static void setMaxMagicalAttackByLevel (Hero hero) {
-        hero.getSecondaryStats().setMagicAttack(CalculateSecondaryStats.maxMagicAttackByLevel(hero));
+        hero.getSecondaryStats().setMagicAttackPower(CalculateSecondaryStats.maxMagicAttackByLevel(hero));
     }
 
     public static void setMaxLuckByLevel (Hero hero) {
@@ -642,7 +569,22 @@ public class CalculateSecondaryStats {
     }
 
 
-    public static void setMaxAttackResistanceByLevel (Hero hero) {
-        hero.getSecondaryStats().setAttackResistance(CalculateSecondaryStats.maxAttackResistanceByLevel(hero));
+    /**
+     * Sets every stat, besides hp and action, to the value calculated from the prime stats.
+     *
+     * @param hero: The hero, who's stats should be re-assigned.
+     */
+    public static void setEveryStat (Hero hero) {
+        setMaxHealthByLevel(hero);
+        setMaxStaminaByLevel(hero);
+        setMaxActionByLevel(hero);
+        setMaxDefenceByLevel(hero);
+        setMaxAttackByLevel(hero);
+        setMaxMagicalDefenceByLevel(hero);
+        setMaxMagicalAttackByLevel(hero);
+        setMaxAttackSlotsByLevel(hero);
+        setMaxSpeedByLevel(hero);
+        setMaxLuckByLevel(hero);
+        setMaxEquipmentLoadByLevel(hero);
     }
 }
