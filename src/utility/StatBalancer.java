@@ -1,41 +1,51 @@
-package model.items;
+package utility;
 
 import java.util.Random;
 
 import constants.balancing.Factors;
 import model.characters.PrimeStats;
 import model.characters.SecondaryStats;
+import model.options.Difficulty;
 
 /**
  * 
  * @author Frederick Hastedt
  * 
- * This class balances the SecondaryStats and PrimeStats of Items that are dropped randomly or crafted.
+ * This class can balance SecondaryStats and PrimeStats to a given level and difficulty.
  * It first scales them to the level of the hero/player, then rolls the stats to get some randomness in the
  * item's strength.
  *
  */
 public class StatBalancer {
-
-	protected static SecondaryStats balanceSecondaryStats(SecondaryStats stats, int level) {
-		stats = scaleStatsToLevel(stats, level);
-		stats = rollStats(stats);
-		return stats;
+	
+	/**
+	 *  
+	 * 
+	 * @param stats The stats that should be balanced to the given level and difficulty
+	 * @param level The level the SecondaryStats should be balanced to.
+	 * @param diff The difficulty the SecondaryStats should be balanced to.
+	 */
+	public static void balanceSecondaryStats(SecondaryStats stats, int level, int diff) {
+		// TODO STILL NEEDS TO BE IMPLEMENTED: Idea is to have the stats scaled to level and then scaled to 100% - 300% depending on difficulty.
+	}
+	
+	public static void balanceSecondaryStats(SecondaryStats stats, int level) {
+		scaleStatsToLevel(stats, level);
+		rollStats(stats);
 	}
 
-	public static PrimeStats balancePrimaryStats(PrimeStats primeStats, int level) {
-		primeStats = scaleStatsToLevel(primeStats, level);
-		primeStats = rollStats(primeStats);
-		return primeStats;
+	public static void balancePrimaryStats(PrimeStats primeStats, int level) {
+		scaleStatsToLevel(primeStats, level);
+		rollStats(primeStats);
 	}
 
-	private static SecondaryStats scaleStatsToLevel(SecondaryStats stats, int level) {
+	private static void scaleStatsToLevel(SecondaryStats stats, int level) {
 		/*
-		 *  ITEM_STAT_INCREASE_MULTIPLIER implies by how much percent an Item's stats
+		 *  ITEM_SECSTAT_INCREASE_MULTIPLIER defines by how much percent an Item's stats
 		 *  should increase per level.
 		 */
-		double levelMultiplicator = Math.pow(1 + Factors.ITEM_SECSTAT_INCREASE_MULTIPLIER, (level - 1));
-
+		double levelMultiplicator = Math.pow(1 + Factors.SECSTAT_INCREASE_MULTIPLIER, (level - 1));
+		
 		stats.setMax_Hp((int)Math.round(stats.getMax_Hp() * levelMultiplicator));
 		stats.setLuck((int)Math.round(stats.getLuck() * levelMultiplicator));
 		stats.setDefence((int)Math.round(stats.getDefence() * levelMultiplicator));
@@ -43,10 +53,9 @@ public class StatBalancer {
 		stats.setSpeed((int)Math.round(stats.getSpeed() * levelMultiplicator));
 		stats.setAttackPower((int)Math.round(stats.getAttackPower() * levelMultiplicator));
 		stats.setMagicAttackPower((int)Math.round(stats.getMagicAttackPower() * levelMultiplicator));
-		return stats;
 	}
 	
-	private static SecondaryStats rollStats(SecondaryStats stats) {
+	private static void rollStats(SecondaryStats stats) {
 		Random rand = new Random();
 		/*
 		 * The deviation is a number between 1-X and 1+X, where X is defined by how much an Item's stats should be
@@ -64,16 +73,14 @@ public class StatBalancer {
 		stats.setSpeed((int)Math.round(stats.getSpeed() * deviation));
 		stats.setAttackPower((int)Math.round(stats.getAttackPower() * deviation));
 		stats.setMagicAttackPower((int)Math.round(stats.getMagicAttackPower() * deviation));
-		
-		return stats;
 	}
 	
-	private static PrimeStats scaleStatsToLevel(PrimeStats stats, int level) {
+	private static void scaleStatsToLevel(PrimeStats stats, int level) {
 		/*
-		 *  ITEM_STAT_INCREASE_MULTIPLIER implies by how much percent an Item's stats
+		 *  ITEM_PRIMESTAT_INCREASE_MULTIPLIER implies by how much percent an Item's stats
 		 *  should increase per level.
 		 */
-		double levelMultiplicator = Math.pow(1 + Factors.ITEM_SECSTAT_INCREASE_MULTIPLIER, (level - 1));
+		double levelMultiplicator = Math.pow(1 + Factors.PRIMESTAT_INCREASE_MULTIPLIER, (level - 1));
 
 		stats.setHealthLevel((int)Math.round(stats.getHealthLevel() * levelMultiplicator));
 		stats.setIntelligenceLevel((int)Math.round(stats.getIntelligenceLevel() * levelMultiplicator));
@@ -84,19 +91,18 @@ public class StatBalancer {
 		stats.setStaminaLevel((int)Math.round(stats.getStaminaLevel() * levelMultiplicator));
 		stats.setStrengthLevel((int)Math.round(stats.getStrengthLevel() * levelMultiplicator));
 		stats.setToughnessLevel((int)Math.round(stats.getToughnessLevel() * levelMultiplicator));
-		return stats;
 	}
 	
-	private static PrimeStats rollStats(PrimeStats stats) {
+	private static void rollStats(PrimeStats stats) {
 		Random rand = new Random();
 		/*
 		 * The deviation is a number between 1-X and 1+X, where X is defined by how much an Item's stats should be
 		 * away from the average.
 		 * A random double between 0 and 1 is created, then 0.5 is subtracted from it so it is between -0.5 and +0.5.
 		 * Then it is multiplied by two, to get a number between -1 and 1. This number is then multiplied with
-		 * the STAT_ROLL_DEVIATION (X), and finally 1 is added to get the required multiplier.
+		 * the PRIMESTAT_ROLL_DEVIATION (X), and finally 1 is added to get the required multiplier.
 		 */
-		double deviation =(rand.nextDouble() - 0.5) * 2 * Factors.SECSTAT_ROLL_DEVIATION + 1;
+		double deviation =(rand.nextDouble() - 0.5) * 2 * Factors.PRIMESTAT_ROLL_DEVIATION + 1;
 
 		stats.setHealthLevel((int)Math.round(stats.getHealthLevel() * deviation));
 		stats.setIntelligenceLevel((int)Math.round(stats.getIntelligenceLevel() * deviation));
@@ -107,8 +113,6 @@ public class StatBalancer {
 		stats.setStaminaLevel((int)Math.round(stats.getStaminaLevel() * deviation));
 		stats.setStrengthLevel((int)Math.round(stats.getStrengthLevel() * deviation));
 		stats.setToughnessLevel((int)Math.round(stats.getToughnessLevel() * deviation));
-		
-		return stats;
 	}
 
 

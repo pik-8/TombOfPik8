@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 
 import constants.FileConstants;
 import model.io.TemplateReader;
+import utility.StatBalancer;
 
 public class ArmorFactory extends ItemFactory {
 
@@ -59,25 +60,25 @@ public class ArmorFactory extends ItemFactory {
 	
 	public Item generateCommonArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(common);
-		armor.setSecStats(StatBalancer.balanceSecondaryStats(armor.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
 		return armor;
 	}
 	
 	public Item generateRareArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(rare);
-		armor.setSecStats(StatBalancer.balanceSecondaryStats(armor.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
 		return armor;
 	}
 
 	public Item generateEpicArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(epic);
-		armor.setSecStats(StatBalancer.balanceSecondaryStats(armor.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
 		return armor;
 	}
 	
 	public Item generateLegendaryArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(legendary);
-		armor.setSecStats(StatBalancer.balanceSecondaryStats(armor.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
 		return armor;
 	}
 

@@ -3,16 +3,7 @@ package control;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import constants.FileConstants;
-import model.characters.Character;
-import model.characters.Inventory;
-import model.characters.SecondaryStats;
-import model.fighting.Attack;
-import model.fighting.Skill;
-import model.io.TemplateReader;
-import model.items.Rarity;
-import model.items.Weapon;
-import model.items.WeaponFactory;
+import model.characters.MobSpawner;
 import model.json.AdapterFactories;
 
 /**
@@ -27,31 +18,22 @@ public class TombOfPik8 {
 
 
     public static void main (String args[]) {
-    	WeaponFactory wf = new WeaponFactory();
-		Weapon wp = wf.generateRandomWeapon(50, Rarity.EPIC);
-
-
-    	System.out.println("Name: " + wp.getName());
-    	System.out.println("Description: " + wp.getDescription());
-    	System.out.println("Attack: " + wp.getSecStats().getAttackPower());
-    	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttackPower());
-
-    	GsonBuilder b = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
-    	Gson gson = b.create();
-    	Attack attack = gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.ATTACK_TEMPLATE_PATH + "/BasicAttack.pik"), Attack.class);
+//    	WeaponFactory wf = new WeaponFactory();
+//		Weapon wp = wf.generateRandomWeapon(50);
+//
+//
+//    	System.out.println("Name: " + wp.getName());
+//    	System.out.println("Description: " + wp.getDescription());
+//    	System.out.println("Attack: " + wp.getSecStats().getAttackPower());
+//    	System.out.println("Magic Attack: " + wp.getSecStats().getMagicAttackPower());
     	
-		Character chara = new Character("Giant Rat", 
-				new Inventory(0, 50), 
-				new Attack[] {attack}, 
-				new Skill[1],
-				new SecondaryStats(20, 2, 20, 2, 5, 0, 10, 0, 5, 0, 0, 0, 0, 4, 1),
-				10);    		
-		generateTemplate(chara);
+    	MobSpawner mf = new MobSpawner(5, 5);
+    	System.out.println(mf.spawnMob().toString());
+
     	    	
 //    	DungeonPrinter printer = new DungeonPrinter();
 //    	Dungeon dungeon = new DungeonFactory().generateRandomDungeon();
 //    	printer.printDungeon(dungeon);
-    	
     }
 
 

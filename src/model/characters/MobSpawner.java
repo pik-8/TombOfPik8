@@ -9,9 +9,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 import constants.FileConstants;
+import model.fighting.Attack;
+import model.fighting.Skill;
 import model.io.TemplateReader;
 import model.items.Weapon;
 import model.json.AdapterFactories;
+import utility.StatBalancer;
 
 public class MobSpawner {
 
@@ -25,14 +28,15 @@ public class MobSpawner {
 	private Random rand;
 
 	private void init(int level, int difficulty) {
-		possibleMobs = new ArrayList<Character>();
-		readTemplate(FileConstants.MOB_TEMPLATE_PATH);
-		builder = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
-		gson = builder.create();
-		rand = new Random();
+		this.possibleMobs = new ArrayList<Character>();
+		this.builder = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
+		this.gson = builder.create();
+		this.rand = new Random();
 		
 		this.level = level;
 		this.difficulty = difficulty;
+		
+		readTemplate(FileConstants.MOB_TEMPLATE_PATH);
 	}
 	
 	public MobSpawner(int level, int difficulty) {
@@ -47,12 +51,23 @@ public class MobSpawner {
 				addToPossibleMobs(TemplateReader.readTemplateAsJsonObject(mob));
 			}
 		} else {
-			
+			possibleMobs.add(new Character("Giant Rat", 
+				new Inventory(5, 50), 
+				new Attack[] {gson.fromJson(TemplateReader.readTemplateAsJsonObject(FileConstants.ATTACK_TEMPLATE_PATH + "/BasicAttack.pik"), Attack.class)}, 
+				new Skill[1],
+				new SecondaryStats(20, 2, 20, 2, 5, 0, 10, 10, 5, 0, 0, 0, 4, 1),
+				10));
 		}
 	}
 	
 	private void addToPossibleMobs(JsonObject jo) {
 		possibleMobs.add(gson.fromJson(jo, Character.class));
+	}
+	
+	public Character spawnMob() {
+		Character mob = possibleMobs.get(rand.nextInt(possibleMobs.size()));
+		StatBalancer.balanceSecondaryStats(mob.getSecondaryStats(), level, difficulty);
+		return mob;
 	}
 
 }

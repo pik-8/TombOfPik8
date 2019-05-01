@@ -115,4 +115,17 @@ public class Attack {
     public AttackPattern getAttackPattern() {
         return attackPattern;
     }
+    
+    @Override
+	public String toString() {
+		return "name: " + name + 
+				"\ndescription: " + description + 
+				"\ndamage: " + damage + 
+				"\nmagicDamage: " + magicDamage + 
+				"\naccuracy: " + accuracy + 
+				"\nrequiredSlots: " + requiredSlots + 
+				(effect != null ? ", effect=" + effect.toString() : "") + 
+				(attackPattern != null ? ", attackPattern: " + attackPattern.toString() : "") + 
+				"]";
+	}
 }

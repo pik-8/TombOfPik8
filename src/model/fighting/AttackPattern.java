@@ -129,4 +129,29 @@ public class AttackPattern {
     public Effect[][] getEffectField() {
         return effectField;
     }
+    
+    public String toString() {
+    	String str = "AttackField: \n";
+    	for(float[] outer : attackField) {
+    		str += "[";
+    		for(float inner : outer) {
+    			str += inner;
+    			str += ", ";
+    		}
+    		str += "]\n";
+    	}
+    	str += "EffectField: \n";
+    	str += "[";
+    	for(Effect[] outer : effectField) {
+        	str += "{";
+    		for(Effect inner : outer) {
+    			if(inner != null) {
+    				str += inner.toString() + ", ";    				
+    			}
+    		}
+        	str += "}";
+    	}
+    	str += "]\n";
+    	return str;
+    }
 }

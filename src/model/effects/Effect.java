@@ -58,26 +58,6 @@ public abstract class Effect {
     public abstract void applyEffect (Square square);
     
     public abstract void applyEffect (Equipment equip);
-    
-    /**
-     * This method can extend an array to a specified length with zeros.
-     * @param array The array to extend.
-     * @param toLength The length to extend to.
-     * @return The extended array.
-     */
-    protected float[] lengthenArray(float[] array, int toLength) {
-    	if(array.length < toLength) {
-			float[] tmp = new float[toLength];
-			for(int i = 0; i < toLength; i++) {
-				if(i < array.length)
-					tmp[i] = array[i];
-				else
-					tmp[i] = 0;
-			}
-			array = tmp;			
-		}
-    	return array;
-    }
 
     public String getName() {
         return name;
@@ -109,5 +89,12 @@ public abstract class Effect {
 
     protected void setDuration(int duration) {
         this.duration = duration;
+    }
+    
+    public String toString() {
+    	return "Name: " + name + 
+    			"\nDescription: " + description +
+    			"\nDuration: " + duration +
+    			"\nisInstantApply: " + (instantApply ? "True" : "False");
     }
 }

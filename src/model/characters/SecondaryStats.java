@@ -188,4 +188,24 @@ public class SecondaryStats {
 	public void setAttackSlots(int attackSlots) {
 		this.attackSlots = attackSlots;
 	}
+
+	@Override
+	public String toString() {
+		return "SecondaryStats [hp: " + hp + 
+				"\naction: " + action + 
+				"\nmax_Hp: " + max_Hp + 
+				"\nmaxAction: " + maxAction + 
+				"\nattackPower: " + attackPower + 
+				"\nmagicAttackPower: " + magicAttackPower + 
+				"\ndefence: " + defence + 
+				"\nmagicDefence: " + magicDefence + 
+				"\nspeed: " + speed + 
+				"\nluck: " + luck + 
+				"\nload: " + load + 
+				"\nmaxEquipmentLoad: " + maxEquipmentLoad + 
+				"\nstamina: " + stamina + 
+				"\nattackSlots: " + attackSlots + "]";
+	}
+	
+	
 }

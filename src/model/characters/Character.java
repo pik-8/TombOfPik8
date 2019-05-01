@@ -6,6 +6,7 @@ import model.effects.Effect;
 import model.fighting.Attack;
 import model.fighting.Skill;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -20,7 +21,16 @@ import java.util.Objects;
  */
 public class Character {
 
-    private String name;
+    @Override
+	public String toString() {
+		return "name: " + name + 
+				"\nattacks: " + Arrays.toString(attacks) + 
+				"\nskills: " + Arrays.toString(skills) + 
+				"\nsecondaryStats: " + secondaryStats + 
+				"\nexp: " + exp + "]";
+	}
+
+	private String name;
 
     private Inventory inventory;
 

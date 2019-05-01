@@ -1,0 +1,109 @@
+{
+  "name": "Dragon",
+  "inventory": {
+    "consumables": [],
+    "equipment": [],
+    "materials": {},
+    "money": 200,
+    "itemCount": 0,
+    "size": 5
+  },
+  "attacks": [
+    {
+      "name": "Plasma Breath",
+      "description": "A lot hotter than fire.",
+      "damage": 100,
+      "magicDamage": 100,
+      "accuracy": 100,
+      "requiredSlots": 1,
+      "attackPattern": {
+        "attackField": [
+		  [
+            0.9,
+            0.9,
+            0.9
+          ],
+		  [
+            0.0,
+            1.2,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "effectField": [
+          [
+            {"effectType" : DamageEffect,
+			  "flatDamage": 0.0,
+			  "percentOfMaxHealthDamage": 6.25,
+			  "percentOfMissingHealthDamage": 0.0,
+			  "percentOfCurrentHealthDamage": 0.0,
+			  "name": "Burn",
+			  "description": "You are burning.",
+			  "duration": 3,
+			  "instantApply": false},
+            {"effectType" : DamageEffect,
+			  "flatDamage": 0.0,
+			  "percentOfMaxHealthDamage": 6.25,
+			  "percentOfMissingHealthDamage": 0.0,
+			  "percentOfCurrentHealthDamage": 0.0,
+			  "name": "Burn",
+			  "description": "You are burning.",
+			  "duration": 3,
+			  "instantApply": false},
+            {"effectType" : DamageEffect,
+			  "flatDamage": 0.0,
+			  "percentOfMaxHealthDamage": 6.25,
+			  "percentOfMissingHealthDamage": 0.0,
+			  "percentOfCurrentHealthDamage": 0.0,
+			  "name": "Burn",
+			  "description": "You are burning.",
+			  "duration": 3,
+			  "instantApply": false}
+          ],
+		  [
+            null,
+            {"effectType" : DamageEffect,
+			  "flatDamage": 0.0,
+			  "percentOfMaxHealthDamage": 6.25,
+			  "percentOfMissingHealthDamage": 0.0,
+			  "percentOfCurrentHealthDamage": 0.0,
+			  "name": "Burn",
+			  "description": "You are burning.",
+			  "duration": 3,
+			  "instantApply": false},
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    }
+  ],
+  "skills": [
+    null
+  ],
+  "secondaryStats": {
+    "hp": 60,
+    "action": 2,
+    "max_Hp": 60,
+    "maxAction": 2,
+    "attackPower": 0,
+    "magicAttackPower": 20,
+    "defence": 30,
+    "magicDefence": 30,
+    "speed": 3,
+    "luck": 10,
+    "load": 0,
+    "maxEquipmentLoad": 0,
+    "stamina": 3,
+    "attackSlots": 1
+  },
+  "exp": 100
+}

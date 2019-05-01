@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 
 import constants.FileConstants;
 import model.io.TemplateReader;
+import utility.StatBalancer;
 
 public class TrinketFactory extends ItemFactory {
 
@@ -59,29 +60,29 @@ public class TrinketFactory extends ItemFactory {
 	
 	private Item generateCommonTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(common);
-		tr.setSecStats(StatBalancer.balanceSecondaryStats(tr.getSecStats(), level));
-		tr.setPrimeStats(StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level));
+		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
+		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
 		return tr;
 	}
 	
 	private Item generateRareTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(rare);
-		tr.setSecStats(StatBalancer.balanceSecondaryStats(tr.getSecStats(), level));
-		tr.setPrimeStats(StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level));
+		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
+		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
 		return tr;
 	}
 	
 	private Item generateEpicTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(epic);
-		tr.setPrimeStats(StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level));
-		tr.setSecStats(StatBalancer.balanceSecondaryStats(tr.getSecStats(), level));
+		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
+		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
 		return tr;
 	}
 	
 	private Item generateLegendaryTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(legendary);
-		tr.setPrimeStats(StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level));
-		tr.setSecStats(StatBalancer.balanceSecondaryStats(tr.getSecStats(), level));
+		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
+		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
 		return tr;
 	}
 }

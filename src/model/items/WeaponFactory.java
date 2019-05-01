@@ -14,6 +14,7 @@ import com.google.gson.stream.JsonReader;
 import constants.FileConstants;
 import model.io.TemplateReader;
 import model.json.AdapterFactories;
+import utility.StatBalancer;
 
 /**
  * 
@@ -70,24 +71,24 @@ public class WeaponFactory extends ItemFactory {
 	
 	public Weapon generateCommonWeapon(int level) {
 		Weapon wp = (Weapon) pickRandomItem(common);
-		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
 		return wp;
 	}
 	
 	public Weapon generateRareWeapon(int level) {
 		Weapon wp = (Weapon) pickRandomItem(rare);
-		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
 		return wp;
 	}
 
 	public Weapon generateEpicWeapon(int level) {
 		Weapon wp = (Weapon) pickRandomItem(epic);
-		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
 		return wp;	}
 
 	public Weapon generateLegendaryWeapon(int level) {
 		Weapon wp = (Weapon) pickRandomItem(legendary);
-		wp.setSecStats(StatBalancer.balanceSecondaryStats(wp.getSecStats(), level));
+		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
 		return wp;
 	}
 	
