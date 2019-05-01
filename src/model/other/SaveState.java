@@ -1,7 +1,7 @@
 package model.other;
 
 import model.characters.Hero;
-import model.options.Difficulty;
+import model.dungeon.Difficulty;
 import model.overworld.Overworld;
 
 

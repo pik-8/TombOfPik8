@@ -4,12 +4,13 @@ import model.characters.Hero;
 import model.characters.Inventory;
 import model.characters.PrimeStats;
 import model.characters.SecondaryStats;
+import model.dungeon.DifficultyFactory;
 import model.effects.Effect;
 import model.effects.HealingEffect;
 import model.fighting.Attack;
 import model.fighting.AttackPattern;
 import model.fighting.Skill;
-import model.options.Difficulty;
+import model.dungeon.Difficulty;
 import model.other.SaveState;
 import model.other.Statistics;
 import model.overworld.Overworld;
@@ -43,7 +44,8 @@ public class Getter {
     public static SaveState getASaveState () throws Exception {
         Hero[] party = {getAHero("naofumi"), getAHero("Saitama")};
         Overworld overworld = new Overworld();
-        Difficulty diffi = new Difficulty();
+        DifficultyFactory df = new DifficultyFactory();
+        Difficulty diffi = df.getDifficulty();
         return new SaveState(Getter.getAHero("Deku"), party, 1, overworld, diffi);
     }
 }

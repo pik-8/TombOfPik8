@@ -1,6 +1,5 @@
 package model.dungeon;
 
-import java.io.ObjectInput;
 import java.util.Objects;
 
 
@@ -14,19 +13,18 @@ public class Dungeon {
     private Tile[][] layout;
     private Objective objective;
 
+    private Difficulty difficulty;
 
-    protected Dungeon(Tile[][] layout, Objective objective) throws NullPointerException {
+
+    protected Dungeon(Tile[][] layout, Objective objective, Difficulty difficulty) throws NullPointerException {
         this.layout = Objects.requireNonNull(layout);
         this.objective = Objects.requireNonNull(objective);
+        this.difficulty = difficulty;
     }
 
-    public Dungeon (int size, Objective objective, Landscape[] possibleLandscapes) {
-        //this.layout = .DungeonCreator.generateDungeonLayout(size, possibleLandscapes);
-        this.objective = objective;
-    }
-
-    public Dungeon(Tile[][] layout) {
+    public Dungeon(Tile[][] layout, Difficulty difficulty) {
         this.layout = layout;
+        this.difficulty = difficulty;
     }
 
     public Tile[][] getlayout() {
@@ -35,5 +33,9 @@ public class Dungeon {
 
     public Objective getObjective() {
         return objective;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 }
