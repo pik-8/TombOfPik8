@@ -3,6 +3,8 @@ package constants;
 public interface FileConstants {
 	public static final String RESOURCE_PATH = "resources";
 	public static final String TEMPLATE_PATH = RESOURCE_PATH + "/templates";
+
+	public static final String OPTIONS_PATH = RESOURCE_PATH + "/options";
 		
 	public static final String WEAPON_TEMPLATE_PATH = TEMPLATE_PATH + "/weapons";
 	
