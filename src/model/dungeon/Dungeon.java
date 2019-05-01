@@ -1,5 +1,7 @@
 package model.dungeon;
 
+import model.characters.Character;
+
 import java.util.Objects;
 
 
@@ -12,19 +14,17 @@ public class Dungeon {
 
     private Tile[][] layout;
     private Objective objective;
+    private Character[][] mobLayout;
 
-    private Difficulty difficulty;
 
-
-    protected Dungeon(Tile[][] layout, Objective objective, Difficulty difficulty) throws NullPointerException {
+    protected Dungeon(Tile[][] layout, Objective objective) throws NullPointerException {
         this.layout = Objects.requireNonNull(layout);
         this.objective = Objects.requireNonNull(objective);
-        this.difficulty = difficulty;
     }
 
-    public Dungeon(Tile[][] layout, Difficulty difficulty) {
+    public Dungeon(Tile[][] layout, Character[][] mobLayout) {
         this.layout = layout;
-        this.difficulty = difficulty;
+        this.mobLayout = mobLayout;
     }
 
     public Tile[][] getlayout() {
@@ -35,7 +35,7 @@ public class Dungeon {
         return objective;
     }
 
-    public Difficulty getDifficulty() {
-        return difficulty;
+    public Character[][] getMobLayout() {
+        return mobLayout;
     }
 }

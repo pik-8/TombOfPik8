@@ -1,9 +1,6 @@
 package tests;
 
-import model.dungeon.DungeonFactory;
-import model.dungeon.Position;
-import model.dungeon.Terrain;
-import model.dungeon.Tile;
+import model.dungeon.*;
 import view.DungeonPrinter;
 
 
@@ -16,9 +13,42 @@ public class DungeonTesting {
 
     public static void main (String args[]) {
         //generateAndPrintALotRandomDungeons();   //Success
+        //printMobLayout(); // Success
+        printMobAndTerrainsLayout(); //
         //generateAndPrintALotRandomDungeonsWithSeed();   //Success
         //testPrintLandscapes();   //Success
-        loadDungeonFromTemplate("Level1.pik");//Success
+        //loadDungeonFromTemplate("Level1.pik");//Success
+
+        //testAllDungeons(); //failure
+    }
+
+    private static void testAllDungeons () {
+        DungeonFactory dungeonFactory = new DungeonFactory();
+        DungeonPrinter dungeonPrinter = new DungeonPrinter();
+
+        dungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 7, new Landscape[] {Landscape.FOREST}, new Position()));
+        System.out.println();
+        dungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon(10, 10, 10, 7, new Landscape[] {Landscape.FOREST}, new Position(), 1));
+    }
+
+
+    private static void printMobAndTerrainsLayout () {
+        System.out.println("The mob and Terrains layout.");
+
+        DungeonPrinter dungeonPrinter = new DungeonPrinter();
+        DungeonFactory dungeonFactory = new DungeonFactory();
+
+        dungeonPrinter.printMobAndTerrainLayout(dungeonFactory.generateRandomDungeon(1));
+    }
+
+
+    private static void printMobLayout () {
+        System.out.println("The mob layout.");
+
+        DungeonPrinter dungeonPrinter = new DungeonPrinter();
+        DungeonFactory dungeonFactory = new DungeonFactory();
+
+        dungeonPrinter.printMobLayout(dungeonFactory.generateRandomDungeon(1));
     }
 
 
@@ -44,15 +74,15 @@ public class DungeonTesting {
         DungeonFactory df = new DungeonFactory();
         DungeonPrinter dp = new DungeonPrinter();
 
-        dp.printDungeon(df.generateRandomDungeon());
+        dp.printDungeon(df.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df.generateRandomDungeon());
+        dp.printDungeon(df.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df.generateRandomDungeon());
+        dp.printDungeon(df.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df.generateRandomDungeon());
+        dp.printDungeon(df.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df.generateRandomDungeon());
+        dp.printDungeon(df.generateRandomDungeon(100));
         System.out.println("\n");
     }
 
@@ -71,15 +101,15 @@ public class DungeonTesting {
         DungeonFactory df_5 = new DungeonFactory(seed);
         DungeonPrinter dp = new DungeonPrinter();
 
-        dp.printDungeon(df_1.generateRandomDungeon());
+        dp.printDungeon(df_1.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df_2.generateRandomDungeon());
+        dp.printDungeon(df_2.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df_3.generateRandomDungeon());
+        dp.printDungeon(df_3.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df_4.generateRandomDungeon());
+        dp.printDungeon(df_4.generateRandomDungeon(100));
         System.out.println("\n");
-        dp.printDungeon(df_5.generateRandomDungeon());
+        dp.printDungeon(df_5.generateRandomDungeon(100));
         System.out.println("\n");
     }
 
@@ -93,10 +123,10 @@ public class DungeonTesting {
         DungeonFactory df = new DungeonFactory();
         DungeonPrinter dp = new DungeonPrinter();
 
-        dp.printLandscapes(df.generateRandomDungeon());
+        dp.printLandscapes(df.generateRandomDungeon(100));
         System.out.println();
-        dp.printLandscapes(df.generateRandomDungeon());
+        dp.printLandscapes(df.generateRandomDungeon(100));
         System.out.println();
-        dp.printLandscapes(df.generateRandomDungeon());
+        dp.printLandscapes(df.generateRandomDungeon(100));
     }
 }
