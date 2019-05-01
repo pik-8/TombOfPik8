@@ -36,4 +36,6 @@ public interface ExceptionConstants {
     public static final String LEVEL_IS_NEGATIVE = "A Level is below 0.";
 
     public static final String SQUARE_IN_TILE_IS_NULL = "At least one Square-Object in the Tile is null.";
-    }
+
+    public static final String DIFFICULTY_ARUGMENT_BELOW_ZERO = "One argument for an Difficulty-Object is below 0.";
+}

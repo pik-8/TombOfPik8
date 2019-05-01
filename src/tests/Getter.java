@@ -45,7 +45,7 @@ public class Getter {
         Hero[] party = {getAHero("naofumi"), getAHero("Saitama")};
         Overworld overworld = new Overworld();
         DifficultyFactory df = new DifficultyFactory();
-        Difficulty diffi = df.getDifficulty();
+        Difficulty diffi = df.getRandomDifficulty();
         return new SaveState(Getter.getAHero("Deku"), party, 1, overworld, diffi);
     }
 }

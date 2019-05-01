@@ -19,4 +19,9 @@ public interface ModelProperties {
     public static final int MAX_SIZE_RANDOM_DUNGEON = 20;
 
 
+
+    //DifficultyFactory
+
+    public static final int MAX_MOB_SPAWN_RATE_FOR_RANDOM = 4;
+
 }
