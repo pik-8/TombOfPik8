@@ -4,11 +4,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import model.effects.Effect;
 import model.fighting.Attack;
+import model.fighting.AttackPattern;
 import model.fighting.Skill;
 import model.io.TemplateReader;
 import model.json.AdapterFactories;
 import model.other.Statistics;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -19,7 +22,7 @@ import java.util.Objects;
  */
 public class Hero extends Character {
 
-
+	private Attack[] availableAttacks;
     private PrimeStats primeStats;
     private Statistics statistics;
     private Class cl;
@@ -38,11 +41,12 @@ public class Hero extends Character {
      * @throws IllegalArgumentException: When a number is below 0.
      * @throws NullPointerException: When an Object is null.
      */
-    public Hero(String name, Inventory inventory, Attack[] attacks, Skill[] skills,
+    private Hero(String name, Inventory inventory, Attack[] availableAttacks, Attack[] attacks, Skill[] skills,
                 int exp, PrimeStats primeStats, Statistics statistics, Class cl)
             throws IllegalArgumentException, NullPointerException
     {
         super(name, inventory, attacks, skills, new SecondaryStats(), exp);
+        this.availableAttacks = availableAttacks;
         this.primeStats = Objects.requireNonNull(primeStats);
         utility.CalculateSecondaryStats.setEveryStat(this);
         this.statistics = statistics;
@@ -65,10 +69,38 @@ public class Hero extends Character {
 		PrimeStats prime = gson.fromJson(TemplateReader.readTemplateAsJsonObject(cl.classPath + "/baseStats.pik"), PrimeStats.class);
 		
 		Statistics statistics = new Statistics();
+		
+		Attack[] availableAttacks = readAvailableAttacks(cl.classPath, gson);
 	
-		return new Hero(name, inv, new Attack[] {}, new Skill[] {}, 0, prime, statistics, cl);
+		return new Hero(name, inv, availableAttacks, new Attack[] {}, new Skill[] {}, 0, prime, statistics, cl);
 	}
-
+    
+    private static Attack[] readAvailableAttacks(String classPath, Gson gson) {
+    	ArrayList<Attack> attackList = new ArrayList<Attack>();
+		
+		File dir = new File(classPath + "/attacks");
+		File[] allFiles= dir.listFiles();
+		if (allFiles != null) {
+			for (File attack : allFiles) {
+				attackList.add(gson.fromJson(TemplateReader.readTemplateAsJsonObject(attack), Attack.class));
+			}
+		} else {
+			// Basic Attack to ensure the list is never empty.
+			attackList.add(new Attack("Basic Attack", "Hit them.",
+					100, 100, 100,
+					1, null,
+					new AttackPattern(new float[][]{{0.0f, 1.0f, 0.0f},
+							{0.0f, -1.0f, 0.0f}}, 
+							new Effect[][]{{null, null, null},
+							{null, null, null}}),
+					0));
+		}
+		
+		Attack[] attackArray = new Attack[attackList.size()];
+		for(int i = 0; i < attackList.size(); i++)
+			attackArray[i] = attackList.get(i);
+		return attackArray;
+	} 
 
     public PrimeStats getPrimeStats() {
         return primeStats;
