@@ -26,13 +26,13 @@ public class DungeonTesting {
     public static void main (String args[]) throws Exception{
         //generateALotDungeons();   //Success
         //printCharacterLayout(); // Success
-        //printMobAndTerrainsLayout(); //Success
+        printMobAndTerrainsLayout(); //Success
         //generateALotDungeonsWithSeed();   //Success
         //testPrintLandscapes();  //Success
-        createDungeonString();//Failure
+        //createDungeonString();//Failure
         //loadDungeonFromTemplate("TestDungeon.pik");//Success
 
-        printVisibleMapWithCharacters();
+        //printVisibleMapWithCharacters();
 
         //testAllDungeonGenerators(); //Success
     }
