@@ -1,9 +1,5 @@
 package model.dungeon;
 
-import constants.ModelProperties;
-
-import java.util.Objects;
-
 import static constants.ExceptionConstants.*;
 
 
@@ -46,7 +42,7 @@ public class Tile {
     public Tile (Landscape landscape, int size) {
         this.size = size;
         this.landscape = landscape;
-        this.layout = utility.TileGenerator.generateSquaresAsTiel(size, landscape);
+        this.layout = TileGenerator.generateSquaresAsTiel(size, landscape);
     }
 
 

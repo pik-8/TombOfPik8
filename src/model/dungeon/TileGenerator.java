@@ -1,4 +1,4 @@
-package utility;
+package model.dungeon;
 
 import constants.ModelProperties;
 import constants.balancing.Factors;
