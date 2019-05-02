@@ -2,13 +2,8 @@ package view;
 
 import model.characters.Character;
 import model.dungeon.Dungeon;
-import model.dungeon.Landscape;
 import model.dungeon.Terrain;
 import model.dungeon.Tile;
-
-import java.sql.SQLOutput;
-import java.util.Arrays;
-import java.util.Optional;
 
 
 /**
@@ -36,10 +31,34 @@ public class DungeonPrinter {
     }
 
 
-    public static void printMobLayout (Character[][] mobLayout) {
+    public static void printVisibleDungeon (boolean[][] visibleTiles, Character[][] characters, Dungeon dungeon) {
+        int tileSize = getTileSize(dungeon);
+
+        for (int mapY = 0; mapY < dungeon.getLayout()[0].length; mapY++){
+            for (int tileY = 0; tileY < tileSize; tileY++) {
+                for (int mapX = 0; mapX < dungeon.getLayout().length; mapX++) {
+                    for (int tileX = 0; tileX < tileSize; tileX++) {
+                        if (visibleTiles[mapX][mapY]){
+                            if (characters[(mapX * tileSize) + tileX][(mapY * tileSize) + mapY] == null) {
+                                printLetterOfTerrain(dungeon.getLayout()[mapX][mapY].getLayout()[tileX][tileY].getTerrain());
+                            } else {
+                                printLetterOfCharacter(characters[(mapX * tileSize) + tileX][(mapY * tileSize) + mapY]);
+                            }
+                        } else {
+                            printOneEmptyLine(tileSize);
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+        }
+    }
+
+
+    public static void printCharacterLayout(Character[][] mobLayout) {
         for (int y = 0; y < mobLayout[0].length; y++) {
             for (int x = 0; x < mobLayout.length; x++) {
-                printLetterOfMob(mobLayout[x][y]);
+                printLetterOfCharacter(mobLayout[x][y]);
             }
             System.out.println();
         }
@@ -47,7 +66,7 @@ public class DungeonPrinter {
 
 
     public static void printDungeon (Dungeon dungeon, Character[][] mobLayout) {
-        int tileSize = gettileSize(dungeon);
+        int tileSize = getTileSize(dungeon);
 
         for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
             for (int tileYIndex = 0; tileYIndex < tileSize; tileYIndex++) {
@@ -55,7 +74,7 @@ public class DungeonPrinter {
                     if (dungeon.getLayout()[x][y] != null) {
                         for (int tileX = 0; tileX < tileSize; tileX++) {
                             if (mobLayout[(x * tileSize) + tileX][(y* tileSize) + tileYIndex] != null) {
-                                printLetterOfMob(mobLayout[(x * tileSize) + tileX][(y* tileSize) + tileYIndex]);
+                                printLetterOfCharacter(mobLayout[(x * tileSize) + tileX][(y* tileSize) + tileYIndex]);
                             } else {
                                 printLetterOfTerrain(dungeon.getLayout()[x][y].getLayout()[tileX][tileYIndex].getTerrain());
                             }
@@ -71,7 +90,7 @@ public class DungeonPrinter {
 
 
     public static void printDungeon (Dungeon dungeon) {
-        int tileSize = gettileSize(dungeon);
+        int tileSize = getTileSize(dungeon);
         for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
             for (int tileYIndex = 0; tileYIndex < tileSize; tileYIndex++) {
                 for (int x = 0; x < dungeon.getLayout().length; x++) {
@@ -90,11 +109,11 @@ public class DungeonPrinter {
 
 
 
-    private static void printLetterOfMob (Character mob) {
-        if (mob == null) {
+    private static void printLetterOfCharacter (Character character) {
+        if (character == null) {
             System.out.print("   ");
         } else {
-            System.out.print(((mob.getName().charAt(0))) + String.valueOf(mob.getName().charAt(1)).toUpperCase() + " ");
+            System.out.print(String.valueOf(character.getName().charAt(0)).toUpperCase() + String.valueOf(character.getName().charAt(1)).toUpperCase() + " ");
         }
     }
 
@@ -134,7 +153,7 @@ public class DungeonPrinter {
         }
     }
 
-    private static int gettileSize (Dungeon dungeon) {
+    private static int getTileSize(Dungeon dungeon) {
         int tileSize = 0;
 
         //searches through the layout to find a tile that is not null to get the length of the tiles.

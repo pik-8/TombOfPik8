@@ -1,11 +1,7 @@
 package tests;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import constants.FileConstants;
 import model.characters.Character;
 import model.dungeon.*;
 import model.json.AdapterFactories;
@@ -21,7 +17,7 @@ public class DungeonTesting {
 
     public static void main (String args[]) throws Exception{
         //generateALotDungeons();   //Success
-        //printMobLayout(); // Success
+        //printCharacterLayout(); // Success
         //printMobAndTerrainsLayout(); //Success
         //generateALotDungeonsWithSeed();   //Success
         //testPrintLandscapes();  //Success
@@ -30,6 +26,8 @@ public class DungeonTesting {
 
         //testAllDungeonGenerators(); //Success
     }
+
+
 
 
     private static void createDungeonString() throws Exception{
@@ -75,7 +73,7 @@ public class DungeonTesting {
 
         DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printMobLayout(dungeonFactory.getMobLayout(DifficultyFactory.getDifficultyFactory().getRandomDifficulty(), dungeonFactory.generateRandomDungeon(), 100));
+        DungeonPrinter.printCharacterLayout(dungeonFactory.getMobLayout(DifficultyFactory.getDifficultyFactory().getRandomDifficulty(), dungeonFactory.generateRandomDungeon(), 100));
     }
 
 
