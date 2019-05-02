@@ -1,15 +1,19 @@
 package tests;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
+
 import constants.FileConstants;
-import javafx.geometry.Pos;
-import model.dungeon.*;
+import model.dungeon.DifficultyFactory;
+import model.dungeon.Dungeon;
+import model.dungeon.DungeonFactory;
+import model.dungeon.Landscape;
+import model.dungeon.Position;
 import model.json.AdapterFactories;
 import view.DungeonPrinter;
-
-import java.io.FileWriter;
 
 
 /**
@@ -32,11 +36,11 @@ public class DungeonTesting {
     }
 
     private static void createDungeonTemplate () throws Exception{
-        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).create();
         DungeonFactory dungeonFactory = new DungeonFactory();
-        Dungeon dungeon = dungeonFactory.generateRandomDungeon(100);
+        Dungeon dungeon = dungeonFactory.generateRandomDungeon(100, 10,10);
         System.out.println(gson.toJson(dungeon));
-        gson.toJson( dungeon, new FileWriter(FileConstants.TEST_DUNGEON_PATH));
+        gson.toJson(dungeon, new BufferedWriter(new FileWriter(FileConstants.TEST_DUNGEON_PATH)));
         //DungeonPrinter.printDungeon(dungeon);
     }
 
