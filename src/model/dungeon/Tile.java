@@ -80,6 +80,6 @@ public class Tile {
     }
     
     public Square get(Position pos) {
-    	return this.getLayout()[pos.getXPosition()][pos.getYPosition()];
+    	return this.getLayout()[pos.getxSquare()][pos.getySquare()];
     }
 }

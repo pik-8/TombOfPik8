@@ -25,9 +25,9 @@ public class TombOfPik8 {
     	
     	WorldController world = new WorldController();
     	
-    	DungeonFactory df = new DungeonFactory(20);
+    	DungeonFactory df = new DungeonFactory();
     	
-    	Dungeon basicDungeon = df.generateRandomDungeon( 5, 5, 4, new Landscape[] {Landscape.FOREST}, new Position(0, 0));
+    	Dungeon basicDungeon = df.generateRandomDungeon( 20, 2, 4, new Landscape[] {Landscape.FOREST}, new Position(10, 0));
     	model.characters.Character[][] mobs = df.getMobLayout(new DifficultyFactory().getRandomDifficulty(), basicDungeon, 10);
     	
     	Hero fred = Hero.createHero("Ceebly", HeroClass.WARRIOR);

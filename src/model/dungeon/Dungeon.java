@@ -52,9 +52,9 @@ public class Dungeon {
 	}
 
 	public Square getSquare(Position pos) {
-		if (pos.getXPosition() >= 0 && pos.getYPosition() >= 0 && pos.getXPosition() < this.tileSize
-				&& pos.getYPosition() < this.tileSize)
-			return this.getLayout()[pos.getxTile()][pos.getyTile()].getLayout()[pos.getXPosition()][pos.getYPosition()];
+		if (pos.getxSquare() >= 0 && pos.getySquare() >= 0 && pos.getxSquare() < this.tileSize
+				&& pos.getySquare() < this.tileSize)
+			return this.getLayout()[pos.getxTile()][pos.getyTile()].getLayout()[pos.getxSquare()][pos.getySquare()];
 		return null;
 	}
 

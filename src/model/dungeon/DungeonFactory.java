@@ -288,44 +288,44 @@ public class DungeonFactory {
 
         if (this.numberOfLayoutEntrances > 0) {
             // goes one field up
-            if (direction == 0    &&      position.getYPosition() - 1 >= 0)
+            if (direction == 0    &&      position.getySquare() - 1 >= 0)
             {
-                position.setYPosition(position.getYPosition() - 1);
-                if (layout[position.getXPosition()][position.getYPosition()] == 0) {
-                    layout[position.getXPosition()][position.getYPosition()] =1;
+                position.setySquare(position.getySquare() - 1);
+                if (layout[position.getxSquare()][position.getySquare()] == 0) {
+                    layout[position.getxSquare()][position.getySquare()] =1;
                     this.numberOfLayoutEntrances--;
                 }
                 generateLayout(layout, position);
             }
 
             // goes one field to the right
-            if (direction == 1    &&      position.getXPosition() +1 < layout.length)
+            if (direction == 1    &&      position.getxSquare() +1 < layout.length)
             {
-                position.setXPosition(position.getXPosition() + 1);
-                if (layout[position.getXPosition()][position.getYPosition()] == 0) {
-                    layout[position.getXPosition()][position.getYPosition()] =1;
+                position.setxSquare(position.getxSquare() + 1);
+                if (layout[position.getxSquare()][position.getySquare()] == 0) {
+                    layout[position.getxSquare()][position.getySquare()] =1;
                     this.numberOfLayoutEntrances--;
                 }
                 generateLayout(layout,position);
             }
 
             // goes one field down
-            if (direction == 2    &&      position.getYPosition() + 1 < layout[0].length)
+            if (direction == 2    &&      position.getySquare() + 1 < layout[0].length)
             {
-                position.setYPosition(position.getYPosition() + 1);
-                if (layout[position.getXPosition()][position.getYPosition()] == 0) {
-                    layout[position.getXPosition()][position.getYPosition()] = 1;
+                position.setySquare(position.getySquare() + 1);
+                if (layout[position.getxSquare()][position.getySquare()] == 0) {
+                    layout[position.getxSquare()][position.getySquare()] = 1;
                     this.numberOfLayoutEntrances--;
                 }
                 generateLayout(layout,position);
             }
 
             // goes one field to the left
-            if (direction == 3    &&      position.getXPosition() - 1 >= 0)
+            if (direction == 3    &&      position.getxSquare() - 1 >= 0)
             {
-                position.setXPosition(position.getXPosition() - 1);
-                if (layout[position.getXPosition()][position.getYPosition()] == 0) {
-                    layout[position.getXPosition()][position.getYPosition()] = 1;
+                position.setxSquare(position.getxSquare() - 1);
+                if (layout[position.getxSquare()][position.getySquare()] == 0) {
+                    layout[position.getxSquare()][position.getySquare()] = 1;
                     this.numberOfLayoutEntrances--;
                 }
                 generateLayout(layout,position);

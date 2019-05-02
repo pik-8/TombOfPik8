@@ -52,13 +52,12 @@ public class DungeonController {
 		
 		spawnHeroes(heroes);
 		spawnMobs(mobs);
-		this.heroes.put(Hero.createHero("MASTA OF DESASTA", HeroClass.ARCHER), new Position(2,3,0,0));
 		updateVisibleTiles();
 		printVisibleTiles();
 	}
 	
 	public void printVisibleTiles() {
-		DungeonPrinter.printVisibleDungeon(visibleTiles, generateCharacterLayout(), dungeon);
+		DungeonPrinter.printDungeon(dungeon, generateCharacterLayout(), visibleTiles);
 	}
 	
 	private void spawnMobs(model.characters.Character[][] mobs) {
@@ -84,8 +83,8 @@ public class DungeonController {
 					for(Hero h : containedHeroes(tile)) {
 						Border border = heroAtBorder(tile, h);
 						System.out.println(border);
-						setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition() + border.xDelta, getTilePos(tile).getYPosition())));
-						setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition(), getTilePos(tile).getYPosition() + border.yDelta)));
+						setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getxSquare() + border.xDelta, getTilePos(tile).getySquare())));
+						setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getxSquare(), getTilePos(tile).getySquare() + border.yDelta)));
 					}
 				}
 			}
@@ -96,8 +95,8 @@ public class DungeonController {
 		for(int yT = 0; yT < tile.getLayout()[0].length; yT++) {
 			for(int xT = 0; xT < tile.getLayout().length; xT++) {
 				Position pos = new Position(getTilePos(tile));
-				pos.setXPosition(xT);
-				pos.setYPosition(yT);
+				pos.setxSquare(xT);
+				pos.setySquare(yT);
 				if(getHero(pos) == h) {
 					if(yT == 0) {
 						if(xT == 0)
@@ -139,8 +138,8 @@ public class DungeonController {
 		Position pos = getTilePos(tile);
 		for(int xS = 0; xS < tile.getSize(); xS++) {
 			for(int yS = 0; yS < tile.getSize(); yS++) {
-				pos.setXPosition(xS);
-				pos.setYPosition(yS);
+				pos.setxSquare(xS);
+				pos.setySquare(yS);
 				if(getHero(pos) != null)
 					return true;
 			}
@@ -153,8 +152,8 @@ public class DungeonController {
 		Position pos = getTilePos(tile);
 		for(int xS = 0; xS < tile.getSize(); xS++) {
 			for(int yS = 0; yS < tile.getSize(); yS++) {
-				pos.setXPosition(xS);
-				pos.setYPosition(yS);
+				pos.setxSquare(xS);
+				pos.setySquare(yS);
 				if(getHero(pos) != null)
 					hL.add(getHero(pos));
 			}
@@ -175,11 +174,11 @@ public class DungeonController {
 		model.characters.Character[][] layout = new model.characters.Character[dungeon.getLayout().length*dungeon.getTileSize()][dungeon.getLayout()[0].length*dungeon.getTileSize()];
 		for(Map.Entry<Hero, Position> set : this.heroes.entrySet()) {
 			Position pos = set.getValue();
-			layout[pos.getxTile()*dungeon.getTileSize() + pos.getXPosition()][pos.getyTile()*dungeon.getTileSize() + pos.getYPosition()] = set.getKey();
+			layout[pos.getxTile()*dungeon.getTileSize() + pos.getxSquare()][pos.getyTile()*dungeon.getTileSize() + pos.getySquare()] = set.getKey();
 		}
 		for(Map.Entry<model.characters.Character, Position> set : this.mobs.entrySet()) {
 			Position pos = set.getValue();
-			layout[pos.getxTile()*dungeon.getTileSize() + pos.getXPosition()][pos.getyTile()*dungeon.getTileSize() + pos.getYPosition()] = set.getKey();
+			layout[pos.getxTile()*dungeon.getTileSize() + pos.getxSquare()][pos.getyTile()*dungeon.getTileSize() + pos.getySquare()] = set.getKey();
 		}
 		return layout;
 	}
@@ -193,9 +192,9 @@ public class DungeonController {
 				heroIteration:
 				for(int y = -1; y <= 1; y++) {
 					for(int x = -1; x <= 1; x++) {
-						if(spawnTile.getLayout()[startPosition.getXPosition() + x][startPosition.getYPosition() + y].getTerrain().isValidSpawnTerrain()) {
-							Position pos = new Position(startPosition.getXPosition() + x, 
-									startPosition.getYPosition() + y, 
+						if(spawnTile.getLayout()[startPosition.getxSquare() + x][startPosition.getySquare() + y].getTerrain().isValidSpawnTerrain()) {
+							Position pos = new Position(startPosition.getxSquare() + x, 
+									startPosition.getySquare() + y, 
 									startPosition.getxTile(), 
 									startPosition.getyTile());
 							if(isFree(pos)) {

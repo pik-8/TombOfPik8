@@ -22,8 +22,8 @@ public class Position {
     }
     
     public Position(Position pos) {
-    	this.x = pos.getXPosition();
-    	this.y = pos.getYPosition();
+    	this.x = pos.getxSquare();
+    	this.y = pos.getySquare();
     	this.xTile = pos.getxTile();
     	this.yTile = pos.getyTile();
     }
@@ -32,6 +32,8 @@ public class Position {
      * Sets the x and y position to 0.
      */
     public Position () {
+    	this.x = 0;
+    	this.y = 0;
         this.xTile = 0;
         this.yTile = 0;
     }
@@ -43,19 +45,19 @@ public class Position {
     			pos.yTile == yTile;
     }
     
-    public int getXPosition() {
+    public int getxSquare() {
         return x;
     }
 
-    public void setXPosition(int x) {
+    public void setxSquare(int x) {
         this.x = x;
     }
 
-    public int getYPosition() {
+    public int getySquare() {
         return y;
     }
 
-    public void setYPosition(int y) {
+    public void setySquare(int y) {
         this.y = y;
     }
 
@@ -76,8 +78,8 @@ public class Position {
 	}
 	
 	public void changeBy(Position vector) {
-		this.x += vector.getXPosition();
-		this.y += vector.getYPosition();
+		this.x += vector.getxSquare();
+		this.y += vector.getySquare();
 		this.xTile += vector.getxTile();
 		this.yTile += vector.getyTile();
 	}
