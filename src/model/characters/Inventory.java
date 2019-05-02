@@ -3,7 +3,7 @@ package model.characters;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import constants.Constants;
+import constants.ModelProperties;
 import model.items.Consumable;
 import model.items.CraftingMaterial;
 import model.items.Equipment;
@@ -28,7 +28,7 @@ public class Inventory {
 	
 	public Inventory () {
 		init();
-		size = Constants.INVENTORY_IS_INFINITE;
+		size = ModelProperties.INVENTORY_IS_INFINITE;
 	}
 	
 	public Inventory (int size) {
@@ -52,7 +52,7 @@ public class Inventory {
 	}
 	
 	private boolean incrementItemCount() {
-		if(itemCount < size || size == Constants.INVENTORY_IS_INFINITE) {
+		if(itemCount < size || size == ModelProperties.INVENTORY_IS_INFINITE) {
 			itemCount++;
 			return true;
 		}

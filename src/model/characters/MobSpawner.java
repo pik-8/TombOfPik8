@@ -39,7 +39,7 @@ public class MobSpawner {
 		readTemplate(FileConstants.MOB_TEMPLATE_PATH);
 	}
 	
-	public MobSpawner(int level, int difficulty) {
+	public MobSpawner(int level, float difficulty) {
 		init(level, difficulty);
 	}
 	

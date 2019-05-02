@@ -15,8 +15,8 @@ public enum CraftingMaterial {
 	
 	private String description;
 	
-	CraftingMaterial(String desc){
-		this.description = desc;
+	CraftingMaterial(String description){
+		this.description = description;
 	}
 	
 	public String getDescription() {

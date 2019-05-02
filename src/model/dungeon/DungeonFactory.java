@@ -16,11 +16,18 @@ import java.util.logging.Level;
 
 /**
  * This class can generate Dungeons in many different ways.
+ *
+ * It can load dungeons from templates, when it gets the path to the template.
+ * It can generate new dungeons with various start conditions.
+ * And, when created with a seed, one can replicate a dungeon.
+ *
+ * It can also generate mobs inside the dungeon, however, not while creating a dungeon.
+ *
+ * @author Hagen
  */
 public class DungeonFactory {
 
 
-    private GsonBuilder builder;
     private Gson gson;
     private Random random;
 
@@ -46,17 +53,15 @@ public class DungeonFactory {
         init();
     }
 
-    private void init(int seed) {
-        builder = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
 
-        gson = builder.create();
+    private void init(int seed) {
+        this.gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).create();
         this.random = new Random(seed);
         this.numberOfLayoutEntrances = 0;
     }
 
     private void init() {
-        builder = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
-        gson = builder.create();
+        this.gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).create();
         this.random = new Random();
         this.numberOfLayoutEntrances = 0;
     }
@@ -199,8 +204,16 @@ public class DungeonFactory {
     }
 
 
+    /**
+     * Creates an array of character that represents an overview, on which square a character is.
+     *
+     * @param difficulty: Determines the quality and quantity of mobs.
+     * @param dungeon: The dungeon, to which a mob-layout should be created.
+     * @param level: The level the mobs inside the dungeon should have. (Without difficulty adjustment.)
+     * @return: A map that shows where a mob is.
+     */
     public Character[][] getMobLayout (Difficulty difficulty, Dungeon dungeon, int level) {
-        MobSpawner mobSpawner = new MobSpawner(level, Math.round(difficulty.getMobLevelRate()));
+        MobSpawner mobSpawner = new MobSpawner(level, difficulty.getMobTier());
 
         int tileSize = 0;
         for (int i = 0; i < dungeon.getLayout().length; i++) {

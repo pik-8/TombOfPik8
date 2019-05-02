@@ -1,7 +1,6 @@
 package model.dungeon;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import model.io.TemplateReader;
 import constants.balancing.Factors;
 import java.util.Random;
@@ -11,6 +10,7 @@ import static constants.FileConstants.*;
 
 /**
  * A Singelton-Class, that creates Difficulty-Objects.
+ * It creates them either from templates, randomly or with custom params.
  *
  * @author Hagen
  */
@@ -66,8 +66,8 @@ public class DifficultyFactory {
     public Difficulty getRandomDifficulty () {
         Random random = new Random();
         float levelFactor;
-        for (levelFactor = 0; !(levelFactor < Factors.MIN_LEVEL_FACTOR || levelFactor > Factors.MAX_LEVEL_FACTOR);) {
-            levelFactor = random.nextFloat()+ random.nextInt(Math.round(Factors.MAX_LEVEL_FACTOR));
+        for (levelFactor = 0; !(levelFactor < Factors.MIN_MOB_LEVEL_FACTOR || levelFactor > Factors.MAX_MOB_LEVEL_FACTOR);) {
+            levelFactor = random.nextFloat()+ random.nextInt(Math.round(Factors.MAX_MOB_LEVEL_FACTOR));
         }
         return new Difficulty(random.nextInt(constants.ModelProperties.MAX_MOB_SPAWN_RATE_FOR_RANDOM), levelFactor, random.nextFloat(), random.nextFloat());
     }

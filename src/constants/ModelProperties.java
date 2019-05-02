@@ -24,4 +24,9 @@ public interface ModelProperties {
 
     public static final int MAX_MOB_SPAWN_RATE_FOR_RANDOM = 4;
 
+
+    //Inventory
+
+    final int INVENTORY_IS_INFINITE = -1;
+
 }
