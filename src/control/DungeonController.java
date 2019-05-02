@@ -1,10 +1,11 @@
 package control;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import model.characters.Hero;
+import model.characters.HeroClass;
 import model.dungeon.Dungeon;
 import model.dungeon.DungeonException;
 import model.dungeon.Position;
@@ -13,20 +14,162 @@ import model.dungeon.Tile;
 
 public class DungeonController {
 
-	private Dungeon dungeon;
-	private HashMap<Hero, Position> heroes;
-	private HashMap<Character, Position> mobs;
-	
-	public DungeonController(Hero[] heroes, Dungeon dungeon) {
-		this.dungeon = dungeon;
-		this.heroes = new HashMap<Hero, Position>();
-		this.mobs = new HashMap<Character, Position>();
-		spawnHeroes(heroes);
-		trackMobs();
+	private enum Border{
+		NORTH(0,-1),
+		NORTHEAST(1,-1),
+		EAST(1,0),
+		SOUTHEAST(1,1),
+		SOUTH(0,1),
+		SOUTHWEST(-1,1),
+		WEST(-1,0),
+		NORTHWEST(-1,-1),
+		NONE(0,0);
+		
+		int xDelta;
+		int yDelta;
+		
+		Border(int xD, int yD){
+			xDelta = xD; 
+			yDelta = yD;
+		}
 	}
 	
-	private void trackMobs() {
-		//TODO
+	private Dungeon dungeon;
+	private HashMap<Hero, Position> heroes;
+	private HashMap<model.characters.Character, Position> mobs;
+	private boolean[][] visibleTiles;
+	
+	private void init(Dungeon dungeon) {
+		this.dungeon = dungeon;
+		this.heroes = new HashMap<Hero, Position>();
+		this.mobs = new HashMap<model.characters.Character, Position>();
+		this.visibleTiles = new boolean[dungeon.getLayout().length][dungeon.getLayout()[0].length];
+	}
+	
+	public DungeonController(Hero[] heroes, Dungeon dungeon, model.characters.Character[][] mobs) {
+		init(dungeon);
+		
+		spawnHeroes(heroes);
+		spawnMobs(mobs);
+		//this.heroes.put(Hero.createHero("MASTA OF DESASTA", HeroClass.WARRIOR), new Position(3,3,0,0));
+		updateVisibleTiles();
+		printVisibleTiles();
+	}
+	
+	public void printVisibleTiles() {
+		String str = "";
+		for(boolean[] bArr : visibleTiles) {
+			for(boolean b : bArr)
+				str += b ? "True  " : "False ";
+			str += "\n";
+		}
+		System.out.println(str);
+	}
+	
+	private void spawnMobs(model.characters.Character[][] mobs) {
+		int tileX = 0;
+		int tileY = 0;
+		int squareX = 0;
+		int squareY = 0;
+		
+		for(int x = 0; x < mobs.length; x++) {
+			for(int y = 0; y < mobs[0].length; y++) {
+				if(mobs[x][y] != null) {
+					
+				}
+			}
+		}
+	}
+	
+	public void updateVisibleTiles() {
+		for(Tile[] tArr : dungeon.getLayout()) {
+			for(Tile tile : tArr) {
+				if(tile != null && containsHeroes(tile)) {
+					setVisible(tile);
+					Border border = heroAtBorder(tile);
+					setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition() + border.xDelta, getTilePos(tile).getYPosition())));
+					setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition(), getTilePos(tile).getYPosition() + border.yDelta)));
+				}
+			}
+		}
+	}
+	
+	private Border heroAtBorder(Tile tile) {
+		for(int yT = 0; yT < tile.getLayout()[0].length; yT++) {
+			for(int xT = 0; xT < tile.getLayout().length; xT++) {
+				Position pos = new Position(getTilePos(tile));
+				pos.setXPosition(xT);
+				pos.setYPosition(yT);
+				if(hasHero(pos)) {
+					if(yT == 0) {
+						if(xT == 0)
+							return Border.NORTHWEST;
+						else if(xT == dungeon.getTileSize())
+							return Border.NORTHEAST;
+						else
+							return Border.NORTH;
+					}
+					else if(yT == dungeon.getTileSize()) {
+						if(xT == 0)
+							return Border.SOUTHWEST;
+						else if(xT == dungeon.getTileSize())
+							return Border.SOUTHEAST;
+						else
+							return Border.NORTH;
+					}
+					else
+						if(xT == 0)
+							return Border.WEST;
+						else if(xT == dungeon.getTileSize())
+							return Border.EAST;
+						else
+							return Border.NONE;
+				}
+			}
+		}
+		return Border.NONE;
+	}
+	
+	private void setVisible(Tile tile) {
+		if(tile != null) {
+			Position pos = getTilePos(tile);
+			visibleTiles[pos.getxTile()][pos.getyTile()] = true;			
+		}
+	}
+	
+	private boolean containsHeroes(Tile tile) {
+		Position pos = getTilePos(tile);
+		for(int xS = 0; xS < tile.getSize(); xS++) {
+			for(int yS = 0; yS < tile.getSize(); yS++) {
+				pos.setXPosition(xS);
+				pos.setYPosition(yS);
+				if(hasHero(pos))
+					return true;
+			}
+		}
+		return false;
+	}
+	
+	private Position getTilePos(Tile tile) {
+		for(int yT = 0; yT < dungeon.getLayout()[0].length; yT++)
+			for(int xT = 0; xT < dungeon.getLayout().length; xT++) 
+				if(dungeon.getTile(xT, yT) != null && dungeon.getTile(xT,yT).equals(tile))
+					return new Position(0, 0, xT, yT);
+		
+		return new Position();
+	}
+	
+	public model.characters.Character[][] generateCharacterLayout(){
+		model.characters.Character[][] layout = new model.characters.Character[dungeon.getLayout().length*dungeon.getTileSize()][dungeon.getLayout()[0].length*dungeon.getTileSize()];
+		for(Map.Entry<Hero, Position> set : this.heroes.entrySet()) {
+			Position pos = set.getValue();
+			layout[pos.getxTile()*dungeon.getTileSize() + pos.getXPosition()][pos.getyTile()*dungeon.getTileSize() + pos.getYPosition()] = set.getKey();
+		}
+		for(Map.Entry<model.characters.Character, Position> set : this.mobs.entrySet()) {
+			Position pos = set.getValue();
+			layout[pos.getxTile()*dungeon.getTileSize() + pos.getXPosition()][pos.getyTile()*dungeon.getTileSize() + pos.getYPosition()] = set.getKey();
+		}
+		return layout;
 	}
 	
 	private void spawnHeroes(Hero[] heroes) {
@@ -44,9 +187,7 @@ public class DungeonController {
 									startPosition.getxTile(), 
 									startPosition.getyTile());
 							if(isFree(pos)) {
-
 								this.heroes.put(heroes[i], pos);
-								System.out.println("tileX:"+pos.getxTile() + "\ntileY:"+ pos.getyTile() + "\nx:" + pos.getXPosition()+"\ny:"+ pos.getYPosition() + "\nHero: " + heroes[i].getName());
 								break heroIteration;
 							}
 						}
@@ -55,24 +196,31 @@ public class DungeonController {
 			}
 			
 		} catch (DungeonException e) {
-			
+			for(Hero h : heroes) {
+				try {
+					this.heroes.put(h, findFirstFreeSquare());
+				} catch(DungeonException de) {
+					de.printStackTrace();
+					throw new RuntimeException();
+				}
+			}
 		}
 	}
 	
-	private Position findFirstFreeSquare() {
+	private Position findFirstFreeSquare() throws DungeonException {
 		for(int yT = 0; yT < dungeon.getLayout()[0].length; yT++) {
 			for(int xT = 0; xT < dungeon.getLayout().length; xT++) {
 				Tile tile = dungeon.getLayout()[xT][yT];
 				for(int yS = 0; yS < tile.getLayout()[0].length; yS++) {
 					for(int xS = 0; xS < tile.getLayout().length; xS++) {
 						Position pos = new Position(xS, yS, xT, yT);
-						if(isFree(pos))
+						if(isFree(pos) && tile.get(pos).getTerrain().isValidSpawnTerrain())
 							return pos;
 					}
 				}
 			}
 		}
-		return null;
+		throw new DungeonException("No free square found in dungeon.");
 	}
 	
 	private boolean isFree(Position pos) {
@@ -80,11 +228,19 @@ public class DungeonController {
 			if(set.getValue().equals(pos))
 				return false;
 		}
-		for(Map.Entry<Character, Position> set : this.mobs.entrySet()) {
+		for(Map.Entry<model.characters.Character, Position> set : this.mobs.entrySet()) {
 			if(set.getValue().equals(pos))
 				return false;
 		}
 		return true;
+	}
+	
+	private boolean hasHero(Position pos) {
+		for(Map.Entry<Hero, Position> set : this.heroes.entrySet()) {
+			if(set.getValue().equals(pos))
+				return true;
+		}
+		return false;
 	}
 	
 	private Position findStartingTerrain() throws DungeonException {

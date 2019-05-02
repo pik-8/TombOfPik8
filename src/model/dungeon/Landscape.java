@@ -11,7 +11,7 @@ public enum  Landscape {
 
     FOREST(new Terrain[]{Terrain.TREE, Terrain.BOULDER, Terrain.BUSH},new Terrain[]{Terrain.BEDROCK}),
     DESERT(new Terrain[]{Terrain.BOULDER},new Terrain[]{Terrain.BEDROCK}),
-    SPACE(new Terrain[]{Terrain.COMET},new Terrain[]{Terrain.WHITE_HOLE}),
+    SPACE(new Terrain[]{Terrain.COMET},new Terrain[]{Terrain.WHITE_HOLE})
     ;
 
 

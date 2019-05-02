@@ -78,4 +78,8 @@ public class Tile {
     public Landscape getLandscape () {
         return this.landscape;
     }
+    
+    public Square get(Position pos) {
+    	return this.getLayout()[pos.getXPosition()][pos.getYPosition()];
+    }
 }

@@ -20,6 +20,13 @@ public class Position {
         this.xTile = xTile;
         this.yTile = yTile;
     }
+    
+    public Position(Position pos) {
+    	this.x = pos.getXPosition();
+    	this.y = pos.getYPosition();
+    	this.xTile = pos.getxTile();
+    	this.yTile = pos.getyTile();
+    }
 
     /**
      * Sets the x and y position to 0.
@@ -66,5 +73,19 @@ public class Position {
 
 	public void setyTile(int yTile) {
 		this.yTile = yTile;
+	}
+	
+	public void changeBy(Position vector) {
+		this.x += vector.getXPosition();
+		this.y += vector.getYPosition();
+		this.xTile += vector.getxTile();
+		this.yTile += vector.getyTile();
+	}
+	
+	public String toString() {
+		return "xTile: " + xTile +
+				"\nyTile: " + yTile +
+				"\nxSquare: " + x +
+				"\nySquare: " + y;
 	}
 }

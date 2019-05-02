@@ -54,7 +54,7 @@ public class DifficultyFactory {
 
 
     public Difficulty getMiddleDifficulty () {
-        return this.gson.fromJson(TemplateReader.readTemplateAsJsonObject(PATH_TO_HIGH_DIFFICULTY), Difficulty.class);
+        return this.gson.fromJson(TemplateReader.readTemplateAsJsonObject(PATH_TO_MIDDLE_DIFFICULTY), Difficulty.class);
     }
 
 

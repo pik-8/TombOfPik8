@@ -25,7 +25,7 @@ public class DungeonTesting {
         //printMobAndTerrainsLayout(); //Success
         //generateALotDungeonsWithSeed();   //Success
         //testPrintLandscapes();  //Success
-        //createDungeonString();//Failure
+        createDungeonString();//Failure
         //loadDungeonFromTemplate("TestDungeon.pik");//Success
 
         //testAllDungeonGenerators(); //Success
@@ -33,9 +33,12 @@ public class DungeonTesting {
 
 
     private static void createDungeonString() throws Exception{
-        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).create();
         DungeonFactory dungeonFactory = new DungeonFactory();
         System.out.println(gson.toJson(dungeonFactory.generateRandomDungeon( 3, 3, 5, new Landscape[]{Landscape.FOREST}, new Position())));
+        FileWriter bw = new FileWriter("test.pik");
+        Dungeon dungeon = dungeonFactory.generateRandomDungeon( 10, 10, 5, new Landscape[]{Landscape.FOREST}, new Position());
+        gson.toJson(dungeon, bw);
     }
 
 
