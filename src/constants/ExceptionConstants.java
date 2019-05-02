@@ -4,7 +4,7 @@ package constants;
 /**
  * Contains every string that will be put into an exception.
  */
-public interface ExceptionConstants {
+public interface    ExceptionConstants {
 
     final String ATTACK_PATTERN_TOO_MANY_NEGATIVE_NUMBERS = "The AttackPattern could not be instantiated, "
             + "because there are more than one negative numbers in the array.";
@@ -44,4 +44,6 @@ public interface ExceptionConstants {
     public static final String NO_STARTING_POINT = "Dungeon has no starting point";
     
     public static final String NO_FREE_SQUARE = "No free square found in dungeon.";
+
+    public static final String MOB_LEVEL_FACTOR_NOT_IN_RANGE = "One argument for an Difficulty-Object is below 0.";
 }

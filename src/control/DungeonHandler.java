@@ -94,10 +94,10 @@ public class DungeonHandler {
 	private Border heroAtBorder(Tile tile, Hero h) {
 		for(int yT = 0; yT < tile.getLayout()[0].length; yT++) {
 			for(int xT = 0; xT < tile.getLayout().length; xT++) {
-				Position pos = new Position(getTilePos(tile));
-				pos.setxSquare(xT);
-				pos.setySquare(yT);
-				if(getHero(pos) == h) {
+				Position position = new Position(getTilePos(tile));
+				position.setxSquare(xT);
+				position.setySquare(yT);
+				if(getHero(position) == h) {
 					if(yT == 0) {
 						if(xT == 0)
 							return Border.NORTHWEST;
@@ -129,18 +129,18 @@ public class DungeonHandler {
 	
 	private void setVisible(Tile tile) {
 		if(tile != null) {
-			Position pos = getTilePos(tile);
-			visibleTiles[pos.getxTile()][pos.getyTile()] = true;			
+			Position position = getTilePos(tile);
+			visibleTiles[position.getxTile()][position.getyTile()] = true;
 		}
 	}
 	
 	private boolean containsHeroes(Tile tile) {
-		Position pos = getTilePos(tile);
+		Position position = getTilePos(tile);
 		for(int xS = 0; xS < tile.getSize(); xS++) {
 			for(int yS = 0; yS < tile.getSize(); yS++) {
-				pos.setxSquare(xS);
-				pos.setySquare(yS);
-				if(getHero(pos) != null)
+				position.setxSquare(xS);
+				position.setySquare(yS);
+				if(getHero(position) != null)
 					return true;
 			}
 		}
@@ -149,13 +149,13 @@ public class DungeonHandler {
 	
 	private ArrayList<Hero> containedHeroes(Tile tile) {
 		ArrayList<Hero> hL = new ArrayList<Hero>();
-		Position pos = getTilePos(tile);
+		Position position = getTilePos(tile);
 		for(int xS = 0; xS < tile.getSize(); xS++) {
 			for(int yS = 0; yS < tile.getSize(); yS++) {
-				pos.setxSquare(xS);
-				pos.setySquare(yS);
-				if(getHero(pos) != null)
-					hL.add(getHero(pos));
+				position.setxSquare(xS);
+				position.setySquare(yS);
+				if(getHero(position) != null)
+					hL.add(getHero(position));
 			}
 		}
 		return hL;
@@ -193,12 +193,12 @@ public class DungeonHandler {
 				for(int y = -1; y <= 1; y++) {
 					for(int x = -1; x <= 1; x++) {
 						if(spawnTile.getLayout()[startPosition.getxSquare() + x][startPosition.getySquare() + y].getTerrain().isValidSpawnTerrain()) {
-							Position pos = new Position(startPosition.getxSquare() + x, 
+							Position position = new Position(startPosition.getxSquare() + x,
 									startPosition.getySquare() + y, 
 									startPosition.getxTile(), 
 									startPosition.getyTile());
-							if(isFree(pos)) {
-								this.heroes.put(heroes[i], pos);
+							if(isFree(position)) {
+								this.heroes.put(heroes[i], position);
 								break heroIteration;
 							}
 						}

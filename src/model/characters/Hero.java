@@ -25,7 +25,7 @@ public class Hero extends Character {
 	private Attack[] availableAttacks;
     private PrimeStats primeStats;
     private Statistics statistics;
-    private HeroClass cl;
+    private HeroClass heroClass;
 
 
     /**
@@ -42,7 +42,7 @@ public class Hero extends Character {
      * @throws NullPointerException: When an Object is null.
      */
     private Hero(String name, Inventory inventory, Attack[] availableAttacks, Attack[] attacks, Skill[] skills,
-                int exp, PrimeStats primeStats, Statistics statistics, HeroClass cl)
+                int exp, PrimeStats primeStats, Statistics statistics, HeroClass heroClass)
             throws IllegalArgumentException, NullPointerException
     {
         super(name, inventory, attacks, skills, new SecondaryStats(), exp);
@@ -51,29 +51,29 @@ public class Hero extends Character {
         utility.CalculateSecondaryStats.setEveryStat(this);
         getSecondaryStats().fillHp();
         this.statistics = statistics;
-        this.cl = cl;
+        this.heroClass = heroClass;
     }
     
     /**
      * Creates a basic Hero from a given class.
      * 
      * @param name The name for the Hero.
-     * @param cl The class of the Hero.
+     * @param heroClass The class of the Hero.
      * @return A hero with 0 exp, the classes' basestats, an Inventory with 100 gold and empty statistics.
      */
-    public static Hero createHero(String name, HeroClass cl) {
+    public static Hero createHero(String name, HeroClass heroClass) {
 		GsonBuilder builder= new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory());
 		Gson gson = builder.create();
 		
 		Inventory inv = new Inventory(40, 100);
 		
-		PrimeStats prime = gson.fromJson(TemplateReader.readTemplateAsJsonObject(cl.classPath + "/baseStats.pik"), PrimeStats.class);
+		PrimeStats prime = gson.fromJson(TemplateReader.readTemplateAsJsonObject(heroClass.classPath + "/baseStats.pik"), PrimeStats.class);
 		
 		Statistics statistics = new Statistics();
 		
-		Attack[] availableAttacks = readAvailableAttacks(cl.classPath, gson);
+		Attack[] availableAttacks = readAvailableAttacks(heroClass.classPath, gson);
 	
-		return new Hero(name, inv, availableAttacks, new Attack[] {}, new Skill[] {}, 0, prime, statistics, cl);
+		return new Hero(name, inv, availableAttacks, new Attack[] {}, new Skill[] {}, 0, prime, statistics, heroClass);
 	}
     
     private static Attack[] readAvailableAttacks(String classPath, Gson gson) {

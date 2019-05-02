@@ -10,18 +10,18 @@ public class Trinket extends Equipment {
 
 	private PrimeStats primeStats;
 	
-	public Trinket(String name, String description, SecondaryStats secStats, Rarity rarity, ArrayList<Effect> effects, PrimeStats primeStats) {
-		super(name, description, secStats, rarity, effects);
+	public Trinket(String name, String description, SecondaryStats secondaryStats, Rarity rarity, ArrayList<Effect> effects, PrimeStats primeStats) {
+		super(name, description, secondaryStats, rarity, effects);
 		this.primeStats = primeStats;
 	}
 
-	public Trinket(String name, String description, SecondaryStats secStats, Rarity rarity, Effect effect, PrimeStats primeStats) {
-		super(name, description, secStats, rarity, effect);
+	public Trinket(String name, String description, SecondaryStats secondaryStats, Rarity rarity, Effect effect, PrimeStats primeStats) {
+		super(name, description, secondaryStats, rarity, effect);
 		this.primeStats = primeStats;
 	}
 
-	public Trinket(String name, String description, SecondaryStats secStats, Rarity rarity, PrimeStats primeStats) {
-		super(name, description, secStats, rarity);
+	public Trinket(String name, String description, SecondaryStats secondaryStats, Rarity rarity, PrimeStats primeStats) {
+		super(name, description, secondaryStats, rarity);
 		this.primeStats = primeStats;
 	}
 	

@@ -44,9 +44,9 @@ public class SlowDownEffect extends Effect {
     }
 
     @Override
-    public void applyEffect(Character cha) {
-    	cha.getSecondaryStats().setSpeed(cha.getSecondaryStats().getSpeed() - Math.round(flatSlowDown));
-    	cha.getSecondaryStats().setSpeed(Math.round(cha.getSecondaryStats().getSpeed() * (1 - percentOfSpeedSlowDown/100)));
+    public void applyEffect(Character character) {
+    	character.getSecondaryStats().setSpeed(character.getSecondaryStats().getSpeed() - Math.round(flatSlowDown));
+    	character.getSecondaryStats().setSpeed(Math.round(character.getSecondaryStats().getSpeed() * (1 - percentOfSpeedSlowDown/100)));
     }
 
     @Override
@@ -57,5 +57,5 @@ public class SlowDownEffect extends Effect {
     }
 
     @Override
-    public void applyEffect(Equipment equip) {}
+    public void applyEffect(Equipment equipment) {}
 }

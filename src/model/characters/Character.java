@@ -52,7 +52,7 @@ public class Character {
      * @param exp: The basic amount of exp a mob gives after defeating it.
      */
     public Character(String name, Inventory inventory, Attack[] attacks, Skill[] skills,
-                     SecondaryStats secondaryStats, int exp) throws IllegalArgumentException, NullPointerException
+    		SecondaryStats secondaryStats, int exp) throws IllegalArgumentException, NullPointerException
     {
     	setName(name);
         setInventory(inventory);

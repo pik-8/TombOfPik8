@@ -7,7 +7,7 @@ import model.items.Weapon;
 
 public class Equip {
 
-	private Weapon wp;
+	private Weapon weapon;
 	private Armor headgear;
 	private Armor chestplate;
 	private Armor legwear;
@@ -15,7 +15,7 @@ public class Equip {
 	private int currentTrinketSlot;
 	
 	public Equip() {
-		wp = null;
+		weapon = null;
 		headgear = null;
 		chestplate = null;
 		legwear = null;
@@ -24,8 +24,8 @@ public class Equip {
 	}
 	
 	public Equipment equip(Weapon piece) {
-		Weapon tmp = this.wp;
-		this.wp = piece;
+		Weapon tmp = this.weapon;
+		this.weapon = piece;
 		return tmp;
 	}
 

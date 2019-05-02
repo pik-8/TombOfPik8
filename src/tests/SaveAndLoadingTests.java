@@ -32,8 +32,8 @@ public class SaveAndLoadingTests {
     private static void getAllFileNames () {
         System.out.println("Printing every file name saveState folder:\n");
 
-        GameLoaderSaver gSaver = new GameLoaderSaver();
-        String[] names = gSaver.getNameOfAllSaveStates();
+        GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
+        String[] names = gameLoaderSaver.getNameOfAllSaveStates();
         for (String name : names) {
             System.out.println(name);
         }
@@ -46,8 +46,8 @@ public class SaveAndLoadingTests {
     private static void saveATestState (String fileName) throws Exception{
         System.out.println("To see if the test was successful, look into the file.");
 
-        GameLoaderSaver saver = new GameLoaderSaver();
-        saver.saveSaveState(Getter.getASaveState(), fileName);
+        GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
+        gameLoaderSaver.saveSaveState(Getter.getASaveState(), fileName);
     }
 
 
@@ -61,8 +61,8 @@ public class SaveAndLoadingTests {
         Volume volume = new Volume();
         volume.setEffectVolumeValue(12);
         option.setVolume(volume);
-        GameLoaderSaver gSaver = new GameLoaderSaver();
-        gSaver.saveOptions(option);
+        GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
+        gameLoaderSaver.saveOptions(option);
     }
 
 
@@ -71,8 +71,8 @@ public class SaveAndLoadingTests {
      */
     private static void deleteSaveState (String fileName) {
         System.out.println("To see if the test was successful, look into the folder.");
-        GameLoaderSaver gSave = new GameLoaderSaver();
-        gSave.deleteSaveState(fileName);
+        GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
+        gameLoaderSaver.deleteSaveState(fileName);
     }
 
 
@@ -82,8 +82,8 @@ public class SaveAndLoadingTests {
     private static void testLoadingAllSaveStates () {
         System.out.println("All saveStates:\n");
 
-        GameLoaderSaver gSave = new GameLoaderSaver();
-        SaveState[] allSaveStates = gSave.getAllSaveStates();
+        GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
+        SaveState[] allSaveStates = gameLoaderSaver.getAllSaveStates();
 
         for (SaveState state : allSaveStates) {
             System.out.println(state.getPlayer().getName());
@@ -98,7 +98,7 @@ public class SaveAndLoadingTests {
     private static void getAOption () {
         System.out.println("the options of the game:\n");
 
-        GameLoaderSaver gSaver = new GameLoaderSaver();
-        System.out.println(gSaver.getOption());
+        GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
+        System.out.println(gameLoaderSaver.getOption());
     }
 }

@@ -18,10 +18,10 @@
 		  "instantApply": true
 		}
 	  ],
-	  "secStats": {
+	  "secondaryStats": {
 		"hp": 0,
 		"action": 0,
-		"max_Hp": 0,
+		"maxHP": 0,
 		"maxAction": 0,
 		"attackPower": 35,
 		"magicAttackPower": 0,
@@ -42,10 +42,10 @@
 	},
 	{
 	  "onHitEffects": [],
-	  "secStats": {
+	  "secondaryStats": {
 		"hp": 0,
 		"action": 0,
-		"max_Hp": 0,
+		"maxHP": 0,
 		"maxAction": 0,
 		"attackPower": 50,
 		"magicAttackPower": 0,
@@ -66,10 +66,10 @@
 	},
 	{
 	  "onHitEffects": [],
-	  "secStats": {
+	  "secondaryStats": {
 		"hp": 0,
 		"action": 0,
-		"max_Hp": 0,
+		"maxHP": 0,
 		"maxAction": 0,
 		"attackPower": 0,
 		"magicAttackPower": 80,

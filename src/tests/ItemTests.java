@@ -3,7 +3,6 @@ package tests;
 import model.effects.Effect;
 import model.items.Armor;
 import model.items.ArmorFactory;
-import model.items.Rarity;
 import model.items.Trinket;
 import model.items.TrinketFactory;
 import model.items.Weapon;
@@ -18,36 +17,36 @@ public class ItemTests {
 	}
 
 	private static void generateRandomWeapon() {
-		WeaponFactory wf = new WeaponFactory();
-		Weapon weapon = wf.generateRandomWeapon(5);
+		WeaponFactory weaponFactory = new WeaponFactory();
+		Weapon weapon = weaponFactory.generateRandomWeapon(5);
 		System.out.println("Weapon:"
 				+ "\nName: " + weapon.getName()
 				+ "\nDescription: " + weapon.getDescription()
-				+ "\nAttack: " + weapon.getSecStats().getAttackPower()
-				+ "\nMagicAttack: " + weapon.getSecStats().getMagicAttackPower());
+				+ "\nAttack: " + weapon.getSecondaryStats().getAttackPower()
+				+ "\nMagicAttack: " + weapon.getSecondaryStats().getMagicAttackPower());
 		if(!weapon.getOnHitEffects().isEmpty())
 			System.out.println("On Hit Effect: " + weapon.getOnHitEffects().get(0).toString());
 		System.out.println();
 	}
 
 	private static void generateRandomArmor() {
-		ArmorFactory af = new ArmorFactory();
-		Armor armor = af.generateRandomArmor(5);
+		ArmorFactory armorFactory = new ArmorFactory();
+		Armor armor = armorFactory.generateRandomArmor(5);
 		System.out.println("Armor: " +
 		"\nName: " + armor.getName() +
 		"\nDescription: " + armor.getDescription() +
 		"\nSlot: " + armor.getSlot() +
-		"\nStats: "+ armor.getSecStats().toString());
+		"\nStats: "+ armor.getSecondaryStats().toString());
 		System.out.println();		
 	}
 
 	private static void generateRandomTrinket() {
-		TrinketFactory tf = new TrinketFactory();
-		Trinket trinket = tf.generateRandomTrinket(5);
+		TrinketFactory trinketFactory = new TrinketFactory();
+		Trinket trinket = trinketFactory.generateRandomTrinket(5);
 		System.out.println("Trinket: " + 
 		"\nName: " + trinket.getName() +
 		"\nDescription: " + trinket.getDescription() +
-		"\nStats: " + trinket.getPrimeStats().toString() + "\n" + trinket.getSecStats().toString());
+		"\nStats: " + trinket.getPrimeStats().toString() + "\n" + trinket.getSecondaryStats().toString());
 		if(!trinket.getEffects().isEmpty()) {
 			for(Effect e : trinket.getEffects())
 				System.out.println("Effect: " + e.toString());

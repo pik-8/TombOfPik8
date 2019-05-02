@@ -1,0 +1,247 @@
+@startuml
+
+title __CHARACTERS's Class Diagram__\n
+
+  package model.characters {
+    class Character {
+        - name : String
+        - attacks : Attack[]
+        - skills : Skill[]
+        - exp : int
+        + toString()
+        + Character()
+        + getName()
+        + setName()
+        + getInventory()
+        + setInventory()
+        + getEquip()
+        + getAttacks()
+        + setAttacks()
+        + getSkills()
+        + setSkills()
+        - checkSkills()
+        + getSecondaryStats()
+        + setSecondaryStats()
+        + getExp()
+        + setExp()
+        + addExp()
+    }
+  }
+  
+
+  package model.characters {
+    class Equip {
+        - trinkets : Trinket[]
+        - currentTrinketSlot : int
+        + Equip()
+        + equip()
+        + equip()
+        + equip()
+    }
+  }
+  
+
+  package model.characters {
+    class Hero {
+        - availableAttacks : Attack[]
+        - Hero()
+        {static} + createHero()
+        {static} - readAvailableAttacks()
+        + getPrimeStats()
+        + getStatistics()
+        + setStatistics()
+        + toString()
+    }
+  }
+  
+
+  package model.characters {
+    enum HeroClass {
+      WARRIOR
+      ARCHER
+      MAGE
+      ASSASSIN
+      classPath
+      baseStats
+      availableAttacks
+    }
+  }
+  
+
+  package model.characters {
+    class Inventory {
+        - consumables : ArrayList<Consumable>
+        - equipment : ArrayList<Equipment>
+        - materials : HashMap<CraftingMaterial, Integer>
+        - money : long
+        - itemCount : int
+        - size : int
+        + Inventory()
+        + Inventory()
+        + Inventory()
+        - init()
+        - incrementItemCount()
+        - decrementItemCount()
+        - isFull()
+        - isEmpty()
+        + getConsumables()
+        + addConsumable()
+        + removeConsumable()
+        + getEquipment()
+        + addEquipment()
+        + removeEquipment()
+        + getMaterials()
+        + addMaterial()
+        + subtractMaterial()
+        + addMoney()
+        + subtractMoney()
+        + getItemCount()
+        + getSize()
+    }
+  }
+  
+
+  package model.characters {
+    class MobSpawner {
+        - possibleMobs : ArrayList<Character>
+        - mobTier : float
+        - level : int
+        - builder : GsonBuilder
+        - gson : Gson
+        - rand : Random
+        - init()
+        + MobSpawner()
+        - readTemplate()
+        - addToPossibleMobs()
+        + spawnMob()
+    }
+  }
+  
+
+  package model.characters {
+    class PrimeStats {
+        - isSpecialist : boolean
+        - level : int
+        - healthLevel : int
+        - strengthLevel : int
+        - resistanceLevel : int
+        - intelligenceLevel : int
+        - magicLevel : int
+        - staminaLevel : int
+        - speedLevel : int
+        - toughnessLevel : int
+        - luckLevel : int
+        + PrimeStats()
+        - primeStatsBuilder()
+        - checkLevel()
+        + addLevel()
+        + addHealthLevel()
+        + addStrenghtLevel()
+        + addResistanceLevel()
+        + addIntelligenceLevel()
+        + addMagicLevel()
+        + addStaminaLevel()
+        + addSpeedLevel()
+        + addToughnessLevel()
+        + addLuckLevel()
+        + isSpecialist()
+        + setSpecialist()
+        + getHealthLevel()
+        + setHealthLevel()
+        + getStrengthLevel()
+        + setStrengthLevel()
+        + getResistanceLevel()
+        + setResistanceLevel()
+        + getIntelligenceLevel()
+        + setIntelligenceLevel()
+        + getMagicLevel()
+        + setMagicLevel()
+        + getStaminaLevel()
+        + setStaminaLevel()
+        + getSpeedLevel()
+        + setSpeedLevel()
+        + getToughnessLevel()
+        + setToughnessLevel()
+        + getLuckLevel()
+        + setLuckLevel()
+        + getLevel()
+        + setLevel()
+        + toString()
+    }
+  }
+  
+
+  package model.characters {
+    class SecondaryStats {
+        - hp : int
+        - action : int
+        - maxHP : int
+        - maxAction : int
+        - attackPower : int
+        - magicAttackPower : int
+        - defence : int
+        - magicDefence : int
+        - speed : int
+        - luck : int
+        - load : int
+        - maxEquipmentLoad : int
+        - stamina : int
+        - attackSlots : int
+        + SecondaryStats()
+        ~ SecondaryStats()
+        + getHp()
+        + addHp()
+        + addAction()
+        + addLoad()
+        + getAction()
+        + getMaxHP()
+        + setMaxHP()
+        + getMaxAction()
+        + setMaxAction()
+        + getAttackPower()
+        + setAttackPower()
+        + getMagicAttackPower()
+        + setMagicAttackPower()
+        + getDefence()
+        + setDefence()
+        + getMagicDefence()
+        + setMagicDefence()
+        + getSpeed()
+        + setSpeed()
+        + getLuck()
+        + setLuck()
+        + getLoad()
+        + setLoad()
+        + getMaxEquipmentLoad()
+        + setMaxEquipmentLoad()
+        + getStamina()
+        + setStamina()
+        + getAttackSlots()
+        + setAttackSlots()
+        + toString()
+    }
+  }
+  
+
+  Character o-- Inventory : inventory
+  Character o-- Equip : equip
+  Character o-- SecondaryStats : secondaryStats
+  Equip o-- Weapon : weapon
+  Equip o-- Armor : headgear
+  Equip o-- Armor : chestplate
+  Equip o-- Armor : legwear
+  Hero -up-|> Character
+  Hero o-- PrimeStats : primeStats
+  Hero o-- Statistics : statistics
+  Hero o-- HeroClass : heroClass
+  HeroClass o-- PrimeStats : baseStats
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

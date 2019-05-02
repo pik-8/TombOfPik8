@@ -35,9 +35,9 @@ public abstract class Skill extends Attack {
      * @param isReady       If true, then the skill can be used.
      */
     protected Skill(String name, String description, int damage, int magicDamage, int accuracy, int requiredSlots,
-                    Effect effect, AttackPattern ap, int cooldown, boolean isReady)
+                    Effect effect, AttackPattern attackPattern, int cooldown, boolean isReady)
     {
-        super(name, description, damage, magicDamage, accuracy, requiredSlots, effect, ap, cooldown);
+        super(name, description, damage, magicDamage, accuracy, requiredSlots, effect, attackPattern, cooldown);
         this.ready = isReady;
     }
 

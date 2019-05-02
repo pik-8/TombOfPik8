@@ -38,8 +38,8 @@ public class TrinketFactory extends ItemFactory {
 	}
 	
 	public Trinket generateRandomTrinket(int level) {
-		Rarity r = Rarity.values()[rand.nextInt(Rarity.values().length)];
-		return generateRandomTrinket(level, r);
+		Rarity rarity = Rarity.values()[rand.nextInt(Rarity.values().length)];
+		return generateRandomTrinket(level, rarity);
 	}
 	
 	@Override
@@ -60,14 +60,14 @@ public class TrinketFactory extends ItemFactory {
 	
 	private Item generateCommonTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(common);
-		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(tr.getSecondaryStats(), level);
 		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
 		return tr;
 	}
 	
 	private Item generateRareTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(rare);
-		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(tr.getSecondaryStats(), level);
 		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
 		return tr;
 	}
@@ -75,14 +75,14 @@ public class TrinketFactory extends ItemFactory {
 	private Item generateEpicTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(epic);
 		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
-		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(tr.getSecondaryStats(), level);
 		return tr;
 	}
 	
 	private Item generateLegendaryTrinket(int level) {
 		Trinket tr = (Trinket) pickRandomItem(legendary);
 		StatBalancer.balancePrimaryStats(tr.getPrimeStats(), level);
-		StatBalancer.balanceSecondaryStats(tr.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(tr.getSecondaryStats(), level);
 		return tr;
 	}
 }

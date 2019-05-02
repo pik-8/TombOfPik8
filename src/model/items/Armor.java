@@ -17,18 +17,18 @@ public class Armor extends Equipment {
 
 	private ArmorSlot slot;
 	
-	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, ArmorSlot slot, ArrayList<Effect> effects) {
-		super(name, description, secStats, rarity, effects);
+	public Armor(String name, String description, SecondaryStats secondaryStats, Rarity rarity, ArmorSlot slot, ArrayList<Effect> effects) {
+		super(name, description, secondaryStats, rarity, effects);
 		this.slot = slot;
 	}
 
-	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, ArmorSlot slot, Effect effect) {
-		super(name, description, secStats, rarity, effect);
+	public Armor(String name, String description, SecondaryStats secondaryStats, Rarity rarity, ArmorSlot slot, Effect effect) {
+		super(name, description, secondaryStats, rarity, effect);
 		this.slot = slot;
 	}
 
-	public Armor(String name, String description, SecondaryStats secStats, Rarity rarity, ArmorSlot slot) {
-		super(name, description, secStats, rarity);
+	public Armor(String name, String description, SecondaryStats secondaryStats, Rarity rarity, ArmorSlot slot) {
+		super(name, description, secondaryStats, rarity);
 		this.slot = slot;
 	}
 	

@@ -1,8 +1,8 @@
 {"array":[
-  {"secStats": {
+  {"secondaryStats": {
     "hp": 0,
     "action": 0,
-    "max_Hp": 0,
+    "maxHP": 0,
     "maxAction": 0,
     "attackPower": 0,
     "magicAttackPower": 0,
@@ -33,10 +33,10 @@
   ],
   "rarity": "COMMON",
   "slot": "CHEST"}
-  ,{"secStats": {
+  ,{"secondaryStats": {
     "hp": 0,
     "action": 0,
-    "max_Hp": 0,
+    "maxHP": 0,
     "maxAction": 0,
     "attackPower": 0,
     "magicAttackPower": 0,
@@ -56,10 +56,10 @@
   "rarity": "COMMON",
   "slot": "LEGS"}
   ,
-  {"secStats": {
+  {"secondaryStats": {
     "hp": 0,
     "action": 0,
-    "max_Hp": 0,
+    "maxHP": 0,
     "maxAction": 0,
     "attackPower": 0,
     "magicAttackPower": 0,

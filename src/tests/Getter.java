@@ -31,8 +31,8 @@ public class Getter {
     public static SaveState getASaveState () throws Exception {
         Hero[] party = {getAHero("naofumi"), getAHero("Saitama")};
         Overworld overworld = new Overworld();
-        DifficultyFactory df = new DifficultyFactory();
-        Difficulty diffi = df.getRandomDifficulty();
-        return new SaveState(Getter.getAHero("Deku"), party, 1, overworld, diffi);
+        DifficultyFactory difficultyFactory = new DifficultyFactory();
+        Difficulty difficulty = difficultyFactory.getRandomDifficulty();
+        return new SaveState(Getter.getAHero("Deku"), party, 1, overworld, difficulty);
     }
 }

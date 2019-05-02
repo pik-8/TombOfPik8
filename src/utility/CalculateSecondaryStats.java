@@ -106,7 +106,6 @@ public class CalculateSecondaryStats {
             }
         }
         return maxActionByLevel;
-
     }
 
 
@@ -527,7 +526,7 @@ public class CalculateSecondaryStats {
     }
 
     public static void setMaxHealthByLevel (Hero hero) {
-        hero.getSecondaryStats().setMax_Hp(CalculateSecondaryStats.maxHealthByLevel(hero));
+        hero.getSecondaryStats().setMaxHP(CalculateSecondaryStats.maxHealthByLevel(hero));
     }
 
     public static void setMaxActionByLevel (Hero hero) {

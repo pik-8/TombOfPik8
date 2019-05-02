@@ -16,19 +16,26 @@ public class Dungeon {
 	private int tileSize;
 	private Objective objective;
 
+
 	protected Dungeon(Tile[][] layout, Objective objective) throws NullPointerException {
 		this(layout);
 		this.objective = objective;
 
 	}
 
-	public Dungeon(Tile[][] layout) {
+
+	/**
+	 * Creates an dungeon without an objective, thus this constructor will be deleted, later.
+	 */
+	protected Dungeon(Tile[][] layout) {
         this.layout = layout;
+        outer:
         for(Tile[] tArr : layout)
-        	for(Tile tile : tArr) 
-        		if(tile != null)
-        			this.tileSize = tile.getSize();
-        	
+        	for(Tile tile : tArr)
+        		if(tile != null){
+					this.tileSize = tile.getSize();
+					break outer;
+				}
     }
 
 	public Tile[][] getLayout() {

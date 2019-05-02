@@ -41,6 +41,7 @@ public class MobSpawner {
 	
 	public MobSpawner(int level, float mobTier) {
 		init(level, mobTier);
+
 	}
 	
 	private void readTemplate(String path) {
@@ -60,8 +61,8 @@ public class MobSpawner {
 		}
 	}
 	
-	private void addToPossibleMobs(JsonObject jo) {
-		possibleMobs.add(gson.fromJson(jo, Character.class));
+	private void addToPossibleMobs(JsonObject jsonObject) {
+		possibleMobs.add(gson.fromJson(jsonObject, Character.class));
 	}
 	
 	public Character spawnMob() {
