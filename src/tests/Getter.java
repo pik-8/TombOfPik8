@@ -24,23 +24,6 @@ import model.overworld.Overworld;
 public class Getter {
 
     public static Hero getAHero (String name) throws Exception {
-        float[][] attackField = {{1,1},{0.1f, -1}};
-        Effect[][] effectField = {{new HealingEffect()},{null},{new HealingEffect(), new HealingEffect()}};
-        AttackPattern pattern = new AttackPattern(attackField, effectField);
-        Attack attack = new Attack("Punchu", "aöhdewbfg", 1, 1, 1, 1, new HealingEffect(), pattern, 1);
-        Inventory inventory = new Inventory(3);
-
-        Skill[] skills = {new Skill("Skiller", "a skill", 1, 1, 1, 1, null, pattern, 1, true) {
-            @Override
-            public boolean checkIfReady() {
-                return false;
-            }
-        }};
-
-        SecondaryStats secStats = new SecondaryStats(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-        PrimeStats primeStats = new PrimeStats(false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-        Statistics statistics = new Statistics();
-        Attack[] attacks = {attack, attack};
         return Hero.createHero("Bernhard", HeroClass.WARRIOR);
     }
 

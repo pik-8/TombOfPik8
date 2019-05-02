@@ -46,9 +46,9 @@ public class DamageEffect extends Effect {
 		SecondaryStats stats = cha.getSecondaryStats();
 		// The *-1 makes the function subtract the given hp instead of adding it.
 		stats.addHp((int) this.flatDamage * -1);
-		stats.addHp((int) this.percentOfMaxHealthDamage /100 * stats.getMax_Hp() * -1);
-		stats.addHp((int) this.percentOfMissingHealthDamage /100 * (stats.getMax_Hp() - stats.getHp()) * -1);
-		stats.addHp((int) this.percentOfCurrentHealthDamage /100 * stats.getHp() * -1);
+		stats.addHp((int) (this.percentOfMaxHealthDamage /100 * stats.getMax_Hp() * -1));
+		stats.addHp((int) (this.percentOfMissingHealthDamage /100 * (stats.getMax_Hp() - stats.getHp()) * -1));
+		stats.addHp((int) (this.percentOfCurrentHealthDamage /100 * stats.getHp() * -1));
 
 	}
 

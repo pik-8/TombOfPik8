@@ -38,4 +38,10 @@ public interface ExceptionConstants {
     public static final String SQUARE_IN_TILE_IS_NULL = "At least one Square-Object in the Tile is null.";
 
     public static final String DIFFICULTY_ARUGMENT_BELOW_ZERO = "One argument for an Difficulty-Object is below 0.";
+    
+    public static final String DUNGEON_IS_NULL = "Dungeon is null";
+    
+    public static final String NO_STARTING_POINT = "Dungeon has no starting point";
+    
+    public static final String NO_FREE_SQUARE = "No free square found in dungeon.";
 }

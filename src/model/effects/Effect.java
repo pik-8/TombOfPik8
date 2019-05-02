@@ -91,6 +91,10 @@ public abstract class Effect {
         this.duration = duration;
     }
     
+    public void lowerDuration() {
+    	duration -= 1;
+    }
+    
     public String toString() {
     	return "Name: " + name + 
     			"\nDescription: " + description +

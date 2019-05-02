@@ -120,6 +120,9 @@ public class SecondaryStats {
 	public void setMax_Hp(int max_Hp) {
 		this.max_Hp = max_Hp;
 	}
+	public void fillHp() {
+		this.hp = this.max_Hp;
+	}
 	public int getMaxAction() {
 		return this.maxAction;
 	}

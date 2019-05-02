@@ -49,6 +49,7 @@ public class Hero extends Character {
         this.availableAttacks = availableAttacks;
         this.primeStats = Objects.requireNonNull(primeStats);
         utility.CalculateSecondaryStats.setEveryStat(this);
+        getSecondaryStats().fillHp();
         this.statistics = statistics;
         this.cl = cl;
     }

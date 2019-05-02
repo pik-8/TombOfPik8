@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import constants.ExceptionConstants;
 import model.characters.Hero;
-import model.characters.HeroClass;
 import model.dungeon.Dungeon;
 import model.dungeon.DungeonException;
 import model.dungeon.Position;
@@ -13,7 +13,7 @@ import model.dungeon.Terrain;
 import model.dungeon.Tile;
 import view.DungeonPrinter;
 
-public class DungeonController {
+public class DungeonHandler {
 
 	private enum Border{
 		NORTH(0,-1),
@@ -47,7 +47,7 @@ public class DungeonController {
 		this.visibleTiles = new boolean[dungeon.getLayout().length][dungeon.getLayout()[0].length];
 	}
 	
-	public DungeonController(Hero[] heroes, Dungeon dungeon, model.characters.Character[][] mobs) {
+	public DungeonHandler(Hero[] heroes, Dungeon dungeon, model.characters.Character[][] mobs) {
 		init(dungeon);
 		
 		spawnHeroes(heroes);
@@ -231,7 +231,7 @@ public class DungeonController {
 				}
 			}
 		}
-		throw new DungeonException("No free square found in dungeon.");
+		throw new DungeonException(ExceptionConstants.NO_FREE_SQUARE);
 	}
 	
 	private boolean isFree(Position pos) {
@@ -269,9 +269,9 @@ public class DungeonController {
 					}
 				}
 			}
-			throw new DungeonException("Dungeon has no starting point");
+			throw new DungeonException(ExceptionConstants.NO_STARTING_POINT);
 		}
 		else
-			throw new NullPointerException("Dungeon is null");
+			throw new NullPointerException(ExceptionConstants.DUNGEON_IS_NULL);
 	}
 }

@@ -2,7 +2,7 @@ package control;
 
 import model.overworld.Overworld;
 
-public class WorldController {
+public class WorldHandler {
 
 	Overworld overworld;
 	
@@ -10,7 +10,7 @@ public class WorldController {
 		this.overworld = new Overworld();
 	}
 	
-	public WorldController() {
+	public WorldHandler() {
 		init();
 	}
 

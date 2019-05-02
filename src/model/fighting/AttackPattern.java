@@ -147,6 +147,7 @@ public class AttackPattern {
     		for(Effect inner : outer) {
     			if(inner != null) {
     				str += inner.toString() + ", ";    				
+    				str += "\n";
     			}
     		}
         	str += "}";

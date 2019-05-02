@@ -23,7 +23,7 @@ public class TombOfPik8 {
     public static void main (String args[]) {
     	
     	
-    	WorldController world = new WorldController();
+    	WorldHandler world = new WorldHandler();
     	
     	DungeonFactory df = new DungeonFactory();
     	
@@ -34,7 +34,7 @@ public class TombOfPik8 {
     	Hero hagen = Hero.createHero("Ter-4-f", HeroClass.MAGE);
     	Hero patrick = Hero.createHero("fachinformatiker", HeroClass.ASSASSIN);
     	
-    	DungeonController dc = new DungeonController(new Hero[]{fred, hagen, patrick}, basicDungeon, mobs);
+    	DungeonHandler dc = new DungeonHandler(new Hero[]{fred, hagen, patrick}, basicDungeon, mobs);
     	DungeonPrinter.printDungeon(basicDungeon, dc.generateCharacterLayout());
     }
 

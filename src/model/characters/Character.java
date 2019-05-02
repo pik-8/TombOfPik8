@@ -54,7 +54,7 @@ public class Character {
     public Character(String name, Inventory inventory, Attack[] attacks, Skill[] skills,
                      SecondaryStats secondaryStats, int exp) throws IllegalArgumentException, NullPointerException
     {
-        setName(name);
+    	setName(name);
         setInventory(inventory);
         setAttacks(attacks);
         setSkills(skills);

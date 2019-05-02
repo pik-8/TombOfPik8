@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import control.DungeonController;
+import control.DungeonHandler;
 import model.characters.Character;
 import model.characters.Hero;
 import model.characters.HeroClass;
