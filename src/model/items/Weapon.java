@@ -6,12 +6,12 @@ import model.characters.SecondaryStats;
 import model.effects.Effect;
 
 /**
- * 
- * @author Frederick Hastedt
- *
  * Weapons are created from this class. Weapons have secondary stats, like attack and magic attack.
  * They also have Effects which could for example be enchantments, as well as on-hit-effects, which are applied
  * when a character is hit with this weapon.
+ * 
+ * @author Frederick Hastedt
+ *
  */
 public class Weapon extends Equipment {
 

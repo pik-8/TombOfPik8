@@ -10,9 +10,26 @@ import constants.FileConstants;
 import model.io.TemplateReader;
 import utility.StatBalancer;
 
+/**
+ * TrinketFactory is a class to generate random trinkets from templates.
+ * It randomizes the trinkets with the constants from model.balancing.factors
+ * It is a singleton because only one TrinketFactory is needed at any given time
+ * and creating a new one would result in unnecessary IO actions.
+ * 
+ * @author Frederick Hastedt
+ *
+ */
 public class TrinketFactory extends ItemFactory {
 
-	public TrinketFactory() {
+	private static TrinketFactory trinketFactory;
+	
+	public static TrinketFactory getTrinketFactory() {
+		if(trinketFactory != null)
+			return trinketFactory;
+		return new TrinketFactory();
+	}
+	
+	private TrinketFactory() {
 		init();
 		readTemplates();
 	}

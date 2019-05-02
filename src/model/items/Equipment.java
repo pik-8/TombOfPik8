@@ -6,10 +6,10 @@ import model.characters.SecondaryStats;
 import model.effects.Effect;
 
 /**
- * 
+ * Abstract class for equipable items: Armor, Weapons and Trinkets.
+ * Adds SecondaryStats which will be added to a Character's stats when equipped.
+
  * @author Frederick Hastedt
- * Abstract lass for equipable items: Armor, Weapons and Trinkets.
- * Adds secondary stats to Items.
  */
 public abstract class Equipment extends Item {
 	

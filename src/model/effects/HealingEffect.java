@@ -7,9 +7,15 @@ import model.items.Equipment;
 
 /**
  * 
- * @author Frederick Hastedt
+ * HealingEffect extends Effect and is supposed to be used for any healing.
+ * This can for example be a healing-over-time effect.
+ * 
+ * When used on a character, it will effect the character's hp.
+ * When used on a square, it will add a copy of itself to the square.
+ * When used on a piece of equipment TODO
+ * 
+ * @author Hagen and Frederick Hastedt
  *
- * A standard healing effect with multiple options for the healing amount. When applied to a square it will give the square a healing effect.
  */
 public class HealingEffect extends Effect{
 
@@ -20,16 +26,17 @@ public class HealingEffect extends Effect{
 
 
 	/**
+	 * Creates a new HealingEffect.
 	 * 
-	 * @param name: The name of this effect.
-	 * @param description: The description of this effect.
-	 * @param duration: The duration of this effect. Can be used with lower healing values for a regeneration effect.
-	 * Missing option values will be filled with zeros.
+	 * @param name
+	 * @param description
+	 * @param duration
+	 * @param instantApply If true, this effect will be applied right away, but only once.
 	 * 
-	 * flat_heal: 
-	 * %_max_health_heal: 
-	 * %_missing_health_heal: 
-	 * %_current_health_heal: 
+	 * @param flatHeal An amount of health to be added to a character's hp directly.
+	 * @param percentOfMaxHealthHeal A percentile of the maximum health of a character to be added to a its hp. 
+	 * @param percentOfMissingHealthHeal A percentile of the missing health of a character to be added to its hp.
+	 * @param percentOfCurrentHealthHeal A percentile of the current health of a character to to be added to its hp.
 	 */
 	public HealingEffect(String name, String description, int duration, boolean instantApply, float flatHeal, float percentOfMaxHealthHeal, float percentOfMissingHealthHeal, float percentOfCurrentHealthHeal) {
 		super(name, description, duration, instantApply);
@@ -39,7 +46,19 @@ public class HealingEffect extends Effect{
 		this.percentOfCurrentHealthHeal = percentOfCurrentHealthHeal;
 	}
 
-
+	/**
+	 * Creates a new HealingEffect.
+	 * instantApply is set to false.
+	 * 
+	 * @param name
+	 * @param description
+	 * @param duration
+	 * 
+	 * @param flatHeal An amount of health to be added to a character's hp directly.
+	 * @param percentOfMaxHealthHeal A percentile of the maximum health of a character to be added to a its hp. 
+	 * @param percentOfMissingHealthHeal A percentile of the missing health of a character to be added to its hp.
+	 * @param percentOfCurrentHealthHeal A percentile of the current health of a character to to be added to its hp.
+	 */
 	public HealingEffect(String name, String description, int duration, float flatHeal, float percentOfMaxHealthHeal, float percentOfMissingHealthHeal, float percentOfCurrentHealthHeal) {
 		super(name, description, duration);
 		this.flatHeal = flatHeal;
@@ -49,10 +68,13 @@ public class HealingEffect extends Effect{
 	}
 
 	/**
-	 * Returns a default HealingEffect that restores 50hp once.
+	 * Creates a new HealingEffect.
+	 * name and description are automatically set to default values, the duration is set to one.
+	 * instantApply is set to true.
+	 * flatDamage is set to 50, all other damage numbers are zero.
 	 */
 	public HealingEffect() {
-		super("Healing Effect", "you get healed", 1);
+		super("Healing Effect", "you get healed", 1, true);
 		this.flatHeal = 50f;
 		this.percentOfMaxHealthHeal = 0f;
 		this.percentOfMissingHealthHeal = 0f;

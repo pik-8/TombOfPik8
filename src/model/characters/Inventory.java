@@ -3,11 +3,11 @@ package model.characters;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import constants.ExceptionConstants;
 import constants.ModelProperties;
 import model.items.Consumable;
 import model.items.CraftingMaterial;
 import model.items.Equipment;
-import model.items.InventoryFullException;
 
 /**
  * 
@@ -83,13 +83,13 @@ public class Inventory {
 	 * Adds a consumable item to the inventory if it is not full, then returns the updated list of consumables.
 	 * @param consumable The consumable to be added.
 	 * @return The updated list of consumables.
-	 * @throws InventoryFullException Thrown if tried to add to a full Inventory.
+	 * @throws InventoryException Thrown if tried to add to a full Inventory.
 	 */
-	public ArrayList<Consumable> addConsumable(Consumable consumable) throws InventoryFullException {
+	public ArrayList<Consumable> addConsumable(Consumable consumable) throws InventoryException {
 		if(incrementItemCount())
 			consumables.add(consumable);
 		else 
-			throw new InventoryFullException();
+			throw new InventoryException(ExceptionConstants.INVENTORY_IS_FULL);
 		return consumables;
 	}
 	
@@ -114,13 +114,13 @@ public class Inventory {
 	 * Adds an equipment item to the inventory if it is not full, then returns the updated list of equipment.
 	 * @param equipment The equipment to be added.
 	 * @return The updated list of equipment.
-	 * @throws InventoryFullException Thrown if tried to add to a full Inventory.
+	 * @throws InventoryException Thrown if tried to add to a full Inventory.
 	 */
-	public ArrayList<Equipment> addEquipment(Equipment equipment) throws InventoryFullException {
+	public ArrayList<Equipment> addEquipment(Equipment equipment) throws InventoryException {
 		if(incrementItemCount())
 			this.equipment.add(equipment);
 		else
-			throw new InventoryFullException();
+			throw new InventoryException(ExceptionConstants.INVENTORY_IS_FULL);
 		return this.equipment;
 	}
 	

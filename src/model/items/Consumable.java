@@ -7,7 +7,9 @@ import model.effects.Effect;
 /**
  * 
  * @author Frederick Hastedt
+ * 
  * Class for consumable items.
+ * 
  */
 public class Consumable extends Item {
 	

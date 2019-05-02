@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import model.effects.Effect;
 
 /**
- * 
- * @author Frederick Hastedt
- * 
  * There are three different kinds of items in this program: Weapons, Armor and Consumables. 
  * This is the root class for all of them. Since an Item should not be created as just an Item, this class is abstract.
  * An Item has a name, a description (to be used for a tooltip), effects and a rarity.
+ * 
+ * @author Frederick Hastedt
  *
  */
 public abstract class Item {

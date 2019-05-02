@@ -17,7 +17,7 @@ public class ItemTests {
 	}
 
 	private static void generateRandomWeapon() {
-		WeaponFactory weaponFactory = new WeaponFactory();
+		WeaponFactory weaponFactory = WeaponFactory.getWeaponFactory();
 		Weapon weapon = weaponFactory.generateRandomWeapon(5);
 		System.out.println("Weapon:"
 				+ "\nName: " + weapon.getName()
@@ -30,7 +30,7 @@ public class ItemTests {
 	}
 
 	private static void generateRandomArmor() {
-		ArmorFactory armorFactory = new ArmorFactory();
+		ArmorFactory armorFactory = ArmorFactory.getArmorFactory();
 		Armor armor = armorFactory.generateRandomArmor(5);
 		System.out.println("Armor: " +
 		"\nName: " + armor.getName() +
@@ -41,7 +41,7 @@ public class ItemTests {
 	}
 
 	private static void generateRandomTrinket() {
-		TrinketFactory trinketFactory = new TrinketFactory();
+		TrinketFactory trinketFactory = TrinketFactory.getTrinketFactory();
 		Trinket trinket = trinketFactory.generateRandomTrinket(5);
 		System.out.println("Trinket: " + 
 		"\nName: " + trinket.getName() +

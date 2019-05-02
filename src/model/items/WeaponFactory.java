@@ -11,11 +11,12 @@ import model.io.TemplateReader;
 import utility.StatBalancer;
 
 /**
+ * WeaponFactory is a class to generate random weapon from templates.
+ * It randomizes the weapons with the constants from model.balancing.factors
+ * It is a singleton because only one WeaponFactory is needed at any given time
+ * and creating a new one would result in unnecessary IO actions.
  * 
  * @author Frederick Hastedt
- * 
- * This factory can generate random weapons from a given rarity.
- * It takes templates to do this which can be added by hand.
  *
  */
 public class WeaponFactory extends ItemFactory {
@@ -33,8 +34,16 @@ public class WeaponFactory extends ItemFactory {
 			list.add(gson.fromJson(jsonElement, Weapon.class));
 		}
 	}
+
+	private static WeaponFactory weaponFactory;
 	
-	public WeaponFactory() {
+	public static WeaponFactory getWeaponFactory() {
+		if(weaponFactory != null)
+			return weaponFactory;
+		return new WeaponFactory();
+	}
+	
+	private WeaponFactory() {
 		init();
 		readTemplates();
 	}

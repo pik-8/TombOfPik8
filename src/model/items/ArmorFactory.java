@@ -10,9 +10,26 @@ import constants.FileConstants;
 import model.io.TemplateReader;
 import utility.StatBalancer;
 
+/**
+ * ArmorFactory is a class to generate random armor from templates.
+ * It randomizes the armor with the constants from model.balancing.factors
+ * It is a singleton because only one ArmorFactory is needed at any given time and creating a new one would result
+ * in unnessecary IO actions.
+ * 
+ * @author Frederick Hastedt
+ *
+ */
 public class ArmorFactory extends ItemFactory {
 
-	public ArmorFactory() {
+	private static ArmorFactory armorFactory;
+	
+	public static ArmorFactory getArmorFactory() {
+		if(armorFactory != null)
+			return armorFactory;
+		return new ArmorFactory();
+	}
+	
+	private ArmorFactory() {
 		init();
 		readTemplates();
 	}

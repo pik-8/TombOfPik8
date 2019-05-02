@@ -6,6 +6,13 @@ import model.characters.PrimeStats;
 import model.characters.SecondaryStats;
 import model.effects.Effect;
 
+/**
+ * Trinket adds PrimaryStats to Equipment. 
+ * Trinkets can be used for deeper stat manipulation.
+ * 
+ * @author Frederick Hastedt
+ *
+ */
 public class Trinket extends Equipment {
 
 	private PrimeStats primeStats;

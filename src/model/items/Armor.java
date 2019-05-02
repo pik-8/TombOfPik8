@@ -10,8 +10,7 @@ import model.effects.Effect;
  * 
  * @author Frederick Hastedt
  *
- * Armor is created from this class. Armor currently has the same content as Equipment,
- * it was created to offer further design space in the future.
+ * Armor is created from this class. Armor, in contrast to Weapon and Trinket, has a slot in which it will be equipped.
  */
 public class Armor extends Equipment {
 

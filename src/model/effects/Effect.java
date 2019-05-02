@@ -8,15 +8,13 @@ import model.items.Equipment;
 /**
  * The class to give Characters and Squares an Effect, that will affect the battle.
  *
- * An object contains a name, a description and a duration, with the last one can not be alternated after
- * initialisation and an instance can not be created directly from another class, that is outside the Effect-hierarchy.
+ * An Effect contains a name, a description and a duration. The effect's duration is managed by the controller.
+ * Effect is abstract as it should never be instantiated.
  *
- * It also contains a applyEffect-methode, that can alter the behaviour of an Character or Square, depending of
- * the specific implementation of an instance.
+ * It also contains applyEffect() methods, that can take effect on a given Character, Square or piece of Equipment,
+ * which need to be overriden by child classes.
  *
- * To get an instance of this class please visit the EffectGiver-Class.
- *
- * @author Hagen
+ * @author Hagen and Frederick Hastedt
  */
 public abstract class Effect {
 
@@ -52,11 +50,25 @@ public abstract class Effect {
         init(name, description, duration, instantApply);
     }
 
-        	
-    public abstract void applyEffect (Character character);
+     /**   	
+      * Applies the Effect on a given Character
+      *
+      * @param character
+      */
+    public abstract void applyEffect (model.characters.Character character);
 
+    /**
+     * Applies the Effect on a given Square
+     * 
+     * @param square
+     */
     public abstract void applyEffect (Square square);
     
+    /**
+     * Applies the Effect on a given piece of Equipment
+     * 
+     * @param equipment
+     */
     public abstract void applyEffect (Equipment equipment);
 
     public String getName() {
@@ -86,11 +98,10 @@ public abstract class Effect {
 	public void setInstantApply(boolean instantApply) {
 		this.instantApply = instantApply;
 	}
-
-    protected void setDuration(int duration) {
-        this.duration = duration;
-    }
     
+    /**
+     * Lowers the duration of the effect by one.
+     */
     public void lowerDuration() {
     	duration -= 1;
     }

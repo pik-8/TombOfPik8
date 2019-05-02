@@ -1,10 +1,10 @@
 package model.items;
 
 /**
+ * Enum to handle item rarity.
  * 
  * @author Frederick Hastedt
  *
- * Enum to handle item rarity.
  */
 public enum Rarity {
 	COMMON,
