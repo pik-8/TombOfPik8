@@ -8,10 +8,8 @@ import model.characters.Character;
 import model.characters.MobSpawner;
 import model.io.TemplateReader;
 import model.json.AdapterFactories;
-import utility.TileGenerator;
 
 import java.util.Random;
-import java.util.logging.Level;
 
 
 /**
@@ -288,7 +286,7 @@ public class DungeonFactory {
                             hasDown = (layout[x][y + 1] == 1);
                         }
 
-                        dungeon[x][y] = TileGenerator.getTile(tileSize,
+                        dungeon[x][y] = TileGenerator.getTileGenerator().getTile(tileSize,
                                 Landscape.values()[this.random.nextInt(landscapes.length)],
                                 hasRight, hasLeft, hasUp, hasDown);
                     }

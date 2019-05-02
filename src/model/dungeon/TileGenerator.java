@@ -14,14 +14,24 @@ import java.util.Random;
 
 
 /**
- * A class to create the "guts", the square and terrain layout, of an Tile-Object from a template, randomly
+ * A singelton class to create the "guts", the square and terrain layout, of an Tile-Object from a template, randomly
  * or with a few instructions.
  *
  * @author Hagen
  */
 public class TileGenerator {
 
+    private static TileGenerator tileGenerator;
+
     private TileGenerator () {}
+
+
+    public static TileGenerator getTileGenerator () {
+        if (tileGenerator == null) {
+            return new TileGenerator();
+        }
+        return tileGenerator;
+    }
 
 
     /**
@@ -31,7 +41,7 @@ public class TileGenerator {
      * @param type: The type of landscape to determine the terrains.
      * @return
      */
-    public static Square[][] generateSquaresAsTiel (int size, Landscape type) {
+    public Square[][] generateSquaresAsTiel (int size, Landscape type) {
         Square[][] squares = new Square[size][size];
         fillSquaresWithStandard(squares);
         fillSquare(squares, type.getPossibleTerrains());
@@ -39,7 +49,7 @@ public class TileGenerator {
     }
 
 
-    public static Tile getTile (int size, Landscape type, boolean hasTileToRight, boolean hasTileToLeft,
+    public Tile getTile (int size, Landscape type, boolean hasTileToRight, boolean hasTileToLeft,
                                 boolean hasTileAbove, boolean hasTileBelow)
     {
         Square[][] squares = new Square[size][size];
@@ -50,7 +60,7 @@ public class TileGenerator {
         return new Tile(squares, type);
     }
 
-    public static Tile getTile7x7 (Landscape type, boolean hasTileToRight, boolean hasTileToLeft,
+    public Tile getTile7x7 (Landscape type, boolean hasTileToRight, boolean hasTileToLeft,
                                    boolean hasTileAbove, boolean hasTileBelow) {
         switch (type) {
             case FOREST:
@@ -65,12 +75,12 @@ public class TileGenerator {
         }
     }
 
-    private static void checkIfSquareIsTraversable () {
+    private void checkIfSquareIsTraversable () {
         //TODO implement the algorithm.
     }
 
 
-    private static void fillSquare (Square[][] squares, Terrain[] possibleTerrains) {
+    private void fillSquare (Square[][] squares, Terrain[] possibleTerrains) {
         Random random = new Random();
         for (int x = 0; x < squares.length; x++) {
             for (int y = 0; y < squares.length; y++) {
@@ -84,7 +94,7 @@ public class TileGenerator {
     }
 
 
-    private static void setBorders (Square[][] squares, Landscape landscape, boolean hasTileToRight, boolean hasTileToLeft,
+    private void setBorders (Square[][] squares, Landscape landscape, boolean hasTileToRight, boolean hasTileToLeft,
                                     boolean hasTileAbove, boolean hasTileBelow) {
         if (!hasTileAbove) {
             fillYDimension(0, squares, landscape.getBorders());
@@ -110,7 +120,7 @@ public class TileGenerator {
      * @param squares The array that should be filled.
      * @param terrains the terrains that should be placed randomly on the whole column.
      */
-    private static void fillXDimension (int xIndex, Square[][] squares, Terrain[] terrains) {
+    private void fillXDimension (int xIndex, Square[][] squares, Terrain[] terrains) {
         Random random = new Random();
         for (int y = 0; y < squares[xIndex].length; y++) {
             squares[xIndex][y] = new Square(terrains[random.nextInt(terrains.length)], new HealingEffect());
@@ -121,7 +131,7 @@ public class TileGenerator {
     /**
      * Almost the same as fillXDimension, however instead of an column a line will be filled.
      */
-    private static void fillYDimension (int yIndex, Square[][] squares, Terrain terrains[]) {
+    private void fillYDimension (int yIndex, Square[][] squares, Terrain terrains[]) {
         Random random = new Random();
         for (int x = 0; x < squares[yIndex].length; x++) {
             squares[x][yIndex] = new Square(terrains[random.nextInt(terrains.length)], new HealingEffect());
@@ -129,14 +139,14 @@ public class TileGenerator {
     }
 
 
-    public static Square[][] generateTerrainOnSquare (int size, boolean hasTileToRight, boolean hasTileToLeft,
+    public Square[][] generateTerrainOnSquare (int size, boolean hasTileToRight, boolean hasTileToLeft,
                                                       boolean hasTileAbove, boolean hasTileBelow,
                                                       Terrain[] allowedTerrains, Terrain endMarker) {
         //TODO implement the Method.
         return null;
     }
 
-    private static void fillSquaresWithStandard (Square[][] squares) {
+    private void fillSquaresWithStandard (Square[][] squares) {
         for (int x = 0; x < squares.length; x++) {
             for (int y = 0; y < squares.length; y++) {
                 squares[x][y] = new Square(Terrain.NONE, new HealingEffect());

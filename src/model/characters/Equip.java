@@ -5,6 +5,7 @@ import model.items.Equipment;
 import model.items.Trinket;
 import model.items.Weapon;
 
+
 public class Equip {
 
 	private Weapon weapon;

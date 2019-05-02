@@ -24,11 +24,6 @@ public class Options extends Application {
         Font.loadFont(getClass().getResourceAsStream(FileConstants.OPTIONS_PATH + "/resources/options/Seattle_Avenue.ttf"), 14);
     }
 
-    public static void main(String[] args) {
-        Application.launch(args);
-        System.out.println("exited");
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         BorderPane mainBorderPane = FXMLLoader.load(Options.class.getResource("main.fxml"));

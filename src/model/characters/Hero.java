@@ -16,7 +16,7 @@ import java.util.Objects;
 
 
 /**
- * The class to create an objects, that the player will control in the game.
+ * The class to create an object, that the player will control in the game.
  *
  * @author Hagen
  */
