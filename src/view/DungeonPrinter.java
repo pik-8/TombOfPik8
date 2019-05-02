@@ -8,12 +8,11 @@ import model.dungeon.Tile;
 
 /**
  * A class that prints a map of dungeons.
- * Either the whole map with the Terrain-Objects or every landscape.
+ * Either the whole map with the Terrain-Objects or every landscape and with mobs, if one wants to.
  *
  * @author Hagen
  */
 public class DungeonPrinter {
-
 
 
     /**
@@ -31,6 +30,13 @@ public class DungeonPrinter {
     }
 
 
+    /**
+     * Prints every visible tile with all terrains and mobs.
+     *
+     * @param dungeon: The dungeon that should be printed.
+     * @param characters: Every mob in the dungeon.
+     * @param visibleTiles: Determines which tile is visible.
+     */
     public static void printDungeon (Dungeon dungeon, Character[][] characters, boolean[][] visibleTiles) {
         int tileSize = getTileSize(dungeon);
 
@@ -55,6 +61,9 @@ public class DungeonPrinter {
     }
 
 
+    /**
+     * Prints the first two letters of every character in the given array.
+     */
     public static void printCharacterLayout(Character[][] mobLayout) {
         for (int y = 0; y < mobLayout[0].length; y++) {
             for (int x = 0; x < mobLayout.length; x++) {
@@ -65,6 +74,9 @@ public class DungeonPrinter {
     }
 
 
+    /**
+     * Prints the whole dungeon with every terrain and character.
+     */
     public static void printDungeon (Dungeon dungeon, Character[][] mobLayout) {
         int tileSize = getTileSize(dungeon);
 
@@ -89,6 +101,9 @@ public class DungeonPrinter {
     }
 
 
+    /**
+     * Prints every terrain in the dungeon.
+     */
     public static void printDungeon (Dungeon dungeon) {
         int tileSize = getTileSize(dungeon);
         for (int y = 0; y < dungeon.getLayout()[0].length; y++) {

@@ -21,6 +21,10 @@ import model.items.Equipment;
  */
 public class Character {
 
+    /**
+     * @author Frederick
+     * @return
+     */
     @Override
 	public String toString() {
 		return "name: " + name + 

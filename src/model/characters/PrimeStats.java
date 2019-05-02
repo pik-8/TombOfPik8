@@ -31,17 +31,6 @@ public class PrimeStats {
 	
 	/**
 	 * Throws an Exception, if one param is null, or below 0.
-	 * 
-	 * @param isSpecialist
-	 * @param healthLevel
-	 * @param strengthLevel
-	 * @param resistanceLevel
-	 * @param intelligenceLevel
-	 * @param magicLevel
-	 * @param staminaLevel
-	 * @param speedLevel
-	 * @param toughnessLevel
-	 * @param luckLevel
 	 */
 	public PrimeStats(boolean isSpecialist, int level, int healthLevel, int strengthLevel, int resistanceLevel,
 					  int intelligenceLevel, int magicLevel, int staminaLevel, int speedLevel, int toughnessLevel,

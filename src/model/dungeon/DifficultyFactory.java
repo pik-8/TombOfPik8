@@ -66,7 +66,7 @@ public class DifficultyFactory {
     public Difficulty getRandomDifficulty () {
         Random random = new Random();
         float levelFactor;
-        for (levelFactor = 0; !(levelFactor < Factors.MIN_MOB_LEVEL_FACTOR || levelFactor > Factors.MAX_MOB_LEVEL_FACTOR);) {
+        for (levelFactor = 0; (levelFactor < Factors.MIN_MOB_LEVEL_FACTOR || levelFactor > Factors.MAX_MOB_LEVEL_FACTOR);) {
             levelFactor = random.nextFloat()+ random.nextInt(Math.round(Factors.MAX_MOB_LEVEL_FACTOR));
         }
         return new Difficulty(random.nextInt(constants.ModelProperties.MAX_MOB_SPAWN_RATE_FOR_RANDOM), levelFactor, random.nextFloat(), random.nextFloat());

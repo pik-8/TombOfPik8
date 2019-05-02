@@ -1,5 +1,12 @@
 package model.dungeon;
 
+
+/**
+ * To navigate inside a dungeon.
+ * Saves the location of a tile and a square inside this tile.
+ *
+ * @author Hagen
+ */
 public class Position {
 
     private int x;
@@ -21,15 +28,15 @@ public class Position {
         this.yTile = yTile;
     }
     
-    public Position(Position pos) {
-    	this.x = pos.getxSquare();
-    	this.y = pos.getySquare();
-    	this.xTile = pos.getxTile();
-    	this.yTile = pos.getyTile();
+    public Position(Position position) {
+    	this.x = position.getxSquare();
+    	this.y = position.getySquare();
+    	this.xTile = position.getxTile();
+    	this.yTile = position.getyTile();
     }
 
     /**
-     * Sets the x and y position to 0.
+     * Sets the x and y positions to 0.
      */
     public Position () {
     	this.x = 0;
@@ -38,11 +45,12 @@ public class Position {
         this.yTile = 0;
     }
 
-    public boolean equals(Position pos) {
-    	return pos.x == x &&
-    			pos.y == y &&
-    			pos.xTile == xTile &&
-    			pos.yTile == yTile;
+
+    public boolean equals(Position position) {
+    	return position.x == x &&
+                position.y == y &&
+                position.xTile == xTile &&
+                position.yTile == yTile;
     }
     
     public int getxSquare() {
