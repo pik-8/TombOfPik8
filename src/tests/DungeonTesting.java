@@ -1,9 +1,16 @@
 package tests;
 
+import java.io.FileWriter;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import model.characters.Character;
-import model.dungeon.*;
+import model.dungeon.DifficultyFactory;
+import model.dungeon.Dungeon;
+import model.dungeon.DungeonFactory;
+import model.dungeon.Landscape;
+import model.dungeon.Position;
 import model.json.AdapterFactories;
 import view.DungeonPrinter;
 

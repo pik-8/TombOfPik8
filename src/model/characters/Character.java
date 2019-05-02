@@ -1,13 +1,13 @@
 package model.characters;
 
-import constants.ExceptionConstants;
-import constants.ModelProperties;
-import model.effects.Effect;
-import model.fighting.Attack;
-import model.fighting.Skill;
-
 import java.util.Arrays;
 import java.util.Objects;
+
+import constants.ExceptionConstants;
+import constants.ModelProperties;
+import model.fighting.Attack;
+import model.fighting.Skill;
+import model.items.Equipment;
 
 
 /**
@@ -33,13 +33,13 @@ public class Character {
 	private String name;
 
     private Inventory inventory;
-
+    private Equip equip;
+    
     private Attack[] attacks;
     private Skill[] skills;
 
     private SecondaryStats secondaryStats;
     private int exp;
-
 
     /**
      * Throws an IllegalargumentException, if exp < 0 and a NullpointerException when one Object is null.
@@ -60,6 +60,7 @@ public class Character {
         setSkills(skills);
         setSecondaryStats(secondaryStats);
         setExp(exp);
+        this.equip = new Equip();
     }
 
 
@@ -80,7 +81,11 @@ public class Character {
     }
 
 
-    public Attack[] getAttacks() {
+    public Equip getEquip() {
+		return equip;
+	}
+
+	public Attack[] getAttacks() {
         return attacks;
     }
 

@@ -1,6 +1,6 @@
 package control;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +11,7 @@ import model.dungeon.DungeonException;
 import model.dungeon.Position;
 import model.dungeon.Terrain;
 import model.dungeon.Tile;
+import view.DungeonPrinter;
 
 public class DungeonController {
 
@@ -51,19 +52,13 @@ public class DungeonController {
 		
 		spawnHeroes(heroes);
 		spawnMobs(mobs);
-		//this.heroes.put(Hero.createHero("MASTA OF DESASTA", HeroClass.WARRIOR), new Position(3,3,0,0));
+		this.heroes.put(Hero.createHero("MASTA OF DESASTA", HeroClass.ARCHER), new Position(2,3,0,0));
 		updateVisibleTiles();
 		printVisibleTiles();
 	}
 	
 	public void printVisibleTiles() {
-		String str = "";
-		for(boolean[] bArr : visibleTiles) {
-			for(boolean b : bArr)
-				str += b ? "True  " : "False ";
-			str += "\n";
-		}
-		System.out.println(str);
+		DungeonPrinter.printVisibleDungeon(visibleTiles, generateCharacterLayout(), dungeon);
 	}
 	
 	private void spawnMobs(model.characters.Character[][] mobs) {
@@ -86,41 +81,44 @@ public class DungeonController {
 			for(Tile tile : tArr) {
 				if(tile != null && containsHeroes(tile)) {
 					setVisible(tile);
-					Border border = heroAtBorder(tile);
-					setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition() + border.xDelta, getTilePos(tile).getYPosition())));
-					setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition(), getTilePos(tile).getYPosition() + border.yDelta)));
+					for(Hero h : containedHeroes(tile)) {
+						Border border = heroAtBorder(tile, h);
+						System.out.println(border);
+						setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition() + border.xDelta, getTilePos(tile).getYPosition())));
+						setVisible(dungeon.getTile(new Position(0,0, getTilePos(tile).getXPosition(), getTilePos(tile).getYPosition() + border.yDelta)));
+					}
 				}
 			}
 		}
 	}
 	
-	private Border heroAtBorder(Tile tile) {
+	private Border heroAtBorder(Tile tile, Hero h) {
 		for(int yT = 0; yT < tile.getLayout()[0].length; yT++) {
 			for(int xT = 0; xT < tile.getLayout().length; xT++) {
 				Position pos = new Position(getTilePos(tile));
 				pos.setXPosition(xT);
 				pos.setYPosition(yT);
-				if(hasHero(pos)) {
+				if(getHero(pos) == h) {
 					if(yT == 0) {
 						if(xT == 0)
 							return Border.NORTHWEST;
-						else if(xT == dungeon.getTileSize())
+						else if(xT == dungeon.getTileSize() - 1)
 							return Border.NORTHEAST;
 						else
 							return Border.NORTH;
 					}
-					else if(yT == dungeon.getTileSize()) {
+					else if(yT == dungeon.getTileSize() - 1) {
 						if(xT == 0)
 							return Border.SOUTHWEST;
-						else if(xT == dungeon.getTileSize())
+						else if(xT == dungeon.getTileSize() - 1)
 							return Border.SOUTHEAST;
 						else
-							return Border.NORTH;
+							return Border.SOUTH;
 					}
 					else
 						if(xT == 0)
 							return Border.WEST;
-						else if(xT == dungeon.getTileSize())
+						else if(xT == dungeon.getTileSize() - 1)
 							return Border.EAST;
 						else
 							return Border.NONE;
@@ -143,11 +141,25 @@ public class DungeonController {
 			for(int yS = 0; yS < tile.getSize(); yS++) {
 				pos.setXPosition(xS);
 				pos.setYPosition(yS);
-				if(hasHero(pos))
+				if(getHero(pos) != null)
 					return true;
 			}
 		}
 		return false;
+	}
+	
+	private ArrayList<Hero> containedHeroes(Tile tile) {
+		ArrayList<Hero> hL = new ArrayList<Hero>();
+		Position pos = getTilePos(tile);
+		for(int xS = 0; xS < tile.getSize(); xS++) {
+			for(int yS = 0; yS < tile.getSize(); yS++) {
+				pos.setXPosition(xS);
+				pos.setYPosition(yS);
+				if(getHero(pos) != null)
+					hL.add(getHero(pos));
+			}
+		}
+		return hL;
 	}
 	
 	private Position getTilePos(Tile tile) {
@@ -235,12 +247,12 @@ public class DungeonController {
 		return true;
 	}
 	
-	private boolean hasHero(Position pos) {
+	private Hero getHero(Position pos) {
 		for(Map.Entry<Hero, Position> set : this.heroes.entrySet()) {
 			if(set.getValue().equals(pos))
-				return true;
+				return set.getKey();
 		}
-		return false;
+		return null;
 	}
 	
 	private Position findStartingTerrain() throws DungeonException {

@@ -187,4 +187,20 @@ public class PrimeStats {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+
+
+	@Override
+	public String toString() {
+		return "PrimeStats [isSpecialist: " + isSpecialist + 
+				"\nlevel: " + level + 
+				"\nhealthLevel: " + healthLevel
+				+ "\nstrengthLevel: " + strengthLevel + 
+				"\nresistanceLevel: " + resistanceLevel + 
+				"\nintelligenceLevel: " + intelligenceLevel + 
+				"\nmagicLevel: " + magicLevel + 
+				"\nstaminaLevel: " + staminaLevel + 
+				"\nspeedLevel: " + speedLevel + 
+				"\ntoughnessLevel: " + toughnessLevel + 
+				"\nluckLevel: " + luckLevel + "]";
+	}
 }
