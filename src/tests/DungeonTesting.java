@@ -43,9 +43,9 @@ public class DungeonTesting {
      */
     private static void printVisibleMapWithCharacters() {
         System.out.println("Test to see if visible dungeon works.");
-        DungeonFactory df = new DungeonFactory();
-        Dungeon dungeon = df.generateRandomDungeon(2,2, 4, new Landscape[]{Landscape.FOREST}, new Position());
-        Character[][] layout = df.getMobLayout(DifficultyFactory.getDifficultyFactory().getRandomDifficulty(), dungeon, 100);
+        DungeonFactory dungeonFactory = new DungeonFactory();
+        Dungeon dungeon = dungeonFactory.generateRandomDungeon(2,2, 4, new Landscape[]{Landscape.FOREST}, new Position());
+        Character[][] layout = dungeonFactory.getMobLayout(DifficultyFactory.getDifficultyFactory().getRandomDifficulty(), dungeon, 100);
         layout[3][0] = Hero.createHero("Deku", HeroClass.WARRIOR);
         System.out.println("\nNormal dungeon:");
         DungeonPrinter.printDungeon(dungeon, layout);
@@ -114,9 +114,9 @@ public class DungeonTesting {
     private static void loadDungeonFromTemplate(String name) {
         System.out.println("Generate a dungeon from a template.\n");
 
-        DungeonFactory df = new DungeonFactory();
+        DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printDungeon(df.getDungeonFromTemplate(name));
+        DungeonPrinter.printDungeon(dungeonFactory.getDungeonFromTemplate(name));
     }
 
 
@@ -126,17 +126,17 @@ public class DungeonTesting {
     private static void generateALotDungeons () {
         System.out.println("Generate just a lot dungeons.");
 
-        DungeonFactory df = new DungeonFactory();
+        DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printDungeon(df.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory.generateRandomDungeon());
         System.out.println("\n");
     }
 
@@ -148,21 +148,21 @@ public class DungeonTesting {
         System.out.println("Generate just a lot dungeons with same seed.");
 
         int seed = 1;
-        DungeonFactory df_1 = new DungeonFactory(seed);
-        DungeonFactory df_2 = new DungeonFactory(seed);
-        DungeonFactory df_3= new DungeonFactory(seed);
-        DungeonFactory df_4 = new DungeonFactory(seed);
-        DungeonFactory df_5 = new DungeonFactory(seed);
+        DungeonFactory dungeonFactory_1 = new DungeonFactory(seed);
+        DungeonFactory dungeonFactory_2 = new DungeonFactory(seed);
+        DungeonFactory dungeonFactory_3= new DungeonFactory(seed);
+        DungeonFactory dungeonFactory_4 = new DungeonFactory(seed);
+        DungeonFactory dungeonFactory_5 = new DungeonFactory(seed);
 
-        DungeonPrinter.printDungeon(df_1.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory_1.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_2.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory_2.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_3.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory_3.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_4.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory_4.generateRandomDungeon());
         System.out.println("\n");
-        DungeonPrinter.printDungeon(df_5.generateRandomDungeon());
+        DungeonPrinter.printDungeon(dungeonFactory_5.generateRandomDungeon());
         System.out.println("\n");
     }
 
@@ -173,12 +173,12 @@ public class DungeonTesting {
     private static void testPrintLandscapes () {
         System.out.println("Generate some dungeons and prints the layout of their landscapes.");
 
-        DungeonFactory df = new DungeonFactory();
+        DungeonFactory dungeonFactory = new DungeonFactory();
 
-        DungeonPrinter.printLandscapes(df.generateRandomDungeon());
+        DungeonPrinter.printLandscapes(dungeonFactory.generateRandomDungeon());
         System.out.println();
-        DungeonPrinter.printLandscapes(df.generateRandomDungeon());
+        DungeonPrinter.printLandscapes(dungeonFactory.generateRandomDungeon());
         System.out.println();
-        DungeonPrinter.printLandscapes(df.generateRandomDungeon());
+        DungeonPrinter.printLandscapes(dungeonFactory.generateRandomDungeon());
     }
 }

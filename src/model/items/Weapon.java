@@ -29,12 +29,12 @@ public class Weapon extends Equipment {
 	 * Constructor that takes two ArrayLists for effects and onHitEffects
 	 * @param name
 	 * @param description
-	 * @param secStats This weapon's stats.
+	 * @param secondaryStats This weapon's stats.
 	 * @param effects Effects that are applied to this weapon.
 	 * @param onHitEffects Effects that this weapon applies.
 	 */
-	public Weapon(String name, String description, SecondaryStats secStats, Rarity rarity, ArrayList<Effect> effects, ArrayList<Effect> onHitEffects) {
-		super(name, description, secStats, rarity, effects);
+	public Weapon(String name, String description, SecondaryStats secondaryStats, Rarity rarity, ArrayList<Effect> effects, ArrayList<Effect> onHitEffects) {
+		super(name, description, secondaryStats, rarity, effects);
 		this.onHitEffects = onHitEffects;
 	}
 
@@ -42,12 +42,12 @@ public class Weapon extends Equipment {
 	 * Constructor that takes two single Effect objects for effects and onHitEffects.
 	 * @param name
 	 * @param description
-	 * @param secStats This weapon's stats.
+	 * @param secondaryStats This weapon's stats.
 	 * @param effect Effect that is applied to this weapon.
 	 * @param onHitEffect Effect that this weapon applies.
 	 */
-	public Weapon(String name, String description, SecondaryStats secStats, Rarity rarity, Effect effect, Effect onHitEffect) {
-		super(name, description, secStats, rarity, effect);
+	public Weapon(String name, String description, SecondaryStats secondaryStats, Rarity rarity, Effect effect, Effect onHitEffect) {
+		super(name, description, secondaryStats, rarity, effect);
 		onHitEffects = new ArrayList<Effect>();
 		this.onHitEffects.add(onHitEffect);
 	}
@@ -56,10 +56,10 @@ public class Weapon extends Equipment {
 	 * Constructor for a weapon without effects.
 	 * @param name
 	 * @param description
-	 * @param secStats This weapon's stats.
+	 * @param secondaryStats This weapon's stats.
 	 */
-	public Weapon(String name, String description, SecondaryStats secStats, Rarity rarity) {
-		super(name, description, secStats, rarity);
+	public Weapon(String name, String description, SecondaryStats secondaryStats, Rarity rarity) {
+		super(name, description, secondaryStats, rarity);
 		onHitEffects = new ArrayList<Effect>();
 	}
 	

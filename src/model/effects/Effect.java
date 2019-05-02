@@ -28,10 +28,10 @@ public abstract class Effect {
     // If false, effect is applied before the character starts its turn.
     private boolean instantApply;
 
-    private void init(String name, String desc, int dur, boolean instantApply) {
+    private void init(String name, String description, int duration, boolean instantApply) {
     	this.name = name;
-        this.description = desc;
-        this.duration = dur;
+        this.description = description;
+        this.duration = duration;
         this.instantApply = instantApply;
     }
 
@@ -53,11 +53,11 @@ public abstract class Effect {
     }
 
         	
-    public abstract void applyEffect (Character cha);
+    public abstract void applyEffect (Character character);
 
     public abstract void applyEffect (Square square);
     
-    public abstract void applyEffect (Equipment equip);
+    public abstract void applyEffect (Equipment equipment);
 
     public String getName() {
         return name;

@@ -12,10 +12,10 @@
     "toughnessLevel": 30,
     "luckLevel": 0
   },
-  "secStats": {
+  "secondaryStats": {
     "hp": 0,
     "action": 0,
-    "max_Hp": 0,
+    "maxHP": 0,
     "maxAction": 0,
     "attackPower": 0,
     "magicAttackPower": 0,
@@ -48,10 +48,10 @@
     "toughnessLevel": 0,
     "luckLevel": 0
   },
-  "secStats": {
+  "secondaryStats": {
     "hp": 0,
     "action": 0,
-    "max_Hp": 0,
+    "maxHP": 0,
     "maxAction": 0,
     "attackPower": 0,
     "magicAttackPower": 20,

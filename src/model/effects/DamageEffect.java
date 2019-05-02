@@ -42,12 +42,12 @@ public class DamageEffect extends Effect {
 	}
 
 	@Override
-	public void applyEffect(Character cha) {
-		SecondaryStats stats = cha.getSecondaryStats();
+	public void applyEffect(Character character) {
+		SecondaryStats stats = character.getSecondaryStats();
 		// The *-1 makes the function subtract the given hp instead of adding it.
 		stats.addHp((int) this.flatDamage * -1);
-		stats.addHp((int) this.percentOfMaxHealthDamage /100 * stats.getMax_Hp() * -1);
-		stats.addHp((int) this.percentOfMissingHealthDamage /100 * (stats.getMax_Hp() - stats.getHp()) * -1);
+		stats.addHp((int) this.percentOfMaxHealthDamage /100 * stats.getMaxHP() * -1);
+		stats.addHp((int) this.percentOfMissingHealthDamage /100 * (stats.getMaxHP() - stats.getHp()) * -1);
 		stats.addHp((int) this.percentOfCurrentHealthDamage /100 * stats.getHp() * -1);
 
 	}
@@ -59,5 +59,5 @@ public class DamageEffect extends Effect {
 	}
 
 	@Override
-	public void applyEffect(Equipment equip) {}
+	public void applyEffect(Equipment equipment) {}
 }

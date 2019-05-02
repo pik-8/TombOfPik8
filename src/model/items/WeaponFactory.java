@@ -1,19 +1,13 @@
 package model.items;
 
-import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
 
 import constants.FileConstants;
 import model.io.TemplateReader;
-import model.json.AdapterFactories;
 import utility.StatBalancer;
 
 /**
@@ -35,8 +29,8 @@ public class WeaponFactory extends ItemFactory {
 	
 	protected void generateItemArray(ArrayList<Item> list, JsonObject jsonObject) {
 		JsonArray jsonArray = jsonObject.getAsJsonArray("array");
-		for(JsonElement jo : jsonArray) {
-			list.add(gson.fromJson(jo, Weapon.class));
+		for(JsonElement jsonObject : jsonArray) {
+			list.add(gson.fromJson(jsonObject, Weapon.class));
 		}
 	}
 	
@@ -50,8 +44,8 @@ public class WeaponFactory extends ItemFactory {
 	}
 	
 	public Weapon generateRandomWeapon(int level) {
-		Rarity r = Rarity.values()[rand.nextInt(Rarity.values().length)];
-		return generateRandomWeapon(level, r);
+		Rarity rarity = Rarity.values()[rand.nextInt(Rarity.values().length)];
+		return generateRandomWeapon(level, rarity);
 	}
 	
 	public Item generateRandomItem(int level, Rarity rare) {
@@ -70,26 +64,26 @@ public class WeaponFactory extends ItemFactory {
 	}
 	
 	public Weapon generateCommonWeapon(int level) {
-		Weapon wp = (Weapon) pickRandomItem(common);
-		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
-		return wp;
+		Weapon weapon = (Weapon) pickRandomItem(common);
+		StatBalancer.balanceSecondaryStats(weapon.getSecondaryStats(), level);
+		return weapon;
 	}
 	
 	public Weapon generateRareWeapon(int level) {
-		Weapon wp = (Weapon) pickRandomItem(rare);
-		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
-		return wp;
+		Weapon weapon = (Weapon) pickRandomItem(rare);
+		StatBalancer.balanceSecondaryStats(weapon.getSecondaryStats(), level);
+		return weapon;
 	}
 
 	public Weapon generateEpicWeapon(int level) {
-		Weapon wp = (Weapon) pickRandomItem(epic);
-		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
-		return wp;	}
+		Weapon weapon = (Weapon) pickRandomItem(epic);
+		StatBalancer.balanceSecondaryStats(weapon.getSecondaryStats(), level);
+		return weapon;	}
 
 	public Weapon generateLegendaryWeapon(int level) {
-		Weapon wp = (Weapon) pickRandomItem(legendary);
-		StatBalancer.balanceSecondaryStats(wp.getSecStats(), level);
-		return wp;
+		Weapon weapon = (Weapon) pickRandomItem(legendary);
+		StatBalancer.balanceSecondaryStats(weapon.getSecondaryStats(), level);
+		return weapon;
 	}
 	
 }

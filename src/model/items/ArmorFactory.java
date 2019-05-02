@@ -28,8 +28,8 @@ public class ArmorFactory extends ItemFactory {
 	@Override
 	protected void generateItemArray(ArrayList<Item> list, JsonObject jsonObject) {
 		JsonArray jsonArray = jsonObject.getAsJsonArray("array");
-		for(JsonElement jo : jsonArray) {
-			list.add(gson.fromJson(jo, Armor.class));
+		for(JsonElement jsonElement : jsonArray) {
+			list.add(gson.fromJson(jsonElement, Armor.class));
 		}		
 	}
 
@@ -38,8 +38,8 @@ public class ArmorFactory extends ItemFactory {
 	}
 	
 	public Armor generateRandomArmor(int level) {
-		Rarity r = Rarity.values()[rand.nextInt(Rarity.values().length)];
-		return generateRandomArmor(level, r);
+		Rarity rarity = Rarity.values()[rand.nextInt(Rarity.values().length)];
+		return generateRandomArmor(level, rarity);
 	}
 	
 	@Override
@@ -60,25 +60,25 @@ public class ArmorFactory extends ItemFactory {
 	
 	public Item generateCommonArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(common);
-		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(armor.getSecondaryStats(), level);
 		return armor;
 	}
 	
 	public Item generateRareArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(rare);
-		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(armor.getSecondaryStats(), level);
 		return armor;
 	}
 
 	public Item generateEpicArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(epic);
-		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(armor.getSecondaryStats(), level);
 		return armor;
 	}
 	
 	public Item generateLegendaryArmor(int level) {
 		Armor armor = (Armor) pickRandomItem(legendary);
-		StatBalancer.balanceSecondaryStats(armor.getSecStats(), level);
+		StatBalancer.balanceSecondaryStats(armor.getSecondaryStats(), level);
 		return armor;
 	}
 

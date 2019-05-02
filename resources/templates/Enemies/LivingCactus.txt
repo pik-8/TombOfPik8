@@ -50,7 +50,7 @@
   "secondaryStats": {
     "hp": 30,
     "action": 2,
-    "max_Hp": 30,
+    "maxHP": 30,
     "maxAction": 2,
     "attackPower": 10,
     "magicAttackPower": 0,

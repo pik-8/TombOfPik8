@@ -124,8 +124,8 @@ public class PrimeStats {
 	public boolean isSpecialist() {
 		return isSpecialist;
 	}
-	public void setSpecialist(boolean isSpezialist) {
-		this.isSpecialist = isSpezialist;
+	public void setSpecialist(boolean isSpecialist) {
+		this.isSpecialist = isSpecialist;
 	}
 	public int getHealthLevel() {
 		return healthLevel;

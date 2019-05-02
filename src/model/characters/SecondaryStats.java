@@ -11,7 +11,7 @@ public class SecondaryStats {
 	private int hp;
 	private int action;
 
-	private int max_Hp;
+	private int maxHP;
 	private int maxAction;
 	private int attackPower;
 	private int magicAttackPower;
@@ -31,7 +31,7 @@ public class SecondaryStats {
 	 *
 	 * @param hp: The current hp a character can have. 0 <= hp <= max hp.
 	 * @param action: The current amount of actions (attackPowering, walking) a character can do. 0 <= action <= max action.
-	 * @param max_Hp: Sets the maximum amount of a character can have.
+	 * @param maxHP: Sets the maximum amount of a character can have.
 	 * @param maxAction: Sets the maximum amount of actions a character can have.
 	 * @param attackPower: Sets how powerful a character can attack someone.
 	 * @param magicAttackPower: Determines how powerful a character can attack someone with magic.
@@ -44,11 +44,11 @@ public class SecondaryStats {
 	 * @param stamina: Determines the amount of fields one character can cross.
 	 * @param attackSlots: The amount of attackSlots one character has.
 	 */
-	 public SecondaryStats(int hp, int action, int max_Hp, int maxAction, int attackPower, int magicAttackPower, int defence,
+	 public SecondaryStats(int hp, int action, int maxHP, int maxAction, int attackPower, int magicAttackPower, int defence,
 			int magicDefence, int speed,
 			int luck, int load, int maxEquipmentLoad, int stamina, int attackSlots) {
 
-		 this.max_Hp = max_Hp;
+		 this.maxHP = maxHP;
 		 this.maxAction = maxAction;
 		 this.hp = 0;
 		 this.action = 0;
@@ -83,8 +83,8 @@ public class SecondaryStats {
 	 * @param amount The amount of hp to add.
 	 */
 	public void addHp(int amount) {
-		if(this.hp + amount > this.max_Hp)
-			this.hp = this.max_Hp;
+		if(this.hp + amount > this.maxHP)
+			this.hp = this.maxHP;
 		else if(this.hp + amount < 0)
 			this.hp = 0;
 		else
@@ -114,11 +114,11 @@ public class SecondaryStats {
 	public int getAction() {
 		return this.action;
 	}
-	public int getMax_Hp() {
-		return max_Hp;
+	public int getMaxHP() {
+		return maxHP;
 	}
-	public void setMax_Hp(int max_Hp) {
-		this.max_Hp = max_Hp;
+	public void setMaxHP(int maxHP) {
+		this.maxHP = maxHP;
 	}
 	public int getMaxAction() {
 		return this.maxAction;
@@ -193,7 +193,7 @@ public class SecondaryStats {
 	public String toString() {
 		return "SecondaryStats [hp: " + hp + 
 				"\naction: " + action + 
-				"\nmax_Hp: " + max_Hp + 
+				"\nmaxHP: " + maxHP +
 				"\nmaxAction: " + maxAction + 
 				"\nattackPower: " + attackPower + 
 				"\nmagicAttackPower: " + magicAttackPower + 

@@ -13,36 +13,36 @@ import model.effects.Effect;
  */
 public abstract class Equipment extends Item {
 	
-	protected SecondaryStats secStats;
+	protected SecondaryStats secondaryStats;
 	
-	private void init(String name, String description, SecondaryStats secStats, Rarity rarity) {
+	private void init(String name, String description, SecondaryStats secondaryStats, Rarity rarity) {
 		this.name = name;
 		this.description = description;
-		this.secStats = secStats;
+		this.secondaryStats = secondaryStats;
 		this.rarity = rarity;
 	}
 	
-	public Equipment(String name, String description, SecondaryStats secStats, Rarity rarity) {
-		init(name, description, secStats, rarity);
+	public Equipment(String name, String description, SecondaryStats secondaryStats, Rarity rarity) {
+		init(name, description, secondaryStats, rarity);
 		this.effects = new ArrayList<Effect>();
 	}
 	
-	public Equipment(String name, String description, SecondaryStats secStats, Rarity rarity, ArrayList<Effect> effects) {
-		init(name, description, secStats, rarity);
+	public Equipment(String name, String description, SecondaryStats secondaryStats, Rarity rarity, ArrayList<Effect> effects) {
+		init(name, description, secondaryStats, rarity);
 		this.effects = effects;
 	}
 	
-	public Equipment(String name, String description, SecondaryStats secStats, Rarity rarity, Effect effect) {
-		init(name, description, secStats, rarity);
+	public Equipment(String name, String description, SecondaryStats secondaryStats, Rarity rarity, Effect effect) {
+		init(name, description, secondaryStats, rarity);
 		this.effects = new ArrayList<Effect>();
 		this.effects.add(effect);
 	}
 	
-	public SecondaryStats getSecStats() {
-		return secStats;
+	public SecondaryStats getSecondaryStats() {
+		return secondaryStats;
 	}
 
-	public void setSecStats(SecondaryStats secStats) {
-		this.secStats = secStats;
+	public void setSecondaryStats(SecondaryStats secondaryStats) {
+		this.secondaryStats = secondaryStats;
 	}
 }

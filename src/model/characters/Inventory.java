@@ -81,13 +81,13 @@ public class Inventory {
 
 	/**
 	 * Adds a consumable item to the inventory if it is not full, then returns the updated list of consumables.
-	 * @param cons The consumable to be added.
+	 * @param consumable The consumable to be added.
 	 * @return The updated list of consumables.
 	 * @throws InventoryFullException Thrown if tried to add to a full Inventory.
 	 */
-	public ArrayList<Consumable> addConsumable(Consumable cons) throws InventoryFullException {
+	public ArrayList<Consumable> addConsumable(Consumable consumable) throws InventoryFullException {
 		if(incrementItemCount())
-			consumables.add(cons);
+			consumables.add(consumable);
 		else 
 			throw new InventoryFullException();
 		return consumables;
@@ -95,13 +95,13 @@ public class Inventory {
 	
 	/**
 	 * Removes a consumable item from the inventory, then returns the updated list of consumables.
-	 * @param cons The consumable to be removed.
+	 * @param consumable The consumable to be removed.
 	 * @return The updated list of consumables.
 	 */
-	public ArrayList<Consumable> removeConsumable(Consumable cons) {
-		if(consumables.contains(cons)) {
+	public ArrayList<Consumable> removeConsumable(Consumable consumable) {
+		if(consumables.contains(consumable)) {
 			decrementItemCount();
-			consumables.remove(cons);
+			consumables.remove(consumable);
 		}
 		return consumables;
 	}
@@ -112,29 +112,29 @@ public class Inventory {
 	
 	/**
 	 * Adds an equipment item to the inventory if it is not full, then returns the updated list of equipment.
-	 * @param equip The equipment to be added.
+	 * @param equipment The equipment to be added.
 	 * @return The updated list of equipment.
 	 * @throws InventoryFullException Thrown if tried to add to a full Inventory.
 	 */
-	public ArrayList<Equipment> addEquipment(Equipment equip) throws InventoryFullException {
+	public ArrayList<Equipment> addEquipment(Equipment equipment) throws InventoryFullException {
 		if(incrementItemCount())
-			equipment.add(equip);
+			this.equipment.add(equipment);
 		else
 			throw new InventoryFullException();
-		return equipment;
+		return this.equipment;
 	}
 	
 	/**
 	 * Removes an equipment item from the inventory, then returns the updated list of equipment.
-	 * @param equip The equipment to be removed.
+	 * @param equipment The equipment to be removed.
 	 * @return The updated list of equipment.
 	 */
-	public ArrayList<Equipment> removeEquipment(Equipment equip) {
-		if(equipment.contains(equip)) { 
+	public ArrayList<Equipment> removeEquipment(Equipment equipment) {
+		if(this.equipment.contains(equipment)) {
 			decrementItemCount();
-			equipment.remove(equip);
+			this.equipment.remove(equipment);
 		}
-		return equipment;
+		return this.equipment;
 	}
 	
 	public HashMap<CraftingMaterial, Integer> getMaterials() {
@@ -143,15 +143,15 @@ public class Inventory {
 
 	/**
 	 * Adds an amount of material to the inventory.
-	 * @param mat The material to be added.
+	 * @param material The material to be added.
 	 * @return true if the material was successfully added, false otherwise.
 	 */
-	public boolean addMaterial(CraftingMaterial mat, int amount) {
+	public boolean addMaterial(CraftingMaterial material, int amount) {
 		if(amount >= 0) {
-			if(materials.containsKey(mat)) 
-				materials.put(mat, materials.get(mat) + amount);
+			if(materials.containsKey(material))
+				materials.put(material, materials.get(material) + amount);
 			else
-				materials.put(mat, amount);
+				materials.put(material, amount);
 			return true;
 		}
 		return false;	
@@ -159,15 +159,15 @@ public class Inventory {
 	
 	/**
 	 * Subtracts an amount of material from the inventory.
-	 * @param mat The material to be subtracted.
+	 * @param material The material to be subtracted.
 	 * @return true if the material was successfully subtracted, false otherwise.
 	 */
-	public boolean subtractMaterial(CraftingMaterial mat, int amount) {
+	public boolean subtractMaterial(CraftingMaterial material, int amount) {
 		if(amount >= 0) {
-			if(materials.containsKey(mat) && materials.get(mat) - amount > 0) 
-				materials.put(mat, materials.get(mat) - amount);
+			if(materials.containsKey(material) && materials.get(material) - amount > 0)
+				materials.put(material, materials.get(material) - amount);
 			else
-				materials.put(mat, amount);
+				materials.put(material, amount);
 			return true;
 		}
 		return false;	

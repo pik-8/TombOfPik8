@@ -60,8 +60,8 @@ public class MobSpawner {
 		}
 	}
 	
-	private void addToPossibleMobs(JsonObject jo) {
-		possibleMobs.add(gson.fromJson(jo, Character.class));
+	private void addToPossibleMobs(JsonObject jsonObject) {
+		possibleMobs.add(gson.fromJson(jsonObject, Character.class));
 	}
 	
 	public Character spawnMob() {

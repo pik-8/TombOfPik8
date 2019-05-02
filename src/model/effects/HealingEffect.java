@@ -60,11 +60,11 @@ public class HealingEffect extends Effect{
 	}
 
 	@Override
-	public void applyEffect(Character cha) {
-		SecondaryStats stats = cha.getSecondaryStats();
+	public void applyEffect(Character character) {
+		SecondaryStats stats = character.getSecondaryStats();
 		stats.addHp((int) this.flatHeal);
-		stats.addHp((int) this.percentOfMaxHealthHeal/100 * stats.getMax_Hp());
-		stats.addHp((int) this.percentOfMissingHealthHeal/100 * (stats.getMax_Hp() - stats.getHp()));
+		stats.addHp((int) this.percentOfMaxHealthHeal/100 * stats.getMaxHP());
+		stats.addHp((int) this.percentOfMissingHealthHeal/100 * (stats.getMaxHP() - stats.getHp()));
 		stats.addHp((int) this.percentOfCurrentHealthHeal/100 * stats.getHp());
 	}
 
@@ -79,5 +79,5 @@ public class HealingEffect extends Effect{
 	}
 
 	@Override
-	public void applyEffect(Equipment equip) {}
+	public void applyEffect(Equipment equipment) {}
 }

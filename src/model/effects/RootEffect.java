@@ -23,8 +23,8 @@ public class RootEffect extends Effect {
 	}
 
 	@Override
-	public void applyEffect(Character cha) {
-		cha.getSecondaryStats().setStamina(0);
+	public void applyEffect(Character character) {
+		character.getSecondaryStats().setStamina(0);
 	}
 
 	@Override
@@ -33,5 +33,5 @@ public class RootEffect extends Effect {
 	}
 
 	@Override
-	public void applyEffect(Equipment equip) {}
+	public void applyEffect(Equipment equipment) {}
 }

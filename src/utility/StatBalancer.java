@@ -45,7 +45,7 @@ public class StatBalancer {
 		 */
 		double levelMultiplicator = Math.pow(1 + Factors.SECSTAT_INCREASE_MULTIPLIER, (level - 1));
 		
-		stats.setMax_Hp((int)Math.round(stats.getMax_Hp() * levelMultiplicator));
+		stats.setMaxHP((int)Math.round(stats.getMaxHP() * levelMultiplicator));
 		stats.setLuck((int)Math.round(stats.getLuck() * levelMultiplicator));
 		stats.setDefence((int)Math.round(stats.getDefence() * levelMultiplicator));
 		stats.setMagicDefence((int)Math.round(stats.getMagicDefence() * levelMultiplicator));
@@ -65,7 +65,7 @@ public class StatBalancer {
 		 */
 		double deviation =(rand.nextDouble() - 0.5) * 2 * Factors.SECSTAT_ROLL_DEVIATION + 1;
 
-		stats.setMax_Hp((int)Math.round(stats.getMax_Hp() * deviation));
+		stats.setMaxHP((int)Math.round(stats.getMaxHP() * deviation));
 		stats.setLuck((int)Math.round(stats.getLuck() * deviation));
 		stats.setDefence((int)Math.round(stats.getDefence() * deviation));
 		stats.setMagicDefence((int)Math.round(stats.getMagicDefence() * deviation));
