@@ -31,7 +31,7 @@ public class DungeonPrinter {
     }
 
 
-    public static void printVisibleDungeon (boolean[][] visibleTiles, Character[][] characters, Dungeon dungeon) {
+    public static void printDungeon (Dungeon dungeon, Character[][] characters, boolean[][] visibleTiles) {
         int tileSize = getTileSize(dungeon);
 
         for (int mapY = 0; mapY < dungeon.getLayout()[0].length; mapY++){
@@ -39,17 +39,17 @@ public class DungeonPrinter {
                 for (int mapX = 0; mapX < dungeon.getLayout().length; mapX++) {
                     for (int tileX = 0; tileX < tileSize; tileX++) {
                         if (visibleTiles[mapX][mapY]){
-                            if (characters[(mapX * tileSize) + tileX][(mapY * tileSize) + mapY] == null) {
+                            if (characters[(mapX * tileSize) + tileX][(mapY * tileSize) + tileY] == null) {
                                 printLetterOfTerrain(dungeon.getLayout()[mapX][mapY].getLayout()[tileX][tileY].getTerrain());
                             } else {
-                                printLetterOfCharacter(characters[(mapX * tileSize) + tileX][(mapY * tileSize) + mapY]);
+                                printLetterOfCharacter(characters[(mapX * tileSize) + tileX][(mapY * tileSize) + tileY]);
                             }
                         } else {
                             printOneEmptyLine(tileSize);
                         }
                     }
-                    System.out.println();
                 }
+                System.out.println();
             }
         }
     }

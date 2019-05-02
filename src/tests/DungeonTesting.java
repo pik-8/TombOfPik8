@@ -5,14 +5,15 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import control.DungeonController;
 import model.characters.Character;
-import model.dungeon.DifficultyFactory;
-import model.dungeon.Dungeon;
-import model.dungeon.DungeonFactory;
-import model.dungeon.Landscape;
-import model.dungeon.Position;
+import model.characters.Hero;
+import model.characters.HeroClass;
+import model.dungeon.*;
 import model.json.AdapterFactories;
 import view.DungeonPrinter;
+
+import java.io.FileWriter;
 
 
 /**
@@ -31,10 +32,30 @@ public class DungeonTesting {
         createDungeonString();//Failure
         //loadDungeonFromTemplate("TestDungeon.pik");//Success
 
+        printVisibleMapWithCharacters();
+
         //testAllDungeonGenerators(); //Success
     }
 
 
+    /**
+     * Is not a stable test.
+     */
+    private static void printVisibleMapWithCharacters() {
+        System.out.println("Test to see if visible dungeon works.");
+        DungeonFactory df = new DungeonFactory();
+        Dungeon dungeon = df.generateRandomDungeon(2,2, 4, new Landscape[]{Landscape.FOREST}, new Position());
+        Character[][] layout = df.getMobLayout(DifficultyFactory.getDifficultyFactory().getRandomDifficulty(), dungeon, 100);
+        layout[3][0] = Hero.createHero("Deku", HeroClass.WARRIOR);
+        System.out.println("\nNormal dungeon:");
+        DungeonPrinter.printDungeon(dungeon, layout);
+        boolean[][] visible = new boolean[][]{
+                {true, true},
+                {true, true}
+        };
+        System.out.println("\nVisible dungeon:");
+        DungeonPrinter.printDungeon(dungeon, layout, visible);
+    }
 
 
     private static void createDungeonString() throws Exception{
