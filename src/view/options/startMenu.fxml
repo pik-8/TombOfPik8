@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="StartMenu" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.options.options">
+         <Label text="Want to have fun? Start a new game and enjoy your new life!">
+            <font>
+               <Font name="Seattle Avenue" size="20.0" />
+            </font>
+         </Label>
+</Pane>

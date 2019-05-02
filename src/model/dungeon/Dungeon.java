@@ -14,7 +14,6 @@ public class Dungeon {
 
     private Tile[][] layout;
     private Objective objective;
-    private Character[][] mobLayout;
 
 
     protected Dungeon(Tile[][] layout, Objective objective) throws NullPointerException {
@@ -22,20 +21,15 @@ public class Dungeon {
         this.objective = Objects.requireNonNull(objective);
     }
 
-    public Dungeon(Tile[][] layout, Character[][] mobLayout) {
+    public Dungeon(Tile[][] layout) {
         this.layout = layout;
-        this.mobLayout = mobLayout;
     }
 
-    public Tile[][] getlayout() {
+    public Tile[][] getLayout() {
         return layout;
     }
 
     public Objective getObjective() {
         return objective;
-    }
-
-    public Character[][] getMobLayout() {
-        return mobLayout;
     }
 }

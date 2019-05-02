@@ -1,26 +1,32 @@
 package view.options;
 
 
+import constants.FileConstants;
 import javafx.application.*;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPaneBuilder;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import javax.swing.event.TreeModelEvent;
 
 /**
  * options view
- *
- * ToDo:
- * - create FXML file(s) and add it to the view
- * - get window size from model.options.Resolution
- *
- * Done:
- * - add multiple Scenes (main options, volume, resolution, etc)
  *
  * @author Patrick Szalewicz
  */
 
 public class Options extends Application {
+
+    @Override
+    public void init() throws Exception {
+        super.init();
+        Font.loadFont(getClass().getResourceAsStream(FileConstants.OPTIONS_PATH + "/resources/options/Seattle_Avenue.ttf"), 14);
+    }
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -29,7 +35,7 @@ public class Options extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        BorderPane mainBorderPane = FXMLLoader.load(Options.class.getResource("options.fxml"));
+        BorderPane mainBorderPane = FXMLLoader.load(Options.class.getResource("main.fxml"));
         primaryStage.setScene(new Scene(mainBorderPane));
         primaryStage.show();
 

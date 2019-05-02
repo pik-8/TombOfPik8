@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+    <children>
+        <Label text="Hastedt, Stöver, Szalewicz">
+                <font>
+                    <Font name="Seattle Avenue" size="20.0" />
+                </font>
+        </Label>
+    </children>
+    <padding>
+        <Insets right="50.0" />
+    </padding>
+</HBox>

@@ -67,7 +67,7 @@ public class Tile {
     }
 
 
-    public Square[][] getlayout () {
+    public Square[][] getLayout () {
         return this.layout;
     }
 

@@ -7,12 +7,7 @@ import javafx.stage.Stage;
 import java.awt.*;
 
 /**
- * This class is used for the Volume sliders and options
- *
- * ToDo:
- * - getValues is 0.0 not 50, why?
- * - add saving and loading with gson
- * - add the following options: mute effects, mute music, ...
+ * TO BE REMOVED!
  *
  * @author Patrick Szalewicz
  */

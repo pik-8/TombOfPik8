@@ -26,7 +26,7 @@ public class TombOfPik8 {
     	
     	DungeonFactory df = new DungeonFactory();
     	
-    	Dungeon basicDungeon = df.generateRandomDungeon(1, 4, 5, 4, new Landscape[] {Landscape.FOREST}, new Position(0, 0));
+    	Dungeon basicDungeon = df.generateRandomDungeon( 5, 5, 4, new Landscape[] {Landscape.FOREST}, new Position(0, 0));
     	
     	Hero fred = Hero.createHero("Ceebly", HeroClass.WARRIOR);
     	Hero hagen = Hero.createHero("Ter-4-f", HeroClass.MAGE);

@@ -20,38 +20,45 @@ import java.util.Optional;
 public class DungeonPrinter {
 
 
+
     /**
-     * Prints every Terrain-object in the dungeon as a map.
-     * Prints the first two letters of a terrain.
+     * Prints the first two letters of a landscape and creates a map of the dungeon.
      *
      * @param dungeon: The dungeon that should be printed.
      */
-    public static void printTerrainLayout (Dungeon dungeon) {
-        int tileSize = 0;
+    public static void printLandscapes (Dungeon dungeon) {
+        for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
+            for (int x = 0; x < dungeon.getLayout().length; x++) {
+                printOneLetterForLandscape(dungeon.getLayout()[x][y]);
+            }
+            System.out.println();
+        }
+    }
 
-        //searches through the layout to find a tile that is not null to get the length of the tiles.
-        for (int i = 0; i < dungeon.getlayout().length; i++) {
-            for (int j = 0; j < dungeon.getlayout()[i].length; j++) {
-                if (dungeon.getlayout()[i][j] != null) {
-                    tileSize = dungeon.getlayout()[i][j].getSize();
-                    break;
-                }
+
+    public static void printMobLayout (Character[][] mobLayout) {
+        for (int y = 0; y < mobLayout[0].length; y++) {
+            for (int x = 0; x < mobLayout.length; x++) {
+                printLetterOfMob(mobLayout[x][y]);
             }
-            if (tileSize != 0) {
-                break;
-            }
+            System.out.println();
         }
-        /*
-        for (Tile tiles[] : dungeon.getlayout()) {
-            tileSize = Arrays.stream(tiles).filter(field -> field != null).findFirst().get().getSize();
-        }
-         */
-        for (int y = 0; y < dungeon.getlayout()[0].length; y++) {
+    }
+
+
+    public static void printDungeon (Dungeon dungeon, Character[][] mobLayout) {
+        int tileSize = gettileSize(dungeon);
+
+        for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
             for (int tileYIndex = 0; tileYIndex < tileSize; tileYIndex++) {
-                for (int x = 0; x < dungeon.getlayout().length; x++) {
-                    if (dungeon.getlayout()[x][y] != null) {
+                for (int x = 0; x < dungeon.getLayout().length; x++) {
+                    if (dungeon.getLayout()[x][y] != null) {
                         for (int tileX = 0; tileX < tileSize; tileX++) {
-                            printLetterOfTerrain(dungeon.getlayout()[x][y].getlayout()[tileX][tileYIndex].getTerrain());
+                            if (mobLayout[(x * tileSize) + tileX][(y* tileSize) + tileYIndex] != null) {
+                                printLetterOfMob(mobLayout[(x * tileSize) + tileX][(y* tileSize) + tileYIndex]);
+                            } else {
+                                printLetterOfTerrain(dungeon.getLayout()[x][y].getLayout()[tileX][tileYIndex].getTerrain());
+                            }
                         }
                     } else {
                         printOneEmptyLine(tileSize);
@@ -63,57 +70,14 @@ public class DungeonPrinter {
     }
 
 
-    /**
-     * Prints the first two letters of a landscape and creates a map of the dungeon.
-     *
-     * @param dungeon: The dungeon that should be printed.
-     */
-    public static void printLandscapes (Dungeon dungeon) {
-        for (int y = 0; y < dungeon.getlayout()[0].length; y++) {
-            for (int x = 0; x < dungeon.getlayout().length; x++) {
-                printOneLetterForLandscape(dungeon.getlayout()[x][y]);
-            }
-            System.out.println();
-        }
-    }
-
-
-    public static void printMobLayout (Dungeon dungeon) {
-        for (int y = 0; y < dungeon.getMobLayout()[0].length; y++) {
-            for (int x = 0; x < dungeon.getMobLayout().length; x++) {
-                printLetterOfMob(dungeon.getMobLayout()[x][y]);
-            }
-            System.out.println();
-        }
-    }
-
-
     public static void printDungeon (Dungeon dungeon) {
-        int tileSize = 0;
-
-        //searches through the layout to find a tile that is not null to get the length of the tiles.
-        for (int i = 0; i < dungeon.getlayout().length; i++) {
-            for (int j = 0; j < dungeon.getlayout()[i].length; j++) {
-                if (dungeon.getlayout()[i][j] != null) {
-                    tileSize = dungeon.getlayout()[i][j].getSize();
-                    break;
-                }
-            }
-            if (tileSize != 0) {
-                break;
-            }
-        }
-
-        for (int y = 0; y < dungeon.getlayout()[0].length; y++) {
+        int tileSize = gettileSize(dungeon);
+        for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
             for (int tileYIndex = 0; tileYIndex < tileSize; tileYIndex++) {
-                for (int x = 0; x < dungeon.getlayout().length; x++) {
-                    if (dungeon.getlayout()[x][y] != null) {
+                for (int x = 0; x < dungeon.getLayout().length; x++) {
+                    if (dungeon.getLayout()[x][y] != null) {
                         for (int tileX = 0; tileX < tileSize; tileX++) {
-                            if (dungeon.getMobLayout()[(x * tileSize) + tileX][(y* tileSize) + tileYIndex] != null) {
-                                printLetterOfMob(dungeon.getMobLayout()[(x * tileSize) + tileX][(y* tileSize) + tileYIndex]);
-                            } else {
-                                printLetterOfTerrain(dungeon.getlayout()[x][y].getlayout()[tileX][tileYIndex].getTerrain());
-                            }
+                            printLetterOfTerrain(dungeon.getLayout()[x][y].getLayout()[tileX][tileYIndex].getTerrain());
                         }
                     } else {
                         printOneEmptyLine(tileSize);
@@ -168,5 +132,28 @@ public class DungeonPrinter {
         for (int i = 0; i < size; i++) {
             System.out.print("   ");
         }
+    }
+
+    private static int gettileSize (Dungeon dungeon) {
+        int tileSize = 0;
+
+        //searches through the layout to find a tile that is not null to get the length of the tiles.
+        for (int i = 0; i < dungeon.getLayout().length; i++) {
+            for (int j = 0; j < dungeon.getLayout()[i].length; j++) {
+                if (dungeon.getLayout()[i][j] != null) {
+                    tileSize = dungeon.getLayout()[i][j].getSize();
+                    break;
+                }
+            }
+            if (tileSize != 0) {
+                break;
+            }
+        }
+        /*
+        for (Tile tiles[] : dungeon.getLayout()) {
+            tileSize = Arrays.stream(tiles).filter(field -> field != null).findFirst().get().getSize();
+        }
+         */
+        return tileSize;
     }
 }

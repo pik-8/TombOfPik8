@@ -32,19 +32,19 @@ public class DungeonController {
 	private void spawnHeroes(Hero[] heroes) {
 		try {
 			Position startPosition = findStartingTerrain();
-			Tile spawnTile = dungeon.getlayout()[startPosition.getxTile()][startPosition.getyTile()];
+			Tile spawnTile = dungeon.getLayout()[startPosition.getxTile()][startPosition.getyTile()];
 			this.heroes.put(heroes[0], startPosition);
 			for(int i = 1; i < heroes.length; i++) {
 				heroIteration:
 				for(int y = -1; y <= 1; y++) {
 					for(int x = -1; x <= 1; x++) {
-						
-						if(spawnTile.getlayout()[startPosition.getXPosition() + x][startPosition.getYPosition() + y].getTerrain().isValidSpawnTerrain()) {
+						if(spawnTile.getLayout()[startPosition.getXPosition() + x][startPosition.getYPosition() + y].getTerrain().isValidSpawnTerrain()) {
 							Position pos = new Position(startPosition.getXPosition() + x, 
 									startPosition.getYPosition() + y, 
 									startPosition.getxTile(), 
 									startPosition.getyTile());
 							if(isFree(pos)) {
+
 								this.heroes.put(heroes[i], pos);
 								System.out.println("tileX:"+pos.getxTile() + "\ntileY:"+ pos.getyTile() + "\nx:" + pos.getXPosition()+"\ny:"+ pos.getYPosition() + "\nHero: " + heroes[i].getName());
 								break heroIteration;
@@ -60,11 +60,11 @@ public class DungeonController {
 	}
 	
 	private Position findFirstFreeSquare() {
-		for(int yT = 0; yT < dungeon.getlayout()[0].length; yT++) {
-			for(int xT = 0; xT < dungeon.getlayout().length; xT++) {
-				Tile tile = dungeon.getlayout()[xT][yT];
-				for(int yS = 0; yS < tile.getlayout()[0].length; yS++) {
-					for(int xS = 0; xS < tile.getlayout().length; xS++) {
+		for(int yT = 0; yT < dungeon.getLayout()[0].length; yT++) {
+			for(int xT = 0; xT < dungeon.getLayout().length; xT++) {
+				Tile tile = dungeon.getLayout()[xT][yT];
+				for(int yS = 0; yS < tile.getLayout()[0].length; yS++) {
+					for(int xS = 0; xS < tile.getLayout().length; xS++) {
 						Position pos = new Position(xS, yS, xT, yT);
 						if(isFree(pos))
 							return pos;
@@ -89,13 +89,13 @@ public class DungeonController {
 	
 	private Position findStartingTerrain() throws DungeonException {
 		if(dungeon != null) {
-			for(int tileX = 0; tileX < dungeon.getlayout().length; tileX++) {
-				for(int tileY = 0; tileY < dungeon.getlayout()[0].length; tileY++) {
-					Tile tile = dungeon.getlayout()[tileX][tileY];
+			for(int tileX = 0; tileX < dungeon.getLayout().length; tileX++) {
+				for(int tileY = 0; tileY < dungeon.getLayout()[0].length; tileY++) {
+					Tile tile = dungeon.getLayout()[tileX][tileY];
 					if(tile != null) {
 						for(int squareX = 0; squareX < tile.getSize(); squareX++) {
 							for(int squareY = 0; squareY < tile.getSize(); squareY++) {
-								if(tile.getlayout()[squareX][squareY].getTerrain() == Terrain.START_POINT)
+								if(tile.getLayout()[squareX][squareY].getTerrain() == Terrain.START_POINT)
 									return new Position(squareX, squareY, tileX, tileY);
 							}
 						}						
