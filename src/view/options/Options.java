@@ -4,15 +4,11 @@ package view.options;
 import constants.FileConstants;
 import javafx.application.*;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import javax.swing.event.TreeModelEvent;
 
 /**
  * options view
