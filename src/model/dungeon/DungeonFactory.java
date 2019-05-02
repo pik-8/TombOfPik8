@@ -88,7 +88,9 @@ public class DungeonFactory {
         int lengthOfLayout = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
                 + MIN_SIZE_RANDOM_DUNGEON;
 
+        Position startPosition = new Position(this.random.nextInt(lengthOfLayout), this.random.nextInt(heightOfLayout));
         int[][] intLayout = new int[lengthOfLayout][heightOfLayout];
+        intLayout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 
         // generates a ratio, that determines the number of tiles in this dungeon.
         float ratio = 0f;
@@ -98,10 +100,9 @@ public class DungeonFactory {
             i = this.random.nextFloat();
             ratio = i;
         }
-        this.numberOfLayoutEntrances = Math.round(lengthOfLayout * heightOfLayout * ratio);
+        this.numberOfLayoutEntrances = Math.round(lengthOfLayout * heightOfLayout * ratio) -1; //Minus one, because the start-point was already set.
 
-        Position startPosition = new Position(this.random.nextInt(lengthOfLayout), this.random.nextInt(heightOfLayout));
-        Position currentPositionInLayout = new Position(startPosition.getXPosition(), startPosition.getYPosition());
+        Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(intLayout, currentPositionInLayout);
 
         Tile[][] tileLayout = new Tile[lengthOfLayout][heightOfLayout];
@@ -119,8 +120,9 @@ public class DungeonFactory {
      * @return: A randomly generated Dungeon.
      */
     public Dungeon generateRandomDungeon (int length, int heigth) {
+        Position startPosition = new Position(this.random.nextInt(length), this.random.nextInt(heigth));
         int[][] intLayout = new int[length][heigth];
-
+        intLayout[startPosition.getxTile()][startPosition.getyTile()] = 1;
         // generates a ratio, that determines the number of tiles in this dungeon.
         float ratio = 0f;
         for (float i = 0f; !((i <= DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
@@ -129,10 +131,9 @@ public class DungeonFactory {
             i = this.random.nextFloat();
             ratio = i;
         }
-        this.numberOfLayoutEntrances = Math.round(length * heigth * ratio);
+        this.numberOfLayoutEntrances = Math.round(length * heigth * ratio) -1; //Minus one, because the start-point was already set.
 
-        Position startPosition = new Position(this.random.nextInt(length), this.random.nextInt(heigth));
-        Position currentPositionInLayout = new Position(startPosition.getXPosition(), startPosition.getYPosition());
+        Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(intLayout, currentPositionInLayout);
 
         Tile[][] tileLayout = new Tile[length][heigth];
@@ -153,6 +154,7 @@ public class DungeonFactory {
                                           Landscape[] possibleLandscapes, Position startPosition)
     {
         int[][] layout = new int[length][height];
+        layout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 
         float ratio = 0f;
         for (float i = 0f; !((i <= DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
@@ -162,8 +164,8 @@ public class DungeonFactory {
             ratio = i;
         }
 
-        this.numberOfLayoutEntrances = Math.round(length * height * ratio);
-        Position currentPositionInLayout = new Position(startPosition.getXPosition(), startPosition.getYPosition());
+        this.numberOfLayoutEntrances = Math.round(length * height * ratio) -1; //Minus one, because the start-point was already set.
+        Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(layout, currentPositionInLayout);
 
         Tile[][] tiles = new Tile[length][height];
@@ -184,9 +186,10 @@ public class DungeonFactory {
     {
         Difficulty difficulty = DifficultyFactory.getDifficultyFactory().getRandomDifficulty();
         int[][] layout = new int[length][height];
+        layout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 
-        this.numberOfLayoutEntrances = numberOfTiles;
-        Position currentPositionInLayout = new Position(startPosition.getXPosition(), startPosition.getYPosition());
+        this.numberOfLayoutEntrances = numberOfTiles -1; //Minus one, because the start-point was already set.
+        Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(layout, currentPositionInLayout);
 
         Tile[][] tiles = new Tile[length][height];
@@ -239,37 +242,12 @@ public class DungeonFactory {
      * @param dungeonLayout: The dungeon, in which a starting point should be set.
      */
     private void setStartPoint(Position startPosition, Tile[][] dungeonLayout, int tileSize) {
-        if (dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()] == null) {
-            boolean hasLeft = false;
-            boolean hasRight = false;
-            boolean hasUp = false;
-            boolean hasDown = false;
 
-            //checks if the tile has neighbours, does not cause an out of bounds exception.
-            if (startPosition.getXPosition() > 0) {
-                hasLeft = (dungeonLayout[startPosition.getXPosition() - 1][startPosition.getYPosition()] == null);
-            }
-            if (startPosition.getXPosition() < dungeonLayout.length -1) {
-                hasRight = (dungeonLayout[startPosition.getXPosition() + 1][startPosition.getYPosition()] == null);
-            }
-            if (startPosition.getYPosition() > 0) {
-                hasUp = (dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition() - 1] == null);
-            }
-            if (startPosition.getYPosition() < dungeonLayout[0].length - 1) {
-                hasDown = (dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition() + 1] == null);
-            }
-
-            dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()]
-                    = TileGenerator.getTile(tileSize,
-                        Landscape.values()[this.random.nextInt(Landscape.values().length)],
-                        hasRight, hasLeft, hasUp, hasDown);
-
-        }
         // the starting tile in squares
-        dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()].getLayout()
+        dungeonLayout[startPosition.getxTile()][startPosition.getyTile()].getLayout()
                 // determines the middle of the square-array
-                [Math.round(dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()].getSize() / 2)]
-                [Math.round(dungeonLayout[startPosition.getXPosition()][startPosition.getYPosition()].getSize() / 2)]
+                [Math.round(dungeonLayout[startPosition.getxTile()][startPosition.getyTile()].getSize() / 2)]
+                [Math.round(dungeonLayout[startPosition.getxTile()][startPosition.getyTile()].getSize() / 2)]
                     = new Square(Terrain.START_POINT, null);
     }
 

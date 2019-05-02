@@ -32,8 +32,8 @@ public class Position {
      * Sets the x and y position to 0.
      */
     public Position () {
-        this.x = 0;
-        this.y = 0;
+        this.xTile = 0;
+        this.yTile = 0;
     }
 
     public boolean equals(Position pos) {
