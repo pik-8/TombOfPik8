@@ -14,9 +14,9 @@
         <fx:include source="left.fxml"/>
     </left>
     <center>
-        <fx:include source="resolutionSettings.fxml"/>
         <!--
-        <Pane fx:id="content"/>
+        <fx:include source="resolutionSettings.fxml"/>
         -->
+        <Pane fx:id="content"/>
     </center>
 </BorderPane>

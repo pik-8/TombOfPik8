@@ -1,32 +1,18 @@
 package control.options;
 
         import java.io.IOException;
-        import java.net.URL;
-        import java.util.ResourceBundle;
-
-        import constants.FileConstants;
         import javafx.application.Platform;
-        import javafx.collections.ObservableList;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
-        import javafx.scene.Parent;
         import javafx.scene.control.Label;
         import javafx.scene.control.RadioButton;
         import javafx.scene.control.Slider;
         import javafx.scene.control.ToggleGroup;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.layout.Pane;
-        import view.options.Options;
-
-        import javax.swing.event.TreeModelEvent;
 
 public class options {
-
-    @FXML
-    private ResourceBundle resources;
-    @FXML
-    private URL location;
 
     @FXML
     private Label label_general;
@@ -34,6 +20,8 @@ public class options {
     private Label label_effects;
     @FXML
     private Label label_music;
+    @FXML
+    private Pane content;
     @FXML
     private Slider slider_general;
     @FXML
@@ -43,12 +31,6 @@ public class options {
 
     @FXML
     private ToggleGroup language;
-
-    @FXML
-    private RadioButton languageGerman;
-
-    @FXML
-    private RadioButton languageEnglish;
 
     @FXML
     void onEffectsChanged(MouseEvent event) {
@@ -77,9 +59,19 @@ public class options {
     @FXML
     void onLanguageClick(ActionEvent event) throws IOException {
         System.out.println("click! taskBarButton2");
+        Pane language = FXMLLoader.load(getClass().getResource("/view/options/languageSettings.fxml"));
+        if (content==null) {
+            System.out.println("content is null");
+        } else {
+            System.out.println("content is not null");
+        }
+        if (language==null) {
+            System.out.println("language is null");
+        } else {
+            System.out.println("language is not null");
+        }
         //content.getChildren().clear();
-        //Parent language = FXMLLoader.load(getClass().getResource("/languageSettings.fxml"));
-        //content.getChildren().add(language);
+        content.getChildren().addAll(language);
     }
 
     @FXML
