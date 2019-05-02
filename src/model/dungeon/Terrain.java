@@ -15,6 +15,7 @@ public enum Terrain {
     START_POINT(1, null),
 
     NONE (1, null),
+    TREE(2, null),
     BEDROCK(999999999, null),
     BUSH(2, null),
     BOULDER (5, null),

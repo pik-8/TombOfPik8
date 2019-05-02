@@ -6,8 +6,6 @@ import model.dungeon.Landscape;
 import model.dungeon.Square;
 import model.dungeon.Terrain;
 import model.dungeon.Tile;
-import model.effects.Condition;
-import model.effects.EffectFactory;
 import model.effects.HealingEffect;
 
 import java.util.Random;
