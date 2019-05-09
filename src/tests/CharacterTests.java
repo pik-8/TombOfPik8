@@ -5,7 +5,7 @@ import model.characters.MobSpawner;
 public class CharacterTests {
 
     public static void main (String args[]) throws Exception {
-        //createAHero();
+        createAHero();
         createAMob();
     }
 

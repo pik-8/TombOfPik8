@@ -18,7 +18,7 @@ public class EffectTest {
 			eh.addEffect(myHero, new DamageEffect("Damage", "Do damage", 0, true, 10, 0, 0, 0));
 			System.out.println("After one instantApply: " + myHero.getSecondaryStats().getHp());
 			eh.addEffect(myHero, new DamageEffect("Damage", "Do damage", 3, 0, 10, 0, 0));
-			eh.addEffect(myHero, new DamageEffect("FlatDamageTicks", "Do damage", 4, 0, 0, 10, 0));
+			eh.addEffect(myHero, new DamageEffect("FlatDamageTicks", "Do damage", 4, 10, 0, 0, 0));
 			System.out.println("After adding two dots: " + myHero.getSecondaryStats().getHp());
 			eh.applyCharacterEffects();
 			System.out.println("After applying dots once: " + myHero.getSecondaryStats().getHp());

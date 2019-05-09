@@ -49,7 +49,7 @@ public abstract class Effect {
     protected Effect(String name, String description, int duration, boolean instantApply) {
         init(name, description, duration, instantApply);
     }
-
+    
      /**   	
       * Applies the Effect on a given Character
       *

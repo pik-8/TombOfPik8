@@ -21,7 +21,7 @@ import java.io.FileWriter;
  *
  * @author Hagen
  */
-public class DungeonTesting {
+public class DungeonTests {
 
     public static void main (String args[]) throws Exception{
         //generateALotDungeons();   //Success
