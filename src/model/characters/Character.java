@@ -134,4 +134,5 @@ public class Character {
     public void addExp (int add) throws IllegalArgumentException {
         setExp(this.exp + add);
     }
+    
 }

@@ -9,4 +9,5 @@ public class StartScreenEventHandler implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
         System.exit(69);
     }
+
 }
