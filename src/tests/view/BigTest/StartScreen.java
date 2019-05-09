@@ -1,14 +1,25 @@
 package tests.view.BigTest;
 
+import static constants.ImagePaths.PATH_TO_START_SCREEN_BACKGROUND;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_BOTTOM_SPHERE;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_CLOUDS_BACKGROUND;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_CLOUDS_FOREGROUND;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_LEAF;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_LEFT_SPHERE;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_LIGHT_RAYS_FOREGROUND;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_RIGHT_SPHERE;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_TOP_SPHERE;
+import static constants.ImagePaths.PATH_TO_START_SCREEN_TRUNK;
+
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import static constants.ImagePaths.*;
 
 public class StartScreen extends Stage {
 
@@ -59,12 +70,36 @@ public class StartScreen extends Stage {
         this.leafButton.setOnMouseClicked(new StartScreenEventHandler());
 
         this.layout = new Pane();
-        setSize(width, height);
+        
+//      setSize(width, height);
+        
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        setX(bounds.getMinX());
+        setY(bounds.getMinY());
+        setWidth(bounds.getWidth());
+        setHeight(bounds.getHeight());
+                
+        setSize((int)bounds.getWidth(), (int)bounds.getHeight());
         setLayout();
         setPosition();
-
-        this.scene = new Scene(layout, width, height);
+        
+        this.scene = new Scene(layout, bounds.getWidth(), bounds.getHeight());
         this.setScene(scene);
+        
+        widthProperty().addListener((obs, oldVal, newVal) -> {
+        	setWidth((double) newVal);
+        	setScaledWidth((double) newVal);
+        	setScaledXPosition((double) newVal/ (double)oldVal);
+        });
+        
+        heightProperty().addListener((obs, oldVal, newVal) -> {
+        	setHeight((double) newVal);
+        	setScaledHeight((double) newVal);
+        	setScaledYPosition((double) newVal/ (double)oldVal);
+        });
+        
     }
 
 
@@ -83,7 +118,33 @@ public class StartScreen extends Stage {
             image.setFitWidth(image.getImage().getWidth() / ratioWidth);
         }
     }
+    
+    private void setScaledWidth(double width) {
+    	double ratioWidth = 3840/width;
+    	for(ImageView image : allImages) {
+    		image.setFitWidth(image.getImage().getWidth() / ratioWidth);
+    	}
+    }
+    
+    private void setScaledHeight(double height) {
+    	double ratioHeight = 2160/height;
+    	for(ImageView image : allImages) {
+    		image.setFitHeight(image.getImage().getHeight() / ratioHeight);
+    	}
+    }
+    
+    private void setScaledXPosition(double ratio) {
+    	for(ImageView image : allImages) {
+    		image.setTranslateX(image.getTranslateX() * ratio);
+    	}
+    }
 
+    private void setScaledYPosition(double ratio) {
+    	for(ImageView image : allImages) {
+    		image.setTranslateY(image.getTranslateY() * ratio);
+    	}
+    }
+    
     private void setPosition () {
         changePositionOfImage(this.background, 0, 0);
         changePositionOfImage(this.cloudsBackground, 0, 0);

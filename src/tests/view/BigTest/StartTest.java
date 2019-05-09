@@ -23,7 +23,7 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
     @Override
     public void start(Stage primaryStage) {
         //createSceneWithAnimations(primaryStage);
-        StartScreen startScreen = new StartScreen(1920, 1080);
+        StartScreen startScreen = new StartScreen(1280, 720);
         startScreen.show();
 
     }
