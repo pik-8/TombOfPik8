@@ -1,0 +1,82 @@
+{"array":[
+  {"secondaryStats": {
+    "hp": 0,
+    "action": 0,
+    "maxHP": 0,
+    "maxAction": 0,
+    "attackPower": 0,
+    "magicAttackPower": 0,
+    "defence": 10,
+    "magicDefence": 10,
+    "speed": 5,
+    "attackResistance": 0.0,
+    "luck": 0,
+    "load": 10,
+    "maxEquipmentLoad": 0,
+    "stamina": 0,
+    "attackSlots": 0
+  },
+  "name": "Leather Chest",
+  "description": "Looks weary.",
+  "effects": [
+    {
+      "effectType": "HealingEffect",
+      "flatHeal": 50.0,
+      "percentOfMaxHealthHeal": 0.0,
+      "percentOfMissingHealthHeal": 0.0,
+      "percentOfCurrentHealthHeal": 0.0,
+      "name": "Healing Effect",
+      "description": "you get healed",
+      "duration": 1,
+      "instantApply": false
+    }
+  ],
+  "rarity": "COMMON",
+  "slot": "CHEST"}
+  ,{"secondaryStats": {
+    "hp": 0,
+    "action": 0,
+    "maxHP": 0,
+    "maxAction": 0,
+    "attackPower": 0,
+    "magicAttackPower": 0,
+    "defence": 10,
+    "magicDefence": 10,
+    "speed": 5,
+    "attackResistance": 0.0,
+    "luck": 0,
+    "load": 10,
+    "maxEquipmentLoad": 0,
+    "stamina": 0,
+    "attackSlots": 0
+  },
+  "name": "Leather Pants",
+  "description": "Looks weary.",
+  "effects": [],
+  "rarity": "COMMON",
+  "slot": "LEGS"}
+  ,
+  {"secondaryStats": {
+    "hp": 0,
+    "action": 0,
+    "maxHP": 0,
+    "maxAction": 0,
+    "attackPower": 0,
+    "magicAttackPower": 0,
+    "defence": 10,
+    "magicDefence": 10,
+    "speed": 5,
+    "attackResistance": 0.0,
+    "luck": 0,
+    "load": 10,
+    "maxEquipmentLoad": 0,
+    "stamina": 0,
+    "attackSlots": 0
+  },
+  "name": "Leather Helmet",
+  "description": "Looks weary.",
+  "effects": [],
+  "rarity": "COMMON",
+  "slot": "HEAD"}
+  ]
+}

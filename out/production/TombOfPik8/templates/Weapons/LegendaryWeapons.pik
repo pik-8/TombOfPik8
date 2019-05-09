@@ -1,0 +1,92 @@
+{	
+	"array":
+	[
+	{
+	  "onHitEffects": [
+		{
+		  "effectType": "DamageEffect",
+		  "name": "Beheaded",
+		  "description": "You got ahead of yourself again.",
+		  "duration": 1,
+		  "options": [
+			0.0,
+			0.0,
+			60.0,
+			0.0
+		  ],
+		  "relevanze": true,
+		  "instantApply": true
+		}
+	  ],
+	  "secondaryStats": {
+		"hp": 0,
+		"action": 0,
+		"maxHP": 0,
+		"maxAction": 0,
+		"attackPower": 35,
+		"magicAttackPower": 0,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 0,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Halberd of Execution",
+	  "description": "You swing this, they die. That simple.",
+	  "effects": [],
+	  "rarity": "LEGENDARY"
+	},
+	{
+	  "onHitEffects": [],
+	  "secondaryStats": {
+		"hp": 0,
+		"action": 0,
+		"maxHP": 0,
+		"maxAction": 0,
+		"attackPower": 50,
+		"magicAttackPower": 0,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 1,
+		"attackResistance": 0.0,
+		"luck": 4,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Excalibur",
+	  "description": "It's Excali-freakin-bur.",
+	  "effects": [],
+	  "rarity": "LEGENDARY"
+	},
+	{
+	  "onHitEffects": [],
+	  "secondaryStats": {
+		"hp": 0,
+		"action": 0,
+		"maxHP": 0,
+		"maxAction": 0,
+		"attackPower": 0,
+		"magicAttackPower": 80,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 0,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Wand of Annihilation",
+	  "description": "Nobody knows where it's from. Probably because that location does not exist anymore.",
+	  "effects": [],
+	  "rarity": "LEGENDARY"
+	}
+	]
+}

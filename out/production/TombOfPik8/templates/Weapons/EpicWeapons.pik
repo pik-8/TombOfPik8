@@ -1,0 +1,92 @@
+{	
+	"array":
+	[
+	{
+	  "onHitEffects": [
+		{
+		  "effectType": "RootEffect",
+		  "name": "Root",
+		  "description": "You got hit on the head with a hammer. What did you expect?",
+		  "duration": 2,
+		  "options": [
+			0.0,
+			0.0,
+			0.0,
+			0.0
+		  ],
+		  "relevanze": true,
+		  "instantApply": true
+		}
+	  ],
+	  "secondaryStats": {
+		"hp": 0,
+		"action": 0,
+		"maxHP": 0,
+		"maxAction": 0,
+		"attackPower": 30,
+		"magicAttackPower": 0,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 0,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Hammer",
+	  "description": "It's a hammer. A big one. A very big one.",
+	  "effects": [],
+	  "rarity": "EPIC"
+	},
+	{
+	  "onHitEffects": [],
+	  "secondaryStats": {
+		"hp": 0,
+		"action": 0,
+		"maxHP": 0,
+		"maxAction": 0,
+		"attackPower": 20,
+		"magicAttackPower": 0,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 2,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Whirling Dual Blades",
+	  "description": "You're a speedy Hero now.",
+	  "effects": [],
+	  "rarity": "EPIC"
+	},
+	{
+	  "onHitEffects": [],
+	  "secondaryStats": {
+		"hp": 0,
+		"action": 0,
+		"maxHP": 0,
+		"maxAction": 0,
+		"attackPower": 0,
+		"magicAttackPower": 30,
+		"defence": 0,
+		"magicDefence": 0,
+		"speed": 0,
+		"attackResistance": 0.0,
+		"luck": 0,
+		"load": 0,
+		"maxEquipmentLoad": 0,
+		"stamina": 0,
+		"attackSlots": 0
+	  },
+	  "name": "Lightning Rod",
+	  "description": "This is like a normal lightning rod. Except it's not.",
+	  "effects": [],
+	  "rarity": "EPIC"
+	}
+	]
+}

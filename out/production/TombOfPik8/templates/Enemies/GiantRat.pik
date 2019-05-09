@@ -1,0 +1,67 @@
+{
+  "name": "Giant Rat",
+  "inventory": {
+    "consumables": [],
+    "equipment": [],
+    "materials": {},
+    "money": 50,
+    "itemCount": 0,
+    "size": 5
+  },
+  "attacks": [
+    {
+      "name": "Basic Attack",
+      "description": "Hit them.",
+      "damage": 100,
+      "magicDamage": 100,
+      "accuracy": 100,
+      "requiredSlots": 1,
+      "attackPattern": {
+        "attackField": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "effectField": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    }
+  ],
+  "skills": [
+    null
+  ],
+  "secondaryStats": {
+    "hp": 20,
+    "action": 2,
+    "maxHP": 20,
+    "maxAction": 2,
+    "attackPower": 5,
+    "magicAttackPower": 0,
+    "defence": 10,
+    "magicDefence": 10,
+    "speed": 5,
+    "luck": 0,
+    "load": 0,
+    "maxEquipmentLoad": 0,
+    "stamina": 4,
+    "attackSlots": 1
+  },
+  "exp": 10
+}

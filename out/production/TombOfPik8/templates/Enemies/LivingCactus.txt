@@ -1,0 +1,67 @@
+{
+  "name": "Living Cactus",
+  "inventory": {
+    "consumables": [],
+    "equipment": [],
+    "materials": {},
+    "money": 100,
+    "itemCount": 0,
+    "size": 5
+  },
+  "attacks": [
+    {
+      "name": "Needle Spray",
+      "description": "It stings.",
+      "damage": 100,
+      "magicDamage": 100,
+      "accuracy": 100,
+      "requiredSlots": 1,
+      "attackPattern": {
+        "attackField": [
+          [
+            0.8,
+            0.8,
+            0.8
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "effectField": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    }
+  ],
+  "skills": [
+    null
+  ],
+  "secondaryStats": {
+    "hp": 30,
+    "action": 2,
+    "maxHP": 30,
+    "maxAction": 2,
+    "attackPower": 10,
+    "magicAttackPower": 0,
+    "defence": 30,
+    "magicDefence": 0,
+    "speed": 10,
+    "luck": 0,
+    "load": 0,
+    "maxEquipmentLoad": 0,
+    "stamina": 5,
+    "attackSlots": 1
+  },
+  "exp": 20
+}
