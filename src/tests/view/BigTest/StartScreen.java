@@ -80,22 +80,24 @@ public class StartScreen extends Stage {
         setY(bounds.getMinY());
         setWidth(bounds.getWidth());
         setHeight(bounds.getHeight());
+
+        //this.setFullScreen(true);
                 
-        setSize((int)bounds.getWidth(), (int)bounds.getHeight());
+        System.out.println(bounds.getHeight());
         setLayout();
         setPosition();
-        
+        setSize((int)bounds.getWidth(), (int)bounds.getHeight());
+        //setScaledHeight(bounds.getHeight());
+
         this.scene = new Scene(layout, bounds.getWidth(), bounds.getHeight());
         this.setScene(scene);
         
         widthProperty().addListener((obs, oldVal, newVal) -> {
-        	setWidth((double) newVal);
         	setScaledWidth((double) newVal);
         	setScaledXPosition((double) newVal/ (double)oldVal);
         });
         
         heightProperty().addListener((obs, oldVal, newVal) -> {
-        	setHeight((double) newVal);
         	setScaledHeight((double) newVal);
         	setScaledYPosition((double) newVal/ (double)oldVal);
         });
@@ -109,13 +111,13 @@ public class StartScreen extends Stage {
         this.layout.getChildren().addAll(this.leafButton);
     }
 
-    private void setSize (int width, int height) {
-        float ratioHeight = 2160/height;
-        float ratioWidth = 3840/width;
+    private void setSize (double width, double height) {
+        double ratioHeight = 2160/height;
+        double ratioWidth = 3840/width;
 
         for (ImageView image : allImages) {
-            image.setFitHeight(image.getImage().getHeight() / ratioHeight);
             image.setFitWidth(image.getImage().getWidth() / ratioWidth);
+            image.setFitHeight(image.getImage().getHeight() / ratioHeight);
         }
     }
     

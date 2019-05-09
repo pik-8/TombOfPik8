@@ -43,7 +43,7 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
         window.setOnCloseRequest(this);
 
-        File[] alFlamesFile = new File("resources/images/test/flames/").listFiles();
+        File[] alFlamesFile = new File("resources/images/flames/").listFiles();
         Image[] flames = new Image[alFlamesFile.length];
         for (int i = 0; i < flames.length; i++) {
             flames[i] = new Image("file:" + alFlamesFile[i].getPath());
@@ -57,7 +57,7 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
         flameAnimation.setFitHeight(flameAnimation.getHeight() / 2);
         secondFlame.setFitHeight(flameAnimation.getHeight() / 2);
-        secondFlame.setTranslateX(0);
+        secondFlame.setTranslateX(300);
 
         Thread flameThread1 = new Thread(flameAnimation);
         flameThread1.start();
