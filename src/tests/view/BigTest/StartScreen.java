@@ -12,6 +12,8 @@ import static constants.ImagePaths.PATH_TO_START_SCREEN_RIGHT_SPHERE;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_TOP_SPHERE;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_TRUNK;
 
+import constants.view.DefaultTextureSize;
+import constants.view.TitleScreenTextures;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -77,17 +79,17 @@ public class StartScreen extends Stage {
 
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
-
+				
 		setX(bounds.getMinX());
 		setY(bounds.getMinY());
 		setWidth(bounds.getWidth());
 		setHeight(bounds.getHeight());
 
-		// this.setFullScreen(true);
-
+		
+//		this.setFullScreen(true);
 		setLayout();
 		setPosition();
-		setSizeImages((int) bounds.getWidth(), (int) bounds.getHeight());
+		setSizeImages(bounds.getWidth(), bounds.getHeight());
 		setGraphicOfButtons();
 		// setScaledHeight(bounds.getHeight());
 
@@ -113,8 +115,8 @@ public class StartScreen extends Stage {
 	}
 
 	private void setSizeImages(double width, double height) {
-		double ratioHeight = 2160 / height;
-		double ratioWidth = 3840 / width;
+		double ratioHeight = DefaultTextureSize.height / height;
+		double ratioWidth = DefaultTextureSize.width / width;
 
 		for (ImageView image : allImages) {
 			image.setFitWidth(image.getImage().getWidth() / ratioWidth);
@@ -127,14 +129,14 @@ public class StartScreen extends Stage {
 	}
 
 	private void setScaledWidth(double width) {
-		double ratioWidth = 3840 / width;
+		double ratioWidth = DefaultTextureSize.width / width;
 		for (ImageView image : allImages) {
 			image.setFitWidth(image.getImage().getWidth() / ratioWidth);
 		}
 	}
 
 	private void setScaledHeight(double height) {
-		double ratioHeight = 2160 / height;
+		double ratioHeight = DefaultTextureSize.height / height;
 		for (ImageView image : allImages) {
 			image.setFitHeight(image.getImage().getHeight() / ratioHeight);
 		}
@@ -159,27 +161,26 @@ public class StartScreen extends Stage {
 	}
 
 	private void setPosition() {
-		changePosition(this.background, 0, 0);
-		changePosition(this.cloudsBackground, 0, 0);
-		changePosition(this.cloudsForeground, 650, -160);
-		changePosition(this.trunk, 850, 50);
-		// changePosition(this.leaf, 970, 770);
-		changePosition(this.bottomSphere, 910, 570);
-		changePosition(this.leftSphere, 850, 460);
-		changePosition(this.rightSphere, 1083, 370);
-		changePosition(this.topSphere, 965, 112);
-		changePosition(this.lightRaysBackground, 500, -160);
-		changePosition(this.lightRaysForeground, 200, -250);
+		changePosition(this.background, TitleScreenTextures.posBackground[0], TitleScreenTextures.posBackground[1]);
+		changePosition(this.cloudsBackground, TitleScreenTextures.posCloudsBackground[0], TitleScreenTextures.posCloudsBackground[1]);
+		changePosition(this.cloudsForeground, TitleScreenTextures.posCloudsForeground[0], TitleScreenTextures.posCloudsForeground[1]);
+		changePosition(this.trunk, TitleScreenTextures.posTrunk[0], TitleScreenTextures.posTrunk[1]);
+		changePosition(this.bottomSphere, TitleScreenTextures.posBottomSphere[0], TitleScreenTextures.posBottomSphere[1]);
+		changePosition(this.leftSphere, TitleScreenTextures.posLeftSphere[0], TitleScreenTextures.posLeftSphere[1]);
+		changePosition(this.rightSphere, TitleScreenTextures.posRightSphere[0], TitleScreenTextures.posRightSphere[1]);
+		changePosition(this.topSphere, TitleScreenTextures.posTopSphere[0], TitleScreenTextures.posTopSphere[1]);
+		changePosition(this.lightRaysBackground, TitleScreenTextures.posLightRaysBackground[0], TitleScreenTextures.posLightRaysBackground[1]);
+		changePosition(this.lightRaysForeground, TitleScreenTextures.posLightRaysForeground[0], TitleScreenTextures.posLightRaysForeground[1]);
 
-		changePosition(this.leafButton, 965, 747);
+		changePosition(this.leafButton, TitleScreenTextures.posLeafButton[0], TitleScreenTextures.posLeafButton[1]);
 	}
 
-	private void changePosition(ImageView image, int xValue, int yValue) {
+	private void changePosition(ImageView image, double xValue, double yValue) {
 		image.setTranslateX(xValue);
 		image.setTranslateY(yValue);
 	}
 
-	private void changePosition(Button button, int xValue, int yValue) {
+	private void changePosition(Button button, double xValue, double yValue) {
 		button.setTranslateX(xValue);
 		button.setTranslateY(yValue);
 	}
