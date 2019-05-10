@@ -86,7 +86,7 @@ public class DamageEffect extends Effect {
 	}
 
 	@Override
-	public void applyEffect(Character character) {
+	public void apply(Character character) {
 		SecondaryStats stats = character.getSecondaryStats();
 		// The *-1 makes the function subtract the given hp instead of adding it.
 		stats.addHp((int) this.flatDamage * -1);
@@ -96,11 +96,11 @@ public class DamageEffect extends Effect {
 	}
 
 	@Override
-	public void applyEffect(Square square) {
+	public void apply(Square square) {
 		square.setEffect(new DamageEffect(getName(), getDescription(), getDuration(), this.flatDamage,
 				this.percentOfMaxHealthDamage, this.percentOfMissingHealthDamage, this.percentOfCurrentHealthDamage));
 	}
 
 	@Override
-	public void applyEffect(Equipment equipment) {}
+	public void apply(Equipment equipment) {}
 }

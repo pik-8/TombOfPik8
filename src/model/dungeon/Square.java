@@ -1,8 +1,9 @@
 package model.dungeon;
 
-import model.effects.Effect;
-
 import java.util.Objects;
+
+import model.effects.Effect;
+import model.effects.IEffectable;
 
 
 /**
@@ -11,7 +12,7 @@ import java.util.Objects;
  *
  * @author Hagen
  */
-public class Square {
+public class Square implements IEffectable{
 
     private Terrain terrain;
     private Effect effect;
@@ -40,4 +41,20 @@ public class Square {
     public void setEffect(Effect effect) {
         this.effect = effect;
     }
+
+
+	@Override
+	public void effect(Effect e) {
+		e.apply(this);
+	}
+
+	@Override
+	public void uneffect(Effect e) {
+		e.deApply(this);
+	}
+
+	@Override
+	public void reeffect(Effect e) {
+		e.reApply(this);
+	}
 }

@@ -4,135 +4,74 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.dungeon.Square;
 import model.effects.Effect;
-import model.items.Equipment;
+import model.effects.IEffectable;
 
 public class EffectHandler {
-
-	private HashMap<model.characters.Character, ArrayList<Effect>> characterEffectList;
-	private HashMap<Square, ArrayList<Effect>> squareEffectList;
-	private HashMap<Equipment, ArrayList<Effect>> equipmentEffectList;
 	
-	public EffectHandler() {
-		this.characterEffectList = new HashMap<model.characters.Character, ArrayList<Effect>>();
-		this.squareEffectList = new HashMap<Square, ArrayList<Effect>>();
-		this.equipmentEffectList = new HashMap<Equipment, ArrayList<Effect>>();
+	private HashMap<IEffectable, ArrayList<Effect>> effectedObjects;
+	
+	public EffectHandler() {		
+		this.effectedObjects = new HashMap<IEffectable, ArrayList<Effect>>();
 	}
 	
-	public void addEffect(model.characters.Character c, Effect e) {
-		if(this.characterEffectList.get(c) == null) {
+	public void addEffect(IEffectable effectable, Effect e) {
+		if(this.effectedObjects.get(effectable) == null) {
 			ArrayList<Effect> ar = new ArrayList<Effect>();
 			ar.add(e);
-			this.characterEffectList.put(c, ar);
-		}
-		else {
-			this.characterEffectList.get(c).add(e);
+			this.effectedObjects.put(effectable, ar);
+		} else {
+			this.effectedObjects.get(effectable).add(e);
 		}
 		if(e.isInstantApply()) {
-			e.applyEffect(c);
-			characterEffectList.get(c).remove(e);
+			effectable.effect(e);
+			effectedObjects.get(effectable).remove(e);
 		}
 	}
 	
-	public void addEffect(Square s, Effect e) {
-		if(this.squareEffectList.get(s) == null) {
-			ArrayList<Effect> ar = new ArrayList<Effect>();
-			ar.add(e);
-			this.squareEffectList.put(s, ar);
-		}
-		else
-			this.squareEffectList.get(s).add(e);
-		if(e.isInstantApply()) {
-			e.applyEffect(s);
-			squareEffectList.get(s).remove(e);
-		}
-	}
-	
-	public void addEffect(Equipment equip, Effect e) {
-		if(this.equipmentEffectList.get(equip) == null) {
-			ArrayList<Effect> ar = new ArrayList<Effect>();
-			ar.add(e);
-			this.equipmentEffectList.put(equip, ar);
-		}
-		else
-			this.equipmentEffectList.get(equip).add(e);
-		if(e.isInstantApply()) {
-			e.applyEffect(equip);
-			equipmentEffectList.get(equip).remove(e);
-		}
-	}
-	
-	public void applyEffects(model.characters.Character c) {
+	private void applyEffectsOnSingleEffectable(IEffectable effectable) {
 		ArrayList<Effect> toRemove = new ArrayList<Effect>();
-		for(Effect e : characterEffectList.get(c)) {
+		for(Effect e : effectedObjects.get(effectable)) {
 			if(e.getDuration() > 0) {
-				e.applyEffect(c);
+				effectable.effect(e);
 				e.lowerDuration();
 			}
-			else if(e.getDuration() == -1) 
-				e.applyEffect(c);
+			else if(e.getDuration() == -1)
+				effectable.effect(e);
 			else
 				toRemove.add(e);
 		}
+		if(!toRemove.isEmpty()) {
+			uneffectAll(effectable);
+			removeEffects(effectable, toRemove);
+			reeffectAll(effectable);		
+			if(effectedObjects.get(effectable).isEmpty()) {
+				effectedObjects.remove(effectable);
+			} 
+		}	
+	}
+	
+	private void uneffectAll(IEffectable effectable) {
+		for(int i = effectedObjects.get(effectable).size() - 1; i >= 0; i--) {
+			effectable.uneffect(effectedObjects.get(effectable).get(i));
+		}
+	}
+	
+	private void removeEffects(IEffectable effectable, ArrayList<Effect> toRemove) {
 		for(Effect e : toRemove) {
-			characterEffectList.get(c).remove(e);
+			effectedObjects.get(effectable).remove(e);
 		}
 	}
 	
-	public void applyEffects(Square s) {
-		ArrayList<Effect> toRemove = new ArrayList<Effect>();
-		for(Effect e : squareEffectList.get(s)) {
-			if(e.getDuration() > 0) {
-				e.applyEffect(s);
-				e.lowerDuration();
-			}
-			else if(e.getDuration() == -1)
-				e.applyEffect(s);
-			else
-				squareEffectList.get(s).remove(e);
-		}
-		for(Effect e : toRemove) {
-			squareEffectList.get(s).remove(e);
+	private void reeffectAll(IEffectable effectable) {
+		for(Effect e : effectedObjects.get(effectable)) {
+			effectable.reeffect(e);
 		}
 	}
 	
-	public void applyEffects(Equipment equip) {
-		ArrayList<Effect> toRemove = new ArrayList<Effect>();
-		for(Effect e : equipmentEffectList.get(equip)) {
-			if(e.getDuration() > 0) {
-				e.applyEffect(equip);
-				e.lowerDuration();
-			}
-			else if(e.getDuration() == -1)
-				e.applyEffect(equip);
-			else
-				equipmentEffectList.get(equip).remove(e);
+	public void applyAllEffects() {
+		for(Map.Entry<IEffectable, ArrayList<Effect>> effectableSet : effectedObjects.entrySet()) {
+			applyEffectsOnSingleEffectable(effectableSet.getKey());
 		}
-	}
-
-	public void applyEffects() {
-		applyCharacterEffects();
-		applySquareEffects();
-		applyEquipmentEffects();
-	}
-	
-	public void applyCharacterEffects() {
-		for(Map.Entry<model.characters.Character, ArrayList<Effect>> characterSet: characterEffectList.entrySet()) {
-			applyEffects(characterSet.getKey());
-		}
-	}
-	
-	public void applySquareEffects() {
-		for(Map.Entry<Square, ArrayList<Effect>> squareSet: squareEffectList.entrySet()) {
-			applyEffects(squareSet.getKey());
-		}
-	}
-	
-	public void applyEquipmentEffects() {
-		for(Map.Entry<Equipment, ArrayList<Effect>> equipmentSet: equipmentEffectList.entrySet()) {
-			applyEffects(equipmentSet.getKey());
-		}
-	}
-	
+	}	
 }

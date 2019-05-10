@@ -13,6 +13,8 @@ import model.items.Equipment;
  */
 public class RootEffect extends Effect {
 
+	private static int originalStamina;
+	
 	/**
 	 * Creates a new RootEffect.
 	 * 
@@ -25,17 +27,23 @@ public class RootEffect extends Effect {
 	}
 
 	@Override
-	public void applyEffect(Character character) {
+	public void apply(Character character) {
+		originalStamina = character.getSecondaryStats().getStamina();
 		character.getSecondaryStats().setStamina(0);
 	}
 
 	@Override
-	public void applyEffect(Square square) {
+	public void apply(Square square) {
 		//TODO
 	}
 
 	@Override
-	public void applyEffect(Equipment equipment) {
+	public void apply(Equipment equipment) {
 		//TODO
+	}
+
+	@Override
+	public void deApply(Character character) {
+		character.getSecondaryStats().setStamina(originalStamina);
 	}
 }

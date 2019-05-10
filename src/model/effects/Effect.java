@@ -55,22 +55,47 @@ public abstract class Effect {
       *
       * @param character
       */
-    public abstract void applyEffect (model.characters.Character character);
+    public abstract void apply (model.characters.Character character);
 
     /**
      * Applies the Effect on a given Square
      * 
      * @param square
      */
-    public abstract void applyEffect (Square square);
+    public abstract void apply (Square square);
     
     /**
      * Applies the Effect on a given piece of Equipment
      * 
      * @param equipment
      */
-    public abstract void applyEffect (Equipment equipment);
+    public abstract void apply (Equipment equipment);
 
+    
+    public void deApply(Character character) {
+    	
+    }
+    
+    public void deApply(Square square) {
+    	
+    }
+    
+    public void deApply(Equipment equipment) {
+    	
+    }
+    
+    public void reApply(Character character) {
+    	
+    }
+
+    public void reApply(Square square) {
+    	
+    }
+    
+    public void reApply(Equipment equip) {
+    	
+    }
+    
     public String getName() {
         return name;
     }
@@ -112,4 +137,6 @@ public abstract class Effect {
     			"\nDuration: " + duration +
     			"\nisInstantApply: " + (instantApply ? "True" : "False");
     }
+
+
 }

@@ -82,7 +82,7 @@ public class HealingEffect extends Effect{
 	}
 
 	@Override
-	public void applyEffect(Character character) {
+	public void apply(Character character) {
 		SecondaryStats stats = character.getSecondaryStats();
 		stats.addHp((int) this.flatHeal);
 		stats.addHp((int) (this.percentOfMaxHealthHeal/100 * stats.getMaxHP()));
@@ -91,7 +91,7 @@ public class HealingEffect extends Effect{
 	}
 
 	@Override
-	public void applyEffect(Square square) {
+	public void apply(Square square) {
 		try {
 			square.setEffect((HealingEffect) this.clone());
 		} catch (Exception e) {
@@ -101,5 +101,5 @@ public class HealingEffect extends Effect{
 	}
 
 	@Override
-	public void applyEffect(Equipment equipment) {}
+	public void apply(Equipment equipment) {}
 }

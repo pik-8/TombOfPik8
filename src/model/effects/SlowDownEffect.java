@@ -13,8 +13,10 @@ import model.items.Equipment;
  */
 public class SlowDownEffect extends Effect {
 
-    private final float flatSlowDown;
-    private final float percentOfSpeedSlowDown;
+    private float flatSlowDown;
+    private float percentOfSpeedSlowDown;
+    private int deltaPercentSpeed;
+    private boolean alreadyApplied;
 
     /**
      *
@@ -31,31 +33,53 @@ public class SlowDownEffect extends Effect {
     public SlowDownEffect(String name, String description, int duration, boolean instantApply, float flatSlowDown,
                         float percentOfSpeedSlowDown) {
         super(name, description, duration, instantApply);
-        this.flatSlowDown = flatSlowDown;
-        this.percentOfSpeedSlowDown = percentOfSpeedSlowDown;
-    }
+        init(flatSlowDown, percentOfSpeedSlowDown);
+}
 
 
     public SlowDownEffect(String name, String description, int duration, float flatSlowDown,
                           float percentOfSpeedSlowDown) {
         super(name, description, duration);
-        this.flatSlowDown = flatSlowDown;
-        this.percentOfSpeedSlowDown = percentOfSpeedSlowDown;
+        init(flatSlowDown, percentOfSpeedSlowDown);
+    }
+    
+    private void init(float flatSlowDown, float percentOfSpeedSlowDown){
+    	this.flatSlowDown = flatSlowDown;
+    	this.percentOfSpeedSlowDown = percentOfSpeedSlowDown;
+    	alreadyApplied = false;
     }
 
     @Override
-    public void applyEffect(Character character) {
+    public void apply(Character character) {
+		if(!alreadyApplied) {
+			character.getSecondaryStats().setSpeed(character.getSecondaryStats().getSpeed() - Math.round(flatSlowDown));
+			deltaPercentSpeed = Math.round(character.getSecondaryStats().getSpeed() * (percentOfSpeedSlowDown/100));
+			character.getSecondaryStats().setSpeed(character.getSecondaryStats().getSpeed() - deltaPercentSpeed);
+			alreadyApplied = true;
+		}
+    }
+    
+    @Override
+    public void deApply(Character character) {
+    	character.getSecondaryStats().setSpeed(character.getSecondaryStats().getSpeed() + deltaPercentSpeed);
+    	character.getSecondaryStats().setSpeed(character.getSecondaryStats().getSpeed() + Math.round(flatSlowDown));
+    }
+    
+    @Override
+    public void reApply(Character character) {
     	character.getSecondaryStats().setSpeed(character.getSecondaryStats().getSpeed() - Math.round(flatSlowDown));
-    	character.getSecondaryStats().setSpeed(Math.round(character.getSecondaryStats().getSpeed() * (1 - percentOfSpeedSlowDown/100)));
+		deltaPercentSpeed = Math.round(character.getSecondaryStats().getSpeed() * (percentOfSpeedSlowDown/100));
+		character.getSecondaryStats().setSpeed(character.getSecondaryStats().getSpeed() - deltaPercentSpeed);
     }
-
+    
     @Override
-    public void applyEffect(Square square) {
+    public void apply(Square square) {
         square.setEffect(new SlowDownEffect(getName(), getDescription(), getDuration(), isInstantApply(), 
         		this.flatSlowDown,
                 this.percentOfSpeedSlowDown));
     }
 
     @Override
-    public void applyEffect(Equipment equipment) {}
+    public void apply(Equipment equipment) {
+    }
 }

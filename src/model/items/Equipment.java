@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.characters.SecondaryStats;
 import model.effects.Effect;
+import model.effects.IEffectable;
 
 /**
  * Abstract class for equipable items: Armor, Weapons and Trinkets.
@@ -11,7 +12,7 @@ import model.effects.Effect;
 
  * @author Frederick Hastedt
  */
-public abstract class Equipment extends Item {
+public abstract class Equipment extends Item implements IEffectable {
 	
 	protected SecondaryStats secondaryStats;
 	
@@ -44,5 +45,20 @@ public abstract class Equipment extends Item {
 
 	public void setSecondaryStats(SecondaryStats secondaryStats) {
 		this.secondaryStats = secondaryStats;
+	}
+	
+	@Override
+	public void effect(Effect e) {
+		e.apply(this);
+	}
+	
+	@Override
+	public void uneffect(Effect e) {
+		e.deApply(this);
+	}
+
+	@Override
+	public void reeffect(Effect e) {
+		e.reApply(this);
 	}
 }

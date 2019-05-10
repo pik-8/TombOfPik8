@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import constants.ExceptionConstants;
 import constants.ModelProperties;
+import model.effects.Effect;
+import model.effects.IEffectable;
 import model.fighting.Attack;
 import model.fighting.Skill;
 import model.items.Equipment;
@@ -19,7 +21,7 @@ import model.items.Equipment;
  *
  * @author Hagen
  */
-public class Character {
+public class Character implements IEffectable{
 
     /**
      * @author Frederick
@@ -134,5 +136,23 @@ public class Character {
     public void addExp (int add) throws IllegalArgumentException {
         setExp(this.exp + add);
     }
+
+
+	@Override
+	public void effect(Effect e) {
+		e.apply(this);
+	}
+
+
+	@Override
+	public void uneffect(Effect e) {
+		e.deApply(this);
+	}
+
+
+	@Override
+	public void reeffect(Effect e) {
+		e.reApply(this);
+	}
     
 }
