@@ -1,6 +1,6 @@
 package constants;
 
-public class ImagePaths {
+public interface ImagePaths {
 
     public static final String PATH_TO_IMAGES = "resources/images";
 

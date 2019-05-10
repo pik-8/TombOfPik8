@@ -29,4 +29,11 @@ public interface ModelProperties {
 
     final int INVENTORY_IS_INFINITE = -1;
 
+    //GUIController
+
+    public static final int STANDARD_WINDOW_HEIGHT = 720;
+    public static final int STANDARD_WINDOW_WIDTH = 1080;
+
+    public static final String WINDOW_TITLE = "Tomb of Pik 8";
+
 }

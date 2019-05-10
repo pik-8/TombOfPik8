@@ -51,4 +51,10 @@ public interface FileConstants {
 	public static final String PATH_TO_HIGH_DIFFICULTY  = PATH_TO_DIFFICULTYS + "/HardDifficulty.pik/";
 
 	public static final String TEST_DUNGEON_PATH  = DUNGEON_TEMPLATE_PATH + "/TestDungeon.pik/";
+
+	public static final String PATH_TO_CONFIGS = RESOURCE_PATH + "/configs";
+
+	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
+
+
 }

@@ -74,7 +74,6 @@ public class StartScreen extends Stage {
 		this.setTitle("Tomb of Pik 8");
 
 		this.layout = new Pane();
-
 //      setSizeImages(width, height);
 
 		Screen screen = Screen.getPrimary();
@@ -84,6 +83,7 @@ public class StartScreen extends Stage {
 		setY(bounds.getMinY());
 		setWidth(bounds.getWidth());
 		setHeight(bounds.getHeight());
+
 
 		
 //		this.setFullScreen(true);
