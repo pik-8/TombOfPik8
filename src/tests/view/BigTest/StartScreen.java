@@ -89,13 +89,11 @@ public class StartScreen extends Stage {
         this.setScene(scene);
         
         widthProperty().addListener((obs, oldVal, newVal) -> {
-        	setWidth((double) newVal);
         	setScaledWidth((double) newVal);
         	setScaledXPosition((double) newVal/ (double)oldVal);
         });
         
         heightProperty().addListener((obs, oldVal, newVal) -> {
-        	setHeight((double) newVal);
         	setScaledHeight((double) newVal);
         	setScaledYPosition((double) newVal/ (double)oldVal);
         });
