@@ -43,10 +43,12 @@ public class StartScreen extends Stage {
 
     private final Button leafButton;
 
+    private final Button[] allButtons;
+
     private final Pane layout;
     private final Scene scene;
 
-    public StartScreen (int width, int height) {
+    public StartScreen () {
         this.background = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_BACKGROUND));
         this.cloudsBackground = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_BACKGROUND));
         this.cloudsForeground = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_FOREGROUND));
@@ -61,17 +63,19 @@ public class StartScreen extends Stage {
 
         //the order is important. The later, the higher the priority.
         this.allImages = new ImageView[]{this.background, this.cloudsBackground, this.lightRaysBackground,
-                this.bottomSphere, this.leftSphere, this.rightSphere, this.topSphere, this.trunk, this.cloudsForeground, this.lightRaysForeground};
-
-        this.setTitle("Tomb of Pik 8");
+                this.bottomSphere, this.leftSphere, this.rightSphere,
+                this.topSphere, this.trunk, this.leaf, this.cloudsForeground, this.lightRaysForeground};
 
         this.leafButton = new Button();
         this.leafButton.setStyle("-fx-background-color: transparent;");
         this.leafButton.setOnMouseClicked(new StartScreenEventHandler());
 
+        this.allButtons = new Button[]{this.leafButton};
+        this.setTitle("Tomb of Pik 8");
+
         this.layout = new Pane();
         
-//      setSize(width, height);
+//      setSizeImages(width, height);
         
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
@@ -80,11 +84,15 @@ public class StartScreen extends Stage {
         setY(bounds.getMinY());
         setWidth(bounds.getWidth());
         setHeight(bounds.getHeight());
+
+        //this.setFullScreen(true);
                 
-        setSize((int)bounds.getWidth(), (int)bounds.getHeight());
         setLayout();
         setPosition();
-        
+        setSizeImages((int)bounds.getWidth(), (int)bounds.getHeight());
+        setGraphicOfButtons();
+        //setScaledHeight(bounds.getHeight());
+
         this.scene = new Scene(layout, bounds.getWidth(), bounds.getHeight());
         this.setScene(scene);
         
@@ -102,19 +110,23 @@ public class StartScreen extends Stage {
 
 
     private void setLayout () {
-        this.leafButton.setGraphic(this.leaf);
+        //here was the set graphic before.
         this.layout.getChildren().addAll(this.allImages);
-        this.layout.getChildren().addAll(this.leafButton);
+        this.layout.getChildren().addAll(this.allButtons);
     }
 
-    private void setSize (int width, int height) {
-        float ratioHeight = 2160/height;
-        float ratioWidth = 3840/width;
+    private void setSizeImages(double width, double height) {
+        double ratioHeight = 2160/height;
+        double ratioWidth = 3840/width;
 
         for (ImageView image : allImages) {
-            image.setFitHeight(image.getImage().getHeight() / ratioHeight);
             image.setFitWidth(image.getImage().getWidth() / ratioWidth);
+            image.setFitHeight(image.getImage().getHeight() / ratioHeight);
         }
+    }
+
+    private void setGraphicOfButtons () {
+        this.leafButton.setGraphic(this.leaf);
     }
     
     private void setScaledWidth(double width) {
@@ -135,33 +147,44 @@ public class StartScreen extends Stage {
     	for(ImageView image : allImages) {
     		image.setTranslateX(image.getTranslateX() * ratio);
     	}
+    	for (Button button : allButtons) {
+            button.setTranslateX(button.getTranslateX() * ratio);
+        }
     }
 
     private void setScaledYPosition(double ratio) {
     	for(ImageView image : allImages) {
     		image.setTranslateY(image.getTranslateY() * ratio);
     	}
+        for (Button button : allButtons) {
+            button.setTranslateY(button.getTranslateY() * ratio);
+        }
     }
     
     private void setPosition () {
-        changePositionOfImage(this.background, 0, 0);
-        changePositionOfImage(this.cloudsBackground, 0, 0);
-        changePositionOfImage(this.cloudsForeground, 650, -160);
-        changePositionOfImage(this.trunk, 850, 40);
-        //changePositionOfImage(this.leaf, 970, 770);
-        changePositionOfImage(this.bottomSphere, 910, 580);
-        changePositionOfImage(this.leftSphere, 850, 460);
-        changePositionOfImage(this.rightSphere, 1083, 370);
-        changePositionOfImage(this.topSphere, 965, 112);
-        changePositionOfImage(this.lightRaysBackground, 500, -160);
-        changePositionOfImage(this.lightRaysForeground, 200, -250);
-        this.leafButton.setTranslateX(900);
-        this.leafButton.setTranslateY(800);
+        changePosition(this.background, 0, 0);
+        changePosition(this.cloudsBackground, 0, 0);
+        changePosition(this.cloudsForeground, 650, -160);
+        changePosition(this.trunk, 850, 50);
+        //changePosition(this.leaf, 970, 770);
+        changePosition(this.bottomSphere, 910, 570);
+        changePosition(this.leftSphere, 850, 460);
+        changePosition(this.rightSphere, 1083, 370);
+        changePosition(this.topSphere, 965, 112);
+        changePosition(this.lightRaysBackground, 500, -160);
+        changePosition(this.lightRaysForeground, 200, -250);
+
+        changePosition(this.leafButton, 965, 747);
     }
 
 
-    private void changePositionOfImage (ImageView image, int xValue, int yValue) {
+    private void changePosition(ImageView image, int xValue, int yValue) {
         image.setTranslateX(xValue);
         image.setTranslateY(yValue);
+    }
+
+    private void changePosition(Button button, int xValue, int yValue) {
+        button.setTranslateX(xValue);
+        button.setTranslateY(yValue);
     }
 }

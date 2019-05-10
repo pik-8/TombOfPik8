@@ -1,0 +1,589 @@
+﻿{
+  "player": {
+    "primeStats": {
+      "isSpecialist": false,
+      "level": 0,
+      "healthLevel": 0,
+      "strengthLevel": 0,
+      "resistanceLevel": 0,
+      "intelligenceLevel": 0,
+      "magicLevel": 0,
+      "staminaLevel": 0,
+      "speedLevel": 0,
+      "toughnessLevel": 0,
+      "luckLevel": 0
+    },
+    "statistics": {},
+    "name": "Bam",
+    "inventory": {
+      "consumables": [],
+      "equipment": [],
+      "materials": {},
+      "money": 0,
+      "itemCount": 0,
+      "size": 3
+    },
+    "attacks": [
+      {
+        "name": "Punchu",
+        "description": "aöhdewbfg",
+        "damage": 1,
+        "magicDamage": 1,
+        "accuracy": 1,
+        "requiredSlots": 1,
+        "effect": {
+          "effectType": "HealingEffect",
+          "flatHeal": 50.0,
+          "percentOfMaxHealthHeal": 0.0,
+          "percentOfMissingHealthHeal": 0.0,
+          "percentOfCurrentHealthHeal": 0.0,
+          "name": "Healing Effect",
+          "description": "you get healed",
+          "duration": 1,
+          "instantApply": false
+        },
+        "attackPattern": {
+          "attackField": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.1,
+              -1.0
+            ]
+          ],
+          "effectField": [
+            [
+              {
+                "effectType": "HealingEffect",
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            ],
+            [
+              null
+            ],
+            [
+              {
+                "effectType": "HealingEffect",
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              },
+              {
+                "effectType": "HealingEffect",
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "name": "Punchu",
+        "description": "aöhdewbfg",
+        "damage": 1,
+        "magicDamage": 1,
+        "accuracy": 1,
+        "requiredSlots": 1,
+        "effect": {
+          "effectType": "HealingEffect",
+          "flatHeal": 50.0,
+          "percentOfMaxHealthHeal": 0.0,
+          "percentOfMissingHealthHeal": 0.0,
+          "percentOfCurrentHealthHeal": 0.0,
+          "name": "Healing Effect",
+          "description": "you get healed",
+          "duration": 1,
+          "instantApply": false
+        },
+        "attackPattern": {
+          "attackField": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.1,
+              -1.0
+            ]
+          ],
+          "effectField": [
+            [
+              {
+                "effectType": "HealingEffect",
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            ],
+            [
+              null
+            ],
+            [
+              {
+                "effectType": "HealingEffect",
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              },
+              {
+                "effectType": "HealingEffect",
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            ]
+          ]
+        }
+      }
+    ],
+    "skills": [
+      null
+    ],
+    "secondaryStats": {
+      "hp": 1,
+      "action": 1,
+      "max_Hp": 1,
+      "maxAction": 1,
+      "attack": 1,
+      "magicAttack": 1,
+      "defence": 1,
+      "magicDefence": 1,
+      "speed": 1,
+      "attackResistance": 1.0,
+      "luck": 1,
+      "load": 1,
+      "maxEquipmentLoad": 1,
+      "stamina": 1,
+      "attackSlots": 1
+    },
+    "exp": 1
+  },
+  "party": [
+    {
+      "primeStats": {
+        "isSpecialist": false,
+        "level": 0,
+        "healthLevel": 0,
+        "strengthLevel": 0,
+        "resistanceLevel": 0,
+        "intelligenceLevel": 0,
+        "magicLevel": 0,
+        "staminaLevel": 0,
+        "speedLevel": 0,
+        "toughnessLevel": 0,
+        "luckLevel": 0
+      },
+      "statistics": {},
+      "name": "naofumi",
+      "inventory": {
+        "consumables": [],
+        "equipment": [],
+        "materials": {},
+        "money": 0,
+        "itemCount": 0,
+        "size": 3
+      },
+      "attacks": [
+        {
+          "name": "Punchu",
+          "description": "aöhdewbfg",
+          "damage": 1,
+          "magicDamage": 1,
+          "accuracy": 1,
+          "requiredSlots": 1,
+          "effect": {
+            "effectType": "HealingEffect",
+            "flatHeal": 50.0,
+            "percentOfMaxHealthHeal": 0.0,
+            "percentOfMissingHealthHeal": 0.0,
+            "percentOfCurrentHealthHeal": 0.0,
+            "name": "Healing Effect",
+            "description": "you get healed",
+            "duration": 1,
+            "instantApply": false
+          },
+          "attackPattern": {
+            "attackField": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.1,
+                -1.0
+              ]
+            ],
+            "effectField": [
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ],
+              [
+                null
+              ],
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                },
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Punchu",
+          "description": "aöhdewbfg",
+          "damage": 1,
+          "magicDamage": 1,
+          "accuracy": 1,
+          "requiredSlots": 1,
+          "effect": {
+            "effectType": "HealingEffect",
+            "flatHeal": 50.0,
+            "percentOfMaxHealthHeal": 0.0,
+            "percentOfMissingHealthHeal": 0.0,
+            "percentOfCurrentHealthHeal": 0.0,
+            "name": "Healing Effect",
+            "description": "you get healed",
+            "duration": 1,
+            "instantApply": false
+          },
+          "attackPattern": {
+            "attackField": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.1,
+                -1.0
+              ]
+            ],
+            "effectField": [
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ],
+              [
+                null
+              ],
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                },
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "skills": [
+        null
+      ],
+      "secondaryStats": {
+        "hp": 1,
+        "action": 1,
+        "max_Hp": 1,
+        "maxAction": 1,
+        "attack": 1,
+        "magicAttack": 1,
+        "defence": 1,
+        "magicDefence": 1,
+        "speed": 1,
+        "attackResistance": 1.0,
+        "luck": 1,
+        "load": 1,
+        "maxEquipmentLoad": 1,
+        "stamina": 1,
+        "attackSlots": 1
+      },
+      "exp": 1
+    },
+    {
+      "primeStats": {
+        "isSpecialist": false,
+        "level": 0,
+        "healthLevel": 0,
+        "strengthLevel": 0,
+        "resistanceLevel": 0,
+        "intelligenceLevel": 0,
+        "magicLevel": 0,
+        "staminaLevel": 0,
+        "speedLevel": 0,
+        "toughnessLevel": 0,
+        "luckLevel": 0
+      },
+      "statistics": {},
+      "name": "Saitama",
+      "inventory": {
+        "consumables": [],
+        "equipment": [],
+        "materials": {},
+        "money": 0,
+        "itemCount": 0,
+        "size": 3
+      },
+      "attacks": [
+        {
+          "name": "Punchu",
+          "description": "aöhdewbfg",
+          "damage": 1,
+          "magicDamage": 1,
+          "accuracy": 1,
+          "requiredSlots": 1,
+          "effect": {
+            "effectType": "HealingEffect",
+            "flatHeal": 50.0,
+            "percentOfMaxHealthHeal": 0.0,
+            "percentOfMissingHealthHeal": 0.0,
+            "percentOfCurrentHealthHeal": 0.0,
+            "name": "Healing Effect",
+            "description": "you get healed",
+            "duration": 1,
+            "instantApply": false
+          },
+          "attackPattern": {
+            "attackField": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.1,
+                -1.0
+              ]
+            ],
+            "effectField": [
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ],
+              [
+                null
+              ],
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                },
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "name": "Punchu",
+          "description": "aöhdewbfg",
+          "damage": 1,
+          "magicDamage": 1,
+          "accuracy": 1,
+          "requiredSlots": 1,
+          "effect": {
+            "effectType": "HealingEffect",
+            "flatHeal": 50.0,
+            "percentOfMaxHealthHeal": 0.0,
+            "percentOfMissingHealthHeal": 0.0,
+            "percentOfCurrentHealthHeal": 0.0,
+            "name": "Healing Effect",
+            "description": "you get healed",
+            "duration": 1,
+            "instantApply": false
+          },
+          "attackPattern": {
+            "attackField": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.1,
+                -1.0
+              ]
+            ],
+            "effectField": [
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ],
+              [
+                null
+              ],
+              [
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                },
+                {
+                  "effectType": "HealingEffect",
+                  "flatHeal": 50.0,
+                  "percentOfMaxHealthHeal": 0.0,
+                  "percentOfMissingHealthHeal": 0.0,
+                  "percentOfCurrentHealthHeal": 0.0,
+                  "name": "Healing Effect",
+                  "description": "you get healed",
+                  "duration": 1,
+                  "instantApply": false
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "skills": [
+        null
+      ],
+      "secondaryStats": {
+        "hp": 1,
+        "action": 1,
+        "max_Hp": 1,
+        "maxAction": 1,
+        "attack": 1,
+        "magicAttack": 1,
+        "defence": 1,
+        "magicDefence": 1,
+        "speed": 1,
+        "attackResistance": 1.0,
+        "luck": 1,
+        "load": 1,
+        "maxEquipmentLoad": 1,
+        "stamina": 1,
+        "attackSlots": 1
+      },
+      "exp": 1
+    }
+  ],
+  "playtime": 1,
+  "zaWORUDO": {},
+  "difficulty": {}
+}
