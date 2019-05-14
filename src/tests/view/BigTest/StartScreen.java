@@ -70,6 +70,7 @@ public class StartScreen extends Stage {
 		this.leafButton.setStyle("-fx-background-color: transparent;");
 		this.leafButton.setOnMouseClicked(new StartScreenEventHandler());
 
+
 		this.allButtons = new Button[] { this.leafButton };
 		this.setTitle("Tomb of Pik 8");
 
@@ -91,7 +92,7 @@ public class StartScreen extends Stage {
 		setPosition();
 		setSizeImages(bounds.getWidth(), bounds.getHeight());
 		setGraphicOfButtons();
-		// setScaledHeight(bounds.getHeight());
+		//setScaledHeight(bounds.getHeight());
 
 		this.scene = new Scene(layout, bounds.getWidth(), bounds.getHeight());
 		this.setScene(scene);
@@ -105,6 +106,7 @@ public class StartScreen extends Stage {
 			setScaledHeight((double) newVal);
 			setScaledYPosition((double) newVal / (double) oldVal);
 		});
+
 
 	}
 

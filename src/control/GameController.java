@@ -22,7 +22,7 @@ public class GameController extends Thread{
 
 
     public void startGame () {
-        this.start();
+        //this.start();
         GUIController.launch(GUIController.class);
     }
 

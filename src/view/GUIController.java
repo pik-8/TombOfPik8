@@ -34,9 +34,13 @@ public class GUIController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.stage = primaryStage;
-        this.scene = primaryStage.getScene();
 
+        this.stage = new Window(scene);
+        TitleScene scene = new TitleScene(this.stage.getWidth(), this.stage.getHeight());
+        Thread thread = new Thread(scene);
+        thread.start();
+
+        this.stage.setScene(scene);
         this.stage.setTitle(ModelProperties.WINDOW_TITLE);
 
         try {
@@ -51,7 +55,7 @@ public class GUIController extends Application {
             primaryStage.setHeight(ModelProperties.STANDARD_WINDOW_HEIGHT);
             primaryStage.setX(0);
         }
-        primaryStage.show();
+        this.stage.show();
     }
 
 

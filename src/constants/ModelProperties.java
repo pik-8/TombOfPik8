@@ -36,4 +36,9 @@ public interface ModelProperties {
 
     public static final String WINDOW_TITLE = "Tomb of Pik 8";
 
+
+
+
+    public static final String FILE_KEY = "file:";
+
 }
