@@ -15,11 +15,19 @@ import static constants.ImagePaths.PATH_TO_START_SCREEN_TRUNK;
 import constants.view.DefaultTextureSize;
 import constants.view.TitleScreenTextures;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderImage;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -67,9 +75,14 @@ public class StartScreen extends Stage {
 				this.cloudsForeground, this.lightRaysForeground };
 
 		this.leafButton = new Button();
-		this.leafButton.setStyle("-fx-background-color: transparent;");
-		this.leafButton.setOnMouseClicked(new StartScreenEventHandler());
+		this.leafButton.setStyle("-fx-background-insets: 0 0 0 0, 0, 1, 2;");
+		this.leafButton.setStyle("-fx-background-radius: 1000;");
+		this.leafButton.setStyle("-fx-border-radius: 500;");
 
+		//this.leafButton.setStyle("-fx-background-color: transparent;");
+
+		this.leafButton.setOnMouseClicked(new StartScreenEventHandler());
+		this.leafButton.setPickOnBounds(false);
 
 		this.allButtons = new Button[] { this.leafButton };
 		this.setTitle("Tomb of Pik 8");
@@ -93,6 +106,12 @@ public class StartScreen extends Stage {
 		setSizeImages(bounds.getWidth(), bounds.getHeight());
 		setGraphicOfButtons();
 		//setScaledHeight(bounds.getHeight());
+
+		Label label = new Label("Label", this.bottomSphere);
+		label.setOnMouseClicked(e -> System.out.println("Clicked"));
+		label.setShape(new Circle());
+		this.layout.getChildren().add(label);
+
 
 		this.scene = new Scene(layout, bounds.getWidth(), bounds.getHeight());
 		this.setScene(scene);

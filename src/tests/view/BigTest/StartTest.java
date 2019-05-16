@@ -2,12 +2,17 @@ package tests.view.BigTest;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -21,11 +26,28 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
         //createSceneWithAnimations(primaryStage);
-        StartScreen startScreen = new StartScreen();
-        startScreen.show();
+        //new StartScreen().show();
+        testFXML(primaryStage);
+    }
 
+    public void testFXML (Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Test.fxml"));
+        loader.setController(this);
+        Parent root = loader.load();
+        //Parent root = FXMLLoader.load(getClass().getResource("Test.fxml"));
+        Pane pane = (Pane) root;
+        Label label = new Label();
+        for (Node noto : pane.getChildren()) {
+            if (noto instanceof Label)
+                label = (Label) noto;
+        }
+        label.setOnMouseClicked(e -> System.out.println("Label"));
+        label.setShape(new Circle(100));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.show();
     }
 
     @Override
