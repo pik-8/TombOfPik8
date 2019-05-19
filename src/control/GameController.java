@@ -8,7 +8,7 @@ public class GameController extends Thread{
     private static GameController gameController;
 
 
-    private GUIController window;
+    private GUIController guiController;
 
     public static GameController getGameController() {
         if (gameController == null) {
@@ -34,9 +34,9 @@ public class GameController extends Thread{
             System.out.println(e);
         }
         System.out.println("hello");
-        this.window = GUIController.getActiveGameWindow();
-        Stage start = this.window.getStage();
-        this.window.update();
+        this.guiController = GUIController.getActiveGuiController();
+        Stage start = this.guiController.getStage();
+        this.guiController.update();
         //start.setTitle("Changed");
         //this.window.setStage(start);
 

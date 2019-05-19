@@ -28,8 +28,8 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
     @Override
     public void start(Stage primaryStage) throws Exception {
         //createSceneWithAnimations(primaryStage);
-        //new StartScreen().show();
-        testFXML(primaryStage);
+        new StartScreen().show();
+        //testFXML(primaryStage);
     }
 
     public void testFXML (Stage primaryStage) throws Exception {
@@ -91,8 +91,8 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
         Scene scene = new Scene(layout, 1500, 1000);
 
-
         window.setScene(scene);
         window.show();
+        window.setFullScreen(true);
     }
 }

@@ -24,13 +24,8 @@ public class TitleScene extends Scene implements Runnable{
     private final ImageView topSphere;
     private final ImageView leaf;
     private final ImageView lightRaysBackground;
-    private final ImageView lightRaysForeground;
 
     private final ImageView[] allImages;
-
-    private final Button leafButton;
-
-    private final Button[] allButtons;
 
     private final Pane layout;
 
@@ -46,28 +41,19 @@ public class TitleScene extends Scene implements Runnable{
         this.rightSphere = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_RIGHT_SPHERE));
         this.topSphere = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_TOP_SPHERE));
         this.lightRaysBackground = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND));
-        this.lightRaysForeground = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_LIGHT_RAYS_FOREGROUND));
 
         // the order is important. The later, the higher the priority.
         this.allImages = new ImageView[] { this.background, this.cloudsBackground, this.lightRaysBackground,
                 this.bottomSphere, this.leftSphere, this.rightSphere, this.topSphere, this.trunk, this.leaf,
-                this.cloudsForeground, this.lightRaysForeground };
+                this.cloudsForeground };
 
-        this.leafButton = new Button();
-        this.leafButton.setMinWidth(0);
-        this.leafButton.setMinHeight(0);
-        //this.leafButton.setStyle("-fx-background-color: transparent;");
-        this.leafButton.setOnMouseClicked(new StartScreenEventHandler());
-
-        this.allButtons = new Button[] { this.leafButton };
         this.layout = new Pane();
 
+        this.leaf.setOnMouseClicked(new TitleSceeneUpdater());
 
         setLayout();
         setPosition();
         setSizeImages(width, height);
-        setGraphicOfButtons();
-        this.leafButton.setMinWidth(0);
     }
 
     @Override
@@ -84,7 +70,6 @@ public class TitleScene extends Scene implements Runnable{
     private void setLayout() {
         // here was the set graphic before.
         this.layout.getChildren().addAll(this.allImages);
-        this.layout.getChildren().addAll(this.allButtons);
 
         this.setRoot(layout);
     }
@@ -99,11 +84,6 @@ public class TitleScene extends Scene implements Runnable{
         }
     }
 
-    private void setGraphicOfButtons() {
-        this.leafButton.setGraphic(this.leaf);
-    }
-
-
 
     private void setPosition() {
         changePosition(this.background, TitleScreenTextures.posBackground[0], TitleScreenTextures.posBackground[1]);
@@ -115,18 +95,11 @@ public class TitleScene extends Scene implements Runnable{
         changePosition(this.rightSphere, TitleScreenTextures.posRightSphere[0], TitleScreenTextures.posRightSphere[1]);
         changePosition(this.topSphere, TitleScreenTextures.posTopSphere[0], TitleScreenTextures.posTopSphere[1]);
         changePosition(this.lightRaysBackground, TitleScreenTextures.posLightRaysBackground[0], TitleScreenTextures.posLightRaysBackground[1]);
-        changePosition(this.lightRaysForeground, TitleScreenTextures.posLightRaysForeground[0], TitleScreenTextures.posLightRaysForeground[1]);
-
-        changePosition(this.leafButton, TitleScreenTextures.posLeafButton[0], TitleScreenTextures.posLeafButton[1]);
+        changePosition(this.leaf, TitleScreenTextures.posLeaf[0], TitleScreenTextures.posLeaf[1]);
     }
 
     private void changePosition(ImageView image, double xValue, double yValue) {
         image.setTranslateX(xValue);
         image.setTranslateY(yValue);
-    }
-
-    private void changePosition(Button button, double xValue, double yValue) {
-        button.setTranslateX(xValue);
-        button.setTranslateY(yValue);
     }
 }

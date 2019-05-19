@@ -7,7 +7,6 @@ import static constants.ImagePaths.PATH_TO_START_SCREEN_CLOUDS_FOREGROUND;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_LEAF;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_LEFT_SPHERE;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND;
-import static constants.ImagePaths.PATH_TO_START_SCREEN_LIGHT_RAYS_FOREGROUND;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_RIGHT_SPHERE;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_TOP_SPHERE;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_TRUNK;
@@ -15,19 +14,11 @@ import static constants.ImagePaths.PATH_TO_START_SCREEN_TRUNK;
 import constants.view.DefaultTextureSize;
 import constants.view.TitleScreenTextures;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderImage;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -45,13 +36,9 @@ public class StartScreen extends Stage {
 	private final ImageView topSphere;
 	private final ImageView leaf;
 	private final ImageView lightRaysBackground;
-	private final ImageView lightRaysForeground;
 
 	private final ImageView[] allImages;
 
-	private final Button leafButton;
-
-	private final Button[] allButtons;
 
 	private final Pane layout;
 	private final Scene scene;
@@ -67,24 +54,24 @@ public class StartScreen extends Stage {
 		this.rightSphere = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_RIGHT_SPHERE));
 		this.topSphere = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_TOP_SPHERE));
 		this.lightRaysBackground = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND));
-		this.lightRaysForeground = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_LIGHT_RAYS_FOREGROUND));
 
 		// the order is important. The later, the higher the priority.
 		this.allImages = new ImageView[] { this.background, this.cloudsBackground, this.lightRaysBackground,
 				this.bottomSphere, this.leftSphere, this.rightSphere, this.topSphere, this.trunk, this.leaf,
-				this.cloudsForeground, this.lightRaysForeground };
+				this.cloudsForeground };
 
-		this.leafButton = new Button();
-		this.leafButton.setStyle("-fx-background-insets: 0 0 0 0, 0, 1, 2;");
-		this.leafButton.setStyle("-fx-background-radius: 1000;");
-		this.leafButton.setStyle("-fx-border-radius: 500;");
 
-		//this.leafButton.setStyle("-fx-background-color: transparent;");
+		this.leaf.setOnMouseClicked(e -> System.out.println("Clicked"));
+		/*
+		this.leaf.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
-		this.leafButton.setOnMouseClicked(new StartScreenEventHandler());
-		this.leafButton.setPickOnBounds(false);
-
-		this.allButtons = new Button[] { this.leafButton };
+			@Override
+			public void handle(MouseEvent event) {
+				System.out.println("Tile pressed ");
+				event.consume();
+			}
+		});
+		 */
 		this.setTitle("Tomb of Pik 8");
 
 		this.layout = new Pane();
@@ -107,11 +94,6 @@ public class StartScreen extends Stage {
 		setGraphicOfButtons();
 		//setScaledHeight(bounds.getHeight());
 
-		Label label = new Label("Label", this.bottomSphere);
-		label.setOnMouseClicked(e -> System.out.println("Clicked"));
-		label.setShape(new Circle());
-		this.layout.getChildren().add(label);
-
 
 		this.scene = new Scene(layout, bounds.getWidth(), bounds.getHeight());
 		this.setScene(scene);
@@ -132,7 +114,6 @@ public class StartScreen extends Stage {
 	private void setLayout() {
 		// here was the set graphic before.
 		this.layout.getChildren().addAll(this.allImages);
-		this.layout.getChildren().addAll(this.allButtons);
 	}
 
 	private void setSizeImages(double width, double height) {
@@ -146,7 +127,7 @@ public class StartScreen extends Stage {
 	}
 
 	private void setGraphicOfButtons() {
-		this.leafButton.setGraphic(this.leaf);
+		//this.leafButton.setGraphic(this.leaf);
 	}
 
 	private void setScaledWidth(double width) {
@@ -167,17 +148,11 @@ public class StartScreen extends Stage {
 		for (ImageView image : allImages) {
 			image.setTranslateX(image.getTranslateX() * ratio);
 		}
-		for (Button button : allButtons) {
-			button.setTranslateX(button.getTranslateX() * ratio);
-		}
 	}
 
 	private void setScaledYPosition(double ratio) {
 		for (ImageView image : allImages) {
 			image.setTranslateY(image.getTranslateY() * ratio);
-		}
-		for (Button button : allButtons) {
-			button.setTranslateY(button.getTranslateY() * ratio);
 		}
 	}
 
@@ -191,9 +166,9 @@ public class StartScreen extends Stage {
 		changePosition(this.rightSphere, TitleScreenTextures.posRightSphere[0], TitleScreenTextures.posRightSphere[1]);
 		changePosition(this.topSphere, TitleScreenTextures.posTopSphere[0], TitleScreenTextures.posTopSphere[1]);
 		changePosition(this.lightRaysBackground, TitleScreenTextures.posLightRaysBackground[0], TitleScreenTextures.posLightRaysBackground[1]);
-		changePosition(this.lightRaysForeground, TitleScreenTextures.posLightRaysForeground[0], TitleScreenTextures.posLightRaysForeground[1]);
+		changePosition(this.leaf, TitleScreenTextures.posLeaf[0], TitleScreenTextures.posLeaf[1]);
 
-		changePosition(this.leafButton, TitleScreenTextures.posLeafButton[0], TitleScreenTextures.posLeafButton[1]);
+		//changePosition(this.leafButton, TitleScreenTextures.posLeafButton[0], TitleScreenTextures.posLeafButton[1]);
 	}
 
 	private void changePosition(ImageView image, double xValue, double yValue) {

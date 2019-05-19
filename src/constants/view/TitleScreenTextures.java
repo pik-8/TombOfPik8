@@ -21,5 +21,5 @@ public interface TitleScreenTextures {
 
 	public static final double[] posLightRaysForeground= {200,-200};
 
-	public static final double[] posLeafButton= {965,747};
+	public static final double[] posLeaf= {965,747};
 }

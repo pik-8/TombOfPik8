@@ -28,7 +28,7 @@ public class GUIController extends Application {
     }
 
 
-    public static GUIController getActiveGameWindow () {
+    public static GUIController getActiveGuiController () {
         return GUIController;
     }
 
