@@ -15,11 +15,9 @@ public interface TitleScreenTextures {
 
 	public static final double[] posRightSphere = {1083,370};
 	
-	public static final double[] posTopSphere = {965,112};
+	public static final double[] posTopSphere = {964,117};
 
 	public static final double[] posLightRaysBackground = {500,-160};
 
-	public static final double[] posLightRaysForeground= {200,-200};
-
-	public static final double[] posLeaf= {965,747};
+	public static final double[] posLeaf= {971,751};
 }

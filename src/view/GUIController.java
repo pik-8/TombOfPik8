@@ -6,6 +6,7 @@ import constants.ModelProperties;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.Scenes.TitleScene;
 
 import java.io.IOException;
 
@@ -44,16 +45,13 @@ public class GUIController extends Application {
         this.stage.setTitle(ModelProperties.WINDOW_TITLE);
 
         try {
-            ConfigReader configReader = new ConfigReader(FileConstants.PATH_TO_GAME_CONFIG);
-            primaryStage.setWidth(configReader.getNumberFromConfigFile(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW));
-            primaryStage.setHeight(configReader.getNumberFromConfigFile(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW));
-            primaryStage.setX(0);
-            primaryStage.setY(0);
+            ConfigStream configStream = new ConfigStream(FileConstants.PATH_TO_GAME_CONFIG);
+            primaryStage.setWidth(configStream.getNumberFromConfigFile(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW));
+            primaryStage.setHeight(configStream.getNumberFromConfigFile(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW));
         } catch (IOException ioException) {
             System.out.println(ioException);
             primaryStage.setWidth(ModelProperties.STANDARD_WINDOW_WIDTH);
             primaryStage.setHeight(ModelProperties.STANDARD_WINDOW_HEIGHT);
-            primaryStage.setX(0);
         }
         this.stage.show();
     }

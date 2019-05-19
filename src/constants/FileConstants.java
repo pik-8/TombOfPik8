@@ -57,4 +57,27 @@ public interface FileConstants {
 	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
 
 
+	//Language
+
+	public static final String PATH_TO_STYLE_SHEETS = "view/styleSheets";
+	public static final String PATH_TO_OPTION_SCENE_DIFFICULTY_BUTTON_SYTYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_GraphicButton.css";
+	public static final String PATH_TO_OPTION_SCENE_GRAPHIC_BUTTON_SYTYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_DifficultyButton.css";
+	public static final String PATH_TO_OPTION_SCENE_SOUND_BUTTON_SYTYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_SoundButton.css";
+
+	public static final String PATH_TO_LANGUAGES = RESOURCE_PATH + "/languages";
+	public static final String PATH_TO_GERMAN = PATH_TO_LANGUAGES + "/german";
+	public static final String PATH_TO_LANGUAGE_SCENES = "/scenes";
+	public static final String PATH_TO_OPTION_SCENES_CONFIG = PATH_TO_LANGUAGE_SCENES+ "/OptionScene.config";
+
+
+	public static final String STANDARD_LANGUAGE_PATH = PATH_TO_LANGUAGES + "/german";
+
+
+	//Images
+
+	public static final String PATH_TO_IMAGES = RESOURCE_PATH + "/images";
+	public static final String PATH_TO_TILE_IMAGES = PATH_TO_IMAGES + "/tiles";
+	public static final String PATH_TO_FOREST_TILES= PATH_TO_TILE_IMAGES + "/forestTiles";
+	public static final String PATH_TO_DESERT_TILES= PATH_TO_TILE_IMAGES + "/desertTiles";
+	public static final String PATH_TO_SPACE_TILES= PATH_TO_TILE_IMAGES + "/spaceTiles";
 }

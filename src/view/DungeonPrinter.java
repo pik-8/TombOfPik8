@@ -1,9 +1,18 @@
 package view;
 
+import constants.FileConstants;
+import constants.view.DefaultTextureSize;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import model.characters.Character;
 import model.dungeon.Dungeon;
+import model.dungeon.Landscape;
 import model.dungeon.Terrain;
 import model.dungeon.Tile;
+
+import java.io.File;
+import java.util.Random;
 
 
 /**
@@ -13,6 +22,44 @@ import model.dungeon.Tile;
  * @author Hagen
  */
 public class DungeonPrinter {
+    private static final String FILE_KEY = "file:";
+
+    public static Pane printDungeonImage (Dungeon dungeon) {
+        Pane dungeonLayout = new Pane();
+        Random random = new Random();
+        for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
+            for (int x = 0; x < dungeon.getLayout().length; x++) {
+                if (dungeon.getTile(x, y) != null) {
+                    File folder = new File(getImagePathOfTile(dungeon.getTile(x, y).getLandscape()));
+                    ImageView tileImage = new ImageView(new Image(FILE_KEY + folder.listFiles()[random.nextInt(folder.listFiles().length)]));
+                    tileImage.setFitWidth(DefaultTextureSize.widthOfTiles);
+                    tileImage.setFitHeight(DefaultTextureSize.heightOfTiles);
+                    tileImage.setTranslateX(x * DefaultTextureSize.widthOfTiles);
+                    tileImage.setTranslateY(y * DefaultTextureSize.heightOfTiles);
+                    dungeonLayout.getChildren().add(tileImage);
+                }
+            }
+        }
+
+        return dungeonLayout;
+    }
+
+
+    /**
+     * Returns the location of SpaceTiles as default.
+     * @param landscape
+     * @return
+     */
+    private static String getImagePathOfTile (Landscape landscape) {
+        switch (landscape){
+            case FOREST:
+                return FileConstants.PATH_TO_FOREST_TILES;
+            case DESERT:
+                return FileConstants.PATH_TO_FOREST_TILES;
+            default:
+                return FileConstants.PATH_TO_FOREST_TILES;
+        }
+    }
 
 
     /**
