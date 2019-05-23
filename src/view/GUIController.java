@@ -37,9 +37,9 @@ public class GUIController extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         this.stage = new Window(scene);
-        TitleScene scene = new TitleScene(this.stage.getWidth(), this.stage.getHeight());
-        Thread thread = new Thread(scene);
-        thread.start();
+        Scene scene = new TitleScene(this.stage.getWidth(), this.stage.getHeight());
+
+
 
         this.stage.setScene(scene);
         this.stage.setTitle(ModelProperties.WINDOW_TITLE);

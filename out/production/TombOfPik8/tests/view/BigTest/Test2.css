@@ -1,0 +1,25 @@
+*{
+	-fx-base: #424242;
+}
+
+.button{
+	-fx-font-size: 16pt;
+	-fx-background-radius: 32;
+	-fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+}
+
+.button:hover {
+    -fx-background-color: grey;
+    -fx-font-fill: black;
+}
+.first-button{
+    -fx-background-color: #039BE5;
+}
+
+.label{
+	-fx-background-color: blue;
+}
+
+.label:clicked{
+	-fx-background-color: red;
+}
