@@ -1,0 +1,1824 @@
+{
+  "layout": [
+    [
+      {
+        "layout": [
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "TREE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ]
+        ],
+        "landscape": "FOREST",
+        "size": 5
+      },
+      {
+        "layout": [
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "TREE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ]
+        ],
+        "landscape": "FOREST",
+        "size": 5
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      {
+        "layout": [
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ]
+        ],
+        "landscape": "FOREST",
+        "size": 5
+      },
+      {
+        "layout": [
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "TREE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ]
+        ],
+        "landscape": "FOREST",
+        "size": 5
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      {
+        "layout": [
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "TREE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "TREE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "NONE",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ],
+          [
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            },
+            {
+              "terrain": "BEDROCK",
+              "effect": {
+                "flatHeal": 50.0,
+                "percentOfMaxHealthHeal": 0.0,
+                "percentOfMissingHealthHeal": 0.0,
+                "percentOfCurrentHealthHeal": 0.0,
+                "name": "Healing Effect",
+                "description": "you get healed",
+                "duration": 1,
+                "instantApply": false
+              }
+            }
+          ]
+        ],
+        "landscape": "FOREST",
+        "size": 5
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ]
+}

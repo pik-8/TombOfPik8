@@ -21,4 +21,7 @@ public interface ImagePaths {
     public static final String PATH_TO_START_SCREEN_LIGHT_RAYS_FOREGROUND = PATH_TO_START_SCREEN + "/LightRaysForeground.png";
     public static final String PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND = PATH_TO_START_SCREEN + "/LightRaysBackground.png";
 
+    public static final String PATH_TO_DUNGEON_BACKGROUND = PATH_TO_IMAGES + "/DungeonBackground.png";
+    public static final String PATH_TO_LOADING_SCNE_BACKGROUND = PATH_TO_IMAGES + "LoadingScene_Backgound.png";
+
 }

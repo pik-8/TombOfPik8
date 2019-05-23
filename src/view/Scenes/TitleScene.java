@@ -4,6 +4,7 @@ import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
 import constants.view.TitleScreenTextures;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -11,9 +12,11 @@ import model.dungeon.DungeonFactory;
 import view.GUIController;
 import view.TitleSceneUpdater;
 
+import java.awt.*;
+
 import static constants.ImagePaths.*;
 
-public class TitleScene extends Scene implements Runnable{
+public class TitleScene extends Scene {
 
     private final ImageView background;
     private final ImageView cloudsBackground;
@@ -52,25 +55,14 @@ public class TitleScene extends Scene implements Runnable{
 
         this.leaf.setOnMouseClicked(new TitleSceneUpdater());
         this.bottomSphere.setOnMouseClicked(e -> {
-            GUIController controller = GUIController.getActiveGuiController();
             DungeonFactory dungeonFactory = new DungeonFactory();
-            controller.setScene(new DungeonScene(dungeonFactory.generateRandomDungeon()));
+            SceneManager manager = new SceneManager();
+            manager.loadDungeonScene(dungeonFactory.generateRandomDungeon());
         });
 
         setLayout();
         setPosition();
         setSizeImages(width, height);
-    }
-
-    @Override
-    public void run() {
-        System.out.println("I run.");
-        try {
-            Thread.sleep(5000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        this.run();
     }
 
     private void setLayout() {

@@ -1,6 +1,7 @@
 package view;
 
 import constants.view.DefaultTextureSize;
+import javafx.collections.ObservableList;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -44,39 +45,78 @@ public class Window extends Stage {
 
     private void setScaledWidth(double width) {
         double ratioWidth = DefaultTextureSize.width / width;
-        for (Node element : ((Pane) this.getScene().getRoot()).getChildren()) {
-            try {
-                ((ImageView) element).setFitWidth(((ImageView) element).getImage().getWidth() / ratioWidth);
-            } catch (Exception e) {
-                ((ImageView) ((Button) element).getGraphic()).setFitWidth(((ImageView) ((Button) element).getGraphic()).getImage().getWidth() / ratioWidth);
+        setScaleWidthOfChildren(((Pane) this.getScene().getRoot()).getChildren(), ratioWidth);
+    }
+
+    private void setScaleWidthOfChildren (ObservableList<Node> children, double ratio) {
+        for (Node element : children) {
+            if (element.getClass() == ImageView.class) {
+                ((ImageView) element).setFitWidth(((ImageView) element).getImage().getWidth() / ratio);
+            } else if (element.getClass() == Pane.class) {
+                setScaleWidthOfChildren(((Pane) element).getChildren(), ratio);
+            } else {
+                System.out.println(element.getClass());
             }
         }
     }
 
     private void setScaledHeight(double height) {
         double ratioHeight = DefaultTextureSize.height / height;
-        for (Node element : ((Pane) this.getScene().getRoot()).getChildren()) {
-            try {
-                ((ImageView) element).setFitHeight(((ImageView) element).getImage().getHeight() / ratioHeight);
-            } catch (Exception e) {
-                Button theButton = (Button) element;
-                ImageView image = (ImageView) theButton.getGraphic();
-                image.setFitHeight(image.getImage().getHeight() / ratioHeight);
-                System.out.println("delta: " + (theButton.getHeight() - image.getFitHeight()));
+        setScaleHeightOfChildren(((Pane) this.getScene().getRoot()).getChildren(), ratioHeight);
+    }
 
+    private void setScaleHeightOfChildren (ObservableList<Node> children, double ratio) {
+        for (Node element : children) {
+            if (element.getClass() == ImageView.class) {
+                ((ImageView) element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
+            } else if (element.getClass() == Pane.class) {
+                setScaleHeightOfChildren(((Pane) element).getChildren(), ratio);
+            } else {
+                System.out.println(element.getClass());
             }
         }
     }
 
     private void setScaledXPosition(double ratio) {
         for (Node element : ((Pane) this.getScene().getRoot()).getChildren()) {
-            element.setTranslateX(element.getTranslateX() *ratio);
+            if (element.getClass() != Pane.class) {
+                element.setTranslateX(element.getTranslateX() *ratio);
+            } else {
+                setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
+            }
         }
     }
 
+    private void setScaleXPositionOfChildren (ObservableList<Node> children, double ratio) {
+        for (Node element : children) {
+            if (element.getClass() != Pane.class) {
+                element.setTranslateX(element.getTranslateX() *ratio);
+            } else {
+                setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
+            }
+        }
+    }
+
+
+
+
     private void setScaledYPosition(double ratio) {
         for (Node element : ((Pane) this.getScene().getRoot()).getChildren()) {
-            element.setTranslateY(element.getTranslateY() *ratio);
+            if (element.getClass() != Pane.class) {
+                element.setTranslateY(element.getTranslateY() *ratio);
+            } else {
+                setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
+            }
+        }
+    }
+
+    private void setScaleYPositionOfChildren (ObservableList<Node> children, double ratio) {
+        for (Node element : children) {
+            if (element.getClass() != Pane.class) {
+                element.setTranslateY(element.getTranslateY() *ratio);
+            } else {
+                setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
+            }
         }
     }
 }

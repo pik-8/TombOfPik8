@@ -24,7 +24,15 @@ import java.util.Random;
 public class DungeonPrinter {
     private static final String FILE_KEY = "file:";
 
-    public static Pane printDungeonImage (Dungeon dungeon) {
+    /**
+     * Returns a Pane-Layout, that contains every Tile in  the dungeon.
+     *
+     * @param dungeon
+     * @param width
+     * @param height
+     * @return
+     */
+    public static Pane printDungeonImage (Dungeon dungeon, double width, double height) {
         Pane dungeonLayout = new Pane();
         Random random = new Random();
         for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
@@ -32,10 +40,13 @@ public class DungeonPrinter {
                 if (dungeon.getTile(x, y) != null) {
                     File folder = new File(getImagePathOfTile(dungeon.getTile(x, y).getLandscape()));
                     ImageView tileImage = new ImageView(new Image(FILE_KEY + folder.listFiles()[random.nextInt(folder.listFiles().length)]));
-                    tileImage.setFitWidth(DefaultTextureSize.widthOfTiles);
-                    tileImage.setFitHeight(DefaultTextureSize.heightOfTiles);
-                    tileImage.setTranslateX(x * DefaultTextureSize.widthOfTiles);
-                    tileImage.setTranslateY(y * DefaultTextureSize.heightOfTiles);
+
+                    tileImage.setFitWidth(tileImage.getImage().getWidth() / (DefaultTextureSize.width / width));
+                    tileImage.setFitHeight(tileImage.getImage().getHeight() / (DefaultTextureSize.height / height));
+
+                    tileImage.setTranslateX(x * tileImage.getFitWidth());
+                    tileImage.setTranslateY(y * tileImage.getFitHeight());
+
                     dungeonLayout.getChildren().add(tileImage);
                 }
             }
