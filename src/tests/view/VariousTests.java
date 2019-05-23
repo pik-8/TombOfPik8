@@ -1,6 +1,6 @@
 package tests.view;
 
-import view.ConfigReader;
+import view.ConfigStream;
 
 public class VariousTests {
 
@@ -9,9 +9,9 @@ public class VariousTests {
     }
 
     public static void testConfigReader () throws Exception {
-        ConfigReader configReader = new ConfigReader("Game.config");
-        System.out.println(configReader.getStringFromConfigFile("test"));
-        System.out.println(configReader.getNumberFromConfigFile("test2"));
-        System.out.println(configReader.getNumberFromConfigFile("test3"));
+        ConfigStream configStream = new ConfigStream("Game.config");
+        System.out.println(configStream.getStringFromConfigFile("test"));
+        System.out.println(configStream.getNumberFromConfigFile("test2"));
+        System.out.println(configStream.getNumberFromConfigFile("test3"));
     }
 }

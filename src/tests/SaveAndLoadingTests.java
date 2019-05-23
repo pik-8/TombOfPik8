@@ -55,6 +55,8 @@ public class SaveAndLoadingTests {
      * A test to see if an Option-Object can be saved in a file
      */
     private static void saveTheOptions () throws Exception {
+        //TODO
+        /*
         System.out.println("To see if the test was successful, look into the file.");
 
         Options option = new Options();
@@ -63,6 +65,8 @@ public class SaveAndLoadingTests {
         option.setVolume(volume);
         GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
         gameLoaderSaver.saveOptions(option);
+
+         */
     }
 
 

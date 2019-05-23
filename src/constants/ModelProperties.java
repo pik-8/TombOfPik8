@@ -41,4 +41,10 @@ public interface ModelProperties {
 
     public static final String FILE_KEY = "file:";
 
+
+    //Options
+
+    public static final double MASTER_VOLUME_MIN_VALUE = 0;
+    public static final double MASTER_VOLUME_MAX_VAlUE = 1;
+
 }

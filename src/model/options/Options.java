@@ -3,6 +3,8 @@ package model.options;
 import java.awt.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import constants.ModelProperties;
+import model.dungeon.Difficulty;
 
 import java.io.*;
 
@@ -19,51 +21,29 @@ import static constants.FileConstants.*;
 
 public class Options {
 
-    private Volume volume;
-    private Gson gson;
-    private static String resolution;
-    private static String language;
-    private static int generalVolume;
-    private static int effectVolume;
-    private static int musicVolume;
+    private static Options activeSaveStateOptions;
+
+    private Difficulty difficulty;
+    private double masterVolume;
 
 
-    public static void main(String[] args) {
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        Dimension d = tk.getScreenSize();
-        System.out.println("Screen width = " + d.width + ", Screen height = " + d.height);
-        getVolume("generalVolume");
-        getVolume("effectVolume");
-        getVolume("musicVolume");
-        getResolution("resolution");
-        getSettings("language");
-    }
-
-    private static void getSettings(String args) {
-        try {
-            String path = PATH_TO_SAVING_OPTION;
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-            JsonObject jobj = new Gson().fromJson(bufferedReader, JsonObject.class);
-
-            String setting = jobj.get(args).toString();
-
-            System.out.println(setting);
-
-        } catch (FileNotFoundException ie) {
-            ie.printStackTrace();
+    public static Options getActiveOptions() {
+        if (activeSaveStateOptions == null) {
+            activeSaveStateOptions = new Options();
         }
+        return activeSaveStateOptions;
     }
 
-    public static void getVolume(String args) {
-        getSettings(args);
+    private Options () {
+        this.masterVolume = ModelProperties.MASTER_VOLUME_MIN_VALUE;
     }
 
-    public void setVolume (Volume volume) {
-        this.volume = volume;
+
+    public double getMasterVolume() {
+        return masterVolume;
     }
 
-    public static void getResolution(String args) {
-        getSettings(args);
+    public void setMasterVolume(double masterVolume) {
+        this.masterVolume = masterVolume;
     }
-
 }
