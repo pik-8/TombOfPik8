@@ -10,7 +10,7 @@ public class TitleSceeneUpdater implements EventHandler<Event> {
 
     @Override
     public void handle(Event event) {
-        System.out.println("Clicked");
+        System.out.println("!");
         Stage currentWindow = GUIController.getActiveGuiController().getStage();
         try {
             currentWindow.setScene(new Scene(SceneLoader.getLayoutFromFXML()));
