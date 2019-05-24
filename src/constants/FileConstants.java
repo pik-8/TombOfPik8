@@ -57,17 +57,21 @@ public interface FileConstants {
 	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
 
 
-	//Language
+	//Styles---------Styles---------Styles---------Styles---------Styles---------Styles---------Styles---------Styles
 
 	public static final String PATH_TO_STYLE_SHEETS = "view/styleSheets";
-	public static final String PATH_TO_OPTION_SCENE_DIFFICULTY_BUTTON_SYTYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_GraphicButton.css";
-	public static final String PATH_TO_OPTION_SCENE_GRAPHIC_BUTTON_SYTYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_DifficultyButton.css";
-	public static final String PATH_TO_OPTION_SCENE_SOUND_BUTTON_SYTYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_SoundButton.css";
+	public static final String PATH_TO_OPTION_SCENE_DIFFICULTY_BUTTON_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_GraphicButton.css";
+	public static final String PATH_TO_OPTION_SCENE_GRAPHIC_BUTTON_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_DifficultyButton.css";
+	public static final String PATH_TO_OPTION_SCENE_SOUND_BUTTON_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_SoundButton.css";
+
+	public static final String PATH_TO_LOADING_SCENE_LABEL_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/LoadingScene_Label.css";
+
 
 	public static final String PATH_TO_LANGUAGES = RESOURCE_PATH + "/languages";
 	public static final String PATH_TO_GERMAN = PATH_TO_LANGUAGES + "/german";
 	public static final String PATH_TO_LANGUAGE_SCENES = "/scenes";
 	public static final String PATH_TO_OPTION_SCENES_CONFIG = PATH_TO_LANGUAGE_SCENES+ "/OptionScene.config";
+	public static final String PATH_TO_LOADING_SCENES_CONFIG = PATH_TO_LANGUAGE_SCENES+ "/LoadingScene.config";
 
 
 	public static final String STANDARD_LANGUAGE_PATH = PATH_TO_LANGUAGES + "/german";

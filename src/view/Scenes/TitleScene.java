@@ -4,15 +4,11 @@ import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
 import constants.view.TitleScreenTextures;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import model.dungeon.DungeonFactory;
-import view.GUIController;
-import view.TitleSceneUpdater;
 
-import java.awt.*;
 
 import static constants.ImagePaths.*;
 
@@ -53,12 +49,12 @@ public class TitleScene extends Scene {
 
         this.layout = new Pane();
 
-        this.leaf.setOnMouseClicked(new TitleSceneUpdater());
+        this.leaf.setOnMouseClicked(e -> System.exit(69));
         this.bottomSphere.setOnMouseClicked(e -> {
-            DungeonFactory dungeonFactory = new DungeonFactory();
-            SceneManager manager = new SceneManager();
-            manager.loadScene(Scenes.TITLE_SCENE, this);
-        });
+                DungeonFactory dungeonFactory = new DungeonFactory();
+                SceneManager manager = new SceneManager();
+                manager.loadDungeonScene(dungeonFactory.generateRandomDungeon(), this);
+            });
 
         setLayout();
         setPosition();

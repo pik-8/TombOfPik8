@@ -30,7 +30,7 @@ public class OptionScene extends Scene {
 
 
 
-    public OptionScene() {
+    public OptionScene(double width, double height) {
         super(new VBox());
         this.difficultyButton = new Button();
         this.graphicButton = new Button();
@@ -46,7 +46,7 @@ public class OptionScene extends Scene {
         try {
             gameConfigStream = new ConfigStream(FileConstants.PATH_TO_GAME_CONFIG);
             optionReader = new ConfigStream(FileConstants.PATH_TO_LANGUAGES
-                    + "/" + gameConfigStream.getStringFromConfigFile(ConfigKeys.GAME_CONFIG_KEY_FOR_lANGUAGE)
+                    + "/" + gameConfigStream.getStringFromConfigFile(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE)
                     + FileConstants.PATH_TO_OPTION_SCENES_CONFIG);
         } catch (Exception e) {
             System.out.println(e);
@@ -69,9 +69,9 @@ public class OptionScene extends Scene {
         this.graphicButton.setPrefSize(OptionSceneProperties.BUTTON_SIZE[0], OptionSceneProperties.BUTTON_SIZE[1]);
         this.soundButton.setPrefSize(OptionSceneProperties.BUTTON_SIZE[0], OptionSceneProperties.BUTTON_SIZE[1]);
 
-        this.difficultyButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_DIFFICULTY_BUTTON_SYTYLE_SHEET);
-        this.graphicButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_GRAPHIC_BUTTON_SYTYLE_SHEET);
-        this.soundButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_SOUND_BUTTON_SYTYLE_SHEET);
+        this.difficultyButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_DIFFICULTY_BUTTON_STYLE_SHEET);
+        this.graphicButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_GRAPHIC_BUTTON_STYLE_SHEET);
+        this.soundButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_SOUND_BUTTON_STYLE_SHEET);
 
         try {
             this.difficultyButton.setText(optionReader.getStringFromConfigFile(ConfigKeys.OPTION_SCENE_KEY_FOR_DIFFICULTY_BUTTON_TEXT));

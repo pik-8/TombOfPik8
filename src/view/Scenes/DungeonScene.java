@@ -55,6 +55,8 @@ public class DungeonScene extends Scene {
                 case UP:
                     dungeonLayout.setTranslateY(dungeonLayout.getTranslateY() + 100);
                     break;
+                case ESCAPE:
+                    new SceneManager().loadScene(Scenes.TITLE_SCENE, DungeonScene.this);
             }
             e.consume();
         });

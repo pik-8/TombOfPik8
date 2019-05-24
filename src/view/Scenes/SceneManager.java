@@ -1,52 +1,75 @@
 package view.Scenes;
 
-import constants.ImagePaths;
 import javafx.application.Platform;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import model.dungeon.Dungeon;
-import model.dungeon.DungeonFactory;
-import view.DungeonPrinter;
 import view.GUIController;
 
-import java.awt.*;
-import java.sql.SQLOutput;
 
 public class SceneManager {
-    private static final String FILE_KEY = "file:";
 
+
+    /**
+     * The default is the title scene.
+     * @param scene
+     * @param currentScene
+     */
     public void loadScene (Scenes scene, Scene currentScene) {
+        showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
         switch (scene){
             case TITLE_SCENE:
-                LoadingScene loadingScene = new LoadingScene(Scenes.DUNGEON_SCENE, currentScene.getWidth(), currentScene.getHeight());
-                GUIController.getActiveGuiController().setScene(loadingScene);
-
                 new Thread(() -> {
-                    DungeonFactory df = new DungeonFactory();
-                    Pane layout = DungeonPrinter.printDungeonImage(df.generateRandomDungeon(), currentScene.getWidth(), currentScene.getHeight());
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            loadingScene.setRoot(layout);
+                            GUIController.getActiveGuiController().setScene(new TitleScene(currentScene.getWidth(), currentScene.getHeight()));
                         }
                     });
                 }).start();
                 break;
             case OPTIONS_SCENE:
-                //showLoadingScene();
+                new Thread(() -> {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            GUIController.getActiveGuiController().setScene(new OptionScene(currentScene.getWidth(), currentScene.getHeight()));
+                        }
+                    });
+                }).start();
                 break;
             case OVERWORLD_SCENE:
                 //showLoadingScene();
                 break;
+            default:
+                new Thread(() -> {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            GUIController.getActiveGuiController().setScene(new OptionScene(currentScene.getWidth(), currentScene.getHeight()));
+                        }
+                    });
+                }).start();
         }
-
     }
 
-    public void loadDungeonScene (Dungeon dungeon, double width, double height) {
-        //showDungeon(dungeon);
+
+    public void loadDungeonScene (Dungeon dungeon, Scene currentScene) {
+        showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
+
+        new Thread(() -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    GUIController.getActiveGuiController().setScene(new DungeonScene(dungeon, currentScene.getWidth(), currentScene.getHeight()));
+                }
+            });
+        }).start();
+    }
+
+
+    public void showLoadingScene (double width, double height) {
+        LoadingScene loadingScene = new LoadingScene(width, height);
+        GUIController.getActiveGuiController().setScene(loadingScene);
     }
 
     private void showDungeon (Dungeon dungeon) {
