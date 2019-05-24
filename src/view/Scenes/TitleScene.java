@@ -57,7 +57,7 @@ public class TitleScene extends Scene {
         this.bottomSphere.setOnMouseClicked(e -> {
             DungeonFactory dungeonFactory = new DungeonFactory();
             SceneManager manager = new SceneManager();
-            manager.loadDungeonScene(dungeonFactory.generateRandomDungeon());
+            manager.loadScene(Scenes.TITLE_SCENE, this);
         });
 
         setLayout();

@@ -22,6 +22,16 @@ public interface ImagePaths {
     public static final String PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND = PATH_TO_START_SCREEN + "/LightRaysBackground.png";
 
     public static final String PATH_TO_DUNGEON_BACKGROUND = PATH_TO_IMAGES + "/DungeonBackground.png";
-    public static final String PATH_TO_LOADING_SCNE_BACKGROUND = PATH_TO_IMAGES + "LoadingScene_Backgound.png";
+
+
+
+    public static final String PATH_TO_LOADING_SCENE = PATH_TO_IMAGES + "/loadingScene";
+    public static final String PATH_TO_LOADING_SCENE_BACKGROUND = PATH_TO_LOADING_SCENE + "/LoadingScene_Background.png";
+
+    public static final String PATH_TO_LOADING_SCENE_ANIMATION_1 = PATH_TO_LOADING_SCENE + "/LoadingAnimation_1.png";
+    public static final String PATH_TO_LOADING_SCENE_ANIMATION_2 = PATH_TO_LOADING_SCENE + "/LoadingAnimation_2.png";
+    public static final String PATH_TO_LOADING_SCENE_ANIMATION_3 = PATH_TO_LOADING_SCENE + "/LoadingAnimation_3.png";
+    public static final String PATH_TO_LOADING_SCENE_ANIMATION_4 = PATH_TO_LOADING_SCENE + "/LoadingAnimation_4.png";
+    public static final String PATH_TO_LOADING_SCENE_ANIMATION_5 = PATH_TO_LOADING_SCENE + "/LoadingAnimation_.5png";
 
 }

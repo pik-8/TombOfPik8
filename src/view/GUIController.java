@@ -6,6 +6,9 @@ import constants.ModelProperties;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.dungeon.Dungeon;
+import view.Scenes.DungeonScene;
+import view.Scenes.Scenes;
 import view.Scenes.TitleScene;
 
 import java.io.IOException;
@@ -40,7 +43,7 @@ public class GUIController extends Application {
         Scene scene = new TitleScene(this.stage.getWidth(), this.stage.getHeight());
 
 
-
+        this.setScene(scene);
         this.stage.setScene(scene);
         this.stage.setTitle(ModelProperties.WINDOW_TITLE);
 
