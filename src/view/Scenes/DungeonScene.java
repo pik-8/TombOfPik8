@@ -1,22 +1,18 @@
 package view.Scenes;
 
 import constants.ImagePaths;
+import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
 import constants.view.DungeonSceneProperties;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import model.dungeon.Dungeon;
 import view.DungeonPrinter;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class DungeonScene extends Scene {
 
-    private static final String FILE_KEY = "file:";
 
     private final Pane dungeonLayout;
     private final Pane hud;
@@ -24,10 +20,10 @@ public class DungeonScene extends Scene {
 
     public DungeonScene(Dungeon dungeon, double width, double height) {
         super(new Pane());
-        this.dungeonLayout = DungeonPrinter.printDungeonImage(dungeon, width, height);
+        this.dungeonLayout = DungeonPrinter.printFullDungeonImage(dungeon, width, height);
         this.hud = new Pane();
 
-        ImageView background = new ImageView(new Image(FILE_KEY + ImagePaths.PATH_TO_DUNGEON_BACKGROUND));
+        ImageView background = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_DUNGEON_BACKGROUND));
 
         double ratioHeight = DefaultTextureSize.height / height;
         double ratioWidth = DefaultTextureSize.width / width;

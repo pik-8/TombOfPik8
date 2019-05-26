@@ -29,7 +29,7 @@ public class DungeonFactory {
     private Gson gson;
     private Random random;
 
-    private int numberOfLayoutEntrances;
+    private int numberOfTilesLeft;
 
 
     /**
@@ -55,13 +55,13 @@ public class DungeonFactory {
     private void init(int seed) {
         this.gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).create();
         this.random = new Random(seed);
-        this.numberOfLayoutEntrances = 0;
+        this.numberOfTilesLeft = 0;
     }
 
     private void init() {
         this.gson = new GsonBuilder().registerTypeAdapterFactory(AdapterFactories.getEffectAdapterFactory()).create();
         this.random = new Random();
-        this.numberOfLayoutEntrances = 0;
+        this.numberOfTilesLeft = 0;
     }
 
 
@@ -103,7 +103,7 @@ public class DungeonFactory {
             i = this.random.nextFloat();
             ratio = i;
         }
-        this.numberOfLayoutEntrances = Math.round(lengthOfLayout * heightOfLayout * ratio) -1; //Minus one, because the start-point was already set.
+        this.numberOfTilesLeft = Math.round(lengthOfLayout * heightOfLayout * ratio) -1; //Minus one, because the start-point was already set.
 
         Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(intLayout, currentPositionInLayout);
@@ -134,7 +134,7 @@ public class DungeonFactory {
             i = this.random.nextFloat();
             ratio = i;
         }
-        this.numberOfLayoutEntrances = Math.round(length * heigth * ratio) -1; //Minus one, because the start-point was already set.
+        this.numberOfTilesLeft = Math.round(length * heigth * ratio) -1; //Minus one, because the start-point was already set.
 
         Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(intLayout, currentPositionInLayout);
@@ -167,7 +167,7 @@ public class DungeonFactory {
             ratio = i;
         }
 
-        this.numberOfLayoutEntrances = Math.round(length * height * ratio) -1; //Minus one, because the start-point was already set.
+        this.numberOfTilesLeft = Math.round(length * height * ratio) -1; //Minus one, because the start-point was already set.
         Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(layout, currentPositionInLayout);
 
@@ -191,7 +191,7 @@ public class DungeonFactory {
         int[][] layout = new int[length][height];
         layout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 
-        this.numberOfLayoutEntrances = numberOfTiles -1; //Minus one, because the start-point was already set.
+        this.numberOfTilesLeft = numberOfTiles -1; //Minus one, because the start-point was already set.
         Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(layout, currentPositionInLayout);
 
@@ -201,6 +201,44 @@ public class DungeonFactory {
         return new Dungeon(tiles);
     }
 
+
+    /**
+     * Generates a dungeon with a fixed with a set poll of Landscapes and a fixed tile-size.
+     * Has some hard-boundary's to ensure quality.
+     *
+     * @return: A randomly generated Dungeon.
+     */
+    public Dungeon generateRandomDungeon (Landscape[] landscapes, int tileSize, int numberOfTiles) {
+
+        // Generates a layout for the dungeon and determines the size off it by predefined values.
+        // Has to be calculated so complicated, because the boundary from nextInt always starts with 0.
+        int heightOfLayout = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
+                + MIN_SIZE_RANDOM_DUNGEON;
+        int lengthOfLayout = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
+                + MIN_SIZE_RANDOM_DUNGEON;
+
+        Position startPosition = new Position(this.random.nextInt(lengthOfLayout), this.random.nextInt(heightOfLayout));
+        int[][] intLayout = new int[lengthOfLayout][heightOfLayout];
+        intLayout[startPosition.getxTile()][startPosition.getyTile()] = 1;
+
+        // generates a ratio, that determines the number of tiles in this dungeon.
+        float ratio = 0f;
+        for (float i = 0f; !((i <= DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
+                (i >= DUNGEON_TILE_DENSITY - DUNGEON_TILE_DENSITY_VARIANCE)); )
+        {
+            i = this.random.nextFloat();
+            ratio = i;
+        }
+        this.numberOfTilesLeft = numberOfTiles -1;
+
+        Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
+        generateLayout(intLayout, currentPositionInLayout);
+
+        Tile[][] tileLayout = new Tile[lengthOfLayout][heightOfLayout];
+        generateDungeonFromLayout(tileSize, intLayout, tileLayout, landscapes);
+        setStartPoint(startPosition, tileLayout, tileSize);
+        return new Dungeon(tileLayout);
+    }
 
     /**
      * Creates an array of character that represents an overview, on which square a character is.
@@ -287,7 +325,7 @@ public class DungeonFactory {
                         }
 
                         dungeon[x][y] = TileGenerator.getTileGenerator().getTile(tileSize,
-                                Landscape.values()[this.random.nextInt(landscapes.length)],
+                                landscapes[this.random.nextInt(landscapes.length)],
                                 hasRight, hasLeft, hasUp, hasDown);
                     }
                 }
@@ -297,14 +335,14 @@ public class DungeonFactory {
     private void generateLayout (int[][] layout, Position position) {
         int direction = this.random.nextInt(4); //because there are 4 directions.
 
-        if (this.numberOfLayoutEntrances > 0) {
+        if (this.numberOfTilesLeft > 0) {
             // goes one field up
             if (direction == 0    &&      position.getySquare() - 1 >= 0)
             {
                 position.setySquare(position.getySquare() - 1);
                 if (layout[position.getxSquare()][position.getySquare()] == 0) {
                     layout[position.getxSquare()][position.getySquare()] =1;
-                    this.numberOfLayoutEntrances--;
+                    this.numberOfTilesLeft--;
                 }
                 generateLayout(layout, position);
             }
@@ -315,7 +353,7 @@ public class DungeonFactory {
                 position.setxSquare(position.getxSquare() + 1);
                 if (layout[position.getxSquare()][position.getySquare()] == 0) {
                     layout[position.getxSquare()][position.getySquare()] =1;
-                    this.numberOfLayoutEntrances--;
+                    this.numberOfTilesLeft--;
                 }
                 generateLayout(layout,position);
             }
@@ -326,7 +364,7 @@ public class DungeonFactory {
                 position.setySquare(position.getySquare() + 1);
                 if (layout[position.getxSquare()][position.getySquare()] == 0) {
                     layout[position.getxSquare()][position.getySquare()] = 1;
-                    this.numberOfLayoutEntrances--;
+                    this.numberOfTilesLeft--;
                 }
                 generateLayout(layout,position);
             }
@@ -337,13 +375,13 @@ public class DungeonFactory {
                 position.setxSquare(position.getxSquare() - 1);
                 if (layout[position.getxSquare()][position.getySquare()] == 0) {
                     layout[position.getxSquare()][position.getySquare()] = 1;
-                    this.numberOfLayoutEntrances--;
+                    this.numberOfTilesLeft--;
                 }
                 generateLayout(layout,position);
             }
 
             //initiates another loop, if a direction would be out of bounds
-            if (this.numberOfLayoutEntrances > 0) {
+            if (this.numberOfTilesLeft > 0) {
                 generateLayout(layout,position);
             }
         }

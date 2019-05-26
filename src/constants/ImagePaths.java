@@ -1,5 +1,6 @@
 package constants;
 
+
 public interface ImagePaths {
 
     public static final String PATH_TO_IMAGES = "resources/images";
@@ -34,4 +35,23 @@ public interface ImagePaths {
     public static final String PATH_TO_LOADING_SCENE_ANIMATION_4 = PATH_TO_LOADING_SCENE + "/LoadingAnimation_4.png";
     public static final String PATH_TO_LOADING_SCENE_ANIMATION_5 = PATH_TO_LOADING_SCENE + "/LoadingAnimation_.5png";
 
+
+    //Tiles---------Tiles---------Tiles---------Tiles---------Tiles---------Tiles---------Tiles---------Tiles---------
+
+    public static final String PATH_TO_TILE_IMAGES = PATH_TO_IMAGES + "/tiles";
+    public static final String PATH_TO_FOREST_TILES= PATH_TO_TILE_IMAGES + "/forestTiles";
+    public static final String PATH_TO_DESERT_TILES= PATH_TO_TILE_IMAGES + "/desertTiles";
+    public static final String PATH_TO_SPACE_TILES= PATH_TO_TILE_IMAGES + "/spaceTiles";
+
+
+    //Terrains----------Terrains----------Terrains----------Terrains----------Terrains----------Terrains----------
+
+    public static final String PATH_TO_TERRAINS = PATH_TO_IMAGES + "/terrains";
+    public static final String PATH_TO_TERRAIN_BOULDER = "/Boulder.png";
+    public static final String PATH_TO_TERRAIN_BEDROCK = "/Bedrock.png";
+    public static final String PATH_TO_TERRAIN_TREE = "/Tree.png";
+    public static final String PATH_TO_TERRAIN_START_POINT = "/StartPoint.png";
+    public static final String PATH_TO_TERRAIN_BUSH = "/Bush.png";
+    public static final String PATH_TO_TERRAIN_WHITE_HOLE = "/WhiteHole.png";
+    public static final String PATH_TO_TERRAIN_COMET = "/Comet.png";
 }

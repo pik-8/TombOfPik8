@@ -75,13 +75,4 @@ public interface FileConstants {
 
 
 	public static final String STANDARD_LANGUAGE_PATH = PATH_TO_LANGUAGES + "/german";
-
-
-	//Images
-
-	public static final String PATH_TO_IMAGES = RESOURCE_PATH + "/images";
-	public static final String PATH_TO_TILE_IMAGES = PATH_TO_IMAGES + "/tiles";
-	public static final String PATH_TO_FOREST_TILES= PATH_TO_TILE_IMAGES + "/forestTiles";
-	public static final String PATH_TO_DESERT_TILES= PATH_TO_TILE_IMAGES + "/desertTiles";
-	public static final String PATH_TO_SPACE_TILES= PATH_TO_TILE_IMAGES + "/spaceTiles";
 }

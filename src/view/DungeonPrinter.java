@@ -1,6 +1,7 @@
 package view;
 
-import constants.FileConstants;
+import constants.ImagePaths;
+import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,7 +39,7 @@ public class DungeonPrinter {
         for (int y = 0; y < dungeon.getLayout()[0].length; y++) {
             for (int x = 0; x < dungeon.getLayout().length; x++) {
                 if (dungeon.getTile(x, y) != null) {
-                    File folder = new File(getImagePathOfTile(dungeon.getTile(x, y).getLandscape()));
+                    File folder = new File(getPathToImage(dungeon.getTile(x, y).getLandscape()));
                     ImageView tileImage = new ImageView(new Image(FILE_KEY + folder.listFiles()[random.nextInt(folder.listFiles().length)]));
 
                     tileImage.setFitWidth(tileImage.getImage().getWidth() / (DefaultTextureSize.width / width));
@@ -56,19 +57,89 @@ public class DungeonPrinter {
     }
 
 
+
     /**
-     * Returns the location of SpaceTiles as default.
-     * @param landscape
+     * Returns a Pane-Layout, that contains every Tile and Terrain in  the dungeon.
+     *
+     * Uses a single Forest tile to determine the spacing of the Terrain Objects.
+     *
+     * @param dungeon
+     * @param width
+     * @param height
      * @return
      */
-    private static String getImagePathOfTile (Landscape landscape) {
+    public static Pane printFullDungeonImage (Dungeon dungeon, double width, double height) {
+        Pane dungeonLayout = printDungeonImage(dungeon, width, height);
+
+        File exampleTiles = new File(ImagePaths.PATH_TO_FOREST_TILES);
+        Image exampleImage = new Image(ModelProperties.FILE_KEY +  exampleTiles.listFiles()[0].getPath());
+
+        double tileWidth = exampleImage.getWidth() / (DefaultTextureSize.width / width);
+        double tileHeight = exampleImage.getHeight() / (DefaultTextureSize.height / height);
+
+        int tileSize = getTileSize(dungeon);
+
+        for (int tileY = 0; tileY < dungeon.getLayout()[0].length; tileY++) {
+            for (int squareY = 0; squareY < dungeon.getTileSize(); squareY++) {
+                for (int tileX = 0; tileX < dungeon.getLayout().length; tileX++) {
+                    for (int squareX = 0; squareX < dungeon.getTileSize(); squareX++) {
+                        if (dungeon.getTile(tileX, tileY) != null) {
+                            String imagePath = getPathToImage(dungeon.getTile(tileX, tileY).getLayout()[squareX][squareY].getTerrain(), tileSize);
+                            if (imagePath != null) {
+                                ImageView terrain = new ImageView(new Image(ModelProperties.FILE_KEY + imagePath));
+                                double terrainXPosition = (tileX * tileWidth) + (squareX * (tileWidth / tileSize));
+                                double terrainYPosition = (tileY * tileHeight) + (squareY * ( tileHeight / tileSize));
+
+                                terrain.setFitWidth(terrain.getImage().getWidth() / (DefaultTextureSize.width / width));
+                                terrain.setFitHeight(terrain.getImage().getHeight() / (DefaultTextureSize.height / height));
+
+                                terrain.setTranslateX(terrainXPosition);
+                                terrain.setTranslateY(terrainYPosition);
+
+                                dungeonLayout.getChildren().add(terrain);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return dungeonLayout;
+    }
+
+
+    /**
+     * Returns the location of ForestTiles as default.
+     */
+    private static String getPathToImage(Landscape landscape) {
         switch (landscape){
-            case FOREST:
-                return FileConstants.PATH_TO_FOREST_TILES;
             case DESERT:
-                return FileConstants.PATH_TO_FOREST_TILES;
+                return ImagePaths.PATH_TO_DESERT_TILES;
+            case SPACE:
+                return ImagePaths.PATH_TO_SPACE_TILES;
             default:
-                return FileConstants.PATH_TO_FOREST_TILES;
+                return ImagePaths.PATH_TO_FOREST_TILES;
+        }
+    }
+
+
+    private static String getPathToImage (Terrain terrain, int tileSize) {
+        switch (terrain){
+            case BOULDER:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_BOULDER;
+            case BEDROCK:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_BEDROCK;
+            case BUSH:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_BUSH;
+            case START_POINT:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_START_POINT;
+            case TREE:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_TREE;
+            case COMET:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_COMET;
+            case WHITE_HOLE:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_WHITE_HOLE;
+            default:
+                return null;
         }
     }
 
