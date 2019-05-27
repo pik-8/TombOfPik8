@@ -54,4 +54,5 @@ public interface ImagePaths {
     public static final String PATH_TO_TERRAIN_BUSH = "/Bush.png";
     public static final String PATH_TO_TERRAIN_WHITE_HOLE = "/WhiteHole.png";
     public static final String PATH_TO_TERRAIN_COMET = "/Comet.png";
+    public static final String PATH_TO_TERRAIN_CACTUR = "/Cactus.png";
 }

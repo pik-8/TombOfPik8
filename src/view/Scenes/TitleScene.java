@@ -54,7 +54,7 @@ public class TitleScene extends Scene {
         this.bottomSphere.setOnMouseClicked(e -> {
                 DungeonFactory dungeonFactory = new DungeonFactory();
                 SceneManager manager = new SceneManager();
-                manager.loadDungeonScene(dungeonFactory.generateRandomDungeon(new Landscape[]{Landscape.FOREST}, 5, 20), this);
+                manager.loadDungeonScene(dungeonFactory.generateRandomDungeon(new Landscape[]{Landscape.DESERT}, 5, 20), this);
             });
         this.rightSphere.setOnMouseClicked(event -> {
             new SceneManager().loadScene(Scenes.OPTIONS_SCENE, TitleScene.this);

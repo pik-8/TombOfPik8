@@ -21,6 +21,7 @@ public enum Terrain {
     BOULDER (5, null),
     WHITE_HOLE(999999999, null),
     COMET(10, null),
+    CACTUS (3, null),
     ;
 
 

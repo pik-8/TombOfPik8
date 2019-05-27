@@ -138,6 +138,8 @@ public class DungeonPrinter {
                 return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_COMET;
             case WHITE_HOLE:
                 return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_WHITE_HOLE;
+            case CACTUS:
+                return ImagePaths.PATH_TO_TERRAINS + "/" + tileSize + ImagePaths.PATH_TO_TERRAIN_CACTUR;
             default:
                 return null;
         }
