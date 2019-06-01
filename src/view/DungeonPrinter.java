@@ -23,7 +23,6 @@ import java.util.Random;
  * @author Hagen
  */
 public class DungeonPrinter {
-    private static final String FILE_KEY = "file:";
 
     /**
      * Returns a Pane-Layout, that contains every Tile in  the dungeon.
@@ -40,7 +39,7 @@ public class DungeonPrinter {
             for (int x = 0; x < dungeon.getLayout().length; x++) {
                 if (dungeon.getTile(x, y) != null) {
                     File folder = new File(getPathToImage(dungeon.getTile(x, y).getLandscape()));
-                    ImageView tileImage = new ImageView(new Image(FILE_KEY + folder.listFiles()[random.nextInt(folder.listFiles().length)]));
+                    ImageView tileImage = new ImageView(new Image(ModelProperties.FILE_KEY + folder.listFiles()[random.nextInt(folder.listFiles().length)]));
 
                     tileImage.setFitWidth(tileImage.getImage().getWidth() / (DefaultTextureSize.width / width));
                     tileImage.setFitHeight(tileImage.getImage().getHeight() / (DefaultTextureSize.height / height));
