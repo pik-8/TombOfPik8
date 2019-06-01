@@ -1,4 +1,4 @@
-package view.Scenes;
+package view.scenes;
 
 import constants.ConfigKeys;
 import constants.ExceptionConstants;
@@ -14,10 +14,14 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.options.Options;
-import view.ConfigStream;
+
+import java.io.FileInputStream;
+import java.util.Properties;
 
 
 /**
+ * A scene that contains a menu, in which the user can configure the game.
+ *
  * @author Hagen
  */
 public class OptionScene extends Scene {
@@ -41,30 +45,23 @@ public class OptionScene extends Scene {
     }
 
     private void init () {
-        ConfigStream gameConfigStream = null;
-        ConfigStream optionReader = null;
+        Properties gameConfig = new Properties();
+        Properties option = new Properties();
         try {
-            gameConfigStream = new ConfigStream(FileConstants.PATH_TO_GAME_CONFIG);
-            optionReader = new ConfigStream(FileConstants.PATH_TO_LANGUAGES
-                    + "/" + gameConfigStream.getStringFromConfigFile(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE)
-                    + FileConstants.PATH_TO_OPTION_SCENES_CONFIG);
+            gameConfig.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
+            option.load(new FileInputStream(FileConstants.PATH_TO_LANGUAGES
+                    + "/" + gameConfig.getProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE)
+                    + FileConstants.PATH_TO_OPTION_SCENES_CONFIG));
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        initButtons(optionReader);
-        initSoundArea(optionReader);
+        initButtons(option);
+        initSoundArea(option);
         initLayouts();
-
-        if (gameConfigStream != null) {
-            gameConfigStream.close();
-        }
-        if (optionReader != null) {
-            optionReader.close();
-        }
     }
 
-    private void initButtons (ConfigStream optionReader) {
+    private void initButtons (Properties optionReader) {
         this.difficultyButton.setPrefSize(OptionSceneProperties.BUTTON_SIZE[0], OptionSceneProperties.BUTTON_SIZE[1]);
         this.graphicButton.setPrefSize(OptionSceneProperties.BUTTON_SIZE[0], OptionSceneProperties.BUTTON_SIZE[1]);
         this.soundButton.setPrefSize(OptionSceneProperties.BUTTON_SIZE[0], OptionSceneProperties.BUTTON_SIZE[1]);
@@ -74,9 +71,9 @@ public class OptionScene extends Scene {
         this.soundButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_SOUND_BUTTON_STYLE_SHEET);
 
         try {
-            this.difficultyButton.setText(optionReader.getStringFromConfigFile(ConfigKeys.OPTION_SCENE_KEY_FOR_DIFFICULTY_BUTTON_TEXT));
-            this.graphicButton.setText(optionReader.getStringFromConfigFile(ConfigKeys.OPTION_SCENE_KEY_FOR_GRAPHIC_BUTTON_TEXT));
-            this.soundButton.setText(optionReader.getStringFromConfigFile(ConfigKeys.OPTION_SCENE_KEY_FOR_SOUND_BUTTON_TEXT));
+            this.difficultyButton.setText(optionReader.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_DIFFICULTY_BUTTON_TEXT));
+            this.graphicButton.setText(optionReader.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_GRAPHIC_BUTTON_TEXT));
+            this.soundButton.setText(optionReader.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_SOUND_BUTTON_TEXT));
         } catch (Exception e) {
             System.out.println(e);
             this.difficultyButton.setText(ExceptionConstants.NO_TEXT_FOUD);
@@ -86,9 +83,9 @@ public class OptionScene extends Scene {
     }
 
 
-    private void initSoundArea (ConfigStream optionReader) {
+    private void initSoundArea (Properties optionReader) {
 
-        Label masterVolumeSliderLabel = new Label(optionReader.getStringFromConfigFile(ConfigKeys.OPTION_SCENE_KEY_FOR_MASTER_VOLUME_TEXT));
+        Label masterVolumeSliderLabel = new Label(optionReader.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MASTER_VOLUME_TEXT));
         Slider masterVolumeSlider = new Slider(ModelProperties.MASTER_VOLUME_MIN_VALUE, ModelProperties.MASTER_VOLUME_MAX_VAlUE, ModelProperties.MASTER_VOLUME_MAX_VAlUE);
 
         masterVolumeSlider.valueProperty().addListener(new ChangeListener() {

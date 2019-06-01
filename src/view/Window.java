@@ -5,16 +5,19 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
+/**
+ * This class is the only Stage-Class, that will bew used in the project.
+ * It automatically resizes the scenes inside of it, when the window itself is being resized.
+ *
+ * @author Hagen, Frederick Hastedt
+ */
 public class Window extends Stage {
-
 
 
     public Window (Scene scene) {
@@ -27,8 +30,6 @@ public class Window extends Stage {
         setY(bounds.getMinY());
         setWidth(bounds.getWidth());
         setHeight(bounds.getHeight());
-
-        //this.setScene(new TitleScene(bounds.getWidth(), bounds.getHeight()));
 
 
         widthProperty().addListener((obs, oldVal, newVal) -> {

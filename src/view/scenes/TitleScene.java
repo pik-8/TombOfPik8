@@ -1,4 +1,4 @@
-package view.Scenes;
+package view.scenes;
 
 import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
@@ -13,6 +13,13 @@ import model.dungeon.Landscape;
 
 import static constants.ImagePaths.*;
 
+
+/**
+ * This scene will be displayed after starting the game.
+ * Has some options to determine the next scene.
+ *
+ * @author Hagen
+ */
 public class TitleScene extends Scene {
 
     private final ImageView background;
@@ -50,20 +57,26 @@ public class TitleScene extends Scene {
 
         this.layout = new Pane();
 
-        this.leaf.setOnMouseClicked(e -> System.exit(69));
-        this.bottomSphere.setOnMouseClicked(e -> {
-                DungeonFactory dungeonFactory = new DungeonFactory();
-                SceneManager manager = new SceneManager();
-                manager.loadDungeonScene(dungeonFactory.generateRandomDungeon(new Landscape[]{Landscape.DESERT}, 5, 20), this);
-            });
-        this.rightSphere.setOnMouseClicked(event -> {
-            new SceneManager().loadScene(Scenes.OPTIONS_SCENE, TitleScene.this);
-        });
+        setEvents();
 
         setLayout();
         setPosition();
         setSizeImages(width, height);
     }
+
+
+    private void setEvents () {
+        this.leaf.setOnMouseClicked(e -> System.exit(69));
+        this.bottomSphere.setOnMouseClicked(e -> {
+            DungeonFactory dungeonFactory = new DungeonFactory();
+            SceneManager manager = new SceneManager();
+            manager.loadScene(dungeonFactory.generateRandomDungeon(new Landscape[]{Landscape.DESERT}, 5, 20), this);
+        });
+        this.rightSphere.setOnMouseClicked(event -> {
+            new SceneManager().loadScene(Scenes.OPTIONS_SCENE, TitleScene.this);
+        });
+    }
+
 
     private void setLayout() {
         // here was the set graphic before.

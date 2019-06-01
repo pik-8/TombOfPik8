@@ -1,5 +1,9 @@
-package view.Scenes;
+package view.scenes;
 
+
+/**
+ * An enum, that contains every scene in the project.
+ */
 public enum Scenes {
 
     TITLE_SCENE,

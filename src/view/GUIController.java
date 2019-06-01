@@ -6,13 +6,18 @@ import constants.ModelProperties;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.dungeon.Dungeon;
-import view.Scenes.DungeonScene;
-import view.Scenes.Scenes;
-import view.Scenes.TitleScene;
+import view.scenes.TitleScene;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 
+
+/**
+ * This class has the Window in it and therefore the whole GUI.
+ *
+ * @author Hagen
+ */
 public class GUIController extends Application {
 
     private static GUIController GUIController;
@@ -48,9 +53,10 @@ public class GUIController extends Application {
         this.stage.setTitle(ModelProperties.WINDOW_TITLE);
 
         try {
-            ConfigStream configStream = new ConfigStream(FileConstants.PATH_TO_GAME_CONFIG);
-            primaryStage.setWidth(configStream.getNumberFromConfigFile(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW));
-            primaryStage.setHeight(configStream.getNumberFromConfigFile(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW));
+            Properties configs = new Properties();
+            configs.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
+            primaryStage.setWidth(Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW)));
+            primaryStage.setHeight(Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW)));
         } catch (IOException ioException) {
             System.out.println(ioException);
             primaryStage.setWidth(ModelProperties.STANDARD_WINDOW_WIDTH);

@@ -1,4 +1,4 @@
-package view.Scenes;
+package view.scenes;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -6,33 +6,31 @@ import model.dungeon.Dungeon;
 import view.GUIController;
 
 
+/**
+ * The scene manager loads new scenes and makes a loading scene while the new scenes is loading.
+ *
+ * @author Hagen
+ */
 public class SceneManager {
 
 
     /**
-     * The default is the title scene.
+     * Loads a scene corresponding to the enum.
+     * Also shows a scene that informs the user, that a new scene is loading.
+     *
      * @param scene
      * @param currentScene
      */
     public void loadScene (Scenes scene, Scene currentScene) {
-        showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
+        LoadingScene loadingScene = showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
         switch (scene){
-            case TITLE_SCENE:
-                new Thread(() -> {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            GUIController.getActiveGuiController().setScene(new TitleScene(currentScene.getWidth(), currentScene.getHeight()));
-                        }
-                    });
-                }).start();
-                break;
             case OPTIONS_SCENE:
                 new Thread(() -> {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
                             GUIController.getActiveGuiController().setScene(new OptionScene(currentScene.getWidth(), currentScene.getHeight()));
+                            stopLoadingScene(loadingScene);
                         }
                     });
                 }).start();
@@ -45,7 +43,8 @@ public class SceneManager {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            GUIController.getActiveGuiController().setScene(new OptionScene(currentScene.getWidth(), currentScene.getHeight()));
+                            GUIController.getActiveGuiController().setScene(new TitleScene(currentScene.getWidth(), currentScene.getHeight()));
+                            stopLoadingScene(loadingScene);
                         }
                     });
                 }).start();
@@ -53,7 +52,7 @@ public class SceneManager {
     }
 
 
-    public void loadDungeonScene (Dungeon dungeon, Scene currentScene) {
+    public void loadScene (Dungeon dungeon, Scene currentScene) {
         showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
 
         new Thread(() -> {
@@ -67,13 +66,14 @@ public class SceneManager {
     }
 
 
-    public void showLoadingScene (double width, double height) {
+    public LoadingScene showLoadingScene (double width, double height) {
         LoadingScene loadingScene = new LoadingScene(width, height);
         GUIController.getActiveGuiController().setScene(loadingScene);
+        return loadingScene;
     }
 
-    private void showDungeon (Dungeon dungeon) {
-        Scene dungeonScene = new DungeonScene(dungeon, GUIController.getActiveGuiController().getStage().getWidth(), GUIController.getActiveGuiController().getStage().getHeight());
-        GUIController.getActiveGuiController().setScene(dungeonScene);
+
+    private void stopLoadingScene (LoadingScene loadingScene) {
+        loadingScene.getAnimation().stop();
     }
 }
