@@ -24,6 +24,17 @@ public class SceneManager {
     public void loadScene (Scenes scene, Scene currentScene) {
         LoadingScene loadingScene = showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
         switch (scene){
+            case SAVE_STATE_SELECTION_SCENE:
+                new Thread(() -> {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            GUIController.getActiveGuiController().setScene(new SaveStateSelectionScene(currentScene.getWidth(), currentScene.getHeight()));
+                            stopLoadingScene(loadingScene);
+                        }
+                    });
+                }).start();
+                break;
             case OPTIONS_SCENE:
                 new Thread(() -> {
                     Platform.runLater(new Runnable() {
@@ -66,7 +77,21 @@ public class SceneManager {
     }
 
 
-    public LoadingScene showLoadingScene (double width, double height) {
+    public void loadScene (String saveState, Scene currentScene) {
+        showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
+
+        new Thread(() -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    GUIController.getActiveGuiController().setScene(new OverWorldScene(saveState, currentScene.getWidth(), currentScene.getHeight()));
+                }
+            });
+        }).start();
+    }
+
+
+    private LoadingScene showLoadingScene (double width, double height) {
         LoadingScene loadingScene = new LoadingScene(width, height);
         GUIController.getActiveGuiController().setScene(loadingScene);
         return loadingScene;

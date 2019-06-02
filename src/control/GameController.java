@@ -7,7 +7,6 @@ public class GameController extends Thread{
 
     private static GameController gameController;
 
-
     private GUIController guiController;
 
     public static GameController getGameController() {

@@ -68,12 +68,13 @@ public class TitleScene extends Scene {
     private void setEvents () {
         this.leaf.setOnMouseClicked(e -> System.exit(69));
         this.bottomSphere.setOnMouseClicked(e -> {
-            DungeonFactory dungeonFactory = new DungeonFactory();
-            SceneManager manager = new SceneManager();
-            manager.loadScene(dungeonFactory.generateRandomDungeon(new Landscape[]{Landscape.DESERT}, 5, 20), this);
+            new SceneManager().loadScene(Scenes.OVERWORLD_SCENE, this);
         });
         this.rightSphere.setOnMouseClicked(event -> {
             new SceneManager().loadScene(Scenes.OPTIONS_SCENE, TitleScene.this);
+        });
+        this.topSphere.setOnMouseClicked(e -> {
+            new SceneManager().loadScene(Scenes.SAVE_STATE_SELECTION_SCENE, this);
         });
     }
 

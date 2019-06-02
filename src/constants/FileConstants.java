@@ -1,6 +1,8 @@
 package constants;
 
 public interface FileConstants {
+	public static final String STANDARD_FILE_ENDING= ".pik";
+
 	public static final String RESOURCE_PATH = "resources";
 	public static final String TEMPLATE_PATH = RESOURCE_PATH + "/templates";
 
@@ -65,6 +67,8 @@ public interface FileConstants {
 	public static final String PATH_TO_OPTION_SCENE_SOUND_BUTTON_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/OptionScene_SoundButton.css";
 
 	public static final String PATH_TO_LOADING_SCENE_LABEL_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/LoadingScene_Label.css";
+	public static final String PATH_TO_SAVE_STATE_SELECTION_SCENE_NAME_LABEL_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/SaveStateSelectionScene_NameLabel.css";
+	public static final String PATH_TO_SAVE_STATE_SELECTION_SCENE_PLAY_TIME_LABEL_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/SaveStateSelectionScene_PlayTimeLabel.css";
 
 
 	public static final String PATH_TO_LANGUAGES = RESOURCE_PATH + "/languages";

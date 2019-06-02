@@ -5,10 +5,16 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+
+import java.awt.*;
 
 
 /**
@@ -53,10 +59,11 @@ public class Window extends Stage {
         for (Node element : children) {
             if (element.getClass() == ImageView.class) {
                 ((ImageView) element).setFitWidth(((ImageView) element).getImage().getWidth() / ratio);
-            } else if (element.getClass() == Pane.class) {
-                setScaleWidthOfChildren(((Pane) element).getChildren(), ratio);
+            } else if (element.getClass() == Label.class) {
+                element.setScaleX(1 / ratio);
+                ((Label)element).autosize();
             } else {
-                System.out.println(element.getClass());
+                setScaleWidthOfChildren(((Pane) element).getChildren(), ratio);
             }
         }
     }
@@ -70,18 +77,25 @@ public class Window extends Stage {
         for (Node element : children) {
             if (element.getClass() == ImageView.class) {
                 ((ImageView) element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
-            } else if (element.getClass() == Pane.class) {
-                setScaleHeightOfChildren(((Pane) element).getChildren(), ratio);
+            } else if (element.getClass() == Label.class) {
+                element.setScaleY(1 / ratio);
+                //((Label)element).autosize();
             } else {
-                System.out.println(element.getClass());
+                setScaleHeightOfChildren(((Pane) element).getChildren(), ratio);
             }
         }
     }
 
     private void setScaledXPosition(double ratio) {
         for (Node element : ((Pane) this.getScene().getRoot()).getChildren()) {
-            if (element.getClass() != Pane.class) {
+            if (element.getClass() != Pane.class && element.getClass() != HBox.class && element.getClass() != VBox.class) {
                 element.setTranslateX(element.getTranslateX() *ratio);
+            } else if (element.getClass() == VBox.class) {
+                element.setTranslateX(element.getTranslateX() *ratio);
+                setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
+            } else if (element.getClass() == HBox.class) {
+                element.setTranslateX(element.getTranslateX() *ratio);
+                setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
             } else {
                 setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
             }
@@ -90,8 +104,14 @@ public class Window extends Stage {
 
     private void setScaleXPositionOfChildren (ObservableList<Node> children, double ratio) {
         for (Node element : children) {
-            if (element.getClass() != Pane.class) {
+            if (element.getClass() != Pane.class && element.getClass() != HBox.class && element.getClass() != VBox.class) {
                 element.setTranslateX(element.getTranslateX() *ratio);
+            } else if (element.getClass() == VBox.class) {
+                element.setTranslateX(element.getTranslateX() *ratio);
+                setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
+            } else if (element.getClass() == HBox.class) {
+                element.setTranslateX(element.getTranslateX() *ratio);
+                setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
             } else {
                 setScaleXPositionOfChildren(((Pane) element).getChildren(), ratio);
             }
@@ -103,8 +123,14 @@ public class Window extends Stage {
 
     private void setScaledYPosition(double ratio) {
         for (Node element : ((Pane) this.getScene().getRoot()).getChildren()) {
-            if (element.getClass() != Pane.class) {
+            if (element.getClass() != Pane.class && element.getClass() != HBox.class && element.getClass() != VBox.class) {
                 element.setTranslateY(element.getTranslateY() *ratio);
+            } else if (element.getClass() == VBox.class) {
+                element.setTranslateY(element.getTranslateY() *ratio);
+                setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
+            } else if (element.getClass() == HBox.class) {
+                element.setTranslateY(element.getTranslateY() *ratio);
+                setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
             } else {
                 setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
             }
@@ -113,9 +139,15 @@ public class Window extends Stage {
 
     private void setScaleYPositionOfChildren (ObservableList<Node> children, double ratio) {
         for (Node element : children) {
-            if (element.getClass() != Pane.class) {
+            if (element.getClass() != Pane.class && element.getClass() != HBox.class && element.getClass() != VBox.class) {
                 element.setTranslateY(element.getTranslateY() *ratio);
-            } else {
+            } else if (element.getClass() == VBox.class) {
+                element.setTranslateY(element.getTranslateY() *ratio);
+                setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
+            } else if (element.getClass() == HBox.class) {
+                element.setTranslateY(element.getTranslateY() *ratio);
+                setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
+            }  else {
                 setScaleYPositionOfChildren(((Pane) element).getChildren(), ratio);
             }
         }

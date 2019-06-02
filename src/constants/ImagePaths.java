@@ -55,4 +55,18 @@ public interface ImagePaths {
     public static final String PATH_TO_TERRAIN_WHITE_HOLE = "/WhiteHole.png";
     public static final String PATH_TO_TERRAIN_COMET = "/Comet.png";
     public static final String PATH_TO_TERRAIN_CACTUR = "/Cactus.png";
+
+
+    //OverWorld---------OverWorld---------OverWorld---------OverWorld---------OverWorld---------OverWorld---------
+
+    public static final String PATH_TO_OVERWORLD = PATH_TO_IMAGES + "/overworldScene";
+    public static final String PATH_TO_OVERWORLD_BACKGROUND = PATH_TO_OVERWORLD + "/OverworldMap.png";
+
+
+    //SaveStateSelection-----------SaveStateSelection-----------SaveStateSelection-----------SaveStateSelection--------
+
+    public static final String PATH_TO_SAVE_STATE_SELECTION = PATH_TO_IMAGES + "/saveStateSelectionScene";
+    public static final String PATH_TO_SAVE_STATE_SELECTION_BACKGROUND = PATH_TO_SAVE_STATE_SELECTION + "/SaveStateSelectionSceneBackground.png";
+    public static final String PATH_TO_SAVE_STATE_SELECTION_INFO_BOX = PATH_TO_SAVE_STATE_SELECTION + "/SaveState_StateInfoBox.png";
+
 }

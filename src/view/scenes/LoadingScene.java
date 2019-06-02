@@ -36,12 +36,12 @@ public class LoadingScene extends Scene{
 
     public LoadingScene(double width, double height) {
         super(new Pane());
-        this.label = new Label();
-        initText();
         this.animation = createAnimation();
+        this.label = new Label();
         this.hBox = new HBox(label, animation);
         this.background = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_LOADING_SCENE_BACKGROUND));
 
+        initText();
         setSizesAndPositions(width, height);
 
         new Thread(this.animation).start();
@@ -75,7 +75,6 @@ public class LoadingScene extends Scene{
             System.out.println(e);
             this.label.setText(LoadingSceneProperties.DEFAULT_LABEL_TEXT);
         }
-
         this.label.getStylesheets().add(FileConstants.PATH_TO_LOADING_SCENE_LABEL_STYLE_SHEET);
     }
 
