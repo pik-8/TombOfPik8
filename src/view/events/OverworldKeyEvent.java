@@ -3,7 +3,6 @@ package view.events;
 import constants.view.SaveStateSelectionSceneProperties;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
-import view.scenes.DungeonScene;
 import view.scenes.OverWorldScene;
 import view.scenes.SceneManager;
 import view.scenes.Scenes;
@@ -12,18 +11,29 @@ public class OverworldKeyEvent implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
         OverWorldScene scene = (OverWorldScene) event.getSource();
+        double position = 0;
+        double oneStep = 0;
         switch (event.getCode()){
-            case LEFT:
-                scene.getMapAndLevel().setTranslateX(scene.getMapAndLevel().getTranslateX() + (scene.getWidth() / SaveStateSelectionSceneProperties.STEPS_TO_MOVE_MAP));
-                break;
-            case RIGHT:
-                scene.getMapAndLevel().setTranslateX(scene.getMapAndLevel().getTranslateX() - (scene.getWidth() / SaveStateSelectionSceneProperties.STEPS_TO_MOVE_MAP));
-                break;
             case DOWN:
-                scene.getMapAndLevel().setTranslateY(scene.getMapAndLevel().getTranslateY() - (scene.getHeight() / SaveStateSelectionSceneProperties.STEPS_TO_MOVE_MAP));
+                oneStep = scene.getHeight() / SaveStateSelectionSceneProperties.PARTS_OF_MAP;
+                position = scene.getMapAndLevel().getTranslateY() - oneStep;
+
+                double newBottomPoint = position + scene.getMapAndLevel().getHeight();
+                if (newBottomPoint < scene.getHeight()) {
+                    scene.getMapAndLevel().setTranslateY(scene.getHeight() - scene.getMapAndLevel().getHeight());
+                } else {
+                    scene.getMapAndLevel().setTranslateY(position);
+                }
                 break;
             case UP:
-                scene.getMapAndLevel().setTranslateY(scene.getMapAndLevel().getTranslateY() + (scene.getHeight() / SaveStateSelectionSceneProperties.STEPS_TO_MOVE_MAP));
+                oneStep = scene.getHeight() / SaveStateSelectionSceneProperties.PARTS_OF_MAP;
+                position = scene.getMapAndLevel().getTranslateY() + oneStep;
+
+                if (position >= 0) {
+                    scene.getMapAndLevel().setTranslateY(0);
+                } else {
+                    scene.getMapAndLevel().setTranslateY(position);
+                }
                 break;
             case ESCAPE:
                 new SceneManager().loadScene(Scenes.TITLE_SCENE, scene);
