@@ -1,0 +1,591 @@
+{
+  "player": {
+    "availableAttacks": [
+      {
+        "name": "Basic Attack",
+        "description": "Hit them.",
+        "damage": 100,
+        "magicDamage": 100,
+        "accuracy": 100,
+        "requiredSlots": 1,
+        "attackPattern": {
+          "attackField": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          ],
+          "effectField": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              null
+            ]
+          ]
+        },
+        "cooldown": 0
+      },
+      {
+        "name": "Sweeping Attack",
+        "description": "Hit all enemies in front of you.",
+        "damage": 100,
+        "magicDamage": 0,
+        "accuracy": 100,
+        "requiredSlots": 2,
+        "attackPattern": {
+          "attackField": [
+            [
+              0.7,
+              0.9,
+              0.7
+            ],
+            [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          ],
+          "effectField": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              null
+            ]
+          ]
+        },
+        "cooldown": 2
+      }
+    ],
+    "primeStats": {
+      "isSpecialist": false,
+      "level": 1,
+      "healthLevel": 14,
+      "strengthLevel": 12,
+      "resistanceLevel": 12,
+      "intelligenceLevel": 3,
+      "magicLevel": 6,
+      "staminaLevel": 12,
+      "speedLevel": 8,
+      "toughnessLevel": 15,
+      "luckLevel": 8
+    },
+    "statistics": {},
+    "heroClass": "WARRIOR",
+    "name": "Deku",
+    "inventory": {
+      "consumables": [],
+      "equipment": [],
+      "materials": {},
+      "money": 100,
+      "itemCount": 0,
+      "size": 40
+    },
+    "equip": {
+      "trinkets": [
+        null,
+        null
+      ],
+      "currentTrinketSlot": 0
+    },
+    "attacks": [],
+    "skills": [],
+    "secondaryStats": {
+      "hp": 360,
+      "action": 0,
+      "maxHP": 360,
+      "maxAction": 51,
+      "attackPower": 55,
+      "magicAttackPower": 44,
+      "defence": 108,
+      "magicDefence": 100,
+      "speed": 41,
+      "luck": 8,
+      "load": 0,
+      "maxEquipmentLoad": 33,
+      "stamina": 1,
+      "attackSlots": 3
+    },
+    "exp": 0
+  },
+  "party": [
+    {
+      "availableAttacks": [
+        {
+          "name": "Basic Attack",
+          "description": "Hit them.",
+          "damage": 100,
+          "magicDamage": 100,
+          "accuracy": 100,
+          "requiredSlots": 1,
+          "attackPattern": {
+            "attackField": [
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ],
+            "effectField": [
+              [
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ]
+          },
+          "cooldown": 0
+        },
+        {
+          "name": "Sweeping Attack",
+          "description": "Hit all enemies in front of you.",
+          "damage": 100,
+          "magicDamage": 0,
+          "accuracy": 100,
+          "requiredSlots": 2,
+          "attackPattern": {
+            "attackField": [
+              [
+                0.7,
+                0.9,
+                0.7
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ],
+            "effectField": [
+              [
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ]
+          },
+          "cooldown": 2
+        }
+      ],
+      "primeStats": {
+        "isSpecialist": false,
+        "level": 1,
+        "healthLevel": 14,
+        "strengthLevel": 12,
+        "resistanceLevel": 12,
+        "intelligenceLevel": 3,
+        "magicLevel": 6,
+        "staminaLevel": 12,
+        "speedLevel": 8,
+        "toughnessLevel": 15,
+        "luckLevel": 8
+      },
+      "statistics": {},
+      "heroClass": "WARRIOR",
+      "name": "naofumi",
+      "inventory": {
+        "consumables": [],
+        "equipment": [],
+        "materials": {},
+        "money": 100,
+        "itemCount": 0,
+        "size": 40
+      },
+      "equip": {
+        "trinkets": [
+          null,
+          null
+        ],
+        "currentTrinketSlot": 0
+      },
+      "attacks": [],
+      "skills": [],
+      "secondaryStats": {
+        "hp": 360,
+        "action": 0,
+        "maxHP": 360,
+        "maxAction": 51,
+        "attackPower": 55,
+        "magicAttackPower": 44,
+        "defence": 108,
+        "magicDefence": 100,
+        "speed": 41,
+        "luck": 8,
+        "load": 0,
+        "maxEquipmentLoad": 33,
+        "stamina": 1,
+        "attackSlots": 3
+      },
+      "exp": 0
+    },
+    {
+      "availableAttacks": [
+        {
+          "name": "Basic Attack",
+          "description": "Hit them.",
+          "damage": 100,
+          "magicDamage": 100,
+          "accuracy": 100,
+          "requiredSlots": 1,
+          "attackPattern": {
+            "attackField": [
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ],
+            "effectField": [
+              [
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ]
+          },
+          "cooldown": 0
+        },
+        {
+          "name": "Sweeping Attack",
+          "description": "Hit all enemies in front of you.",
+          "damage": 100,
+          "magicDamage": 0,
+          "accuracy": 100,
+          "requiredSlots": 2,
+          "attackPattern": {
+            "attackField": [
+              [
+                0.7,
+                0.9,
+                0.7
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ],
+            "effectField": [
+              [
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ]
+          },
+          "cooldown": 2
+        }
+      ],
+      "primeStats": {
+        "isSpecialist": false,
+        "level": 1,
+        "healthLevel": 14,
+        "strengthLevel": 12,
+        "resistanceLevel": 12,
+        "intelligenceLevel": 3,
+        "magicLevel": 6,
+        "staminaLevel": 12,
+        "speedLevel": 8,
+        "toughnessLevel": 15,
+        "luckLevel": 8
+      },
+      "statistics": {},
+      "heroClass": "WARRIOR",
+      "name": "Saitama",
+      "inventory": {
+        "consumables": [],
+        "equipment": [],
+        "materials": {},
+        "money": 100,
+        "itemCount": 0,
+        "size": 40
+      },
+      "equip": {
+        "trinkets": [
+          null,
+          null
+        ],
+        "currentTrinketSlot": 0
+      },
+      "attacks": [],
+      "skills": [],
+      "secondaryStats": {
+        "hp": 360,
+        "action": 0,
+        "maxHP": 360,
+        "maxAction": 51,
+        "attackPower": 55,
+        "magicAttackPower": 44,
+        "defence": 108,
+        "magicDefence": 100,
+        "speed": 41,
+        "luck": 8,
+        "load": 0,
+        "maxEquipmentLoad": 33,
+        "stamina": 1,
+        "attackSlots": 3
+      },
+      "exp": 0
+    }
+  ],
+  "playtime": 1,
+  "zaWORUDO": {
+    "currentLevels": {
+      "1": {
+        "landscapes": [
+          "FOREST"
+        ],
+        "seed": 439696176
+      },
+      "2": {
+        "landscapes": [
+          "FOREST"
+        ],
+        "seed": 1729947117
+      },
+      "3": {
+        "landscapes": [
+          "FOREST",
+          "DESERT"
+        ],
+        "seed": 551420777
+      },
+      "4": {
+        "landscapes": [
+          "DESERT"
+        ],
+        "seed": -277878946
+      },
+      "5": {
+        "landscapes": [
+          "DESERT"
+        ],
+        "seed": 1633286631
+      },
+      "6": {
+        "landscapes": [
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": -679154996
+      },
+      "7": {
+        "landscapes": [
+          "SPACE"
+        ],
+        "seed": -2104957695
+      },
+      "8": {
+        "landscapes": [
+          "SPACE"
+        ],
+        "seed": -465031905
+      },
+      "9": {
+        "landscapes": [
+          "FOREST"
+        ],
+        "seed": -1956252096
+      },
+      "10": {
+        "landscapes": [
+          "FOREST"
+        ],
+        "seed": 1728626357
+      }
+    },
+    "lastLevels": {
+      "1": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 3,
+          "mobLevelRate": 0.8016796,
+          "mobTier": 0.28113073,
+          "mobAI": 0.36078036
+        }
+      },
+      "2": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 2,
+          "mobLevelRate": 1.4857442,
+          "mobTier": 0.5234192,
+          "mobAI": 0.48266143
+        }
+      },
+      "3": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 0,
+          "mobLevelRate": 1.4523396,
+          "mobTier": 0.48395175,
+          "mobAI": 0.38900846
+        }
+      },
+      "4": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.4377227,
+          "mobTier": 0.4730112,
+          "mobAI": 0.6187333
+        }
+      },
+      "5": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 2,
+          "mobLevelRate": 1.4277511,
+          "mobTier": 0.32525784,
+          "mobAI": 0.49744028
+        }
+      },
+      "6": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 0,
+          "mobLevelRate": 0.76030487,
+          "mobTier": 0.17034972,
+          "mobAI": 0.5350596
+        }
+      },
+      "7": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 3,
+          "mobLevelRate": 1.0553844,
+          "mobTier": 0.4185534,
+          "mobAI": 0.6102444
+        }
+      },
+      "8": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 3,
+          "mobLevelRate": 1.0535963,
+          "mobTier": 0.0644477,
+          "mobAI": 0.2392996
+        }
+      },
+      "9": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 2,
+          "mobLevelRate": 1.1428552,
+          "mobTier": 0.18576813,
+          "mobAI": 0.7786201
+        }
+      },
+      "10": {
+        "landscapes": [
+          "FOREST",
+          "DESERT",
+          "SPACE"
+        ],
+        "seed": 0,
+        "difficulty": {
+          "mobSpawnRate": 3,
+          "mobLevelRate": 0.98809963,
+          "mobTier": 0.935349,
+          "mobAI": 0.5700532
+        }
+      }
+    }
+  },
+  "difficulty": {
+    "mobSpawnRate": 0,
+    "mobLevelRate": 1.3270361,
+    "mobTier": 0.776918,
+    "mobAI": 0.948695
+  }
+}
