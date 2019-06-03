@@ -7,6 +7,12 @@ import view.scenes.OverWorldScene;
 import view.scenes.SceneManager;
 import view.scenes.Scenes;
 
+
+/**
+ * This class controls every KeyEvent that is being activated, while a Overworld-scene is in the Window
+ *
+ * @author Hagen
+ */
 public class OverworldKeyEvent implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {

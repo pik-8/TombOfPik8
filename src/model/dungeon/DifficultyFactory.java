@@ -29,7 +29,7 @@ public class DifficultyFactory {
     }
 
 
-    public DifficultyFactory() {
+    private DifficultyFactory() {
         this.gson = new Gson();
     }
 

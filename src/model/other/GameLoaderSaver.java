@@ -77,15 +77,15 @@ public class GameLoaderSaver {
      *
      * @return The SaveState inside the file or null if a SaveState could not be created.
      */
-    public SaveState getSaveState () {
-        File saveFile = new File(constants.FileConstants.PATH_TO_SAVE_STATES);
+    public SaveState getSaveState (String fileName) {
+        File saveFile = new File(FileConstants.PATH_TO_SAVE_STATES + "/" +  fileName);
         try {
             return this.gson.fromJson(
                     TemplateReader.readTemplateAsJsonObject(saveFile), SaveState.class);
         } catch (Exception e) {
+            System.out.println(e);
             return null;
         }
-
     }
 
 

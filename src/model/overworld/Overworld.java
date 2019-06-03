@@ -1,10 +1,14 @@
 package model.overworld;
 
-import model.dungeon.Dungeon;
-import model.dungeon.Landscape;
-import model.dungeon.Difficulty;
+import com.google.gson.Gson;
+import constants.ModelProperties;
+import constants.view.OverWorldSceneProperties;
+import model.dungeon.*;
+import model.io.TemplateReader;
+import view.events.DungeonSceneKeyEvent;
 
 import java.util.HashMap;
+import java.util.Random;
 
 
 /**
@@ -18,7 +22,29 @@ public class Overworld {
     private HashMap<Integer, Info> lastLevels;
 
 
-    public Overworld () {  }
+    public Overworld () {
+        this.currentLevels = new HashMap<>();
+        this.lastLevels = new HashMap<>();
+        initCurrentLevels();
+        initLastLevels();
+    }
+
+    private void initCurrentLevels () {
+        for (int i = OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL; i <= OverWorldSceneProperties.NUMBER_OF_LEVELS; i++) {
+            Difficulty difficulty = new Gson().fromJson(TemplateReader.readTemplateAsJsonObject(OverWorldSceneProperties.PATH_TO_LEVEL_DIFFICULTY[i - OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL]), Difficulty.class);
+            Info info = new Info(OverWorldSceneProperties.LANDSCAPES_OF_LEVEL[i - OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL], new Random().nextInt(), difficulty);
+            this.currentLevels.put(i, info);
+        }
+    }
+
+
+
+    private void initLastLevels () {
+        for (int i = OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL; i <= OverWorldSceneProperties.NUMBER_OF_LEVELS; i++) {
+            Info info = new Info(Landscape.values(), ModelProperties.NO_SEED_NUMBER, DifficultyFactory.getDifficultyFactory().getRandomDifficulty());
+            this.lastLevels.put(i, info);
+        }
+    }
 
 
     /**
@@ -49,10 +75,10 @@ public class Overworld {
      *
      * @param index: The specific level-number.
      *               E.g.: For level 1, index = 1.
-     * @return: The last played on dungeon.
+     * @return: The last dungeon played on. Or null.
      */
-    public Dungeon getDungeonOfLastLevel (int index) {
-        return lastLevels.get(index).getLastDungeon();
+    public int getSeedOfLastLevel (int index) {
+        return this.lastLevels.get(index).getLastDungeon();
     }
 
     /**
@@ -60,7 +86,7 @@ public class Overworld {
      *
      * @param index: The specific level-number.
      *               E.g.: For level 1, index = 1.
-     * @return: The landscapes for the last used dungeon.
+     * @return: The landscapes for the last used dungeon. Or null.
      */
     public Landscape[] getLandscapesOfLastLevel (int index) {
         return lastLevels.get(index).getLandscapes();
@@ -71,7 +97,7 @@ public class Overworld {
      *
      * @param index: The specific level-number.
      *               E.g.: For level 1, index = 1.
-     * @return: The difficulty for the last used dungeon.
+     * @return: The difficulty for the last used dungeon. Or null.
      */
     public Difficulty getDifficultyOfLastLevel (int index) {
         return lastLevels.get(index).getDifficulty();
@@ -83,23 +109,23 @@ public class Overworld {
     private class Info {
 
         private Landscape[] landscapes;
-        private Dungeon lastDungeon;
+        private int seed;
         private Difficulty difficulty;
 
 
-        public Info(Landscape[] landscapes, Dungeon lastDungeon, Difficulty difficulty) {
+        public Info(Landscape[] landscapes, int seed, Difficulty difficulty) {
             this.landscapes = landscapes;
-            this.lastDungeon = lastDungeon;
+            this.seed = seed;
             this.difficulty = difficulty;
         }
 
 
-        public Dungeon getLastDungeon() {
-            return lastDungeon;
+        public int getLastDungeon() {
+            return seed;
         }
 
-        public void setLastDungeon(Dungeon lastDungeon) {
-            this.lastDungeon = lastDungeon;
+        public void setLastDungeon(int seed) {
+            this.seed = seed;
         }
 
         public Difficulty getDifficulty() {

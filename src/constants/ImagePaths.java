@@ -61,6 +61,10 @@ public interface ImagePaths {
 
     public static final String PATH_TO_OVERWORLD = PATH_TO_IMAGES + "/overworldScene";
     public static final String PATH_TO_OVERWORLD_BACKGROUND = PATH_TO_OVERWORLD + "/OverworldMap.png";
+    public static final String PATH_TO_OVERWORLD_BEATEN_LEVEL = PATH_TO_OVERWORLD + "/LevelBeaten.png";
+    public static final String PATH_TO_OVERWORLD_FAILED_LEVEL = PATH_TO_OVERWORLD + "/LevelFailed.png";
+    public static final String PATH_TO_OVERWORLD_NOT_TRIED_LEVEL = PATH_TO_OVERWORLD + "/LevelNotTried.png";
+    public static final String PATH_TO_OVERWORLD_UNAVAIABLE_LEVEL = PATH_TO_OVERWORLD + "/LevelUnavailable.png";
 
 
     //SaveStateSelection-----------SaveStateSelection-----------SaveStateSelection-----------SaveStateSelection--------

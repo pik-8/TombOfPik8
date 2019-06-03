@@ -59,6 +59,9 @@ public interface FileConstants {
 	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
 
 
+
+
+
 	//Styles---------Styles---------Styles---------Styles---------Styles---------Styles---------Styles---------Styles
 
 	public static final String PATH_TO_STYLE_SHEETS = "view/styleSheets";
@@ -79,4 +82,6 @@ public interface FileConstants {
 
 
 	public static final String STANDARD_LANGUAGE_PATH = PATH_TO_LANGUAGES + "/german";
+
+
 }

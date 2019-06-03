@@ -47,7 +47,7 @@ public class SaveAndLoadingTests {
         System.out.println("To see if the test was successful, look into the file.");
 
         GameLoaderSaver gameLoaderSaver = new GameLoaderSaver();
-        gameLoaderSaver.saveSaveState(Getter.getASaveState(), fileName);
+        gameLoaderSaver.saveSaveState(Getter.getASaveState("Test"), fileName);
     }
 
 
