@@ -159,21 +159,16 @@ public class DungeonFactory {
      *
      * @return: A randomly generated Dungeon.
      */
-    public Dungeon generateRandomDungeon (int length, int height, int tileSize,
-                                          Landscape[] possibleLandscapes, Position startPosition)
+    public Dungeon generateRandomDungeon (int length, int height, int tileSize, int numberOfTiles,
+                                          Landscape[] possibleLandscapes)
     {
         int[][] layout = new int[length][height];
+        Position startPosition = new Position();
+        startPosition.setxTile(this.random.nextInt(this.random.nextInt(length)));
+        startPosition.setyTile(this.random.nextInt(this.random.nextInt(height)));
         layout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 
-        float ratio = 0f;
-        for (float i = 0f; !((i <= DUNGEON_TILE_DENSITY + DUNGEON_TILE_DENSITY_VARIANCE ) &&
-                (i >= DUNGEON_TILE_DENSITY - DUNGEON_TILE_DENSITY_VARIANCE)); )
-        {
-            i = this.random.nextFloat();
-            ratio = i;
-        }
-
-        this.numberOfTilesLeft = Math.round(length * height * ratio) -1; //Minus one, because the start-point was already set.
+        this.numberOfTilesLeft = numberOfTiles -1; //Minus one, because the start-point was already set.
         Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(layout, currentPositionInLayout);
 

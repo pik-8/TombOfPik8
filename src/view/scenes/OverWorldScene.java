@@ -7,6 +7,7 @@ import constants.ModelProperties;
 import constants.balancing.Levels;
 import constants.view.DefaultTextureSize;
 import constants.view.OverWorldSceneProperties;
+import javafx.animation.Animation;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;

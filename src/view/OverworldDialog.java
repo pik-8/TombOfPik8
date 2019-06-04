@@ -63,7 +63,7 @@ public class OverworldDialog extends Dialog<ButtonType> {
                 int seed = new Random().nextInt();
                 Difficulty difficulty = DifficultyFactory.getDifficultyFactory().getEasyDifficulty();
                 //TODO change the difficulty to a dynamic variation.
-                Dungeon dungeon = new DungeonFactory().generateRandomDungeon(Levels.LEVEL_1_WIDTH, Levels.LEVEL_1_HEIGHT, Levels.LEVEL_1_TILES, Levels.LANDSCAPES_OF_LEVEL[numberOfLevel], Levels.START_POSITION);
+                Dungeon dungeon = new DungeonFactory(seed).generateRandomDungeon(Levels.LEVEL_HEIGHTS[numberOfLevel -Levels.INDEX_OF_FIRST_LEVEL], Levels.LEVEL_WIDTHS[numberOfLevel -Levels.INDEX_OF_FIRST_LEVEL], Levels.LEVEL_TILE_SIZE[numberOfLevel - Levels.INDEX_OF_FIRST_LEVEL], Levels.LEVEL_TILE_NUMBER[numberOfLevel -Levels.INDEX_OF_FIRST_LEVEL], Levels.LANDSCAPES_OF_LEVEL[numberOfLevel - Levels.INDEX_OF_FIRST_LEVEL]);
 
                 overworld.setLastDungeon(new Info(Levels.LANDSCAPES_OF_LEVEL[numberOfLevel], seed, difficulty), numberOfLevel);
                 new SceneManager().loadScene(dungeon, currentScene);
