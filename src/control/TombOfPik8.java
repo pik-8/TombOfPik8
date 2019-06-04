@@ -1,15 +1,5 @@
 package control;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-import model.characters.Hero;
-import model.characters.HeroClass;
-import model.dungeon.DifficultyFactory;
-import model.dungeon.Dungeon;
-import model.dungeon.DungeonFactory;
-import model.dungeon.Landscape;
-import model.dungeon.Position;
-import view.DungeonPrinter;
 
 /**
  * The project for the Prog2 module, in which we are supposed to create an dungeon-crawler

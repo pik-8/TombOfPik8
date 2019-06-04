@@ -48,4 +48,12 @@ public interface OverWorldSceneProperties {
             FileConstants.PATH_TO_HIGH_DIFFICULTY,
             FileConstants.PATH_TO_HIGH_DIFFICULTY,
     };
+
+    public static final String STANDARD_TEXT_DIALOG_ENTER_DUNGEON = "Enter Dungeon";
+    public static final String STANDARD_TEXT_DONT_ENTER_DUNGEON = "Cancel";
+    public static final String STANDARD_DIALOG_TEXT_1 = "Level";
+    public static final String STANDARD_DIALOG_TEXT_2 = "This level contains the following landscapes:\n";
+    public static final String STANDARD_DIALOG_TEXT_3 = "\nwith the difficulty:\n";
+    public static final String STANDARD_DIALOG_TEXT_4 = "\nAnd the seed:";
+    public static final String STANDARD_DIALOG_TEXT_5 = "\nDo you want to play the level?";
 }

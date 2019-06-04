@@ -57,6 +57,7 @@ public interface FileConstants {
 	public static final String PATH_TO_CONFIGS = RESOURCE_PATH + "/configs";
 
 	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
+	public static final String PATH_TO_OVERWORLD_SCENE_CONFIG = PATH_TO_CONFIGS + "/OverworldScene.config";
 
 
 
