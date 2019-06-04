@@ -4,6 +4,7 @@ import constants.ConfigKeys;
 import constants.FileConstants;
 import constants.ImagePaths;
 import constants.ModelProperties;
+import constants.balancing.Levels;
 import constants.view.DefaultTextureSize;
 import constants.view.OverWorldSceneProperties;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ import model.other.GameLoaderSaver;
 import model.other.SaveState;
 import model.overworld.Overworld;
 import org.omg.IOP.CodecFactory;
+import view.OverworldDialog;
 import view.events.OverworldKeyEvent;
 
 import java.io.FileInputStream;
@@ -64,7 +66,7 @@ public class OverWorldScene extends Scene {
         Overworld overworld = saveState.getOverworld();
 
 
-        for (int i = OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL; i < OverWorldSceneProperties.NUMBER_OF_LEVELS; i++) {
+        for (int i = Levels.INDEX_OF_FIRST_LEVEL; i < Levels.NUMBER_OF_LEVELS; i++) {
             ImageView level = getLevelImage(overworld, i);
 
             double ratioWidth = DefaultTextureSize.width/ width;
@@ -73,64 +75,16 @@ public class OverWorldScene extends Scene {
             level.setFitWidth(level.getImage().getWidth() / ratioWidth);
             level.setFitHeight(level.getImage().getHeight() / ratioHeight);
 
-            level.setTranslateX(OverWorldSceneProperties.POSITION_OF_LEVELS[i - OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL][0] / ratioWidth);
-            level.setTranslateY(OverWorldSceneProperties.POSITION_OF_LEVELS[i - OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL][1] / ratioHeight);
+            level.setTranslateX(OverWorldSceneProperties.POSITION_OF_LEVELS[i - Levels.INDEX_OF_FIRST_LEVEL][0] / ratioWidth);
+            level.setTranslateY(OverWorldSceneProperties.POSITION_OF_LEVELS[i - Levels.INDEX_OF_FIRST_LEVEL][1] / ratioHeight);
 
             final int numberOfLevel = i;
             level.setOnMouseClicked(e -> {
-                boolean hasProperties = false;
-                try {
-                    this.sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_5);
-                    hasProperties = true;
-                } catch (Exception exception) {}
-
-                Dialog<ButtonType> dialog = new Dialog<>();
-                if (hasProperties) {
-                    ButtonType enterButton = new ButtonType(this.sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_ENTER_DUNGEON_BUTTON), ButtonBar.ButtonData.OK_DONE);
-                    ButtonType exitButton = new ButtonType(this.sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_REFUSE_BUTTON), ButtonBar.ButtonData.NO);
-                    dialog.getDialogPane().getButtonTypes().addAll(enterButton, exitButton);
-                    boolean disabled = false; // computed based on content of text fields, for example
-                    //dialog.getDialogPane().lookupButton(loginButtonType).setDisable(disabled);
-                    dialog.setContentText(
-                            sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_1)
-                                    + numberOfLevel + sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_2)
-                                    + overworld.getLandscapesOfCurrentLevel(numberOfLevel) + "\n"
-                                    + sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_3)
-                                    + overworld.getDifficultyOfCurrentLevel(numberOfLevel)
-                                    + sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_4)
-                                    + overworld.getSeedOfLastLevel(numberOfLevel)
-                                    + sceneProperties.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_5)
-                    );
-                } else {
-                    ButtonType enterButton = new ButtonType(OverWorldSceneProperties.STANDARD_TEXT_DIALOG_ENTER_DUNGEON, ButtonBar.ButtonData.OK_DONE);
-                    ButtonType exitButton = new ButtonType(OverWorldSceneProperties.STANDARD_TEXT_DONT_ENTER_DUNGEON, ButtonBar.ButtonData.NO);
-                    dialog.getDialogPane().getButtonTypes().addAll(enterButton, exitButton);
-                    dialog.setContentText(
-                            OverWorldSceneProperties.STANDARD_DIALOG_TEXT_1
-                            + numberOfLevel + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_2
-                            + overworld.getLandscapesOfCurrentLevel(numberOfLevel) + "\n"
-                            + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_3
-                            + overworld.getDifficultyOfCurrentLevel(numberOfLevel)
-                            + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_4
-                            + overworld.getSeedOfLastLevel(numberOfLevel)
-                            + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_5
-                    );
-                    boolean disabled = false; // computed based on content of text fields, for example
-                    //dialog.getDialogPane().lookupButton(loginButtonType).setDisable(disabled);
-                }
-
-
-                dialog.showAndWait().ifPresent(response -> {
-                    System.out.println(response);
-                    if (response.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
-                        System.out.println("Ok");
-                    }
-                });
+                new OverworldDialog(sceneProperties, numberOfLevel, overworld, this);
             });
 
             this.mapAndLevel.getChildren().add(level);
         }
-
     }
 
 

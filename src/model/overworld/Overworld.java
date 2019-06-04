@@ -2,6 +2,7 @@ package model.overworld;
 
 import com.google.gson.Gson;
 import constants.ModelProperties;
+import constants.balancing.Levels;
 import constants.view.OverWorldSceneProperties;
 import model.dungeon.*;
 import model.io.TemplateReader;
@@ -31,10 +32,10 @@ public class Overworld {
 
 
     private void initCurrentLevels () {
-        for (int i = OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL; i <= OverWorldSceneProperties.NUMBER_OF_LEVELS; i++) {
-            Difficulty difficulty = new Gson().fromJson(TemplateReader.readTemplateAsJsonObject(OverWorldSceneProperties.PATH_TO_LEVEL_DIFFICULTY[i - OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL]), Difficulty.class);
+        for (int i = Levels.INDEX_OF_FIRST_LEVEL; i <= Levels.NUMBER_OF_LEVELS; i++) {
+            Difficulty difficulty = new Gson().fromJson(TemplateReader.readTemplateAsJsonObject(Levels.PATH_TO_LEVEL_DIFFICULTY[i - Levels.INDEX_OF_FIRST_LEVEL]), Difficulty.class);
             //Difficulty difficulty = DifficultyFactory.getDifficultyFactory().getRandomDifficulty();
-            Info info = new Info(OverWorldSceneProperties.LANDSCAPES_OF_LEVEL[i - OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL], new Random().nextInt(), difficulty);
+            Info info = new Info(Levels.LANDSCAPES_OF_LEVEL[i - Levels.INDEX_OF_FIRST_LEVEL], new Random().nextInt(), difficulty);
             this.currentLevels.put(i, info);
         }
     }
@@ -42,7 +43,7 @@ public class Overworld {
 
 
     private void initLastLevels () {
-        for (int i = OverWorldSceneProperties.INDEX_OF_FIRST_LEVEL; i <= OverWorldSceneProperties.NUMBER_OF_LEVELS; i++) {
+        for (int i = Levels.INDEX_OF_FIRST_LEVEL; i <= Levels.NUMBER_OF_LEVELS; i++) {
             //Info info = new Info(Landscape.values(), ModelProperties.NO_SEED_NUMBER, DifficultyFactory.getDifficultyFactory().getRandomDifficulty());
             Info info = new Info(null, ModelProperties.NO_SEED_NUMBER, null);
             this.lastLevels.put(i, info);
@@ -104,5 +105,16 @@ public class Overworld {
      */
     public Difficulty getDifficultyOfLastLevel (int index) {
         return lastLevels.get(index).getDifficulty();
+    }
+
+
+    /**
+     * Puts a Info Object inside the container for every last dungeon.
+     *
+     * @param info The informations that should be saved.
+     * @param index The level, which informations should be saved.
+     */
+    public void setLastDungeon (Info info, int index) {
+        this.lastLevels.put(index, info);
     }
 }

@@ -5,9 +5,7 @@ import model.dungeon.Landscape;
 
 public interface OverWorldSceneProperties {
 
-    public static final int NUMBER_OF_LEVELS = 10;
 
-    public static final int INDEX_OF_FIRST_LEVEL = 1;
 
     public static final double[][] POSITION_OF_LEVELS = {
             {130 ,0},
@@ -22,32 +20,6 @@ public interface OverWorldSceneProperties {
             {130 ,1800}
     };
 
-    public static final Landscape[][] LANDSCAPES_OF_LEVEL = {
-            {Landscape.FOREST},
-            {Landscape.FOREST},
-            {Landscape.FOREST, Landscape.DESERT},
-            {Landscape.DESERT},
-            {Landscape.DESERT},
-            {Landscape.DESERT, Landscape.SPACE},
-            {Landscape.SPACE},
-            {Landscape.SPACE},
-            {Landscape.FOREST},
-            {Landscape.FOREST},
-    };
-
-
-    public static final String[] PATH_TO_LEVEL_DIFFICULTY = {
-            FileConstants.PATH_TO_EASY_DIFFICULTY,
-            FileConstants.PATH_TO_EASY_DIFFICULTY,
-            FileConstants.PATH_TO_EASY_DIFFICULTY,
-            FileConstants.PATH_TO_MIDDLE_DIFFICULTY,
-            FileConstants.PATH_TO_MIDDLE_DIFFICULTY,
-            FileConstants.PATH_TO_MIDDLE_DIFFICULTY,
-            FileConstants.PATH_TO_MIDDLE_DIFFICULTY,
-            FileConstants.PATH_TO_HIGH_DIFFICULTY,
-            FileConstants.PATH_TO_HIGH_DIFFICULTY,
-            FileConstants.PATH_TO_HIGH_DIFFICULTY,
-    };
 
     public static final String STANDARD_TEXT_DIALOG_ENTER_DUNGEON = "Enter Dungeon";
     public static final String STANDARD_TEXT_DONT_ENTER_DUNGEON = "Cancel";
