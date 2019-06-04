@@ -380,212 +380,162 @@
         "landscapes": [
           "FOREST"
         ],
-        "seed": 439696176
+        "seed": -176327073,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "2": {
         "landscapes": [
           "FOREST"
         ],
-        "seed": 1729947117
+        "seed": 2141611979,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "3": {
         "landscapes": [
           "FOREST",
           "DESERT"
         ],
-        "seed": 551420777
+        "seed": -924670786,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "4": {
         "landscapes": [
           "DESERT"
         ],
-        "seed": -277878946
+        "seed": 979590644,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "5": {
         "landscapes": [
           "DESERT"
         ],
-        "seed": 1633286631
+        "seed": 621145917,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "6": {
         "landscapes": [
           "DESERT",
           "SPACE"
         ],
-        "seed": -679154996
+        "seed": 123731661,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "7": {
         "landscapes": [
           "SPACE"
         ],
-        "seed": -2104957695
+        "seed": 318830529,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "8": {
         "landscapes": [
           "SPACE"
         ],
-        "seed": -465031905
+        "seed": -1910817965,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "9": {
         "landscapes": [
           "FOREST"
         ],
-        "seed": -1956252096
+        "seed": 746234578,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       },
       "10": {
         "landscapes": [
           "FOREST"
         ],
-        "seed": 1728626357
+        "seed": -617842478,
+        "difficulty": {
+          "mobSpawnRate": 1,
+          "mobLevelRate": 1.3016479,
+          "mobTier": 0.45775932,
+          "mobAI": 0.975158
+        }
       }
     },
     "lastLevels": {
       "1": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 3,
-          "mobLevelRate": 0.8016796,
-          "mobTier": 0.28113073,
-          "mobAI": 0.36078036
-        }
+        "seed": 0
       },
       "2": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 2,
-          "mobLevelRate": 1.4857442,
-          "mobTier": 0.5234192,
-          "mobAI": 0.48266143
-        }
+        "seed": 0
       },
       "3": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 0,
-          "mobLevelRate": 1.4523396,
-          "mobTier": 0.48395175,
-          "mobAI": 0.38900846
-        }
+        "seed": 0
       },
       "4": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 1,
-          "mobLevelRate": 1.4377227,
-          "mobTier": 0.4730112,
-          "mobAI": 0.6187333
-        }
+        "seed": 0
       },
       "5": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 2,
-          "mobLevelRate": 1.4277511,
-          "mobTier": 0.32525784,
-          "mobAI": 0.49744028
-        }
+        "seed": 0
       },
       "6": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 0,
-          "mobLevelRate": 0.76030487,
-          "mobTier": 0.17034972,
-          "mobAI": 0.5350596
-        }
+        "seed": 0
       },
       "7": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 3,
-          "mobLevelRate": 1.0553844,
-          "mobTier": 0.4185534,
-          "mobAI": 0.6102444
-        }
+        "seed": 0
       },
       "8": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 3,
-          "mobLevelRate": 1.0535963,
-          "mobTier": 0.0644477,
-          "mobAI": 0.2392996
-        }
+        "seed": 0
       },
       "9": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 2,
-          "mobLevelRate": 1.1428552,
-          "mobTier": 0.18576813,
-          "mobAI": 0.7786201
-        }
+        "seed": 0
       },
       "10": {
-        "landscapes": [
-          "FOREST",
-          "DESERT",
-          "SPACE"
-        ],
-        "seed": 0,
-        "difficulty": {
-          "mobSpawnRate": 3,
-          "mobLevelRate": 0.98809963,
-          "mobTier": 0.935349,
-          "mobAI": 0.5700532
-        }
+        "seed": 0
       }
     }
   },
   "difficulty": {
-    "mobSpawnRate": 0,
-    "mobLevelRate": 1.3270361,
-    "mobTier": 0.776918,
-    "mobAI": 0.948695
+    "mobSpawnRate": 1,
+    "mobLevelRate": 0.96193874,
+    "mobTier": 0.040308654,
+    "mobAI": 0.72149724
   }
 }
