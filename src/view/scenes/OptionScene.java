@@ -35,6 +35,7 @@ public class OptionScene extends GameScene {
     private final Button difficultyButton;
     private final Button graphicButton;
     private final Button soundButton;
+    private final Button controlsButton;
 
     private VBox layout;
     
@@ -49,6 +50,7 @@ public class OptionScene extends GameScene {
         this.difficultyButton = new Button();
         this.graphicButton = new Button();
         this.soundButton = new Button();
+        this.controlsButton = new Button();
 
         this.optionsContent = (VBox) this.getRoot();
         this.graphicsContent = new VBox();
@@ -123,8 +125,8 @@ public class OptionScene extends GameScene {
     	resolutions.getItems().add(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MEDIUM_RES_TEXT));
     	resolutions.getItems().add(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_LOW_RES_TEXT));
     	
-    	CheckBox fullscreen;
-    	CheckBox borderlessWindowed;
+    	CheckBox fullscreen = new CheckBox(this.optionLabels.getProperty(ConfigKeys.OPTiON_SCENE_KEY_FOR_FULLSCREEN_TEXT));
+    	CheckBox borderlessWindow = new CheckBox(this.optionLabels.getProperty(ConfigKeys.OPTiON_SCENE_KEY_FOR_BORDERLESS_WINDOW_TEXT));
     	
     	resolutions.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -138,12 +140,16 @@ public class OptionScene extends GameScene {
 				Options.getActiveOptions().setWindowWidth(width);
 			}
 		});
-    	this.graphicsContent.getChildren().addAll(resolutionLabel, resolutions);
+    	this.graphicsContent.getChildren().addAll(resolutionLabel, resolutions, fullscreen, borderlessWindow);
     }
 
     private void initSoundArea () {
         Label masterVolumeSliderLabel = new Label(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MASTER_VOLUME_TEXT));
         Slider masterVolumeSlider = new Slider(ModelProperties.VOLUME_MIN_VALUE, ModelProperties.VOLUME_MAX_VAlUE, Options.getActiveOptions().getMasterVolume());
+        Label soundVolumeSliderLabel = new Label(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_SOUND_VOLUME_TEXT));
+        Slider soundVolumeSlider = new Slider(ModelProperties.VOLUME_MIN_VALUE, ModelProperties.VOLUME_MAX_VAlUE, Options.getActiveOptions().getSoundVolume());
+        Label musicVolumeSliderLabel = new Label(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MUSIC_VOLUME_TEXT));
+        Slider musicVolumeSlider = new Slider(ModelProperties.VOLUME_MIN_VALUE, ModelProperties.VOLUME_MAX_VAlUE, Options.getActiveOptions().getMusicVolume());
         masterVolumeSlider.valueProperty().addListener(new ChangeListener<Object>() {
             @Override
             public void changed(ObservableValue<?> arg0, Object oldValue, Object newValue) {
