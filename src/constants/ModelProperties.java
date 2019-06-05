@@ -6,8 +6,18 @@ package constants;
  */
 public interface ModelProperties {
 
-    public static final int MAX_SIZE_FOR_SKILLS = 5;
+    public static final String STANDARD_LANGUAGE = "german";
 
+    public static final int DURATION_LABEL_VISIBlE = 3000;
+    public static final int LABEL_OFFSET_X = 50;
+    public static final int LABEL_OFFSET_Y = -50;
+
+    public static final int MAX_SIZE_FOR_SKILLS = 5;
+    public static final String FILE_KEY = "file:";
+
+
+    public static final double HOVER_BRIGHTNESS = 0.3;
+    public static final double STANDARD_BRIGHTNESS = 0;
 
 
     //DungeonFactory-----------DungeonFactory-----------DungeonFactory-----------DungeonFactory----------DungeonFactory
@@ -39,7 +49,6 @@ public interface ModelProperties {
 
 
 
-    public static final String FILE_KEY = "file:";
 
 
     //Options

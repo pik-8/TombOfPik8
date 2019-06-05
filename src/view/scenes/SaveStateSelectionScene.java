@@ -56,7 +56,7 @@ public class SaveStateSelectionScene extends GameScene {
             box.getChildren().addAll(boxBackground, name, playTime);
             final int index = i;
             box.setOnMouseClicked(e -> {
-                new SceneManager().loadScene(saveStates[index].getPlayer().getName() + FileConstants.STANDARD_FILE_ENDING, this);
+                SceneManager.getSceneManager().loadScene(saveStates[index].getPlayer().getName() + FileConstants.STANDARD_FILE_ENDING, this);
             });
             this.content.getChildren().add(box);
         }

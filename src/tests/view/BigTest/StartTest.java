@@ -26,8 +26,8 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //createSceneWithAnimations(primaryStage);
-        new StartScreen().show();
+        createSceneWithAnimations(primaryStage);
+        //new StartTestScene().show();
         //testFXML(primaryStage);
     }
 
@@ -56,7 +56,7 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
     private void createSceneWithAnimations (Stage primaryStage) {
         Stage window = primaryStage;
-        window.setTitle("StartScreen");
+        window.setTitle("StartTestScene");
 
 
         HBox hbox = new HBox();
@@ -70,22 +70,21 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
             flames[i] = new Image("file:" + alFlamesFile[i].getPath());
         }
 
+
         Animation flameAnimation = new Animation(flames, 6);
         Animation secondFlame = new Animation(flames, 4);
 
         flameAnimation.setPreserveRatio(true);
         secondFlame.setPreserveRatio(true);
 
-        flameAnimation.setFitHeight(flameAnimation.getHeight() / 2);
-        secondFlame.setFitHeight(flameAnimation.getHeight() / 2);
+        flameAnimation.start();
+
+        flameAnimation.setFitHeight(flameAnimation.getImage().getHeight() / 2);
+        secondFlame.setFitHeight(flameAnimation.getImage().getHeight() / 2);
         secondFlame.setTranslateX(300);
 
-        Thread flameThread1 = new Thread(flameAnimation);
-        flameThread1.start();
-        Thread flameThread2 = new Thread(secondFlame);
-        flameThread2.start();
 
-        hbox.getChildren().addAll(flameAnimation, secondFlame);
+        //hbox.getChildren().addAll(flameAnimation, secondFlame);
         layout.getChildren().addAll(flameAnimation, secondFlame);
 
         Scene scene = new Scene(layout, 1500, 1000);

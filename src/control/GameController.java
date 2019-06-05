@@ -1,13 +1,19 @@
 package control;
 
-import javafx.stage.Stage;
+import constants.ConfigKeys;
+import constants.FileConstants;
+import constants.ModelProperties;
 import view.GUIController;
+
+import java.io.FileReader;
+import java.util.Properties;
 
 public class GameController extends Thread{
 
     private static GameController gameController;
 
     private GUIController guiController;
+    private String language;
 
     public static GameController getGameController() {
         if (gameController == null) {
@@ -17,27 +23,23 @@ public class GameController extends Thread{
     }
 
 
-    private GameController () {}
+    private GameController () {
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileReader(FileConstants.PATH_TO_GAME_CONFIG));
+            this.language = properties.getProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE);
+        } catch (Exception e) {
+            System.out.println(e);
+            this.language = ModelProperties.STANDARD_LANGUAGE;
+        }
+    }
 
 
     public void startGame () {
-        //this.start();
         GUIController.launch(GUIController.class);
     }
 
-    @Override
-    public void run () {
-        try {
-            sleep(3000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        System.out.println("hello");
-        this.guiController = GUIController.getActiveGuiController();
-        Stage start = this.guiController.getStage();
-        this.guiController.update();
-        //start.setTitle("Changed");
-        //this.window.setStage(start);
-        run();
+    public String getLanguage() {
+        return language;
     }
 }

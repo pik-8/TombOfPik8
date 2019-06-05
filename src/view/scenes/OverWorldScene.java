@@ -7,24 +7,18 @@ import constants.ModelProperties;
 import constants.balancing.Levels;
 import constants.view.DefaultTextureSize;
 import constants.view.OverWorldSceneProperties;
-import javafx.animation.Animation;
-import javafx.scene.Scene;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import model.other.GameLoaderSaver;
 import model.other.SaveState;
 import model.overworld.Overworld;
-import org.omg.IOP.CodecFactory;
+import view.Animation;
 import view.OverworldDialog;
 import view.events.OverworldKeyEvent;
 
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
-import java.util.Optional;
 import java.util.Properties;
 
 public class OverWorldScene extends GameScene {
@@ -44,13 +38,16 @@ public class OverWorldScene extends GameScene {
         //SaveState saveState = new GameLoaderSaver().
 
         Properties gameConfig = new Properties();
-        Properties loadingProperity = new Properties();
+        this.sceneProperties = new Properties();
         try {
             gameConfig.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
             this.languageKey = gameConfig.getProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE);
             if (this.languageKey != null) {
-                loadingProperity.load(new FileInputStream(FileConstants.PATH_TO_LANGUAGES
-                        + "/" + this.languageKey + FileConstants.PATH_TO_LOADING_SCENES_CONFIG));
+                System.out.println("Language: " +languageKey);
+                String path = FileConstants.PATH_TO_LANGUAGES
+                        + "/" + this.languageKey + FileConstants.PATH_TO_OVERWORLD_SCENE_CONFIG;
+                System.out.println(path);
+                this.sceneProperties.load(new FileInputStream(path));
             }
         } catch (Exception e) {}
 

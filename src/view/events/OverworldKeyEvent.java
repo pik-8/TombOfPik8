@@ -42,7 +42,7 @@ public class OverworldKeyEvent implements EventHandler<KeyEvent> {
                 }
                 break;
             case ESCAPE:
-                new SceneManager().loadScene(Scenes.TITLE_SCENE, scene);
+                SceneManager.getSceneManager().loadScene(Scenes.TITLE_SCENE, scene);
         }
         event.consume();
     }

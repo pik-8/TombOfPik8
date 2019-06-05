@@ -1,6 +1,5 @@
 package view.scenes;
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 

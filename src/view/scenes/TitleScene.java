@@ -1,122 +1,71 @@
 package view.scenes;
 
+import constants.ImagePaths;
 import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
-import constants.view.TitleScreenTextures;
-import javafx.scene.Scene;
+import constants.view.TitleSceneProperties;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import model.dungeon.DungeonFactory;
-import model.dungeon.Landscape;
+import view.Animation;
+
+import java.io.File;
 
 
-import static constants.ImagePaths.*;
-
-
-/**
- * This scene will be displayed after starting the game.
- * Has some options to determine the next scene.
- *
- * @author Hagen
- */
 public class TitleScene extends GameScene {
 
-    private final ImageView background;
-    private final ImageView cloudsBackground;
-    private final ImageView cloudsForeground;
-    private final ImageView trunk;
-    private final ImageView bottomSphere;
-    private final ImageView leftSphere;
-    private final ImageView rightSphere;
-    private final ImageView topSphere;
-    private final ImageView leaf;
-    private final ImageView lightRaysBackground;
-
-    private final ImageView[] allImages;
-
-    private final Pane layout;
+    private Animation animation;
+    private ImageView background;
+    private ImageView start;
 
     public TitleScene(double width, double height) {
-        super();
-        this.background = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_BACKGROUND));
-        this.cloudsBackground = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_BACKGROUND));
-        this.cloudsForeground = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_FOREGROUND));
-        this.trunk = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_TRUNK));
-        this.leaf = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_LEAF));
-        this.bottomSphere = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_BOTTOM_SPHERE));
-        this.leftSphere = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_LEFT_SPHERE));
-        this.rightSphere = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_RIGHT_SPHERE));
-        this.topSphere = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_TOP_SPHERE));
-        this.lightRaysBackground = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND));
-
-        // the order is important. The later, the higher the priority.
-        this.allImages = new ImageView[] { this.background, this.cloudsBackground, this.lightRaysBackground,
-                this.bottomSphere, this.leftSphere, this.rightSphere, this.topSphere, this.trunk, this.leaf,
-                this.cloudsForeground };
-
-        this.layout = new Pane();
-
-        setEvents();
-
+        initAnimation(width, height);
+        initImages(width, height);
         setLayout();
-        setPosition();
-        setSizeImages(width, height);
     }
 
 
-    private void setEvents () {
-        this.leaf.setOnMouseClicked(e -> System.exit(69));
-        this.bottomSphere.setOnMouseClicked(e -> {
-            new SceneManager().loadScene(Scenes.OVERWORLD_SCENE, this);
-        });
-        this.rightSphere.setOnMouseClicked(event -> {
-            new SceneManager().loadScene(Scenes.OPTIONS_SCENE, TitleScene.this);
-        });
-        this.topSphere.setOnMouseClicked(e -> {
-            new SceneManager().loadScene(Scenes.SAVE_STATE_SELECTION_SCENE, this);
-        });
-    }
-
-
-    private void setLayout() {
-        // here was the set graphic before.
-        this.layout.getChildren().addAll(this.allImages);
-
-        this.setRoot(layout);
-    }
-
-    private void setSizeImages(double width, double height) {
-        double ratioHeight = DefaultTextureSize.height / height;
-        double ratioWidth = DefaultTextureSize.width / width;
-
-        for (ImageView image : allImages) {
-            image.setFitWidth(image.getImage().getWidth() / ratioWidth);
-            image.setFitHeight(image.getImage().getHeight() / ratioHeight);
+    private void initAnimation (double width, double height) {
+        File[] pictures = new File(ImagePaths.PATH_TO_TITLE_SCREEN_ANIMATION).listFiles();
+        Image[] images = new Image[pictures.length];
+        for (int i = 0; i < pictures.length; i++) {
+            images[i] = new Image(ModelProperties.FILE_KEY + pictures[i].getPath());
         }
+
+        this.animation = new Animation(images, TitleSceneProperties.FPS_OF_ANIMATION);
+        animation.sizeToScene(width, height);
+
+        animation.setTranslateX(TitleSceneProperties.POSITION_ANIMATION[0] / (DefaultTextureSize.width / width));
+        animation.setTranslateY(TitleSceneProperties.POSITION_ANIMATION[1] / (DefaultTextureSize.height / height));
+
+        animation.start();
     }
 
 
-    private void setPosition() {
-        changePosition(this.background, TitleScreenTextures.posBackground[0], TitleScreenTextures.posBackground[1]);
-        changePosition(this.cloudsBackground, TitleScreenTextures.posCloudsBackground[0], TitleScreenTextures.posCloudsBackground[1]);
-        changePosition(this.cloudsForeground, TitleScreenTextures.posCloudsForeground[0], TitleScreenTextures.posCloudsForeground[1]);
-        changePosition(this.trunk, TitleScreenTextures.posTrunk[0], TitleScreenTextures.posTrunk[1]);
-        changePosition(this.bottomSphere, TitleScreenTextures.posBottomSphere[0], TitleScreenTextures.posBottomSphere[1]);
-        changePosition(this.leftSphere, TitleScreenTextures.posLeftSphere[0], TitleScreenTextures.posLeftSphere[1]);
-        changePosition(this.rightSphere, TitleScreenTextures.posRightSphere[0], TitleScreenTextures.posRightSphere[1]);
-        changePosition(this.topSphere, TitleScreenTextures.posTopSphere[0], TitleScreenTextures.posTopSphere[1]);
-        changePosition(this.lightRaysBackground, TitleScreenTextures.posLightRaysBackground[0], TitleScreenTextures.posLightRaysBackground[1]);
-        changePosition(this.leaf, TitleScreenTextures.posLeaf[0], TitleScreenTextures.posLeaf[1]);
+    private void initImages (double width, double height) {
+        this.background = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_TITLE_SCREEN_BACKGROUND));
+        this.background.setTranslateX(TitleSceneProperties.POSITION_BACKGROUND[0] / (DefaultTextureSize.width / width));
+        this.background.setTranslateY(TitleSceneProperties.POSITION_BACKGROUND[1] / (DefaultTextureSize.height / height));
+
+        this.background.setFitWidth(this.background.getImage().getWidth() / (DefaultTextureSize.width / width));
+        this.background.setFitHeight(this.background.getImage().getHeight() / (DefaultTextureSize.height / height));
+
+        this.start = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_TITLE_SCREEN_START_TEXT));
+        this.start.setTranslateX(TitleSceneProperties.POSITION_START[0] / (DefaultTextureSize.width / width));
+        this.start.setTranslateY(TitleSceneProperties.POSITION_START[1] / (DefaultTextureSize.height / height));
+
+        this.start.setFitWidth(this.start.getImage().getWidth() / (DefaultTextureSize.width / width));
+        this.start.setFitHeight(this.start.getImage().getHeight() / (DefaultTextureSize.height / height));
     }
 
-    private void changePosition(ImageView image, double xValue, double yValue) {
-        image.setTranslateX(xValue);
-        image.setTranslateY(yValue);
+
+    private void setLayout () {
+        ((Pane)this.getRoot()).getChildren().addAll(this.background, this.animation, this.start);
     }
+
 
     @Override
     public void closeScene() {
-
+        this.animation.stop();
     }
 }

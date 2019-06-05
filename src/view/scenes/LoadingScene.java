@@ -6,7 +6,6 @@ import constants.ImagePaths;
 import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
 import constants.view.LoadingSceneProperties;
-import control.ThreadHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -38,6 +37,7 @@ public class LoadingScene extends GameScene{
     public LoadingScene(double width, double height) {
         super();
         this.animation = createAnimation();
+        this.animation.start();
         this.label = new Label();
         this.hBox = new HBox(label, animation);
         this.background = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_LOADING_SCENE_BACKGROUND));
@@ -53,8 +53,8 @@ public class LoadingScene extends GameScene{
         background.setFitWidth(background.getImage().getWidth() / (DefaultTextureSize.width / width));
         background.setFitHeight(background.getImage().getHeight() / (DefaultTextureSize.height / height));
 
-        animation.setFitHeight(animation.getHeight() / (DefaultTextureSize.height / height));
-        animation.setFitWidth(animation.getWidth() / (DefaultTextureSize.width / width));
+        animation.setFitHeight(animation.getImage().getHeight() / (DefaultTextureSize.height / height));
+        animation.setFitWidth(animation.getImage().getWidth() / (DefaultTextureSize.width / width));
 
         this.hBox.setTranslateX(LoadingSceneProperties.HBOX_POSITION[0]/ (DefaultTextureSize.width / width));
         this.hBox.setTranslateY(LoadingSceneProperties.HBOX_POSITION[1] / (DefaultTextureSize.height / height));
@@ -89,23 +89,8 @@ public class LoadingScene extends GameScene{
         return new Animation(new Image[]{image1, image2 ,image3, image4, image5}, LoadingSceneProperties.FPS_OF_ANIMATION);
     }
 
-    public Animation getAnimation() {
-        return animation;
-    }
-
-
-    private void startAnimation () {
-        this.animationThread = new Thread(this.animation);
-        ThreadHandler.getThreadHandler().addAnimation(this.animation);
-        ThreadHandler.getThreadHandler().addThread(this.animationThread);
-        this.animationThread.start();
-    }
-
-
     @Override
     public void closeScene() {
         this.animation.stop();
-        ThreadHandler.getThreadHandler().removeAnimation(this.animation);
-        ThreadHandler.getThreadHandler().removeThread(this.animationThread);
     }
 }

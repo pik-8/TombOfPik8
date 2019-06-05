@@ -28,9 +28,9 @@ import java.awt.*;
 public class Window extends Stage {
 
 
-    public Window (Scene scene) {
-        this.setScene(scene);
+    public Window (double width, double height) {
 
+        /*
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
 
@@ -38,6 +38,11 @@ public class Window extends Stage {
         setY(bounds.getMinY());
         setWidth(bounds.getWidth());
         setHeight(bounds.getHeight());
+
+         */
+
+        setWidth(width);
+        setHeight(height);
 
 
         widthProperty().addListener((obs, oldVal, newVal) -> {
@@ -67,8 +72,9 @@ public class Window extends Stage {
                 ((ImageView) element).setFitWidth(((ImageView) element).getImage().getWidth() / ratio);
             } else if (element.getClass() == Label.class) {
                 element.setScaleX(1 / ratio);
-                ((Label)element).autosize();
-            } else {
+            } else if (element.getClass() == Animation.class) {
+                ((Animation) element).setFitWidth(((Animation) element).getImage().getWidth() / ratio);
+            }else {
                 setScaleWidthOfChildren(((Pane) element).getChildren(), ratio);
             }
         }
@@ -85,7 +91,8 @@ public class Window extends Stage {
                 ((ImageView) element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
             } else if (element.getClass() == Label.class) {
                 element.setScaleY(1 / ratio);
-                //((Label)element).autosize();            	
+            } else if (element.getClass() == Animation.class) {
+                ((Animation)element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
             } else {
                 setScaleHeightOfChildren(((Pane) element).getChildren(), ratio);
             }

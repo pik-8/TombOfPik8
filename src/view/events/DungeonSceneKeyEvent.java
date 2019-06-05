@@ -31,7 +31,7 @@ public class DungeonSceneKeyEvent implements EventHandler<KeyEvent> {
                 scene.getDungeonLayout().setTranslateY(scene.getDungeonLayout().getTranslateY() + 100);
                 break;
             case ESCAPE:
-                new SceneManager().loadScene(Scenes.TITLE_SCENE, scene);
+                SceneManager.getSceneManager().loadScene(Scenes.TITLE_SCENE, scene);
         }
         event.consume();
     }

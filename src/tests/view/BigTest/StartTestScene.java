@@ -12,7 +12,7 @@ import static constants.ImagePaths.PATH_TO_START_SCREEN_TOP_SPHERE;
 import static constants.ImagePaths.PATH_TO_START_SCREEN_TRUNK;
 
 import constants.view.DefaultTextureSize;
-import constants.view.TitleScreenTextures;
+import constants.view.StartSceneProperties;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,7 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class StartScreen extends Stage {
+public class StartTestScene extends Stage {
 
 	private final String FILE_KEY = "file:";
 
@@ -41,9 +41,8 @@ public class StartScreen extends Stage {
 
 
 	private final Pane layout;
-	private final Scene scene;
-
-	public StartScreen() {
+		private  final Scene scene;
+	public StartTestScene() {
 		this.background = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_BACKGROUND));
 		this.cloudsBackground = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_BACKGROUND));
 		this.cloudsForeground = new ImageView(new Image(FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_FOREGROUND));
@@ -91,8 +90,6 @@ public class StartScreen extends Stage {
 		setLayout();
 		setPosition();
 		setSizeImages(bounds.getWidth(), bounds.getHeight());
-		setGraphicOfButtons();
-		//setScaledHeight(bounds.getHeight());
 
 
 		this.scene = new Scene(layout, bounds.getWidth(), bounds.getHeight());
@@ -126,9 +123,6 @@ public class StartScreen extends Stage {
 		}
 	}
 
-	private void setGraphicOfButtons() {
-		//this.leafButton.setGraphic(this.leaf);
-	}
 
 	private void setScaledWidth(double width) {
 		double ratioWidth = DefaultTextureSize.width / width;
@@ -157,18 +151,18 @@ public class StartScreen extends Stage {
 	}
 
 	private void setPosition() {
-		changePosition(this.background, TitleScreenTextures.posBackground[0], TitleScreenTextures.posBackground[1]);
-		changePosition(this.cloudsBackground, TitleScreenTextures.posCloudsBackground[0], TitleScreenTextures.posCloudsBackground[1]);
-		changePosition(this.cloudsForeground, TitleScreenTextures.posCloudsForeground[0], TitleScreenTextures.posCloudsForeground[1]);
-		changePosition(this.trunk, TitleScreenTextures.posTrunk[0], TitleScreenTextures.posTrunk[1]);
-		changePosition(this.bottomSphere, TitleScreenTextures.posBottomSphere[0], TitleScreenTextures.posBottomSphere[1]);
-		changePosition(this.leftSphere, TitleScreenTextures.posLeftSphere[0], TitleScreenTextures.posLeftSphere[1]);
-		changePosition(this.rightSphere, TitleScreenTextures.posRightSphere[0], TitleScreenTextures.posRightSphere[1]);
-		changePosition(this.topSphere, TitleScreenTextures.posTopSphere[0], TitleScreenTextures.posTopSphere[1]);
-		changePosition(this.lightRaysBackground, TitleScreenTextures.posLightRaysBackground[0], TitleScreenTextures.posLightRaysBackground[1]);
-		changePosition(this.leaf, TitleScreenTextures.posLeaf[0], TitleScreenTextures.posLeaf[1]);
+		changePosition(this.background, StartSceneProperties.POSITION_BACKGROUND[0], StartSceneProperties.POSITION_BACKGROUND[1]);
+		changePosition(this.cloudsBackground, StartSceneProperties.POSITION_CLOUDS_BACKGROUND[0], StartSceneProperties.POSITION_CLOUDS_BACKGROUND[1]);
+		changePosition(this.cloudsForeground, StartSceneProperties.POSITION_CLOUDS_FOREGROUND[0], StartSceneProperties.POSITION_CLOUDS_FOREGROUND[1]);
+		changePosition(this.trunk, StartSceneProperties.POSITION_TRUNK[0], StartSceneProperties.POSITION_TRUNK[1]);
+		changePosition(this.bottomSphere, StartSceneProperties.POSITION_BOTTOM_SPHERE[0], StartSceneProperties.POSITION_BOTTOM_SPHERE[1]);
+		changePosition(this.leftSphere, StartSceneProperties.POSITION_LEFT_SPHERE[0], StartSceneProperties.POSITION_LEFT_SPHERE[1]);
+		changePosition(this.rightSphere, StartSceneProperties.POSITION_RIGHT_SPHERE[0], StartSceneProperties.POSITION_RIGHT_SPHERE[1]);
+		changePosition(this.topSphere, StartSceneProperties.POSITION_TOP_SPHERE[0], StartSceneProperties.POSITION_TOP_SPHERE[1]);
+		changePosition(this.lightRaysBackground, StartSceneProperties.POSITION_LIGHT_RAYS_BACKGROUND[0], StartSceneProperties.POSITION_LIGHT_RAYS_BACKGROUND[1]);
+		changePosition(this.leaf, StartSceneProperties.POSITION_LEAF[0], StartSceneProperties.POSITION_LEAF[1]);
 
-		//changePosition(this.leafButton, TitleScreenTextures.posLeafButton[0], TitleScreenTextures.posLeafButton[1]);
+		//changePosition(this.leafButton, StartSceneProperties.posLeafButton[0], StartSceneProperties.posLeafButton[1]);
 	}
 
 	private void changePosition(ImageView image, double xValue, double yValue) {

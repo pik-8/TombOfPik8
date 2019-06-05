@@ -1,11 +1,9 @@
 package view;
 
 
+import constants.view.DefaultTextureSize;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import static java.lang.Thread.sleep;
-
 
 /**
  * A class that will change the images inside off it, in the order that they are inside the array.
@@ -25,74 +23,55 @@ import static java.lang.Thread.sleep;
  *
  * @author Hagen
  */
-public class Animation extends ImageView implements Runnable{
+public class Animation extends ImageView {
 
 
     private Image[] images;
     private int index;
-    private int pauseBetweenImages;
+    private long timeBetweenFrames;
 
-    private boolean isRunning;
+    private long waitedTime;
 
 
+    /**
+     *
+     * @param images Every image should have the same size
+     * @param fps
+     */
     public Animation(Image[] images, int fps) {
         this.images = images;
-        this.pauseBetweenImages = Math.round(1000 / fps);
         this.setImage(images[0]);
         this.index = 1;
-        this.isRunning = true;
+        this.timeBetweenFrames = 1000000000 / fps; //1,000,000,000 = 1 second, time is measured in nano seconds.
+        this.waitedTime = 0;
     }
 
 
-    @Override
-    public void run() {
-        if(this.isRunning) {
-            if (this.index < images.length) {
-                this.setImage(images[index]);
-                index++;
+    public void nextImage (long deltaT) {
+        this.waitedTime += deltaT;
+        if (Math.abs(this.waitedTime) >= this.timeBetweenFrames) {
+            this.waitedTime = 0;
+            if (this.index < this.images.length) {
+                this.setImage(this.images[index]);
+                this.index++;
             }
             else {
                 this.setImage(images[0]);
-                index = 1;
-            }
-            try {
-                sleep(pauseBetweenImages);
-                this.run();
-            } catch (Exception e) {
-                System.out.println(e);
+                this.index = 1;
             }
         }
     }
 
-
-    public float getHeight () {
-        int height = 0;
-        int numberOfImages = 0;
-        for (Image image : images) {
-            height += image.getHeight();
-            numberOfImages++;
-        }
-        return height / numberOfImages;
+    public void sizeToScene (double width, double height) {
+        this.setFitWidth(this.getImage().getWidth() / (DefaultTextureSize.width / width));
+        this.setFitHeight(this.getImage().getHeight() / (DefaultTextureSize.height / height));
     }
-
-
-    public float getWidth () {
-        int width = 0;
-        int numberOfImages = 0;
-        for (Image image : images) {
-            width += image.getWidth();
-            numberOfImages++;
-        }
-        return width / numberOfImages;
-    }
-
 
     public void stop () {
-        this.isRunning = false;
+        GUIController.getActiveGuiController().removeAnimation(this);
     }
 
-    public void resume () {
-        this.isRunning = true;
-        run();
+    public void start () {
+        GUIController.getActiveGuiController().addAnimation(this);
     }
 }
