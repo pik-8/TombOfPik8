@@ -6,7 +6,9 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -70,7 +72,7 @@ public class Window extends Stage {
         for (Node element : children) {
             if (element.getClass() == ImageView.class) {
                 ((ImageView) element).setFitWidth(((ImageView) element).getImage().getWidth() / ratio);
-            } else if (element.getClass() == Label.class) {
+            } else if (element.getClass() == Label.class || element.getClass() == Button.class || element.getClass() == Slider.class) {
                 element.setScaleX(1 / ratio);
             } else if (element.getClass() == Animation.class) {
                 ((Animation) element).setFitWidth(((Animation) element).getImage().getWidth() / ratio);
@@ -89,7 +91,7 @@ public class Window extends Stage {
         for (Node element : children) {
             if (element.getClass() == ImageView.class) {
                 ((ImageView) element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
-            } else if (element.getClass() == Label.class) {
+            } else if (element.getClass() == Label.class || element.getClass() == Button.class || element.getClass() == Slider.class) {
                 element.setScaleY(1 / ratio);
             } else if (element.getClass() == Animation.class) {
                 ((Animation)element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
