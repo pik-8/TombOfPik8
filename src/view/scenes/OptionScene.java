@@ -24,7 +24,7 @@ import java.util.Properties;
  *
  * @author Hagen
  */
-public class OptionScene extends Scene {
+public class OptionScene extends GameScene {
 
     private final Button difficultyButton;
     private final Button graphicButton;
@@ -112,5 +112,11 @@ public class OptionScene extends Scene {
     private void updateMasterVolumeValue (double masterVolume) {
         Options options = Options.getActiveOptions();
         options.setMasterVolume(masterVolume);
+    }
+
+
+    @Override
+    public void closeScene() {
+
     }
 }

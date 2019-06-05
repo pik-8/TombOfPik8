@@ -27,7 +27,7 @@ import java.io.FileReader;
 import java.util.Optional;
 import java.util.Properties;
 
-public class OverWorldScene extends Scene {
+public class OverWorldScene extends GameScene {
 
     private Pane mapAndLevel;
     private ImageView map;
@@ -35,7 +35,7 @@ public class OverWorldScene extends Scene {
     private Properties sceneProperties;
 
     public OverWorldScene(String saveState, double width, double height) {
-        super(new Pane());
+        super();
         this.mapAndLevel = new Pane();
         this.map = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_OVERWORLD_BACKGROUND));
         this.map.setFitHeight(this.map.getImage().getHeight() / (DefaultTextureSize.height / height));
@@ -67,7 +67,7 @@ public class OverWorldScene extends Scene {
         Overworld overworld = saveState.getOverworld();
 
 
-        for (int i = Levels.INDEX_OF_FIRST_LEVEL; i < Levels.NUMBER_OF_LEVELS; i++) {
+        for (int i = Levels.INDEX_OF_FIRST_LEVEL; i <= Levels.NUMBER_OF_LEVELS; i++) {
             ImageView level = getLevelImage(overworld, i);
 
             double ratioWidth = DefaultTextureSize.width/ width;
@@ -106,5 +106,10 @@ public class OverWorldScene extends Scene {
 
     public Pane getMapAndLevel() {
         return mapAndLevel;
+    }
+
+    @Override
+    public void closeScene() {
+
     }
 }

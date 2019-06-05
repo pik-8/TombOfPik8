@@ -20,7 +20,7 @@ import static constants.ImagePaths.*;
  *
  * @author Hagen
  */
-public class TitleScene extends Scene {
+public class TitleScene extends GameScene {
 
     private final ImageView background;
     private final ImageView cloudsBackground;
@@ -38,7 +38,7 @@ public class TitleScene extends Scene {
     private final Pane layout;
 
     public TitleScene(double width, double height) {
-        super(new Pane());
+        super();
         this.background = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_BACKGROUND));
         this.cloudsBackground = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_BACKGROUND));
         this.cloudsForeground = new ImageView(new Image(ModelProperties.FILE_KEY + PATH_TO_START_SCREEN_CLOUDS_FOREGROUND));
@@ -113,5 +113,10 @@ public class TitleScene extends Scene {
     private void changePosition(ImageView image, double xValue, double yValue) {
         image.setTranslateX(xValue);
         image.setTranslateY(yValue);
+    }
+
+    @Override
+    public void closeScene() {
+
     }
 }

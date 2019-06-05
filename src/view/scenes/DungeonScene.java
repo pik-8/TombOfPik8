@@ -20,7 +20,7 @@ import view.events.DungeonSceneScrollEvent;
  *
  * @author Hagen
  */
-public class DungeonScene extends Scene {
+public class DungeonScene extends GameScene {
 
 
     private final Pane dungeonLayout;
@@ -29,7 +29,7 @@ public class DungeonScene extends Scene {
 
 
     public DungeonScene(Dungeon dungeon, double width, double height) {
-        super(new Pane());
+        super();
         this.dungeonLayout = DungeonPrinter.printFullDungeonImage(dungeon, width, height);
         this.hud = new Pane();
         this.characters = new Pane();
@@ -73,5 +73,11 @@ public class DungeonScene extends Scene {
 
     public Pane getHud() {
         return hud;
+    }
+
+
+    @Override
+    public void closeScene() {
+
     }
 }

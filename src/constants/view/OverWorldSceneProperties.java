@@ -8,16 +8,16 @@ public interface OverWorldSceneProperties {
 
 
     public static final double[][] POSITION_OF_LEVELS = {
-            {130 ,0},
-            {130 ,200},
-            {130 ,400},
-            {130 ,600},
-            {130 ,800},
-            {130 ,1000},
-            {130 ,1200},
-            {130 ,1400},
-            {130 ,1600},
-            {130 ,1800}
+            {1157 ,3150}, //Level 1
+            {1468 ,3378}, //Level 2
+            {1825 ,3477}, //Level 3
+            {2171 ,3393}, //Level 4
+            {2442 ,3145}, //Level 5
+            {2620 ,2767}, //Level 6
+            {1600 ,1950}, //Level 7
+            {2000 ,1600}, //Level 8
+            {1750 ,1150}, //Level 9
+            {1800 ,600} //Level 10
     };
 
 

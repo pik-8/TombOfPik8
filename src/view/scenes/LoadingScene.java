@@ -6,8 +6,8 @@ import constants.ImagePaths;
 import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
 import constants.view.LoadingSceneProperties;
+import control.ThreadHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,16 +26,17 @@ import java.util.Properties;
  *
  * @author Hagen
  */
-public class LoadingScene extends Scene{
+public class LoadingScene extends GameScene{
 
     private final HBox hBox;
     private final Label label;
     private final Animation animation;
     private final ImageView background;
 
+    private Thread animationThread;
 
     public LoadingScene(double width, double height) {
-        super(new Pane());
+        super();
         this.animation = createAnimation();
         this.label = new Label();
         this.hBox = new HBox(label, animation);
@@ -44,7 +45,7 @@ public class LoadingScene extends Scene{
         initText();
         setSizesAndPositions(width, height);
 
-        new Thread(this.animation).start();
+
         ((Pane) this.getRoot()).getChildren().addAll(background, this.hBox);
     }
 
@@ -90,5 +91,21 @@ public class LoadingScene extends Scene{
 
     public Animation getAnimation() {
         return animation;
+    }
+
+
+    private void startAnimation () {
+        this.animationThread = new Thread(this.animation);
+        ThreadHandler.getThreadHandler().addAnimation(this.animation);
+        ThreadHandler.getThreadHandler().addThread(this.animationThread);
+        this.animationThread.start();
+    }
+
+
+    @Override
+    public void closeScene() {
+        this.animation.stop();
+        ThreadHandler.getThreadHandler().removeAnimation(this.animation);
+        ThreadHandler.getThreadHandler().removeThread(this.animationThread);
     }
 }

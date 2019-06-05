@@ -6,7 +6,6 @@ import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
 import constants.view.SaveStateSelectionSceneProperties;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,14 +15,14 @@ import model.other.GameLoaderSaver;
 import model.other.SaveState;
 
 
-public class SaveStateSelectionScene extends Scene {
+public class SaveStateSelectionScene extends GameScene {
 
     private ImageView background;
     private VBox content;
 
 
     public SaveStateSelectionScene(double width, double height) {
-        super(new Pane());
+        super();
         this.background = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_SAVE_STATE_SELECTION_BACKGROUND));
         setSize(this.background, width, height);
         setPosition(this.background, SaveStateSelectionSceneProperties.POSITION_BACKGROUND, width, height);
@@ -80,5 +79,11 @@ public class SaveStateSelectionScene extends Scene {
     private void setSize (ImageView image, double width, double height) {
         image.setFitWidth(image.getImage().getWidth() / (DefaultTextureSize.width / width));
         image.setFitHeight(image.getImage().getHeight() / (DefaultTextureSize.height / height));
+    }
+
+
+    @Override
+    public void closeScene() {
+
     }
 }
