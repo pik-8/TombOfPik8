@@ -21,24 +21,7 @@ public class GameController extends Thread{
 
 
     public void startGame () {
-        //this.start();
         GUIController.launch(GUIController.class);
     }
 
-    @Override
-    public void run () {
-        try {
-            sleep(3000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        System.out.println("hello");
-        this.guiController = GUIController.getActiveGuiController();
-        Stage start = this.guiController.getStage();
-        this.guiController.update();
-        //start.setTitle("Changed");
-        //this.window.setStage(start);
-
-        run();
-    }
 }

@@ -30,7 +30,7 @@ public class SceneManager {
                         @Override
                         public void run() {
                             GUIController.getActiveGuiController().setScene(new SaveStateSelectionScene(currentScene.getWidth(), currentScene.getHeight()));
-                            stopLoadingScene(loadingScene);
+                            loadingScene.closeScene();
                         }
                     });
                 }).start();
@@ -41,7 +41,7 @@ public class SceneManager {
                         @Override
                         public void run() {
                             GUIController.getActiveGuiController().setScene(new OptionScene(currentScene.getWidth(), currentScene.getHeight()));
-                            stopLoadingScene(loadingScene);
+                            loadingScene.closeScene();
                         }
                     });
                 }).start();
@@ -55,7 +55,7 @@ public class SceneManager {
                         @Override
                         public void run() {
                             GUIController.getActiveGuiController().setScene(new TitleScene(currentScene.getWidth(), currentScene.getHeight()));
-                            stopLoadingScene(loadingScene);
+                            loadingScene.closeScene();
                         }
                     });
                 }).start();
@@ -64,13 +64,14 @@ public class SceneManager {
 
 
     public void loadScene (Dungeon dungeon, Scene currentScene) {
-        showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
+        LoadingScene loadingScene = showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
 
         new Thread(() -> {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     GUIController.getActiveGuiController().setScene(new DungeonScene(dungeon, currentScene.getWidth(), currentScene.getHeight()));
+                    loadingScene.closeScene();
                 }
             });
         }).start();
@@ -78,13 +79,14 @@ public class SceneManager {
 
 
     public void loadScene (String saveState, Scene currentScene) {
-        showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
+        LoadingScene loadingScene = showLoadingScene(currentScene.getWidth(), currentScene.getHeight());
 
         new Thread(() -> {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     GUIController.getActiveGuiController().setScene(new OverWorldScene(saveState, currentScene.getWidth(), currentScene.getHeight()));
+                    loadingScene.closeScene();
                 }
             });
         }).start();
@@ -95,10 +97,5 @@ public class SceneManager {
         LoadingScene loadingScene = new LoadingScene(width, height);
         GUIController.getActiveGuiController().setScene(loadingScene);
         return loadingScene;
-    }
-
-
-    private void stopLoadingScene (LoadingScene loadingScene) {
-        loadingScene.getAnimation().stop();
     }
 }
