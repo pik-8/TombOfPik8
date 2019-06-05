@@ -2,6 +2,7 @@ package model.options;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -15,7 +16,7 @@ import model.dungeon.Difficulty;
  * Here you will get the requested volumes, resolution and other settings.
 
  *
- * @author Patrick Szalewicz
+ * @author Frederick Hastedt (mit Dank an Patrick fuer die Vorlage)
  */
 
 public class Options {
@@ -39,7 +40,7 @@ public class Options {
 	private int windowHeight;
 	private int windowWidth;
 	private boolean isFullscreen;
-	private boolean isBorderlessWindowed;
+	private boolean isBorderlessWindow;
 
     public static Options getActiveOptions() {
         if (activeSaveStateOptions == null) {
@@ -62,6 +63,30 @@ public class Options {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+    
+    public void save() {
+    	saveSoundConfig();
+    	saveGraphicsConfig();
+    	savedOptions.setProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE, getLanguage());
+    	try {
+			savedOptions.store(new FileOutputStream(FileConstants.PATH_TO_GAME_CONFIG), "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
+    private void saveSoundConfig() {
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_GENERAL_VOLUME, String.valueOf(getMasterVolume()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_SOUND_VOLUME, String.valueOf(getSoundVolume()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_MUSIC_VOLUME, String.valueOf(getMusicVolume()));
+    }
+    
+    private void saveGraphicsConfig() {
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW, String.valueOf(getWindowHeight()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW, String.valueOf(getWindowWidth()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_FULLSCREEN, String.valueOf(isFullscreen()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_BORDERLESS_WINDOW, String.valueOf(isBorderlessWindow()));
     }
 
     public boolean hasRecentlyChanged() {
@@ -114,15 +139,14 @@ public class Options {
 		return windowWidth;
 	}
 
-	public boolean getIsFullscreen() {
+	public boolean isFullscreen() {
 		return isFullscreen;
 	}
 
-	public boolean getIsBorderlessWindowed() {
-		return isBorderlessWindowed;
+	public boolean isBorderlessWindow() {
+		return isBorderlessWindow;
 	}
 
-    
     public Difficulty getDifficulty() {
     	return difficulty;
     }
@@ -153,7 +177,7 @@ public class Options {
 	}
 
 	public void setIsBorderlessWindowed(boolean isBorderlessWindowed) {
-		this.isBorderlessWindowed = isBorderlessWindowed;
+		this.isBorderlessWindow = isBorderlessWindowed;
 		changeHappened();
 	}
 

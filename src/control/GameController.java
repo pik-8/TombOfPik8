@@ -3,6 +3,7 @@ package control;
 import constants.ConfigKeys;
 import constants.FileConstants;
 import constants.ModelProperties;
+import model.options.Options;
 import view.GUIController;
 
 import java.io.FileReader;
@@ -37,6 +38,12 @@ public class GameController extends Thread{
 
     public void startGame () {
         GUIController.launch(GUIController.class);
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+        	@Override
+        	public void run() {
+        		Options.getActiveOptions().save();
+        	}
+        });
     }
 
     public String getLanguage() {

@@ -59,6 +59,7 @@ public class GUIController extends Application {
                 long deltaT = lastNow - now;
                 lastNow = now;
                 guiController.update(deltaT);
+                guiController.update();
             }
         };
         animationTimer.start();
@@ -105,7 +106,7 @@ public class GUIController extends Application {
 
 
     public void update () {
-        this.stage.setTitle("Changed");
+        //this.stage.setTitle("Changed");
         checkOptions();
     }
 
