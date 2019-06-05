@@ -6,6 +6,14 @@ public interface ImagePaths {
     public static final String PATH_TO_IMAGES = "resources/images";
 
 
+    //Title_Scene---------Title_Scene---------Title_Scene---------Title_Scene---------Title_Scene---------Title_Scene
+
+    public static final String PATH_TO_TITLE_SCREEN = PATH_TO_IMAGES + "/titleScene";
+
+    public static final String PATH_TO_TITLE_SCREEN_BACKGROUND = PATH_TO_TITLE_SCREEN + "/Background.png";
+    public static final String PATH_TO_TITLE_SCREEN_START_TEXT = PATH_TO_TITLE_SCREEN + "/Start.png";
+    public static final String PATH_TO_TITLE_SCREEN_ANIMATION = PATH_TO_TITLE_SCREEN + "/animation/";
+
     //Start_Screen
 
     public static final String PATH_TO_START_SCREEN = PATH_TO_IMAGES + "/startScreen";
@@ -22,9 +30,8 @@ public interface ImagePaths {
     public static final String PATH_TO_START_SCREEN_LIGHT_RAYS_FOREGROUND = PATH_TO_START_SCREEN + "/LightRaysForeground.png";
     public static final String PATH_TO_START_SCREEN_LIGHT_RAYS_BACKGROUND = PATH_TO_START_SCREEN + "/LightRaysBackground.png";
 
-    public static final String PATH_TO_DUNGEON_BACKGROUND = PATH_TO_IMAGES + "/DungeonBackground.png";
 
-
+    //LoadingScene---------LoadingScene---------LoadingScene---------LoadingScene---------LoadingScene---------
 
     public static final String PATH_TO_LOADING_SCENE = PATH_TO_IMAGES + "/loadingScene";
     public static final String PATH_TO_LOADING_SCENE_BACKGROUND = PATH_TO_LOADING_SCENE + "/LoadingScene_Background.png";
@@ -72,5 +79,11 @@ public interface ImagePaths {
     public static final String PATH_TO_SAVE_STATE_SELECTION = PATH_TO_IMAGES + "/saveStateSelectionScene";
     public static final String PATH_TO_SAVE_STATE_SELECTION_BACKGROUND = PATH_TO_SAVE_STATE_SELECTION + "/SaveStateSelectionSceneBackground.png";
     public static final String PATH_TO_SAVE_STATE_SELECTION_INFO_BOX = PATH_TO_SAVE_STATE_SELECTION + "/SaveState_StateInfoBox.png";
+
+
+    //Dungeon---------Dungeon---------Dungeon---------Dungeon---------Dungeon---------Dungeon---------Dungeon---------
+
+    public static final String PATH_TO_DUNGEON_BACKGROUND = PATH_TO_IMAGES + "/DungeonBackground.png";
+
 
 }

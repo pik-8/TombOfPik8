@@ -27,7 +27,7 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
     @Override
     public void start(Stage primaryStage) throws Exception {
         createSceneWithAnimations(primaryStage);
-        //new StartScreen().show();
+        //new StartTestScene().show();
         //testFXML(primaryStage);
     }
 
@@ -56,7 +56,7 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
     private void createSceneWithAnimations (Stage primaryStage) {
         Stage window = primaryStage;
-        window.setTitle("StartScreen");
+        window.setTitle("StartTestScene");
 
 
         HBox hbox = new HBox();
@@ -79,8 +79,8 @@ public class StartTest extends Application implements EventHandler<WindowEvent> 
 
         flameAnimation.start();
 
-        flameAnimation.setFitHeight(flameAnimation.getHeight() / 2);
-        secondFlame.setFitHeight(flameAnimation.getHeight() / 2);
+        flameAnimation.setFitHeight(flameAnimation.getImage().getHeight() / 2);
+        secondFlame.setFitHeight(flameAnimation.getImage().getHeight() / 2);
         secondFlame.setTranslateX(300);
 
 

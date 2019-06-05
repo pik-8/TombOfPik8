@@ -53,8 +53,8 @@ public class LoadingScene extends GameScene{
         background.setFitWidth(background.getImage().getWidth() / (DefaultTextureSize.width / width));
         background.setFitHeight(background.getImage().getHeight() / (DefaultTextureSize.height / height));
 
-        animation.setFitHeight(animation.getHeight() / (DefaultTextureSize.height / height));
-        animation.setFitWidth(animation.getWidth() / (DefaultTextureSize.width / width));
+        animation.setFitHeight(animation.getImage().getHeight() / (DefaultTextureSize.height / height));
+        animation.setFitWidth(animation.getImage().getWidth() / (DefaultTextureSize.width / width));
 
         this.hBox.setTranslateX(LoadingSceneProperties.HBOX_POSITION[0]/ (DefaultTextureSize.width / width));
         this.hBox.setTranslateY(LoadingSceneProperties.HBOX_POSITION[1] / (DefaultTextureSize.height / height));

@@ -14,6 +14,47 @@ import view.GUIController;
 public class SceneManager {
 
 
+    private static SceneManager sceneManager;
+    private StartScene startScene;
+
+    private SceneManager () {}
+
+
+    public static SceneManager getSceneManager () {
+        if (sceneManager == null) {
+            sceneManager = new SceneManager();
+        }
+        return sceneManager;
+    }
+
+    public void startGame (double width, double height) {
+        TitleScene titleScene = new TitleScene(width, height);
+        setEvents(titleScene);
+        GUIController.getActiveGuiController().setScene(titleScene);
+        GUIController.getActiveGuiController().getStage().show();
+
+        new Thread(() -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    startScene = new StartScene(width, height);
+                }
+            });
+        }).start();
+    }
+
+    private void setEvents (TitleScene titleScene) {
+        titleScene.setOnMouseClicked(e -> {
+            this.startScene.reSizeAndRePlace(GUIController.getActiveGuiController().getStage().getWidth(), GUIController.getActiveGuiController().getStage().getHeight());
+            GUIController.getActiveGuiController().setScene(this.startScene);
+        });
+
+        titleScene.setOnKeyPressed(e -> {
+            this.startScene.reSizeAndRePlace(GUIController.getActiveGuiController().getStage().getWidth(), GUIController.getActiveGuiController().getStage().getHeight());
+            GUIController.getActiveGuiController().setScene(this.startScene);
+        });
+    }
+
     /**
      * Loads a scene corresponding to the enum.
      * Also shows a scene that informs the user, that a new scene is loading.
@@ -54,7 +95,7 @@ public class SceneManager {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            GUIController.getActiveGuiController().setScene(new TitleScene(currentScene.getWidth(), currentScene.getHeight()));
+                            GUIController.getActiveGuiController().setScene(new StartScene(currentScene.getWidth(), currentScene.getHeight()));
                             loadingScene.closeScene();
                         }
                     });

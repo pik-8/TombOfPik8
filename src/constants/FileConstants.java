@@ -57,7 +57,6 @@ public interface FileConstants {
 	public static final String PATH_TO_CONFIGS = RESOURCE_PATH + "/configs";
 
 	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
-	public static final String PATH_TO_OVERWORLD_SCENE_CONFIG = PATH_TO_CONFIGS + "/OverworldScene.config";
 
 
 
@@ -74,12 +73,18 @@ public interface FileConstants {
 	public static final String PATH_TO_SAVE_STATE_SELECTION_SCENE_NAME_LABEL_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/SaveStateSelectionScene_NameLabel.css";
 	public static final String PATH_TO_SAVE_STATE_SELECTION_SCENE_PLAY_TIME_LABEL_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/SaveStateSelectionScene_PlayTimeLabel.css";
 
+	public static final String PATH_TO_START_SCENE_HOVER_LABEL_STYLE_SHEET = PATH_TO_STYLE_SHEETS +  "/StartScene_HoverLabel.css";
+
+
+	//Configs----------Configs----------Configs----------Configs----------Configs----------Configs----------Configs
 
 	public static final String PATH_TO_LANGUAGES = RESOURCE_PATH + "/languages";
 	public static final String PATH_TO_GERMAN = PATH_TO_LANGUAGES + "/german";
 	public static final String PATH_TO_LANGUAGE_SCENES = "/scenes";
 	public static final String PATH_TO_OPTION_SCENES_CONFIG = PATH_TO_LANGUAGE_SCENES+ "/OptionScene.config";
 	public static final String PATH_TO_LOADING_SCENES_CONFIG = PATH_TO_LANGUAGE_SCENES+ "/LoadingScene.config";
+	public static final String PATH_TO_OVERWORLD_SCENE_CONFIG =  PATH_TO_LANGUAGE_SCENES + "/OverworldScene.config";
+	public static final String PATH_TO_START_SCENE_CONFIG =  PATH_TO_LANGUAGE_SCENES + "/StartScene.config";
 
 
 	public static final String STANDARD_LANGUAGE_PATH = PATH_TO_LANGUAGES + "/german";

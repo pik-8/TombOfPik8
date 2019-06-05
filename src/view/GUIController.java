@@ -7,7 +7,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import view.scenes.TitleScene;
+import view.scenes.SceneManager;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,7 +26,6 @@ public class GUIController extends Application {
     private static GUIController guiController;
 
     private Stage stage;
-    private Scene scene;
 
     private List<Animation> allAnimations;
     private long lastNow;
@@ -48,6 +47,7 @@ public class GUIController extends Application {
         return guiController;
     }
 
+
     @Override
     public void start(Stage primaryStage) {
         this.lastNow = 0;
@@ -63,27 +63,22 @@ public class GUIController extends Application {
         };
         animationTimer.start();
 
-        this.stage = new Window(scene);
-        Scene scene = new TitleScene(this.stage.getWidth(), this.stage.getHeight());
-
-
-        this.setScene(scene);
-        this.stage.setScene(scene);
-        this.stage.setTitle(ModelProperties.WINDOW_TITLE);
-
+        double width;
+        double height;
         try {
             Properties configs = new Properties();
             configs.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
-            primaryStage.setWidth(Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW)));
-            primaryStage.setHeight(Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW)));
+            width = (Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW)));
+            height = (Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW)));
+            this.stage = new Window(width, height);
         } catch (IOException ioException) {
             System.out.println(ioException);
-            primaryStage.setWidth(ModelProperties.STANDARD_WINDOW_WIDTH);
-            primaryStage.setHeight(ModelProperties.STANDARD_WINDOW_HEIGHT);
+            width = (ModelProperties.STANDARD_WINDOW_WIDTH);
+            height = (ModelProperties.STANDARD_WINDOW_HEIGHT);
+            this.stage = new Window(width, height);
         }
-        this.stage.show();
-
-        //AnimationHandler.getAnimationHandler().start();
+        this.stage.setTitle(ModelProperties.WINDOW_TITLE);
+        SceneManager.getSceneManager().startGame(this.stage.getWidth(), this.stage.getHeight());
     }
 
 
@@ -125,12 +120,7 @@ public class GUIController extends Application {
     }
 
 
-    public Scene getScene() {
-        return scene;
-    }
-
     public void setScene(Scene scene) {
-        this.scene = scene;
-        this.stage.setScene(this.scene);
+        this.getStage().setScene(scene);
     }
 }

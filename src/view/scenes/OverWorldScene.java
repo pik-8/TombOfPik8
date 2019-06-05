@@ -43,8 +43,11 @@ public class OverWorldScene extends GameScene {
             gameConfig.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
             this.languageKey = gameConfig.getProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE);
             if (this.languageKey != null) {
-                this.sceneProperties.load(new FileInputStream(FileConstants.PATH_TO_LANGUAGES
-                        + "/" + this.languageKey + FileConstants.PATH_TO_LOADING_SCENES_CONFIG));
+                System.out.println("Language: " +languageKey);
+                String path = FileConstants.PATH_TO_LANGUAGES
+                        + "/" + this.languageKey + FileConstants.PATH_TO_OVERWORLD_SCENE_CONFIG;
+                System.out.println(path);
+                this.sceneProperties.load(new FileInputStream(path));
             }
         } catch (Exception e) {}
 

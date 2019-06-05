@@ -1,6 +1,7 @@
 package view;
 
 
+import constants.view.DefaultTextureSize;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -31,6 +32,12 @@ public class Animation extends ImageView {
 
     private long waitedTime;
 
+
+    /**
+     *
+     * @param images Every image should have the same size
+     * @param fps
+     */
     public Animation(Image[] images, int fps) {
         this.images = images;
         this.setImage(images[0]);
@@ -55,28 +62,10 @@ public class Animation extends ImageView {
         }
     }
 
-
-    public float getHeight () {
-        int height = 0;
-        int numberOfImages = 0;
-        for (Image image : images) {
-            height += image.getHeight();
-            numberOfImages++;
-        }
-        return height / numberOfImages;
+    public void sizeToScene (double width, double height) {
+        this.setFitWidth(this.getImage().getWidth() / (DefaultTextureSize.width / width));
+        this.setFitHeight(this.getImage().getHeight() / (DefaultTextureSize.height / height));
     }
-
-
-    public float getWidth () {
-        int width = 0;
-        int numberOfImages = 0;
-        for (Image image : images) {
-            width += image.getWidth();
-            numberOfImages++;
-        }
-        return width / numberOfImages;
-    }
-
 
     public void stop () {
         GUIController.getActiveGuiController().removeAnimation(this);
