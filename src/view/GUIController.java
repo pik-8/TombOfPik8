@@ -1,5 +1,11 @@
 package view;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
 import constants.ConfigKeys;
 import constants.FileConstants;
 import constants.ModelProperties;
@@ -7,13 +13,8 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.options.Options;
 import view.scenes.SceneManager;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
 
 
 /**
@@ -47,7 +48,6 @@ public class GUIController extends Application {
         return guiController;
     }
 
-
     @Override
     public void start(Stage primaryStage) {
         this.lastNow = 0;
@@ -80,7 +80,14 @@ public class GUIController extends Application {
         this.stage.setTitle(ModelProperties.WINDOW_TITLE);
         SceneManager.getSceneManager().startGame(this.stage.getWidth(), this.stage.getHeight());
     }
-
+    
+    public void checkOptions() {
+    	if(Options.getActiveOptions().hasRecentlyChanged()) {
+			this.stage.setHeight(Options.getActiveOptions().getWindowHeight());
+			this.stage.setWidth(Options.getActiveOptions().getWindowWidth());
+			Options.getActiveOptions().changeApplied();
+		}
+    }
 
 
 
@@ -97,6 +104,17 @@ public class GUIController extends Application {
     }
 
 
+    public void update () {
+        this.stage.setTitle("Changed");
+        checkOptions();
+    }
+
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+        //this.stage.show();
+    }
+        
     public void addAnimation (Animation animation) {
         this.allAnimations.add(animation);
     }
@@ -123,4 +141,5 @@ public class GUIController extends Application {
     public void setScene(Scene scene) {
         this.getStage().setScene(scene);
     }
+
 }

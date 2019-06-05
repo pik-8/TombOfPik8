@@ -34,7 +34,27 @@ public class Difficulty {
     }
 
 
-    public int getMobSpawnRate() {
+    public void setMobSpawnRate(int mobSpawnRate) {
+		this.mobSpawnRate = mobSpawnRate;
+	}
+
+
+	public void setMobLevelRate(float mobLevelRate) {
+		this.mobLevelRate = mobLevelRate;
+	}
+
+
+	public void setMobTier(float mobTier) {
+		this.mobTier = mobTier;
+	}
+
+
+	public void setMobAI(float mobAI) {
+		this.mobAI = mobAI;
+	}
+
+
+	public int getMobSpawnRate() {
         return mobSpawnRate;
     }
 
