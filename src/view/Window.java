@@ -4,6 +4,7 @@ import constants.view.DefaultTextureSize;
 import javafx.collections.ObservableList;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -13,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import model.options.Options;
 
 import java.awt.*;
 
@@ -48,7 +50,11 @@ public class Window extends Stage {
             setScaledYPosition((double) newVal / (double) oldVal);
         });
     }
-
+    
+    public void setDimensions(int width, int height) {
+    	setWidth(width);
+    	setHeight(height);
+    }
 
     private void setScaledWidth(double width) {
         double ratioWidth = DefaultTextureSize.width / width;
@@ -79,7 +85,7 @@ public class Window extends Stage {
                 ((ImageView) element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
             } else if (element.getClass() == Label.class) {
                 element.setScaleY(1 / ratio);
-                //((Label)element).autosize();
+                //((Label)element).autosize();            	
             } else {
                 setScaleHeightOfChildren(((Pane) element).getChildren(), ratio);
             }

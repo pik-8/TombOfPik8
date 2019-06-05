@@ -44,8 +44,8 @@ public interface ModelProperties {
 
     //Options
 
-    public static final double MASTER_VOLUME_MIN_VALUE = 0;
-    public static final double MASTER_VOLUME_MAX_VAlUE = 1;
+    public static final double VOLUME_MIN_VALUE = 0;
+    public static final double VOLUME_MAX_VAlUE = 100;
 
 
     public static final int NO_SEED_NUMBER = 0;

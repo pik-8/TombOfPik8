@@ -6,6 +6,7 @@ import constants.ModelProperties;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.options.Options;
 import view.scenes.TitleScene;
 
 import java.io.FileInputStream;
@@ -43,10 +44,8 @@ public class GUIController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         this.stage = new Window(scene);
         Scene scene = new TitleScene(this.stage.getWidth(), this.stage.getHeight());
-
 
         this.setScene(scene);
         this.stage.setScene(scene);
@@ -64,7 +63,14 @@ public class GUIController extends Application {
         }
         this.stage.show();
     }
-
+    
+    public void checkOptions() {
+    	if(Options.getActiveOptions().hasRecentlyChanged()) {
+			this.stage.setHeight(Options.getActiveOptions().getWindowHeight());
+			this.stage.setWidth(Options.getActiveOptions().getWindowWidth());
+			Options.getActiveOptions().changeApplied();
+		}
+    }
 
     public Stage getStage() {
         return stage;
@@ -73,8 +79,8 @@ public class GUIController extends Application {
 
     public void update () {
         this.stage.setTitle("Changed");
+        checkOptions();
     }
-
 
 
     public void setStage(Stage stage) {
@@ -90,4 +96,5 @@ public class GUIController extends Application {
         this.scene = scene;
         this.stage.setScene(this.scene);
     }
+
 }

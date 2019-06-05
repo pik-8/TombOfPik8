@@ -5,8 +5,14 @@ public interface ConfigKeys {
 
     public static final String KEY_FOR_HEIGHT_OF_WINDOW = "window_height";
     public static final String KEY_FOR_WIDTH_OF_WINDOW = "window_width";
-
-
+    public static final String KEY_FOR_FULLSCREEN = "is_fullscreen";
+    public static final String KEY_FOR_BORDERLESS_WINDOW = "is_borderless_windowed";
+    
+    public static final String KEY_FOR_GENERAL_VOLUME = "general_volume";
+    public static final String KEY_FOR_SOUND_VOLUME = "sound_volume";
+    public static final String KEY_FOR_MUSIC_VOLUME = "music_volume";
+    
+    
     public static final String GAME_CONFIG_KEY_FOR_LANGUAGE = "language";
 
     public static final String OPTION_SCENE_KEY_FOR_DIFFICULTY_BUTTON_TEXT = "difficulty_button_text";
@@ -17,6 +23,10 @@ public interface ConfigKeys {
     public static final String OPTION_SCENE_KEY_FOR_LEVEL_SLIDER_TEXT = "level_slider_label";
     public static final String OPTION_SCENE_KEY_FOR_MASTER_VOLUME_TEXT = "master_volume_label";
 
+    public static final String OPTION_SCENE_KEY_FOR_RESOLUTION_TEXT = "resolution_label";
+    public static final String OPTION_SCENE_KEY_FOR_HIGH_RES_TEXT = "high_res_label";
+    public static final String OPTION_SCENE_KEY_FOR_MEDIUM_RES_TEXT = "medium_res_label";
+    public static final String OPTION_SCENE_KEY_FOR_LOW_RES_TEXT = "low_res_label";
 
     public static final String LOADING_SCENE_KEY_FOR_LABEL = "information";
 

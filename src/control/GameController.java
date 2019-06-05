@@ -38,7 +38,6 @@ public class GameController extends Thread{
         this.guiController.update();
         //start.setTitle("Changed");
         //this.window.setStage(start);
-
         run();
     }
 }
