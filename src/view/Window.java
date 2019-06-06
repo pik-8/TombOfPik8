@@ -53,7 +53,7 @@ public class Window extends Stage {
 	}
 
 	private void setScaledWidth(double newWidth, double oldWidth) {
-		double ratioWidth = DefaultTextureSize.width / newWidth;
+		double ratioWidth = DefaultTextureSize.WIDTH / newWidth;
 		setScaleWidthOfChildren(((Pane) this.getScene().getRoot()).getChildren(), ratioWidth, newWidth / oldWidth);
 	}
 
@@ -66,14 +66,16 @@ public class Window extends Stage {
 				element.setScaleX(element.getScaleX() * windowRatio);
 			} else if (element.getClass() == Animation.class) {
 				((Animation) element).setFitWidth(((Animation) element).getImage().getWidth() / ratio);
-			} else {
+			} else if (element.getClass() == Pane.class) {
 				setScaleWidthOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
+			} else {
+				System.out.println(element.getClass());
 			}
 		}
 	}
 
 	private void setScaledHeight(double newHeight, double oldHeight) {
-		double ratioHeight = DefaultTextureSize.height / newHeight;
+		double ratioHeight = DefaultTextureSize.HEIGHT / newHeight;
 		setScaleHeightOfChildren(((Pane) this.getScene().getRoot()).getChildren(), ratioHeight, newHeight / oldHeight);
 	}
 
@@ -87,8 +89,10 @@ public class Window extends Stage {
 				element.setScaleY(element.getScaleY() * windowRatio);
 			} else if (element.getClass() == Animation.class) {
 				((Animation) element).setFitHeight(((ImageView) element).getImage().getHeight() / ratio);
-			} else {
+			} else if (element.getClass() == Pane.class) {
 				setScaleHeightOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
+			} else {
+				System.out.println(element.getClass());
 			}
 		}
 	}

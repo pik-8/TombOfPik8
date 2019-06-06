@@ -42,8 +42,8 @@ public class TitleScene extends GameScene {
         this.animation = new Animation(images, TitleSceneProperties.FPS_OF_ANIMATION);
         animation.sizeToScene(width, height);
 
-        animation.setTranslateX(TitleSceneProperties.POSITION_ANIMATION[0] / (DefaultTextureSize.width / width));
-        animation.setTranslateY(TitleSceneProperties.POSITION_ANIMATION[1] / (DefaultTextureSize.height / height));
+        animation.setTranslateX(TitleSceneProperties.POSITION_ANIMATION[0] / (DefaultTextureSize.WIDTH / width));
+        animation.setTranslateY(TitleSceneProperties.POSITION_ANIMATION[1] / (DefaultTextureSize.HEIGHT / height));
 
         animation.start();
     }
@@ -51,18 +51,18 @@ public class TitleScene extends GameScene {
 
     private void initImages (double width, double height) {
         this.background = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_TITLE_SCREEN_BACKGROUND));
-        this.background.setTranslateX(TitleSceneProperties.POSITION_BACKGROUND[0] / (DefaultTextureSize.width / width));
-        this.background.setTranslateY(TitleSceneProperties.POSITION_BACKGROUND[1] / (DefaultTextureSize.height / height));
+        this.background.setTranslateX(TitleSceneProperties.POSITION_BACKGROUND[0] / (DefaultTextureSize.WIDTH / width));
+        this.background.setTranslateY(TitleSceneProperties.POSITION_BACKGROUND[1] / (DefaultTextureSize.HEIGHT / height));
 
-        this.background.setFitWidth(this.background.getImage().getWidth() / (DefaultTextureSize.width / width));
-        this.background.setFitHeight(this.background.getImage().getHeight() / (DefaultTextureSize.height / height));
+        this.background.setFitWidth(this.background.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
+        this.background.setFitHeight(this.background.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
 
         this.start = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_TITLE_SCREEN_START_TEXT));
-        this.start.setTranslateX(TitleSceneProperties.POSITION_START[0] / (DefaultTextureSize.width / width));
-        this.start.setTranslateY(TitleSceneProperties.POSITION_START[1] / (DefaultTextureSize.height / height));
+        this.start.setTranslateX(TitleSceneProperties.POSITION_START[0] / (DefaultTextureSize.WIDTH / width));
+        this.start.setTranslateY(TitleSceneProperties.POSITION_START[1] / (DefaultTextureSize.HEIGHT / height));
 
-        this.start.setFitWidth(this.start.getImage().getWidth() / (DefaultTextureSize.width / width));
-        this.start.setFitHeight(this.start.getImage().getHeight() / (DefaultTextureSize.height / height));
+        this.start.setFitWidth(this.start.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
+        this.start.setFitHeight(this.start.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
     }
 
 

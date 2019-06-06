@@ -45,12 +45,12 @@ import com.google.gson.stream.JsonWriter;
  *     int radius;
  *   }
  *   class Rectangle extends Shape {
- *     int width;
- *     int height;
+ *     int WIDTH;
+ *     int HEIGHT;
  *   }
  *   class Diamond extends Shape {
- *     int width;
- *     int height;
+ *     int WIDTH;
+ *     int HEIGHT;
  *   }
  *   class Drawing {
  *     Shape bottomShape;
@@ -61,8 +61,8 @@ import com.google.gson.stream.JsonWriter;
  * the bottom shape in this drawing a rectangle or a diamond? <pre>   {@code
  *   {
  *     "bottomShape": {
- *       "width": 10,
- *       "height": 5,
+ *       "WIDTH": 10,
+ *       "HEIGHT": 5,
  *       "x": 0,
  *       "y": 0
  *     },
@@ -78,8 +78,8 @@ import com.google.gson.stream.JsonWriter;
  *   {
  *     "bottomShape": {
  *       "type": "Diamond",
- *       "width": 10,
- *       "height": 5,
+ *       "WIDTH": 10,
+ *       "HEIGHT": 5,
  *       "x": 0,
  *       "y": 0
  *     },

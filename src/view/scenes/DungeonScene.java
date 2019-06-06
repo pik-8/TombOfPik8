@@ -3,8 +3,6 @@ package view.scenes;
 import constants.ImagePaths;
 import constants.ModelProperties;
 import constants.view.DefaultTextureSize;
-import constants.view.DungeonSceneProperties;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -45,8 +43,8 @@ public class DungeonScene extends GameScene {
     private void initBackground (double width, double height) {
         ImageView background = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_DUNGEON_BACKGROUND));
 
-        double ratioHeight = DefaultTextureSize.height / height;
-        double ratioWidth = DefaultTextureSize.width / width;
+        double ratioHeight = DefaultTextureSize.HEIGHT / height;
+        double ratioWidth = DefaultTextureSize.WIDTH / width;
 
         background.setFitWidth(background.getImage().getWidth() / ratioWidth);
         background.setFitHeight(background.getImage().getHeight() / ratioHeight);

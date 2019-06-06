@@ -13,11 +13,9 @@ import javafx.scene.layout.Pane;
 import model.other.GameLoaderSaver;
 import model.other.SaveState;
 import model.overworld.Overworld;
-import view.Animation;
 import view.OverworldDialog;
 import view.events.OverworldKeyEvent;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -38,8 +36,8 @@ public class OverWorldScene extends GameScene {
         super();
         this.mapAndLevel = new Pane();
         this.map = new ImageView(new Image(ModelProperties.FILE_KEY + ImagePaths.PATH_TO_OVERWORLD_BACKGROUND));
-        this.map.setFitHeight(this.map.getImage().getHeight() / (DefaultTextureSize.height / height));
-        this.map.setFitWidth(this.map.getImage().getWidth() / (DefaultTextureSize.width / width));
+        this.map.setFitHeight(this.map.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
+        this.map.setFitWidth(this.map.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
 
         //SaveState saveState = new GameLoaderSaver().
 
@@ -73,8 +71,8 @@ public class OverWorldScene extends GameScene {
         for (int i = Levels.INDEX_OF_FIRST_LEVEL; i <= Levels.NUMBER_OF_LEVELS; i++) {
             ImageView level = getLevelImage(overworld, i);
 
-            double ratioWidth = DefaultTextureSize.width/ width;
-            double ratioHeight = DefaultTextureSize.height/ height;
+            double ratioWidth = DefaultTextureSize.WIDTH / width;
+            double ratioHeight = DefaultTextureSize.HEIGHT / height;
 
             level.setFitWidth(level.getImage().getWidth() / ratioWidth);
             level.setFitHeight(level.getImage().getHeight() / ratioHeight);

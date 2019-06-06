@@ -71,20 +71,20 @@ public class SaveStateSelectionScene extends GameScene {
 
 
     private void setPosition (Node node,double[] position , double width, double height) {
-        node.setTranslateX(position[0] / (DefaultTextureSize.width / width));
-        node.setTranslateY(position[1] / (DefaultTextureSize.height / height));
+        node.setTranslateX(position[0] / (DefaultTextureSize.WIDTH / width));
+        node.setTranslateY(position[1] / (DefaultTextureSize.HEIGHT / height));
     }
 
 
     private void setSize (Label label, double width, double height) {
-        label.setScaleX(width / DefaultTextureSize.width);
-        label.setScaleY(height / DefaultTextureSize.height);
+        label.setScaleX(width / DefaultTextureSize.WIDTH);
+        label.setScaleY(height / DefaultTextureSize.HEIGHT);
     }
 
 
     private void setSize (ImageView image, double width, double height) {
-        image.setFitWidth(image.getImage().getWidth() / (DefaultTextureSize.width / width));
-        image.setFitHeight(image.getImage().getHeight() / (DefaultTextureSize.height / height));
+        image.setFitWidth(image.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
+        image.setFitHeight(image.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
     }
 
 

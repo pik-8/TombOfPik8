@@ -28,8 +28,8 @@ public class DungeonPrinter {
      * Returns a Pane-Layout, that contains every Tile in  the dungeon.
      *
      * @param dungeon The dungeon, that should be displayed.
-     * @param width The width of the scene, that the dungeon should be displayed in.
-     * @param height The height of the scene, that the dungeon should be displayed in.
+     * @param width The WIDTH of the scene, that the dungeon should be displayed in.
+     * @param height The HEIGHT of the scene, that the dungeon should be displayed in.
      * @return
      */
     public static Pane printDungeonImage (Dungeon dungeon, double width, double height) {
@@ -41,8 +41,8 @@ public class DungeonPrinter {
                     File folder = new File(getPathToImage(dungeon.getTile(x, y).getLandscape()));
                     ImageView tileImage = new ImageView(new Image(ModelProperties.FILE_KEY + folder.listFiles()[random.nextInt(folder.listFiles().length)]));
 
-                    tileImage.setFitWidth(tileImage.getImage().getWidth() / (DefaultTextureSize.width / width));
-                    tileImage.setFitHeight(tileImage.getImage().getHeight() / (DefaultTextureSize.height / height));
+                    tileImage.setFitWidth(tileImage.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
+                    tileImage.setFitHeight(tileImage.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
 
                     tileImage.setTranslateX(x * tileImage.getFitWidth());
                     tileImage.setTranslateY(y * tileImage.getFitHeight());
@@ -63,8 +63,8 @@ public class DungeonPrinter {
      * Uses a single Forest tile to determine the spacing of the Terrain Objects.
      *
      * @param dungeon The dungeon, that should be displayed.
-     * @param width The width of the scene, that the dungeon should be displayed in.
-     * @param height The height of the scene, that the dungeon should be displayed in.
+     * @param width The WIDTH of the scene, that the dungeon should be displayed in.
+     * @param height The HEIGHT of the scene, that the dungeon should be displayed in.
      * @return
      */
     public static Pane printFullDungeonImage (Dungeon dungeon, double width, double height) {
@@ -73,8 +73,8 @@ public class DungeonPrinter {
         File exampleTiles = new File(ImagePaths.PATH_TO_FOREST_TILES);
         Image exampleImage = new Image(ModelProperties.FILE_KEY +  exampleTiles.listFiles()[0].getPath());
 
-        double tileWidth = exampleImage.getWidth() / (DefaultTextureSize.width / width);
-        double tileHeight = exampleImage.getHeight() / (DefaultTextureSize.height / height);
+        double tileWidth = exampleImage.getWidth() / (DefaultTextureSize.WIDTH / width);
+        double tileHeight = exampleImage.getHeight() / (DefaultTextureSize.HEIGHT / height);
 
         int tileSize = getTileSize(dungeon);
 
@@ -89,8 +89,8 @@ public class DungeonPrinter {
                                 double terrainXPosition = (tileX * tileWidth) + (squareX * (tileWidth / tileSize));
                                 double terrainYPosition = (tileY * tileHeight) + (squareY * ( tileHeight / tileSize));
 
-                                terrain.setFitWidth(terrain.getImage().getWidth() / (DefaultTextureSize.width / width));
-                                terrain.setFitHeight(terrain.getImage().getHeight() / (DefaultTextureSize.height / height));
+                                terrain.setFitWidth(terrain.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
+                                terrain.setFitHeight(terrain.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
 
                                 terrain.setTranslateX(terrainXPosition);
                                 terrain.setTranslateY(terrainYPosition);

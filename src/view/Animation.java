@@ -55,8 +55,8 @@ public class Animation extends ImageView {
     }
 
     public void sizeToScene (double width, double height) {
-        this.setFitWidth(this.getImage().getWidth() / (DefaultTextureSize.width / width));
-        this.setFitHeight(this.getImage().getHeight() / (DefaultTextureSize.height / height));
+        this.setFitWidth(this.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
+        this.setFitHeight(this.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
     }
 
     public void stop () {

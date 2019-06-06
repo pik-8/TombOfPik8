@@ -163,8 +163,8 @@ public class StartScene extends GameScene {
     }
 
     private void setSizeImages(double width, double height) {
-        double ratioHeight = DefaultTextureSize.height / height;
-        double ratioWidth = DefaultTextureSize.width / width;
+        double ratioHeight = DefaultTextureSize.HEIGHT / height;
+        double ratioWidth = DefaultTextureSize.WIDTH / width;
 
         for (ImageView image : allImages) {
             image.setFitWidth(image.getImage().getWidth() / ratioWidth);
@@ -174,8 +174,8 @@ public class StartScene extends GameScene {
 
 
     private void setPosition(double width, double height) {
-        double widthRatio = DefaultTextureSize.width / width;
-        double heightRatio = DefaultTextureSize.height / height;
+        double widthRatio = DefaultTextureSize.WIDTH / width;
+        double heightRatio = DefaultTextureSize.HEIGHT / height;
 
         changePosition(this.background, StartSceneProperties.POSITION_BACKGROUND[0], StartSceneProperties.POSITION_BACKGROUND[1], widthRatio, heightRatio);
         changePosition(this.cloudsBackground, StartSceneProperties.POSITION_CLOUDS_BACKGROUND[0], StartSceneProperties.POSITION_CLOUDS_BACKGROUND[1], widthRatio, heightRatio);

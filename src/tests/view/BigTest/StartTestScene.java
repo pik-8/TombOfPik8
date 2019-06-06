@@ -74,7 +74,7 @@ public class StartTestScene extends Stage {
 		this.setTitle("Tomb of Pik 8");
 
 		this.layout = new Pane();
-//      setSizeImages(width, height);
+//      setSizeImages(WIDTH, HEIGHT);
 
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
@@ -114,8 +114,8 @@ public class StartTestScene extends Stage {
 	}
 
 	private void setSizeImages(double width, double height) {
-		double ratioHeight = DefaultTextureSize.height / height;
-		double ratioWidth = DefaultTextureSize.width / width;
+		double ratioHeight = DefaultTextureSize.HEIGHT / height;
+		double ratioWidth = DefaultTextureSize.WIDTH / width;
 
 		for (ImageView image : allImages) {
 			image.setFitWidth(image.getImage().getWidth() / ratioWidth);
@@ -125,14 +125,14 @@ public class StartTestScene extends Stage {
 
 
 	private void setScaledWidth(double width) {
-		double ratioWidth = DefaultTextureSize.width / width;
+		double ratioWidth = DefaultTextureSize.WIDTH / width;
 		for (ImageView image : allImages) {
 			image.setFitWidth(image.getImage().getWidth() / ratioWidth);
 		}
 	}
 
 	private void setScaledHeight(double height) {
-		double ratioHeight = DefaultTextureSize.height / height;
+		double ratioHeight = DefaultTextureSize.HEIGHT / height;
 		for (ImageView image : allImages) {
 			image.setFitHeight(image.getImage().getHeight() / ratioHeight);
 		}

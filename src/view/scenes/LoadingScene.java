@@ -49,14 +49,14 @@ public class LoadingScene extends GameScene{
     }
 
     private void setSizesAndPositions (double width, double height) {
-        background.setFitWidth(background.getImage().getWidth() / (DefaultTextureSize.width / width));
-        background.setFitHeight(background.getImage().getHeight() / (DefaultTextureSize.height / height));
+        background.setFitWidth(background.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
+        background.setFitHeight(background.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
 
-        animation.setFitHeight(animation.getImage().getHeight() / (DefaultTextureSize.height / height));
-        animation.setFitWidth(animation.getImage().getWidth() / (DefaultTextureSize.width / width));
+        animation.setFitHeight(animation.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
+        animation.setFitWidth(animation.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
 
-        this.hBox.setTranslateX(LoadingSceneProperties.HBOX_POSITION[0]/ (DefaultTextureSize.width / width));
-        this.hBox.setTranslateY(LoadingSceneProperties.HBOX_POSITION[1] / (DefaultTextureSize.height / height));
+        this.hBox.setTranslateX(LoadingSceneProperties.HBOX_POSITION[0]/ (DefaultTextureSize.WIDTH / width));
+        this.hBox.setTranslateY(LoadingSceneProperties.HBOX_POSITION[1] / (DefaultTextureSize.HEIGHT / height));
 
         this.hBox.setAlignment(Pos.BOTTOM_LEFT);
         this.hBox.setSpacing(LoadingSceneProperties.HBOX_SPACING);

@@ -5,7 +5,7 @@ public interface OptionSceneProperties {
 
 
     /**
-     * The first value determines the width, the second the height.
+     * The first value determines the WIDTH, the second the HEIGHT.
      */
     public static final double[] BUTTON_RATIO = {0.16, 0.093};
     
