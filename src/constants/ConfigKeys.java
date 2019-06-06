@@ -52,4 +52,11 @@ public interface ConfigKeys {
     public static final String START_SCENE_EXIT_LABEL = "exit_label";
     public static final String START_SCENE_SAVE_STATE_LABEL = "saveState_label";
 
+
+    //ExitDialog--------------ExitDialog--------------ExitDialog--------------ExitDialog--------------ExitDialog
+
+    public static final String EXIT_DIALOG_TEXT = "text";
+    public static final String EXIT_DIALOG_AGREE_BUTTON = "agree_button";
+    public static final String EXIT_DIALOG_DISAGREE_BUTTON = "disagree_button";
+
 }

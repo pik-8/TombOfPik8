@@ -60,10 +60,10 @@ public class Animation extends ImageView {
     }
 
     public void stop () {
-        GUIController.getActiveGuiController().removeAnimation(this);
+        ViewController.getViewController().removeAnimation(this);
     }
 
     public void start () {
-        GUIController.getActiveGuiController().addAnimation(this);
+        ViewController.getViewController().addAnimation(this);
     }
 }

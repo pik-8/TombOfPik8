@@ -23,9 +23,9 @@ import view.scenes.SceneManager;
  *
  * @author Hagen
  */
-public class GUIController extends Application {
+public class ViewController extends Application {
 
-    private static GUIController guiController;
+    private static ViewController viewController;
 
     private Stage stage;
 
@@ -33,20 +33,20 @@ public class GUIController extends Application {
     private long lastNow;
 
 
-    public GUIController() {
-        if (guiController != null) {
+    public ViewController() {
+        if (viewController != null) {
             try {
-                guiController.stop();
+                viewController.stop();
             } catch (Exception e) {
 
             }
         }
-        guiController = this;
+        viewController = this;
     }
 
 
-    public static GUIController getActiveGuiController () {
-        return guiController;
+    public static ViewController getViewController() {
+        return viewController;
     }
 
     @Override
@@ -54,32 +54,24 @@ public class GUIController extends Application {
         this.lastNow = 0;
         this.allAnimations = new ArrayList<>();
 
-        AnimationTimer animationTimer = new AnimationTimer() {
+         new AnimationTimer() {
             @Override
             public void handle(long now) {
                 long deltaT = lastNow - now;
                 lastNow = now;
-                guiController.update(deltaT);
-                guiController.update();
+                viewController.update(deltaT);
+                viewController.update();
             }
-        };
-        animationTimer.start();
+        }.start();
 
-        double width;
-        double height;
-        try {
-            Properties configs = new Properties();
-            configs.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
-            width = (Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW)));
-            height = (Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW)));
-            this.stage = new Window(width, height);
-        } catch (IOException ioException) {
-            System.out.println(ioException);
-            width = (ModelProperties.STANDARD_WINDOW_WIDTH);
-            height = (ModelProperties.STANDARD_WINDOW_HEIGHT);
-            this.stage = new Window(width, height);
-        }
+        setSize();
+
         this.stage.setTitle(ModelProperties.WINDOW_TITLE);
+        this.stage.setOnCloseRequest(e -> {
+            new ExitDialog();
+            e.consume();
+        });
+
         SceneManager.getSceneManager().startGame(this.stage.getWidth(), this.stage.getHeight());
     }
     
@@ -92,7 +84,21 @@ public class GUIController extends Application {
     }
 
 
-
+    private void setSize () {
+        double width = 0;
+        double height = 0;
+        try {
+            Properties configs = new Properties();
+            configs.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
+            width = (Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW,
+                    String.valueOf(ModelProperties.STANDARD_WINDOW_WIDTH))));
+            height = (Double.valueOf(configs.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW,
+                    String.valueOf(ModelProperties.STANDARD_WINDOW_HEIGHT))));
+        } catch (IOException ioException) {
+            System.out.println(ioException);
+        }
+        this.stage = new Window(width, height);
+    }
 
     public void update (long deltaT) {
         for (Animation animation : allAnimations) {

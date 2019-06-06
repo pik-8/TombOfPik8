@@ -54,10 +54,6 @@ public interface FileConstants {
 
 	public static final String TEST_DUNGEON_PATH  = DUNGEON_TEMPLATE_PATH + "/TestDungeon.pik/";
 
-	public static final String PATH_TO_CONFIGS = RESOURCE_PATH + "/configs";
-
-	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
-
 
 
 
@@ -85,9 +81,15 @@ public interface FileConstants {
 	public static final String PATH_TO_LOADING_SCENES_CONFIG = PATH_TO_LANGUAGE_SCENES+ "/LoadingScene.config";
 	public static final String PATH_TO_OVERWORLD_SCENE_CONFIG =  PATH_TO_LANGUAGE_SCENES + "/OverworldScene.config";
 	public static final String PATH_TO_START_SCENE_CONFIG =  PATH_TO_LANGUAGE_SCENES + "/StartScene.config";
+	public static final String PATH_TO_EXIT_DIALO_CONFIG = "/ExitDialog.config";
 
 
 	public static final String STANDARD_LANGUAGE_PATH = PATH_TO_LANGUAGES + "/german";
+
+
+	public static final String PATH_TO_CONFIGS = RESOURCE_PATH + "/configs";
+
+	public static final String PATH_TO_GAME_CONFIG = PATH_TO_CONFIGS + "/Game.config";
 
 
 }
