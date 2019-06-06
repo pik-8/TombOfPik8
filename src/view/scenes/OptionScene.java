@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -123,27 +124,56 @@ public class OptionScene extends GameScene {
 		Label resolutionLabel = new Label(
 				this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_RESOLUTION_TEXT));
 		ComboBox<String> resolutions = new ComboBox<String>();
+		
 		resolutions.getItems().add(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_HIGH_RES_TEXT));
 		resolutions.getItems().add(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MEDIUM_RES_TEXT));
 		resolutions.getItems().add(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_LOW_RES_TEXT));
+		
+		
+		//TODO THE FOLLOWING IS PLACEHOLDER CODE. THE FUNCTIONALITY TO HAVE THE RIGHT OPTION SELECTED ON OPTION VIEW NEEDS TO BE IMPLEMENTED PROPERLY.
+		if(Options.getActiveOptions().getWindowWidth() == 1920 && Options.getActiveOptions().getWindowHeight() == 1080) {
+			resolutions.getSelectionModel().select(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_HIGH_RES_TEXT));			
+		}
+		else if(Options.getActiveOptions().getWindowWidth() == 1280 && Options.getActiveOptions().getWindowHeight() == 720) {
+			resolutions.getSelectionModel().select(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MEDIUM_RES_TEXT));			
+		}
+		else if(Options.getActiveOptions().getWindowWidth() == 640 && Options.getActiveOptions().getWindowHeight() == 360) {
+			resolutions.getSelectionModel().select(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_LOW_RES_TEXT));			
+		}
+		
 		setResolutionsEventHandler(resolutions);
 		resolutionsBox.getChildren().addAll(resolutionLabel, resolutions);
 		resolutionsBox.setPadding(padding);
 
 		this.graphicsContent.getChildren().addAll(resolutionsBox,
-				createCheckBoxBox(ConfigKeys.OPTiON_SCENE_KEY_FOR_FULLSCREEN_TEXT),
-				createCheckBoxBox(ConfigKeys.OPTiON_SCENE_KEY_FOR_BORDERLESS_WINDOW_TEXT));
+				createCheckBoxBox(ConfigKeys.OPTiON_SCENE_KEY_FOR_FULLSCREEN_TEXT,
+						Options.getActiveOptions().isFullscreen(),
+						Options.getActiveOptions()::setIsFullscreen),
+				createCheckBoxBox(ConfigKeys.OPTiON_SCENE_KEY_FOR_BORDERLESS_WINDOW_TEXT,
+						Options.getActiveOptions().isBorderlessWindow(),
+						Options.getActiveOptions()::setIsBorderlessWindowed));
 	}
 
-	private HBox createCheckBoxBox(String labelKey) {
+	private HBox createCheckBoxBox(String labelKey, boolean isSelected, Consumer<Boolean> optionWriter) {
 		Insets padding = new Insets(OptionSceneProperties.GRAPHICS_PADDING);
 		HBox boxBox = new HBox();
 		Label boxLabel = new Label(this.optionLabels.getProperty(labelKey));
 		CheckBox checkBox = new CheckBox();
+		checkBox.setSelected(isSelected);
+		addCheckBoxEventHandler(checkBox, optionWriter);
 		boxLabel.setPadding(padding);
 		checkBox.setPadding(padding);
 		boxBox.getChildren().addAll(boxLabel, checkBox);
 		return boxBox;
+	}
+	
+	private void addCheckBoxEventHandler(CheckBox box, Consumer<Boolean> optionWriter) {
+		box.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				optionWriter.accept(box.isSelected());
+			}
+		});
 	}
 
 	private void setResolutionsEventHandler(ComboBox<String> res) {
