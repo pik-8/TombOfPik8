@@ -7,10 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
-import model.dungeon.Difficulty;
-import model.dungeon.DifficultyFactory;
-import model.dungeon.Dungeon;
-import model.dungeon.DungeonFactory;
+import model.dungeon.*;
 import model.overworld.Info;
 import model.overworld.Overworld;
 import view.scenes.SceneManager;
@@ -57,15 +54,26 @@ public class OverworldDialog extends Dialog<ButtonType> {
         ButtonType enterButton = new ButtonType(property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_ENTER_DUNGEON_BUTTON), ButtonBar.ButtonData.OK_DONE);
         ButtonType exitButton = new ButtonType(property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_REFUSE_BUTTON), ButtonBar.ButtonData.NO);
         this.getDialogPane().getButtonTypes().addAll(exitButton, enterButton);
+        String landscapes = "";
+        for (int i = 0; i < overworld.getLandscapesOfCurrentLevel(numberOfLevel).length; i++) {
+                landscapes += overworld.getLandscapesOfCurrentLevel(numberOfLevel)[i].name();
+                if ((i + 1) < overworld.getLandscapesOfCurrentLevel(numberOfLevel).length) {
+                    landscapes += ", ";
+                }
+        }
+
         this.setContentText(
                 property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_1)
                         + numberOfLevel + property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_2)
-                        + overworld.getLandscapesOfCurrentLevel(numberOfLevel) + "\n"
+                        + landscapes
                         + property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_3)
-                        + overworld.getDifficultyOfCurrentLevel(numberOfLevel)
                         + property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_4)
-                        + overworld.getSeedOfLastLevel(numberOfLevel)
+                        + overworld.getDifficultyOfCurrentLevel(numberOfLevel).getMobSpawnRate()
                         + property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_5)
+                        + overworld.getDifficultyOfCurrentLevel(numberOfLevel).getMobLevelRate()
+                        + property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_6)
+                        + overworld.getSeedOfLastLevel(numberOfLevel)
+                        + property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_7)
         );
     }
 
@@ -73,15 +81,26 @@ public class OverworldDialog extends Dialog<ButtonType> {
         ButtonType enterButton = new ButtonType(OverWorldSceneProperties.STANDARD_TEXT_DIALOG_ENTER_DUNGEON, ButtonBar.ButtonData.OK_DONE);
         ButtonType exitButton = new ButtonType(OverWorldSceneProperties.STANDARD_TEXT_DONT_ENTER_DUNGEON, ButtonBar.ButtonData.NO);
         this.getDialogPane().getButtonTypes().addAll(exitButton, enterButton);
+        String landscapes = "";
+        for (int i = 0; i < overworld.getLandscapesOfCurrentLevel(numberOfLevel).length; i++) {
+            landscapes += overworld.getLandscapesOfCurrentLevel(numberOfLevel)[i].name();
+            if ((i + 1) < overworld.getLandscapesOfCurrentLevel(numberOfLevel).length) {
+                landscapes += ", ";
+            }
+        }
         this.setContentText(
                 OverWorldSceneProperties.STANDARD_DIALOG_TEXT_1
                         + numberOfLevel + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_2
-                        + overworld.getLandscapesOfCurrentLevel(numberOfLevel - Levels.INDEX_OF_FIRST_LEVEL) + "\n"
+                        + landscapes
                         + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_3
-                        + overworld.getDifficultyOfCurrentLevel(numberOfLevel - Levels.INDEX_OF_FIRST_LEVEL)
+                        + overworld.getDifficultyOfCurrentLevel(numberOfLevel)
                         + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_4
-                        + overworld.getSeedOfLastLevel(numberOfLevel - Levels.INDEX_OF_FIRST_LEVEL)
+                        + overworld.getDifficultyOfCurrentLevel(numberOfLevel).getMobSpawnRate()
                         + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_5
+                        + overworld.getDifficultyOfCurrentLevel(numberOfLevel).getMobLevelRate()
+                        + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_6
+                        + overworld.getSeedOfLastLevel(numberOfLevel)
+                        + OverWorldSceneProperties.STANDARD_DIALOG_TEXT_7
         );
     }
 

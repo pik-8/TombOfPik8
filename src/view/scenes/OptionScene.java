@@ -22,6 +22,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.options.Options;
 import model.options.WindowMode;
+import view.events.OptionSceneKeyEvent;
 
 /**
  * A scene that contains a menu, in which the user can configure the game.
@@ -77,6 +78,11 @@ public class OptionScene extends GameScene {
 		initSoundArea();
 		initGraphicsArea();
 		initLayouts();
+		initEvents();
+	}
+
+	private void initEvents () {
+		this.setOnKeyPressed(new OptionSceneKeyEvent());
 	}
 
 	private void initButtons() {

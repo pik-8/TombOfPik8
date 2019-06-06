@@ -39,18 +39,14 @@ public class OverWorldScene extends GameScene {
         this.map.setFitHeight(this.map.getImage().getHeight() / (DefaultTextureSize.HEIGHT / height));
         this.map.setFitWidth(this.map.getImage().getWidth() / (DefaultTextureSize.WIDTH / width));
 
-        //SaveState saveState = new GameLoaderSaver().
-
         Properties gameConfig = new Properties();
         this.sceneProperties = new Properties();
         try {
             gameConfig.load(new FileInputStream(FileConstants.PATH_TO_GAME_CONFIG));
             this.languageKey = gameConfig.getProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE);
             if (this.languageKey != null) {
-                System.out.println("Language: " +languageKey);
                 String path = FileConstants.PATH_TO_LANGUAGES
                         + "/" + this.languageKey + FileConstants.PATH_TO_OVERWORLD_SCENE_CONFIG;
-                System.out.println(path);
                 this.sceneProperties.load(new FileInputStream(path));
             }
         } catch (Exception e) {}

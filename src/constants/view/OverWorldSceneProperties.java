@@ -26,6 +26,9 @@ public interface OverWorldSceneProperties {
     public static final String STANDARD_DIALOG_TEXT_1 = "Level";
     public static final String STANDARD_DIALOG_TEXT_2 = "This level contains the following landscapes:\n";
     public static final String STANDARD_DIALOG_TEXT_3 = "\nwith the difficulty:\n";
-    public static final String STANDARD_DIALOG_TEXT_4 = "\nAnd the seed:";
-    public static final String STANDARD_DIALOG_TEXT_5 = "\nDo you want to play the level?";
+    public static final String STANDARD_DIALOG_TEXT_4 = "\nMonster spawn rate: ";
+    public static final String STANDARD_DIALOG_TEXT_5 = "\nMonster level variance: ";
+    public static final String STANDARD_DIALOG_TEXT_6 = "\nAnd the seed: ";
+    public static final String STANDARD_DIALOG_TEXT_7 = "\nDo you want to play the level?";
+
 }
