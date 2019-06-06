@@ -21,6 +21,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+
+/**
+ * This scene is the overworld, a place where the player can choose, which levels it wants to play.
+ *
+ * @author Hagen
+ */
 public class OverWorldScene extends GameScene {
 
     private Pane mapAndLevel;

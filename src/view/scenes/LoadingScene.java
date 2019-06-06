@@ -21,7 +21,6 @@ import java.util.Properties;
 /**
  * A scene that will always be displayed, when a new scene is loading.
  * Contains a background and a hbox, that contains a label and an animation.
- * The animation has to be stopped from the SceneManager.
  *
  * @author Hagen
  */

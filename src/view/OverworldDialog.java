@@ -19,6 +19,13 @@ import java.io.File;
 import java.util.Properties;
 import java.util.Random;
 
+
+/**
+ * This class is for displaying information about a level the player is about to enter.
+ * Whole displaying, the everything else stops.
+ *
+ * @author Hagen
+ */
 public class OverworldDialog extends Dialog<ButtonType> {
 
     public OverworldDialog (Properties property, int numberOfLevel, Overworld overworld, Scene currentScene) {
@@ -50,7 +57,6 @@ public class OverworldDialog extends Dialog<ButtonType> {
         ButtonType enterButton = new ButtonType(property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_ENTER_DUNGEON_BUTTON), ButtonBar.ButtonData.OK_DONE);
         ButtonType exitButton = new ButtonType(property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_REFUSE_BUTTON), ButtonBar.ButtonData.NO);
         this.getDialogPane().getButtonTypes().addAll(exitButton, enterButton);
-        System.out.println(property);
         this.setContentText(
                 property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_1)
                         + numberOfLevel + property.getProperty(ConfigKeys.OVERWORLD_KEY_FOR_DIALOG_TEXT_2)

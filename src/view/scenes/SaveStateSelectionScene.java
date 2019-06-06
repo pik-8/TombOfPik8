@@ -15,6 +15,12 @@ import model.other.GameLoaderSaver;
 import model.other.SaveState;
 
 
+/**
+ * In this scene can the player choose on which save-state it wants to play,
+ * by clicking onto a box, that contains information about the save-state.
+ *
+ * @author Hagen
+ */
 public class SaveStateSelectionScene extends GameScene {
 
     private ImageView background;

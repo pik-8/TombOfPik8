@@ -20,8 +20,8 @@ import static constants.ImagePaths.*;
 
 
 /**
- * This scene will be displayed after starting the game.
- * Has some options to determine the next scene.
+ * This scene will be displayed after the title scene.
+ * Has some options to determine the next scene or to leave the game.
  *
  * @author Hagen
  */
@@ -41,6 +41,7 @@ public class StartScene extends GameScene {
     private final ImageView[] allImages;
 
     private final Pane layout;
+
 
     public StartScene (double width, double height) {
         super();
