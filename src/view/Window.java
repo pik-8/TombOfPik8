@@ -12,6 +12,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.options.Options;
+import model.options.WindowMode;
 
 /**
  * This class is the only Stage-Class, that will be used in the project. It
@@ -37,11 +39,13 @@ public class Window extends Stage {
 		setHeight(height);
 
 		widthProperty().addListener((obs, oldVal, newVal) -> {
+			Options.getActiveOptions().setWindowWidth((int)(double)newVal);
 			setScaledWidth((double) newVal, (double) oldVal);
 			setScaledXPosition((double) newVal / (double) oldVal);
 		});
 
 		heightProperty().addListener((obs, oldVal, newVal) -> {
+			Options.getActiveOptions().setWindowHeight((int)(double)newVal);
 			setScaledHeight((double) newVal, (double) oldVal);
 			setScaledYPosition((double) newVal / (double) oldVal);
 		});
@@ -69,7 +73,7 @@ public class Window extends Stage {
 			} else if (element.getClass() == Pane.class) {
 				setScaleWidthOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
 			} else {
-				System.out.println(element.getClass());
+				
 			}
 		}
 	}
@@ -92,7 +96,7 @@ public class Window extends Stage {
 			} else if (element.getClass() == Pane.class) {
 				setScaleHeightOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
 			} else {
-				System.out.println(element.getClass());
+				
 			}
 		}
 	}

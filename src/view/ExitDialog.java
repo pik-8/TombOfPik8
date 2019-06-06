@@ -7,6 +7,7 @@ import control.GameController;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import model.options.Options;
 
 import java.io.FileReader;
 import java.util.Properties;
@@ -26,7 +27,8 @@ public class ExitDialog extends Dialog<ButtonType> {
 
         this.showAndWait().ifPresent(response -> {
             if (response.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
-                System.exit(42); // The number has no meaning.
+            	Options.getActiveOptions().save();
+            	System.exit(42); // The number has no meaning.
             }
         });
     }

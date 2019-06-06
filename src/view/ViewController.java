@@ -77,8 +77,23 @@ public class ViewController extends Application {
     
     public void checkOptions() {
     	if(Options.getActiveOptions().hasRecentlyChanged()) {
-			this.stage.setHeight(Options.getActiveOptions().getWindowHeight());
-			this.stage.setWidth(Options.getActiveOptions().getWindowWidth());
+    		
+    		switch(Options.getActiveOptions().getWindowMode()) {
+    		case Windowed:
+    			this.stage.setFullScreen(false);
+    			this.stage.setMaximized(false);
+    			this.stage.setHeight(Options.getActiveOptions().getWindowHeight());
+    			this.stage.setWidth(Options.getActiveOptions().getWindowWidth());				
+    			break;
+    		case Fullscreen:
+    			this.stage.setMaximized(false);
+    			this.stage.setFullScreen(true);
+    			break;
+    		case Maximized:
+    			this.stage.setFullScreen(false);
+    			this.stage.setMaximized(true);
+    			break;
+    		}
 			Options.getActiveOptions().changeApplied();
 		}
     }

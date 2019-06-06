@@ -1,7 +1,6 @@
 package view.scenes;
 
 import java.io.FileInputStream;
-import java.security.cert.PKIXRevocationChecker.Option;
 import java.util.Properties;
 import java.util.function.Consumer;
 
@@ -9,22 +8,20 @@ import constants.ConfigKeys;
 import constants.ExceptionConstants;
 import constants.FileConstants;
 import constants.ModelProperties;
-import constants.view.DefaultTextureSize;
 import constants.view.OptionSceneProperties;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.options.Options;
+import model.options.WindowMode;
 
 /**
  * A scene that contains a menu, in which the user can configure the game.
@@ -41,10 +38,15 @@ public class OptionScene extends GameScene {
 
 	private VBox layout;
 
+	
+	private HBox mainButtonBox;
 	private VBox optionsContent;
+	private VBox allContent;
+	
 	private final VBox graphicsContent;
 	private final VBox soundContent;
 	private final VBox difficultyContent;
+	
 
 	public OptionScene(double width, double height) {
 		super(new VBox());
@@ -132,7 +134,6 @@ public class OptionScene extends GameScene {
 		resolutions.getItems().add(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MEDIUM_RES_TEXT));
 		resolutions.getItems().add(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_LOW_RES_TEXT));
 		
-		
 		//TODO THE FOLLOWING IS PLACEHOLDER CODE. THE FUNCTIONALITY TO HAVE THE RIGHT OPTION SELECTED ON OPTION VIEW NEEDS TO BE IMPLEMENTED PROPERLY.
 		if(Options.getActiveOptions().getWindowWidth() == 1920 && Options.getActiveOptions().getWindowHeight() == 1080) {
 			resolutions.getSelectionModel().select(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_HIGH_RES_TEXT));			
@@ -147,36 +148,33 @@ public class OptionScene extends GameScene {
 		setResolutionsEventHandler(resolutions);
 		resolutionsBox.getChildren().addAll(resolutionLabel, resolutions);
 		resolutionsBox.setPadding(padding);
+		
+		// Creating the window mode ComboBox
+		VBox windowModeBox = new VBox();
+		Label windowModeLabel = new Label(
+				this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_WINDOW_MODE_TEXT));
+		ComboBox<WindowMode> windowModes = new ComboBox<WindowMode>();	
+		windowModes.getItems().add(WindowMode.Windowed);
+		windowModes.getItems().add(WindowMode.Fullscreen);
+		windowModes.getItems().add(WindowMode.Maximized);
+		
+		switch(Options.getActiveOptions().getWindowMode()) {
+		case Windowed:
+			windowModes.getSelectionModel().select(WindowMode.Windowed);
+			break;		
+		case Fullscreen:
+			windowModes.getSelectionModel().select(WindowMode.Fullscreen);
+			break;
+		case Maximized:
+			windowModes.getSelectionModel().select(WindowMode.Maximized);
+			break;
+		}
+		
+		setWindowModeEventHandler(windowModes);
+		windowModeBox.getChildren().addAll(windowModeLabel, windowModes);
+		windowModeBox.setPadding(padding);
 
-		this.graphicsContent.getChildren().addAll(resolutionsBox,
-				createCheckBoxBox(ConfigKeys.OPTiON_SCENE_KEY_FOR_FULLSCREEN_TEXT,
-						Options.getActiveOptions().isFullscreen(),
-						Options.getActiveOptions()::setIsFullscreen),
-				createCheckBoxBox(ConfigKeys.OPTiON_SCENE_KEY_FOR_BORDERLESS_WINDOW_TEXT,
-						Options.getActiveOptions().isBorderlessWindow(),
-						Options.getActiveOptions()::setIsBorderlessWindowed));
-	}
-
-	private HBox createCheckBoxBox(String labelKey, boolean isSelected, Consumer<Boolean> optionWriter) {
-		Insets padding = new Insets(OptionSceneProperties.GRAPHICS_PADDING);
-		HBox boxBox = new HBox();
-		Label boxLabel = new Label(this.optionLabels.getProperty(labelKey));
-		CheckBox checkBox = new CheckBox();
-		checkBox.setSelected(isSelected);
-		addCheckBoxEventHandler(checkBox, optionWriter);
-		boxLabel.setPadding(padding);
-		checkBox.setPadding(padding);
-		boxBox.getChildren().addAll(boxLabel, checkBox);
-		return boxBox;
-	}
-	
-	private void addCheckBoxEventHandler(CheckBox box, Consumer<Boolean> optionWriter) {
-		box.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				optionWriter.accept(box.isSelected());
-			}
-		});
+		this.graphicsContent.getChildren().addAll(resolutionsBox, windowModeBox);
 	}
 
 	private void setResolutionsEventHandler(ComboBox<String> res) {
@@ -190,6 +188,15 @@ public class OptionScene extends GameScene {
 				int height = Integer.parseInt(selectedRes.split("x")[1]);
 				Options.getActiveOptions().setWindowHeight(height);
 				Options.getActiveOptions().setWindowWidth(width);
+			}
+		});
+	}
+	
+	private void setWindowModeEventHandler(ComboBox<WindowMode> wm) {
+		wm.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Options.getActiveOptions().setWindowMode(wm.getValue());	
 			}
 		});
 	}
@@ -237,16 +244,16 @@ public class OptionScene extends GameScene {
 	}
 	
 	private void selectOptionsContent(VBox optionsContent) {
-		this.layout.getChildren().remove(this.optionsContent);
-		this.optionsContent = optionsContent;
-		this.layout.getChildren().add(this.optionsContent);
+		this.allContent.getChildren().set(1, optionsContent);
 	}
 
 	private void initLayouts() {
-		HBox hbox = new HBox(this.difficultyButton, this.graphicButton, this.soundButton);
-		hbox.setAlignment(Pos.TOP_LEFT);
+		mainButtonBox = new HBox(this.difficultyButton, this.graphicButton, this.soundButton);
 		this.optionsContent = this.soundContent;
-		this.layout.getChildren().addAll(hbox, this.optionsContent);
+		allContent = new VBox();
+		allContent.getChildren().addAll(mainButtonBox, this.optionsContent);
+		ScrollPane sp = new ScrollPane(allContent);
+		this.layout.getChildren().addAll(sp);
 	}
 
 	@Override

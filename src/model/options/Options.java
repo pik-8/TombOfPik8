@@ -39,6 +39,9 @@ public class Options {
 	// Graphic Options
 	private int windowHeight;
 	private int windowWidth;
+	private WindowMode windowMode;
+	
+
 	private boolean isFullscreen;
 	private boolean isBorderlessWindow;
 
@@ -85,8 +88,24 @@ public class Options {
     private void saveGraphicsConfig() {
     	savedOptions.setProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW, String.valueOf(getWindowHeight()));
     	savedOptions.setProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW, String.valueOf(getWindowWidth()));
-    	savedOptions.setProperty(ConfigKeys.KEY_FOR_FULLSCREEN, String.valueOf(isFullscreen()));
-    	savedOptions.setProperty(ConfigKeys.KEY_FOR_BORDERLESS_WINDOW, String.valueOf(isBorderlessWindow()));
+    	System.out.println(getWindowMode().toString());
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_WINDOW_MODE, getWindowMode().toString());
+//    	savedOptions.setProperty(ConfigKeys.KEY_FOR_FULLSCREEN, String.valueOf(isFullscreen()));
+//    	savedOptions.setProperty(ConfigKeys.KEY_FOR_BORDERLESS_WINDOW, String.valueOf(isBorderlessWindow()));
+    }
+    
+    private void setSoundConfig() {
+    	setMasterVolume(Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_GENERAL_VOLUME)));
+    	setSoundVolume(Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_SOUND_VOLUME)));
+    	setMusicVolume(Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_MUSIC_VOLUME)));
+    }
+    
+    private void setGraphicsConfig() {
+    	setWindowHeight(Integer.parseInt(savedOptions.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW)));
+    	setWindowWidth(Integer.parseInt(savedOptions.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW)));
+    	setWindowMode(WindowMode.valueOf(savedOptions.getProperty(ConfigKeys.KEY_FOR_WINDOW_MODE)));
+//    	setIsFullscreen(Boolean.parseBoolean(savedOptions.getProperty(ConfigKeys.KEY_FOR_FULLSCREEN)));
+//    	setIsBorderlessWindowed(Boolean.parseBoolean(savedOptions.getProperty(ConfigKeys.KEY_FOR_BORDERLESS_WINDOW)));
     }
 
     public boolean hasRecentlyChanged() {
@@ -101,19 +120,15 @@ public class Options {
 		this.hasRecentlyChanged = false;
 	}
 
-	private void setSoundConfig() {
-    	setMasterVolume(Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_GENERAL_VOLUME)));
-    	setSoundVolume(Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_SOUND_VOLUME)));
-    	setMusicVolume(Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_MUSIC_VOLUME)));
-    }
-    
-    private void setGraphicsConfig() {
-    	setWindowHeight(Integer.parseInt(savedOptions.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW)));
-    	setWindowWidth(Integer.parseInt(savedOptions.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW)));
-    	setIsFullscreen(Boolean.parseBoolean(savedOptions.getProperty(ConfigKeys.KEY_FOR_FULLSCREEN)));
-    	setIsBorderlessWindowed(Boolean.parseBoolean(savedOptions.getProperty(ConfigKeys.KEY_FOR_BORDERLESS_WINDOW)));
-    }
-    
+	public WindowMode getWindowMode() {
+		return windowMode;
+	}
+	
+	public void setWindowMode(WindowMode windowMode) {
+		changeHappened();
+		this.windowMode = windowMode;
+	}
+	
     public String getLanguage() {
 		return language;
 	}
