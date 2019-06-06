@@ -19,6 +19,13 @@ import java.io.File;
 import java.util.Properties;
 import java.util.Random;
 
+
+/**
+ * This class is for displaying information about a level the player is about to enter.
+ * Whole displaying, the everything else stops.
+ *
+ * @author Hagen
+ */
 public class OverworldDialog extends Dialog<ButtonType> {
 
     public OverworldDialog (Properties property, int numberOfLevel, Overworld overworld, Scene currentScene) {

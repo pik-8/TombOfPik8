@@ -12,11 +12,18 @@ import view.Animation;
 import java.io.File;
 
 
+/**
+ * This is the first scene, that the user will see.
+ * It contains the title of the game and the authors.
+ *
+ * @author Hagen
+ */
 public class TitleScene extends GameScene {
 
     private Animation animation;
     private ImageView background;
     private ImageView start;
+
 
     public TitleScene(double width, double height) {
         initAnimation(width, height);

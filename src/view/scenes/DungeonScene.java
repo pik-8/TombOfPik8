@@ -53,6 +53,8 @@ public class DungeonScene extends GameScene {
 
         ((Pane)this.getRoot()).getChildren().add(background);
     }
+
+
     private void setEvents () {
         this.setOnKeyPressed(new DungeonSceneKeyEvent());
 

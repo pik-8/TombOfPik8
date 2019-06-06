@@ -8,18 +8,10 @@ import javafx.scene.image.ImageView;
 /**
  * A class that will change the images inside off it, in the order that they are inside the array.
  * The frequency is determined by the int fps.
- * Has to be started from a Thread-Object.
- *
- * How to use.
- * 1. Create an Animation-Instance.
- * 2. Create a Thread-Object with this instance as a parameter.
- * 3. Start the thread.
- * 4. Put the Animation-Object (not the Thread) in a Scene.
- *
- * Step 4 and 5 may not be in order.
+ * Has to be started by the start-method to start the change of images.
  *
  * When the animation should be stopped, use the stop() method.
- * When the animation should be continued, use the resume() method.
+ * When the animation should be continued, use the start() method.
  *
  * @author Hagen
  */

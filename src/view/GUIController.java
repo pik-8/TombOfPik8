@@ -18,7 +18,8 @@ import view.scenes.SceneManager;
 
 
 /**
- * This class has the Window in it and therefore the whole GUI.
+ * This class controls the whole GUI, has the stage in it and a list of every animation.
+ * Periodically calls every animation in its list, to change the image.
  *
  * @author Hagen
  */

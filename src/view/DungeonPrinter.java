@@ -27,9 +27,9 @@ public class DungeonPrinter {
     /**
      * Returns a Pane-Layout, that contains every Tile in  the dungeon.
      *
-     * @param dungeon
-     * @param width
-     * @param height
+     * @param dungeon The dungeon, that should be displayed.
+     * @param width The width of the scene, that the dungeon should be displayed in.
+     * @param height The height of the scene, that the dungeon should be displayed in.
      * @return
      */
     public static Pane printDungeonImage (Dungeon dungeon, double width, double height) {
@@ -62,9 +62,9 @@ public class DungeonPrinter {
      *
      * Uses a single Forest tile to determine the spacing of the Terrain Objects.
      *
-     * @param dungeon
-     * @param width
-     * @param height
+     * @param dungeon The dungeon, that should be displayed.
+     * @param width The width of the scene, that the dungeon should be displayed in.
+     * @param height The height of the scene, that the dungeon should be displayed in.
      * @return
      */
     public static Pane printFullDungeonImage (Dungeon dungeon, double width, double height) {

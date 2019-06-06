@@ -26,7 +26,7 @@ import model.options.Options;
 /**
  * A scene that contains a menu, in which the user can configure the game.
  *
- * @author Hagen
+ * @author Frederick Hastedt and Hagen
  */
 public class OptionScene extends GameScene {
 

@@ -22,7 +22,7 @@ import java.awt.*;
 
 
 /**
- * This class is the only Stage-Class, that will bew used in the project.
+ * This class is the only Stage-Class, that will be used in the project.
  * It automatically resizes the scenes inside of it, when the window itself is being resized.
  *
  * @author Hagen, Frederick Hastedt
