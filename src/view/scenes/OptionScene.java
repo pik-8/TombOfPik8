@@ -9,10 +9,12 @@ import constants.ConfigKeys;
 import constants.ExceptionConstants;
 import constants.FileConstants;
 import constants.ModelProperties;
+import constants.view.DefaultTextureSize;
 import constants.view.OptionSceneProperties;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -77,7 +79,8 @@ public class OptionScene extends GameScene {
 
 	private void initButtons() {
 		for (Button b : new Button[] { difficultyButton, graphicButton, soundButton }) {
-			b.setPrefSize(OptionSceneProperties.BUTTON_SIZE[0], OptionSceneProperties.BUTTON_SIZE[1]);
+			b.setPrefSize(OptionSceneProperties.BUTTON_RATIO[0] * Options.getActiveOptions().getWindowWidth(), 
+					OptionSceneProperties.BUTTON_RATIO[1] * Options.getActiveOptions().getWindowHeight());
 		}
 
 		this.difficultyButton.getStylesheets().add(FileConstants.PATH_TO_OPTION_SCENE_DIFFICULTY_BUTTON_STYLE_SHEET);
@@ -241,13 +244,9 @@ public class OptionScene extends GameScene {
 
 	private void initLayouts() {
 		HBox hbox = new HBox(this.difficultyButton, this.graphicButton, this.soundButton);
+		hbox.setAlignment(Pos.TOP_LEFT);
 		this.optionsContent = this.soundContent;
 		this.layout.getChildren().addAll(hbox, this.optionsContent);
-	}
-
-	private void updateMasterVolumeValue(double masterVolume) {
-		Options options = Options.getActiveOptions();
-		options.setMasterVolume(masterVolume);
 	}
 
 	@Override
