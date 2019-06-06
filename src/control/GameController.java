@@ -4,7 +4,7 @@ import constants.ConfigKeys;
 import constants.FileConstants;
 import constants.ModelProperties;
 import model.options.Options;
-import view.GUIController;
+import view.ViewController;
 
 import java.io.FileReader;
 import java.util.Properties;
@@ -13,7 +13,7 @@ public class GameController extends Thread{
 
     private static GameController gameController;
 
-    private GUIController guiController;
+    private ViewController viewController;
     private String language;
 
     public static GameController getGameController() {
@@ -37,7 +37,7 @@ public class GameController extends Thread{
 
 
     public void startGame () {
-        GUIController.launch(GUIController.class);
+        ViewController.launch(ViewController.class);
         Runtime.getRuntime().addShutdownHook(new Thread() {
         	@Override
         	public void run() {

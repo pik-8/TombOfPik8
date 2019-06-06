@@ -3,7 +3,7 @@ package view.scenes;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import model.dungeon.Dungeon;
-import view.GUIController;
+import view.ViewController;
 
 
 /**
@@ -30,8 +30,8 @@ public class SceneManager {
     public void startGame (double width, double height) {
         TitleScene titleScene = new TitleScene(width, height);
         setEvents(titleScene);
-        GUIController.getActiveGuiController().setScene(titleScene);
-        GUIController.getActiveGuiController().getStage().show();
+        ViewController.getViewController().setScene(titleScene);
+        ViewController.getViewController().getStage().show();
 
         new Thread(() -> {
             Platform.runLater(new Runnable() {
@@ -45,13 +45,13 @@ public class SceneManager {
 
     private void setEvents (TitleScene titleScene) {
         titleScene.setOnMouseClicked(e -> {
-            this.startScene.reSizeAndRePlace(GUIController.getActiveGuiController().getStage().getWidth(), GUIController.getActiveGuiController().getStage().getHeight());
-            GUIController.getActiveGuiController().setScene(this.startScene);
+            this.startScene.reSizeAndRePlace(ViewController.getViewController().getStage().getWidth(), ViewController.getViewController().getStage().getHeight());
+            ViewController.getViewController().setScene(this.startScene);
         });
 
         titleScene.setOnKeyPressed(e -> {
-            this.startScene.reSizeAndRePlace(GUIController.getActiveGuiController().getStage().getWidth(), GUIController.getActiveGuiController().getStage().getHeight());
-            GUIController.getActiveGuiController().setScene(this.startScene);
+            this.startScene.reSizeAndRePlace(ViewController.getViewController().getStage().getWidth(), ViewController.getViewController().getStage().getHeight());
+            ViewController.getViewController().setScene(this.startScene);
         });
     }
 
@@ -70,7 +70,7 @@ public class SceneManager {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            GUIController.getActiveGuiController().setScene(new SaveStateSelectionScene(currentScene.getWidth(), currentScene.getHeight()));
+                            ViewController.getViewController().setScene(new SaveStateSelectionScene(currentScene.getWidth(), currentScene.getHeight()));
                             loadingScene.closeScene();
                         }
                     });
@@ -81,7 +81,7 @@ public class SceneManager {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            GUIController.getActiveGuiController().setScene(new OptionScene(currentScene.getWidth(), currentScene.getHeight()));
+                            ViewController.getViewController().setScene(new OptionScene(currentScene.getWidth(), currentScene.getHeight()));
                             loadingScene.closeScene();
                         }
                     });
@@ -95,7 +95,7 @@ public class SceneManager {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            GUIController.getActiveGuiController().setScene(new StartScene(currentScene.getWidth(), currentScene.getHeight()));
+                            ViewController.getViewController().setScene(new StartScene(currentScene.getWidth(), currentScene.getHeight()));
                             loadingScene.closeScene();
                         }
                     });
@@ -111,7 +111,7 @@ public class SceneManager {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    GUIController.getActiveGuiController().setScene(new DungeonScene(dungeon, currentScene.getWidth(), currentScene.getHeight()));
+                    ViewController.getViewController().setScene(new DungeonScene(dungeon, currentScene.getWidth(), currentScene.getHeight()));
                     loadingScene.closeScene();
                 }
             });
@@ -126,7 +126,7 @@ public class SceneManager {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    GUIController.getActiveGuiController().setScene(new OverWorldScene(saveState, currentScene.getWidth(), currentScene.getHeight()));
+                    ViewController.getViewController().setScene(new OverWorldScene(saveState, currentScene.getWidth(), currentScene.getHeight()));
                     loadingScene.closeScene();
                 }
             });
@@ -136,7 +136,7 @@ public class SceneManager {
 
     private LoadingScene showLoadingScene (double width, double height) {
         LoadingScene loadingScene = new LoadingScene(width, height);
-        GUIController.getActiveGuiController().setScene(loadingScene);
+        ViewController.getViewController().setScene(loadingScene);
         return loadingScene;
     }
 }

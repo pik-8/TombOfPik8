@@ -11,6 +11,7 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import view.ExitDialog;
 
 
 import java.io.FileReader;
@@ -73,7 +74,10 @@ public class StartScene extends GameScene {
 
     private void setEvents () {
         setHoverEvents();
-        this.leaf.setOnMouseClicked(e -> System.exit(69));
+
+        this.leaf.setOnMouseClicked(e -> {
+           new ExitDialog();
+        }); // the number has no meaning.
         this.bottomSphere.setOnMouseClicked(e -> {
             SceneManager.getSceneManager().loadScene(Scenes.OVERWORLD_SCENE, this);
         });
