@@ -74,7 +74,7 @@ public class Window extends Stage {
 				setScaleWidthOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
 			} else {
 				if (element.getClass() == HBox.class || element.getClass() == VBox.class) { }
-				else {System.out.println(element.getClass());}
+				else {}
 			}
 		}
 	}
@@ -98,7 +98,7 @@ public class Window extends Stage {
 				setScaleHeightOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
 			} else {
 				if (element.getClass() == HBox.class || element.getClass() == VBox.class) { }
-				else {System.out.println(element.getClass());}
+				else {}
 			}
 		}
 	}

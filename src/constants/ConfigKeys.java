@@ -2,7 +2,11 @@ package constants;
 
 public interface ConfigKeys {
 
-
+	public static final String KEY_FOR_MOB_SPAWN_RATE = "spawn_rate";
+	public static final String KEY_FOR_MOB_LEVEL = "mob_level";
+	public static final String KEY_FOR_MOB_TIER = "mob_tier";
+	public static final String KEY_FOR_MOB_AI = "mob_ai";
+	
     public static final String KEY_FOR_HEIGHT_OF_WINDOW = "window_height";
     public static final String KEY_FOR_WIDTH_OF_WINDOW = "window_width";
     public static final String KEY_FOR_WINDOW_MODE = "window_mode";
@@ -18,17 +22,20 @@ public interface ConfigKeys {
     public static final String OPTION_SCENE_KEY_FOR_GRAPHIC_BUTTON_TEXT = "graphic_button_text";
     public static final String OPTION_SCENE_KEY_FOR_SOUND_BUTTON_TEXT = "sound_button_text";
 
-
-    public static final String OPTION_SCENE_KEY_FOR_LEVEL_SLIDER_TEXT = "level_slider_label";
-    public static final String OPTION_SCENE_KEY_FOR_MASTER_VOLUME_TEXT = "master_volume_label";
-    public static final String OPTION_SCENE_KEY_FOR_SOUND_VOLUME_TEXT = "sound_volume_label";
-    public static final String OPTION_SCENE_KEY_FOR_MUSIC_VOLUME_TEXT = "music_volume_label";
+    public static final String OPTION_SCENE_KEY_FOR_SPAWN_RATE_TEXT = "spawn_rate_label";
+    public static final String OPTION_SCENE_KEY_FOR_MOB_LEVEL_TEXT = "mob_level_label";
+    public static final String OPTION_SCENE_KEY_FOR_MOB_TIER_TEXT = "mob_tier_label";
+    public static final String OPTION_SCENE_KEY_FOR_MOB_AI_TEXT = "mob_ai_label";
 
     public static final String OPTION_SCENE_KEY_FOR_RESOLUTION_TEXT = "resolution_label";
     public static final String OPTION_SCENE_KEY_FOR_HIGH_RES_TEXT = "high_res_label";
     public static final String OPTION_SCENE_KEY_FOR_MEDIUM_RES_TEXT = "medium_res_label";
     public static final String OPTION_SCENE_KEY_FOR_LOW_RES_TEXT = "low_res_label";
     public static final String OPTION_SCENE_KEY_FOR_WINDOW_MODE_TEXT = "window_mode_label";
+    
+    public static final String OPTION_SCENE_KEY_FOR_MASTER_VOLUME_TEXT = "master_volume_label";
+    public static final String OPTION_SCENE_KEY_FOR_SOUND_VOLUME_TEXT = "sound_volume_label";
+    public static final String OPTION_SCENE_KEY_FOR_MUSIC_VOLUME_TEXT = "music_volume_label";
 
     public static final String LOADING_SCENE_KEY_FOR_LABEL = "information";
 

@@ -59,6 +59,7 @@ public class Options {
 			
 			setSoundConfig();
 			setGraphicsConfig();
+			setDifficultyConfig();
 			setLanguage(savedOptions.getProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE));
 			changeHappened();
 			
@@ -71,6 +72,7 @@ public class Options {
     public void save() {
     	saveSoundConfig();
     	saveGraphicsConfig();
+    	saveDifficultyConfig();
     	savedOptions.setProperty(ConfigKeys.GAME_CONFIG_KEY_FOR_LANGUAGE, getLanguage());
     	try {
 			savedOptions.store(new FileOutputStream(FileConstants.PATH_TO_GAME_CONFIG), "");
@@ -88,10 +90,14 @@ public class Options {
     private void saveGraphicsConfig() {
     	savedOptions.setProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW, String.valueOf(getWindowHeight()));
     	savedOptions.setProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW, String.valueOf(getWindowWidth()));
-    	System.out.println(getWindowMode().toString());
     	savedOptions.setProperty(ConfigKeys.KEY_FOR_WINDOW_MODE, getWindowMode().toString());
-//    	savedOptions.setProperty(ConfigKeys.KEY_FOR_FULLSCREEN, String.valueOf(isFullscreen()));
-//    	savedOptions.setProperty(ConfigKeys.KEY_FOR_BORDERLESS_WINDOW, String.valueOf(isBorderlessWindow()));
+    }
+
+    private void saveDifficultyConfig() {
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_MOB_AI, String.valueOf(getMobAI()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_MOB_LEVEL, String.valueOf(getMobLevel()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_MOB_SPAWN_RATE, String.valueOf(getMobSpawnRate()));
+    	savedOptions.setProperty(ConfigKeys.KEY_FOR_MOB_TIER, String.valueOf(getMobTier()));    	
     }
     
     private void setSoundConfig() {
@@ -104,8 +110,13 @@ public class Options {
     	setWindowHeight(Integer.parseInt(savedOptions.getProperty(ConfigKeys.KEY_FOR_HEIGHT_OF_WINDOW)));
     	setWindowWidth(Integer.parseInt(savedOptions.getProperty(ConfigKeys.KEY_FOR_WIDTH_OF_WINDOW)));
     	setWindowMode(WindowMode.valueOf(savedOptions.getProperty(ConfigKeys.KEY_FOR_WINDOW_MODE)));
-//    	setIsFullscreen(Boolean.parseBoolean(savedOptions.getProperty(ConfigKeys.KEY_FOR_FULLSCREEN)));
-//    	setIsBorderlessWindowed(Boolean.parseBoolean(savedOptions.getProperty(ConfigKeys.KEY_FOR_BORDERLESS_WINDOW)));
+    }
+    
+    private void setDifficultyConfig() {
+    	this.difficulty = new Difficulty(Integer.parseInt(savedOptions.getProperty(ConfigKeys.KEY_FOR_MOB_SPAWN_RATE)),
+    			Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_MOB_LEVEL)),
+    			Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_MOB_TIER)),
+    			Double.parseDouble(savedOptions.getProperty(ConfigKeys.KEY_FOR_MOB_AI)));
     }
 
     public boolean hasRecentlyChanged() {
@@ -119,14 +130,55 @@ public class Options {
 	public void changeApplied() {
 		this.hasRecentlyChanged = false;
 	}
+	
+	public void setMobSpawnRate(double spawnRate) {
+		getDifficulty().setMobSpawnRate((int)spawnRate);
+		changeHappened();
+	}
+	
+	public void setMobSpawnRate(int spawnRate) {
+		getDifficulty().setMobSpawnRate(spawnRate);
+		changeHappened();
+	}
+	
+	public int getMobSpawnRate() {
+		return getDifficulty().getMobSpawnRate();
+	}
+	
+	public void setMobLevel(double mobLevel) {
+		getDifficulty().setMobLevelRate(mobLevel);
+		changeHappened();
+	}
+	
+	public double getMobLevel() {
+		return getDifficulty().getMobLevelRate();
+	}
+	
+	public void setMobTier(double mobTier) {
+		getDifficulty().setMobTier(mobTier);
+		changeHappened();
+	}
+	
+	public double getMobTier() {
+		return getDifficulty().getMobTier();
+	}
+	
+	public void setMobAI(double mobAI) {
+		getDifficulty().setMobAI(mobAI);
+		changeHappened();
+	}
+	
+	public double getMobAI() {
+		return getDifficulty().getMobAI();
+	}
 
 	public WindowMode getWindowMode() {
 		return windowMode;
 	}
 	
 	public void setWindowMode(WindowMode windowMode) {
-		changeHappened();
 		this.windowMode = windowMode;
+		changeHappened();
 	}
 	
     public String getLanguage() {
@@ -162,7 +214,7 @@ public class Options {
 		return isBorderlessWindow;
 	}
 
-    public Difficulty getDifficulty() {
+    private Difficulty getDifficulty() {
     	return difficulty;
     }
 

@@ -8,6 +8,8 @@ import constants.ConfigKeys;
 import constants.ExceptionConstants;
 import constants.FileConstants;
 import constants.ModelProperties;
+import constants.balancing.Factors;
+import constants.balancing.IDifficulty;
 import constants.view.OptionSceneProperties;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -77,6 +79,7 @@ public class OptionScene extends GameScene {
 		initButtons();
 		initSoundArea();
 		initGraphicsArea();
+		initDifficultyArea();
 		initLayouts();
 		initEvents();
 	}
@@ -236,17 +239,60 @@ public class OptionScene extends GameScene {
 		return new Slider(ModelProperties.VOLUME_MIN_VALUE, ModelProperties.VOLUME_MAX_VAlUE, initialValue);
 	}
 
-	private void createSliderHandler(Slider slider, Consumer<Double> volumeSetter) {
+	private void createSliderHandler(Slider slider, Consumer<Double> optionSetter) {
 		slider.setOnMouseReleased(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				volumeSetter.accept(slider.getValue());
+				optionSetter.accept(slider.getValue());
 			}
 		});
 	}
 	
 	private void initDifficultyArea() {
+		// Create difficulty Labels
+		Label spawnRateLabel = new Label(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_SPAWN_RATE_TEXT));
+		Label mobLevelLabel = new Label(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MOB_LEVEL_TEXT));
+		Label mobTierLabel = new Label(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MOB_TIER_TEXT));
+		Label mobAILabel = new Label(this.optionLabels.getProperty(ConfigKeys.OPTION_SCENE_KEY_FOR_MOB_AI_TEXT));
 		
+		// Create difficulty Sliders
+		Slider spawnRateSlider = new Slider(IDifficulty.MIN_MOB_SPAWN_RATE, IDifficulty.MAX_MOB_SPAWN_RATE, Options.getActiveOptions().getMobSpawnRate());
+		Slider mobLevelSlider = new Slider(Factors.MIN_MOB_LEVEL_FACTOR, Factors.MAX_MOB_LEVEL_FACTOR, Options.getActiveOptions().getMobLevel());
+		Slider mobTierSlider = new Slider(IDifficulty.MIN_MOB_TIER, IDifficulty.MAX_MOB_TIER, Options.getActiveOptions().getMobTier());
+		Slider mobAISlider = new Slider(IDifficulty.MIN_MOB_AI, IDifficulty.MAX_MOB_AI, Options.getActiveOptions().getMobAI());
+		
+		Slider[] sliderArr = new Slider[]{spawnRateSlider, mobLevelSlider, mobTierSlider, mobAISlider};
+		activateTickLabelsAndMarkers(sliderArr);
+		
+		// Add EventHandler to Sliders
+		createSliderHandler(spawnRateSlider, Options.getActiveOptions()::setMobSpawnRate);
+		createSliderHandler(mobLevelSlider, Options.getActiveOptions()::setMobLevel);
+		createSliderHandler(mobTierSlider, Options.getActiveOptions()::setMobTier);
+		createSliderHandler(mobAISlider, Options.getActiveOptions()::setMobAI);
+		
+		VBox spawnRateBox = new VBox(), mobLevelBox = new VBox(), mobTierBox = new VBox(), mobAIBox = new VBox();
+		
+		spawnRateBox.getChildren().addAll(spawnRateLabel, spawnRateSlider);
+		mobLevelBox.getChildren().addAll(mobLevelLabel, mobLevelSlider);
+		mobTierBox.getChildren().addAll(mobTierLabel, mobTierSlider);
+		mobAIBox.getChildren().addAll(mobAILabel, mobAISlider);
+		
+		setDifficultyBoxesPadding(new VBox[]{spawnRateBox, mobLevelBox, mobTierBox, mobAIBox});
+		
+		difficultyContent.getChildren().setAll(spawnRateBox, mobLevelBox, mobTierBox, mobAIBox);
+	}
+		
+	private void activateTickLabelsAndMarkers(Slider[] sliders) {
+		for(Slider s : sliders) {
+			s.setMajorTickUnit((s.getMax() - s.getMin()) / 5);
+			s.setShowTickLabels(true);
+			s.setShowTickMarks(true);
+		}
+	}
+	
+	private void setDifficultyBoxesPadding(VBox[] boxes) {
+		for(VBox box : boxes)
+			box.setPadding(new Insets(OptionSceneProperties.DIFFICULTY_PADDING));
 	}
 	
 	private void selectOptionsContent(VBox optionsContent) {

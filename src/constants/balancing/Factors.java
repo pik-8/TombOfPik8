@@ -16,6 +16,6 @@ public interface Factors {
 
 	public static final float PROBABILITY_TO_SPAWN_A_TERRAIN = 0.1f;
 
-	public static final float MIN_MOB_LEVEL_FACTOR = 0.75f;
-	public static final float MAX_MOB_LEVEL_FACTOR = 1.5f;
+	public static final double MIN_MOB_LEVEL_FACTOR = 0.75;
+	public static final double MAX_MOB_LEVEL_FACTOR = 1.5;
 }

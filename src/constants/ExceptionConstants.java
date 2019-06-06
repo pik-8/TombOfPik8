@@ -45,7 +45,7 @@ public interface    ExceptionConstants {
     
     public static final String NO_FREE_SQUARE = "No free square found in dungeon.";
 
-    public static final String MOB_LEVEL_FACTOR_NOT_IN_RANGE = "One argument for an Difficulty-Object is below 0.";
+    public static final String MOB_LEVEL_FACTOR_NOT_IN_RANGE = "The Mob Level Factor is outside the range of 0.75-1.5";
 
 
     //For when no File or data was found

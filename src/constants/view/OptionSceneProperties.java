@@ -11,4 +11,5 @@ public interface OptionSceneProperties {
     
     public static final double GRAPHICS_PADDING = 10;
     public static final double SOUNDS_PADDING = 10;
+    public static final double DIFFICULTY_PADDING = 10;
 }

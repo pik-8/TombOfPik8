@@ -43,7 +43,7 @@ public class DifficultyFactory {
      * @param mobAI: Determines the intelligence of the mobs.
      * @return A new Difficulty-Object with the given parameters.
      */
-    public Difficulty getDifficulty (int mobSpawnRate, float mobLevelRate, float mobTier, float mobAI) {
+    public Difficulty getDifficulty (int mobSpawnRate, double mobLevelRate, double mobTier, double mobAI) {
         return new Difficulty(mobSpawnRate, mobLevelRate, mobTier, mobAI);
     }
 
@@ -67,7 +67,7 @@ public class DifficultyFactory {
         Random random = new Random();
         float levelFactor;
         for (levelFactor = 0; (levelFactor < Factors.MIN_MOB_LEVEL_FACTOR || levelFactor > Factors.MAX_MOB_LEVEL_FACTOR);) {
-            levelFactor = random.nextFloat()+ random.nextInt(Math.round(Factors.MAX_MOB_LEVEL_FACTOR));
+            levelFactor = random.nextFloat()+ random.nextInt((int)Math.round(Factors.MAX_MOB_LEVEL_FACTOR));
         }
         return new Difficulty(random.nextInt(constants.ModelProperties.MAX_MOB_SPAWN_RATE_FOR_RANDOM), levelFactor, random.nextFloat(), random.nextFloat());
     }

@@ -24,7 +24,7 @@ public class StatBalancer {
 	 * @param level The level the SecondaryStats should be balanced to.
 	 * @param mobTier The tier of mob the SecondaryStats should be balanced to.
 	 */
-	public static void balanceSecondaryStats(SecondaryStats stats, int level, float mobTier) {
+	public static void balanceSecondaryStats(SecondaryStats stats, int level, double mobTier) {
 		// TODO STILL NEEDS TO BE IMPLEMENTED: Idea is to have the stats scaled to level and then scaled to 100% - 300% depending on difficulty.
 	}
 	

@@ -13,12 +13,12 @@ import constants.balancing.Factors;
 public class Difficulty {
 
     private int mobSpawnRate; //in mob per tile
-    private float mobLevelRate;//A factor that determines the level of the mobs.
-    private float mobTier; //Between 1 and 0, 1 = highest tier.
-    private float mobAI; //Between 0 and 1, 1 = the most intelligent.
+    private double mobLevelRate;//A factor that determines the level of the mobs.
+    private double mobTier; //Between 1 and 0, 1 = highest tier.
+    private double mobAI; //Between 0 and 1, 1 = the most intelligent.
 
 
-    protected Difficulty (int mobSpawnRate, float mobLevelRate, float mobTier, float mobAI)
+    public Difficulty (int mobSpawnRate, double mobLevelRate, double mobTier, double mobAI)
             throws IllegalArgumentException
     {
         if (mobSpawnRate < 0 || mobLevelRate < 0 || mobTier < 0 || mobAI < 0) {
@@ -39,17 +39,17 @@ public class Difficulty {
 	}
 
 
-	public void setMobLevelRate(float mobLevelRate) {
-		this.mobLevelRate = mobLevelRate;
+	public void setMobLevelRate(double mobLevel) {
+		this.mobLevelRate = mobLevel;
 	}
 
 
-	public void setMobTier(float mobTier) {
+	public void setMobTier(double mobTier) {
 		this.mobTier = mobTier;
 	}
 
 
-	public void setMobAI(float mobAI) {
+	public void setMobAI(double mobAI) {
 		this.mobAI = mobAI;
 	}
 
@@ -58,15 +58,15 @@ public class Difficulty {
         return mobSpawnRate;
     }
 
-    public float getMobLevelRate() {
+    public double getMobLevelRate() {
         return mobLevelRate;
     }
 
-    public float getMobTier() {
+    public double getMobTier() {
         return mobTier;
     }
 
-    public float getMobAI() {
+    public double getMobAI() {
         return mobAI;
     }
 }
