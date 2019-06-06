@@ -69,7 +69,8 @@ public class Window extends Stage {
 			} else if (element.getClass() == Pane.class) {
 				setScaleWidthOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
 			} else {
-				System.out.println(element.getClass());
+				if (element.getClass() == HBox.class || element.getClass() == VBox.class) { }
+				else {System.out.println(element.getClass());}
 			}
 		}
 	}
@@ -92,7 +93,8 @@ public class Window extends Stage {
 			} else if (element.getClass() == Pane.class) {
 				setScaleHeightOfChildren(((Pane) element).getChildren(), ratio, windowRatio);
 			} else {
-				System.out.println(element.getClass());
+				if (element.getClass() == HBox.class || element.getClass() == VBox.class) { }
+				else {System.out.println(element.getClass());}
 			}
 		}
 	}
