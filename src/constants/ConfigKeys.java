@@ -44,6 +44,8 @@ public interface ConfigKeys {
     public static final String OVERWORLD_KEY_FOR_DIALOG_TEXT_3 = "dialog_box_text_3";
     public static final String OVERWORLD_KEY_FOR_DIALOG_TEXT_4 = "dialog_box_text_4";
     public static final String OVERWORLD_KEY_FOR_DIALOG_TEXT_5 = "dialog_box_text_5";
+    public static final String OVERWORLD_KEY_FOR_DIALOG_TEXT_6 = "dialog_box_text_6";
+    public static final String OVERWORLD_KEY_FOR_DIALOG_TEXT_7 = "dialog_box_text_7";
 
 
     //StartScene-----------StartScene-----------StartScene-----------StartScene-----------StartScene-----------

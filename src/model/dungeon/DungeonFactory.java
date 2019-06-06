@@ -86,16 +86,16 @@ public class DungeonFactory {
 
         // Generates a layout for the dungeon and determines the size off it by predefined values.
         // Has to be calculated so complicated, because the boundary from nextInt always starts with 0.
-        int heightOfLayout = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
+        int height = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
                 + MIN_SIZE_RANDOM_DUNGEON;
-        int lengthOfLayout = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
+        int length = this.random.nextInt(MAX_SIZE_RANDOM_DUNGEON - MIN_SIZE_RANDOM_DUNGEON +1)
                 + MIN_SIZE_RANDOM_DUNGEON;
 
         Position startPosition = new Position();
-        startPosition.setxTile(this.random.nextInt(lengthOfLayout));
-        startPosition.setyTile(this.random.nextInt(heightOfLayout));
+        startPosition.setxTile(Math.abs(this.random.nextInt(this.random.nextInt(height))));
+        startPosition.setyTile(Math.abs(this.random.nextInt(this.random.nextInt(length))));
 
-        int[][] intLayout = new int[lengthOfLayout][heightOfLayout];
+        int[][] intLayout = new int[length][height];
         intLayout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 
         // generates a ratio, that determines the number of tiles in this dungeon.
@@ -106,12 +106,12 @@ public class DungeonFactory {
             i = this.random.nextFloat();
             ratio = i;
         }
-        this.numberOfTilesLeft = Math.round(lengthOfLayout * heightOfLayout * ratio) -1; //Minus one, because the start-point was already set.
+        this.numberOfTilesLeft = Math.round(length * height * ratio) -1; //Minus one, because the start-point was already set.
 
         Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(intLayout, currentPositionInLayout);
 
-        Tile[][] tileLayout = new Tile[lengthOfLayout][heightOfLayout];
+        Tile[][] tileLayout = new Tile[length][height];
         int tileSize = RANDOM_TILE_SIZES[this.random.nextInt(RANDOM_TILE_SIZES.length)];
         generateDungeonFromLayout(tileSize, intLayout, tileLayout, Landscape.values());
         setStartPoint(startPosition, tileLayout);
@@ -125,12 +125,12 @@ public class DungeonFactory {
      *
      * @return: A randomly generated Dungeon.
      */
-    public Dungeon generateRandomDungeon (int length, int heigth) {
+    public Dungeon generateRandomDungeon (int length, int height) {
         Position startPosition = new Position();
-        startPosition.setxTile(this.random.nextInt(this.random.nextInt(length)));
-        startPosition.setyTile(this.random.nextInt(this.random.nextInt(heigth)));
+        startPosition.setxTile(Math.abs(this.random.nextInt(this.random.nextInt(length))));
+        startPosition.setyTile(Math.abs(this.random.nextInt(this.random.nextInt(height))));
 
-        int[][] intLayout = new int[length][heigth];
+        int[][] intLayout = new int[length][height];
         intLayout[startPosition.getxTile()][startPosition.getyTile()] = 1;
         // generates a ratio, that determines the number of tiles in this dungeon.
         float ratio = 0f;
@@ -140,12 +140,12 @@ public class DungeonFactory {
             i = this.random.nextFloat();
             ratio = i;
         }
-        this.numberOfTilesLeft = Math.round(length * heigth * ratio) -1; //Minus one, because the start-point was already set.
+        this.numberOfTilesLeft = Math.round(length * height * ratio) -1; //Minus one, because the start-point was already set.
 
         Position currentPositionInLayout = new Position(startPosition.getxTile(), startPosition.getyTile());
         generateLayout(intLayout, currentPositionInLayout);
 
-        Tile[][] tileLayout = new Tile[length][heigth];
+        Tile[][] tileLayout = new Tile[length][height];
         int tileSize = RANDOM_TILE_SIZES[this.random.nextInt(RANDOM_TILE_SIZES.length)];
         generateDungeonFromLayout(tileSize, intLayout, tileLayout, Landscape.values());
         setStartPoint(startPosition, tileLayout);
@@ -164,8 +164,8 @@ public class DungeonFactory {
     {
         int[][] layout = new int[length][height];
         Position startPosition = new Position();
-        startPosition.setxTile(this.random.nextInt(this.random.nextInt(length)));
-        startPosition.setyTile(this.random.nextInt(this.random.nextInt(height)));
+        startPosition.setxTile(Math.abs(this.random.nextInt(this.random.nextInt(length))));
+        startPosition.setyTile(Math.abs(this.random.nextInt(this.random.nextInt(height))));
         layout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 
         this.numberOfTilesLeft = numberOfTiles -1; //Minus one, because the start-point was already set.
@@ -219,8 +219,8 @@ public class DungeonFactory {
                 + MIN_SIZE_RANDOM_DUNGEON;
 
         Position startPosition = new Position();
-        startPosition.setxTile(this.random.nextInt(lengthOfLayout));
-        startPosition.setyTile(this.random.nextInt(heightOfLayout));
+        startPosition.setxTile(Math.abs(this.random.nextInt(this.random.nextInt(lengthOfLayout))));
+        startPosition.setyTile(Math.abs(this.random.nextInt(this.random.nextInt(heightOfLayout))));
         int[][] intLayout = new int[lengthOfLayout][heightOfLayout];
         intLayout[startPosition.getxTile()][startPosition.getyTile()] = 1;
 

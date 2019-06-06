@@ -1,5 +1,6 @@
 package view.events;
 
+import constants.view.DungeonSceneProperties;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import view.scenes.DungeonScene;
@@ -17,18 +18,23 @@ public class DungeonSceneKeyEvent implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
         DungeonScene scene = (DungeonScene) event.getSource();
+        double movingValue;
         switch (event.getCode()){
             case LEFT:
-                scene.getDungeonLayout().setTranslateX(scene.getDungeonLayout().getTranslateX() +100);
+                movingValue = DungeonSceneProperties.NORMAL_MOVING_DISTANCE_X / scene.getDungeonLayout().getScaleX();
+                scene.getDungeonLayout().setTranslateX(scene.getDungeonLayout().getTranslateX() + movingValue);
                 break;
             case RIGHT:
-                scene.getDungeonLayout().setTranslateX(scene.getDungeonLayout().getTranslateX() - 100);
+                movingValue = DungeonSceneProperties.NORMAL_MOVING_DISTANCE_X / scene.getDungeonLayout().getScaleX();
+                scene.getDungeonLayout().setTranslateX(scene.getDungeonLayout().getTranslateX() - movingValue);
                 break;
             case DOWN:
-                scene.getDungeonLayout().setTranslateY(scene.getDungeonLayout().getTranslateY() -100);
+                movingValue = DungeonSceneProperties.NORMAL_MOVING_DISTANCE_Y / scene.getDungeonLayout().getScaleY();
+                scene.getDungeonLayout().setTranslateY(scene.getDungeonLayout().getTranslateY() -movingValue);
                 break;
             case UP:
-                scene.getDungeonLayout().setTranslateY(scene.getDungeonLayout().getTranslateY() + 100);
+                movingValue = DungeonSceneProperties.NORMAL_MOVING_DISTANCE_Y / scene.getDungeonLayout().getScaleY();
+                scene.getDungeonLayout().setTranslateY(scene.getDungeonLayout().getTranslateY() + movingValue);
                 break;
             case ESCAPE:
                 SceneManager.getSceneManager().loadScene(Scenes.TITLE_SCENE, scene);
